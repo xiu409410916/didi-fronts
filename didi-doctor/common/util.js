@@ -103,8 +103,7 @@ function request(param){
 		data: param.contentType?param.param:JSON.stringify(param.param),
 		method:'POST',
 		header: {
-		 'content-type': param.contentType?param.contentType:'application/json',
-		 'partnerId':uni.getStorageSync('partnerId')?uni.getStorageSync('partnerId'):'1', 
+		 'content-type': param.contentType?param.contentType:'application/json', 
 		 'token':uni.getStorageSync('Token')?uni.getStorageSync('Token'):''
 		},
 		dateType: "json",
@@ -210,19 +209,6 @@ function isEmojiCharacter(substring){
     }
 }
 
-function gopro(id,state){
-	if(state==1){//您购买的商品已经售罄，请选择其他商品购买，谢谢！
-		uni.showToast({
-			title: '已售罄',
-			icon:'none',
-			duration: 2000
-		});
-		return false;
-	}
-	uni.navigateTo({
-	url: '../details/details?id='+id
-	});
-}
 
 function otime(str){
 	if(str<10){
@@ -232,13 +218,6 @@ function otime(str){
 	}
 }
 
-//团购开始时间+团购时间端+30分钟
-function getEndTime(start,h){
-	if(start==null){
-		return false
-	}
-	return new Date(new Date(start).getTime()+(h*60+30)*60*1000)
-}
 
 //判断值是否有效
 function isEmpty(value){
@@ -318,9 +297,7 @@ module.exports = {
 	request:request,
 	getSystemInfo:getSystemInfo,
 	isEmojiCharacter:isEmojiCharacter,
-	gopro:gopro,
 	otime:otime,
-	getEndTime:getEndTime,
 	isEmpty,
 	IdentityCodeValid,
 	random

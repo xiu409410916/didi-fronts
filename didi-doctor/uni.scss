@@ -12,6 +12,10 @@
  * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
  */
 
+// 渐变色
+$bg-start:#00C694;
+$bg-end:#9BE6EA;
+
 /* 颜色变量 */
 
 /* 行为相关颜色 */
@@ -22,13 +26,16 @@ $uni-color-error: #dd524d;
 
 /* 文字基本颜色 */
 $uni-text-color:#333;//基本色
+$uni-text-color-qh:#4A4A4A;
 $uni-text-color-inverse:#fff;//反色
 $uni-text-color-grey:#999;//辅助灰色，如加载更多的提示信息
 $uni-text-color-placeholder: #808080;
 $uni-text-color-disable:#c0c0c0;
+$uni-text-color-eee:#eeeeee;
 
 /* 背景颜色 */
 $uni-bg-color:#ffffff;
+$uni-bg-color-yellow:#f8bd81;
 $uni-bg-color-grey:#f8f8f8;
 $uni-bg-color-hover:#f1f1f1;//点击状态颜色
 $uni-bg-color-mask:rgba(0, 0, 0, 0.4);//遮罩颜色
@@ -42,6 +49,7 @@ $uni-border-color:#c8c7cc;
 $uni-font-size-sm:24upx;
 $uni-font-size-base:28upx;
 $uni-font-size-lg:32upx;
+$uni-font-size-big:44upx;
 
 /* 图片尺寸 */
 $uni-img-size-sm:40upx;

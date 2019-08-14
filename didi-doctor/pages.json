@@ -16,7 +16,43 @@
 				"navigationBarTitleText": "我的"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/my/userDetail",
+            "style" : {
+				"navigationBarTitleText":"完善资料"
+			}
+        },
+		{
+		    "path" : "pages/my/userPassword",
+		    "style" : {
+				"navigationBarTitleText":"提现密码"
+			}
+		},
+		{
+		    "path" : "pages/my/userBank",
+		    "style" : {
+				"navigationBarTitleText":"银行卡"
+			}
+		},
+		{
+		    "path" : "pages/my/userBankAdd",
+		    "style" : {
+				"navigationBarTitleText":"新增银行卡"
+			}
+		},
+		{
+		    "path" : "pages/my/userAmount",
+		    "style" : {
+				"navigationBarTitleText":"我的余额"
+			}
+		},
+		{
+		    "path" : "pages/my/userWithdraw",
+		    "style" : {
+				"navigationBarTitleText":"余额提现"
+			}
+		}
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "嘀嘀答答",
