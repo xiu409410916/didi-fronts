@@ -41,7 +41,7 @@
 			</view>
 
 			<view class="savebox">
-				<page-button :height="40" :width="300" @click="submit" name="提交"></page-button>
+				<page-button :height="40" :width="300" @click="submit" name="下一步"></page-button>
 			</view>
 		</form>
 	</view>
@@ -89,6 +89,9 @@
 			},
 			submit:function(){
 				let that = this;
+				uni.navigateTo({
+					url:'/pages/my/userPassword'
+				})
 				if(!that.$util.isEmpty(that.temp.doctorName)){
 					uni.showToast({
 						title: '请输入真实姓名',
@@ -173,8 +176,11 @@
 							duration: 2000
 						})
 						setTimeout(function() {
-							uni.navigateBack({
-								delta: 1
+							// uni.navigateBack({
+							// 	delta: 1
+							// })
+							uni.navigateTo({
+								url:'/pages/my/userPassword'
 							})
 						}, 500)
 					},

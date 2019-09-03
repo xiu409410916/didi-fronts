@@ -1,0 +1,2 @@
+setCssToHead(["@charset \x22UTF-8\x22;\n.",[1],"page { -webkit-box-sizing: border-box; box-sizing: border-box; width: 100%; background: #f6fbff; overflow: hidden; padding-bottom: ",[0,100],"; }\n.",[1],"messagelist .",[1],"message-height { padding: ",[0,30]," 0 ",[0,130]," 0; }\n.",[1],"footer { position: fixed; bottom: 0; left: 0; width: 100%; height: ",[0,100],"; }\n",],undefined,{path:"./pages/message_info/message_info.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/message_info/message_info.wxml') } }));

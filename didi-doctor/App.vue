@@ -3,6 +3,10 @@
 		onLaunch: function () {
 			console.log('App Launch')
 			let that=this;
+			uni.setTabBarBadge({
+				index: 1,
+				text: '31'
+			});
 			uni.login({
 				provider: 'weixin',
 				success: function(res) {

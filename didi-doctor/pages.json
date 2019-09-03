@@ -52,6 +52,12 @@
 				"navigationBarTitleText":"余额提现"
 			}
 		}
+        ,{
+            "path" : "pages/message_info/message_info",
+            "style" : {
+				"navigationBarTitleText":"xx消息"
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
