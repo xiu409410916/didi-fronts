@@ -1,19 +1,414 @@
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],[
-/* 0 */
-/*!************************************************************************!*\
-  !*** /Users/zhujia/workspace/wechat-app/didi-fronts/didi-user/main.js ***!
-  \************************************************************************/
+(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],{
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/common/message.js":
+/*!****************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/common/message.js ***!
+  \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createApp) {__webpack_require__(/*! uni-pages */ 4);
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 5));
+module.exports = {
+  "messagelist": [
+  { "type": -1, "message": "我冷！😭" },
+  { "type": 1, "message": "哦，那跑跑就暖和了" },
+  { "type": -1, "message": "你一点也不浪漫，我前男友每当这个时候都会把外套脱下给我。" },
+  { "type": 1, "message": "就是冻死那个？😂" },
+  { "type": -1, "message": "我冷！😭" },
+  { "type": 1, "message": "哦，那跑跑就暖和了" },
+  { "type": -1, "message": "你一点也不浪漫，我前男友每当这个时候都会把外套脱下给我。" },
+  { "type": 1, "message": "就是冻死那个？😂" },
+  { "type": -1, "message": "我冷！😭" },
+  { "type": 1, "message": "哦，那跑跑就暖和了" },
+  { "type": -1, "message": "你一点也不浪漫，我前男友每当这个时候都会把外套脱下给我。" },
+  { "type": 1, "message": "就是冻死那个？😂" },
+  { "type": -1, "message": "我冷！😭" },
+  { "type": 1, "message": "哦，那跑跑就暖和了" },
+  { "type": -1, "message": "你一点也不浪漫，我前男友每当这个时候都会把外套脱下给我。" },
+  { "type": 1, "message": "就是冻死那个？😂" },
+  { "type": -1, "message": "我冷！😭" },
+  { "type": 1, "message": "哦，那跑跑就暖和了" },
+  { "type": -1, "message": "你一点也不浪漫，我前男友每当这个时候都会把外套脱下给我。" },
+  { "type": 1, "message": "就是冻死那个？😂" },
+  { "type": -1, "message": "我冷！😭" },
+  { "type": 1, "message": "哦，那跑跑就暖和了" },
+  { "type": -1, "message": "你一点也不浪漫，我前男友每当这个时候都会把外套脱下给我。" },
+  { "type": 1, "message": "就是冻死那个？😂" },
+  { "type": -1, "message": "我冷！😭" },
+  { "type": 1, "message": "哦，那跑跑就暖和了" },
+  { "type": -1, "message": "你一点也不浪漫，我前男友每当这个时候都会把外套脱下给我。" },
+  { "type": 1, "message": "就是冻死那个？😂" },
+  { "type": -1, "message": "我冷！😭" },
+  { "type": 1, "message": "哦，那跑跑就暖和了" },
+  { "type": -1, "message": "你一点也不浪漫，我前男友每当这个时候都会把外套脱下给我。" },
+  { "type": 1, "message": "就是冻死那个？😂" },
+  { "type": -1, "message": "我冷！😭" },
+  { "type": 1, "message": "哦，那跑跑就暖和了" },
+  { "type": -1, "message": "你一点也不浪漫，我前男友每当这个时候都会把外套脱下给我。" },
+  { "type": 1, "message": "就是冻死那个？😂" }] };
 
-var _util = _interopRequireDefault(__webpack_require__(/*! ./common/util.js */ 11));
-var _json = _interopRequireDefault(__webpack_require__(/*! ./config/json.js */ 13));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./config/index.js */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+/***/ }),
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/common/util.js":
+/*!*************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/common/util.js ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {var _index = __webpack_require__(/*! ../config/index.js */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/config/index.js");
+
+function formatTime(time) {
+  if (typeof time !== 'number' || time < 0) {
+    return time;
+  }
+
+  var hour = parseInt(time / 3600);
+  time = time % 3600;
+  var minute = parseInt(time / 60);
+  time = time % 60;
+  var second = time;
+
+  return [hour, minute, second].map(function (n) {
+    n = n.toString();
+    return n[1] ? n : '0' + n;
+  }).join(':');
+}
+
+function formatLocation(longitude, latitude) {
+  if (typeof longitude === 'string' && typeof latitude === 'string') {
+    longitude = parseFloat(longitude);
+    latitude = parseFloat(latitude);
+  }
+
+  longitude = longitude.toFixed(2);
+  latitude = latitude.toFixed(2);
+
+  return {
+    longitude: longitude.toString().split('.'),
+    latitude: latitude.toString().split('.') };
+
+}
+var dateUtils = {
+  UNITS: {
+    '年': 31557600000,
+    '月': 2629800000,
+    '天': 86400000,
+    '小时': 3600000,
+    '分钟': 60000,
+    '秒': 1000 },
+
+  humanize: function humanize(milliseconds) {
+    var humanize = '';
+    for (var key in this.UNITS) {
+      if (milliseconds >= this.UNITS[key]) {
+        humanize = Math.floor(milliseconds / this.UNITS[key]) + key + '前';
+        break;
+      }
+    }
+    return humanize || '刚刚';
+  },
+  format: function format(dateStr) {
+    var date = this.parse(dateStr);
+    var diff = Date.now() - date.getTime();
+    if (diff < this.UNITS['天']) {
+      return this.humanize(diff);
+    }
+    var _format = function _format(number) {
+      return number < 10 ? '0' + number : number;
+    };
+    return date.getFullYear() + '/' + _format(date.getMonth() + 1) + '/' + _format(date.getDay()) + '-' +
+    _format(date.getHours()) + ':' + _format(date.getMinutes());
+  },
+  parse: function parse(str) {//将"yyyy-mm-dd HH:MM:ss"格式的字符串，转化为一个Date对象
+    var a = str.split(/[^0-9]/);
+    return new Date(a[0], a[1] - 1, a[2], a[3], a[4], a[5]);
+  },
+  dateFormat: function dateFormat(dateStr) {
+    var date = new Date(dateStr);
+    var _format = function _format(number) {
+      return number < 10 ? '0' + number : number;
+    };
+    return date.getFullYear() + '-' + _format(date.getMonth() + 1) + '-' + _format(date.getDay());
+  } };
+
+
+function substr(v) {
+  if (v != "" & v != undefined & v != null) {
+    if (v.substr(v.length - 1, 1) == "," || v.substr(v.length - 1, 1) == ";") {
+      return v.substr(0, v.length - 1);
+    }
+    return v;
+  }
+}
+
+function subFilter(v, len) {
+  if (v != "" & v != undefined & v != null) {
+    if (v.length > len) {
+      return v.substr(0, len);
+    } else {
+      return v;
+    }
+  }
+}
+
+function request(param) {
+  uni.showLoading({
+    title: '加载中' });
+
+  uni.request({
+    url: _index.serverUrl + param.url,
+    data: param.contentType ? param.param : JSON.stringify(param.param),
+    method: 'POST',
+    header: {
+      'content-type': param.contentType ? param.contentType : 'application/json',
+      'token': uni.getStorageSync('Token') ? uni.getStorageSync('Token') : '' },
+
+    dateType: "json",
+    success: function success(res) {
+      uni.hideLoading();
+      if (res == null) {
+        res = {};
+      }
+      if (typeof res == "string") {
+        res = JSON.parse(res);
+      }
+      if (typeof param.success == 'function') {
+        if (res.data.errorCode == "SUCCESS") {
+          param.success(res.data);
+        } else if (res.data.errorCode == "E003") {
+          uni.showModal({
+            title: '提示',
+            content: '您未登陆，请先登陆',
+            success: function success(res) {
+              if (res.confirm) {
+                uni.switchTab({
+                  url: '/pages/center/center' });
+
+              } else if (res.cancel) {
+                console.log('用户点击取消');
+              }
+            } });
+
+        } else {
+          param.error(res.data);
+          uni.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 2000 });
+
+        }
+      } else {
+        uni.showToast({
+          title: '读取数据失败',
+          icon: 'none',
+          duration: 2000 });
+
+      }
+
+    },
+    fail: function fail(res) {
+      uni.hideLoading();
+      uni.showToast({
+        title: '读取数据失败',
+        icon: 'none',
+        duration: 2000 });
+
+    } });
+
+}
+
+function getSystemInfo() {
+  try {
+    var res = uni.getSystemInfoSync();
+    return res;
+  } catch (e) {
+    // error
+  }
+}
+
+function isEmojiCharacter(substring) {
+  if (substring) {
+    var reg = new RegExp("[~#^$@%&!?%*]", 'g');
+    if (substring.match(reg)) {
+      return true;
+    }
+    for (var i = 0; i < substring.length; i++) {
+      var hs = substring.charCodeAt(i);
+      if (0xd800 <= hs && hs <= 0xdbff) {
+        if (substring.length > 1) {
+          var ls = substring.charCodeAt(i + 1);
+          var uc = (hs - 0xd800) * 0x400 + (ls - 0xdc00) + 0x10000;
+          if (0x1d000 <= uc && uc <= 0x1f77f) {
+            return true;
+          }
+        }
+      } else if (substring.length > 1) {
+        var ls = substring.charCodeAt(i + 1);
+        if (ls == 0x20e3) {
+          return true;
+        }
+      } else {
+        if (0x2100 <= hs && hs <= 0x27ff) {
+          return true;
+        } else if (0x2B05 <= hs && hs <= 0x2b07) {
+          return true;
+        } else if (0x2934 <= hs && hs <= 0x2935) {
+          return true;
+        } else if (0x3297 <= hs && hs <= 0x3299) {
+          return true;
+        } else if (hs == 0xa9 || hs == 0xae || hs == 0x303d || hs == 0x3030 ||
+        hs == 0x2b55 || hs == 0x2b1c || hs == 0x2b1b ||
+        hs == 0x2b50) {
+          return true;
+        }
+      }
+    }
+  }
+}
+
+
+function otime(str) {
+  if (str < 10) {
+    return '0' + str;
+  } else {
+    return str;
+  }
+}
+
+
+//判断值是否有效
+function isEmpty(value) {
+  if (value == "" || value == 0 || value == null || value == undefined) {
+    return false;
+  }
+  return true;
+}
+
+//身份证号合法性验证 
+//支持15位和18位身份证号
+//支持地址编码、出生日期、校验位验证
+function IdentityCodeValid(code) {
+  var city = { 11: "北京", 12: "天津", 13: "河北", 14: "山西", 15: "内蒙古", 21: "辽宁", 22: "吉林", 23: "黑龙江 ", 31: "上海", 32: "江苏", 33: "浙江", 34: "安徽", 35: "福建", 36: "江西", 37: "山东", 41: "河南", 42: "湖北 ", 43: "湖南", 44: "广东", 45: "广西", 46: "海南", 50: "重庆", 51: "四川", 52: "贵州", 53: "云南", 54: "西藏 ", 61: "陕西", 62: "甘肃", 63: "青海", 64: "宁夏", 65: "新疆", 71: "台湾", 81: "香港", 82: "澳门", 91: "国外 " };
+  var tip = "";
+  var pass = true;
+  //验证身份证格式（6个地区编码，8位出生日期，3位顺序号，1位校验位）
+  if (!code || !/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i.test(code)) {
+    tip = "身份证号格式错误";
+    pass = false;
+  } else
+
+  if (!city[code.substr(0, 2)]) {
+    tip = "地址编码错误";
+    pass = false;
+  } else
+  {
+    //18位身份证需要验证最后一位校验位
+    if (code.length == 18) {
+      code = code.split('');
+      //∑(ai×Wi)(mod 11)
+      //加权因子
+      var factor = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
+      //校验位
+      var parity = [1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2];
+      var sum = 0;
+      var ai = 0;
+      var wi = 0;
+      for (var i = 0; i < 17; i++)
+      {
+        ai = code[i];
+        wi = factor[i];
+        sum += ai * wi;
+      }
+      var last = parity[sum % 11];
+      if (parity[sum % 11] != code[17]) {
+        tip = "身份证号格式错误";
+        pass = false;
+      }
+    }
+  }
+  if (!pass) {
+    uni.showToast({
+      title: tip,
+      icon: 'none',
+      duration: 2000 });
+
+  };
+  return pass;
+}
+
+function random() {
+  var num = '';
+  for (var i = 0; i < 3; i++)
+  {
+    num += Math.floor(Math.random() * 10);
+  }
+  return num;
+}
+
+module.exports = {
+  formatTime: formatTime,
+  formatLocation: formatLocation,
+  dateUtils: dateUtils,
+  substr: substr,
+  subFilter: subFilter,
+  request: request,
+  getSystemInfo: getSystemInfo,
+  isEmojiCharacter: isEmojiCharacter,
+  otime: otime,
+  isEmpty: isEmpty,
+  IdentityCodeValid: IdentityCodeValid,
+  random: random };
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
+
+/***/ }),
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/config/index.js":
+/*!**************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/config/index.js ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+ // export const serverUrl="";
+var serverUrl = "http://127.0.0.1:9002";
+
+module.exports = {
+  serverUrl: serverUrl };
+
+/***/ }),
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/config/json.js":
+/*!*************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/config/json.js ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var sexs = [
+{ value: '男', name: '男' },
+{ value: '女', name: '女' }];
+
+/***/ }),
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js":
+/*!******************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createApp) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/App.vue"));
+
+var _util = _interopRequireDefault(__webpack_require__(/*! ./common/util.js */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/common/util.js"));
+var _json = _interopRequireDefault(__webpack_require__(/*! ./config/json.js */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/config/json.js"));
+var _index = _interopRequireDefault(__webpack_require__(/*! ./config/index.js */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/config/index.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
 
 _vue.default.config.productionTip = false;
 
@@ -28,10 +423,176 @@ var app = new _vue.default(_objectSpread({},
 _App.default));
 
 createApp(app).$mount();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createApp"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createApp"]))
 
 /***/ }),
-/* 1 */
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Findex%2Findex\"}":
+/*!***************************************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Findex%2Findex"} ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/index/index.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/index/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_index.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Finquiry%2FinquiryAdd\"}":
+/*!**********************************************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Finquiry%2FinquiryAdd"} ***!
+  \**********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _inquiryAdd = _interopRequireDefault(__webpack_require__(/*! ./pages/inquiry/inquiryAdd.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/inquiry/inquiryAdd.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_inquiryAdd.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Finquiry%2FinquiryNext\"}":
+/*!***********************************************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Finquiry%2FinquiryNext"} ***!
+  \***********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _inquiryNext = _interopRequireDefault(__webpack_require__(/*! ./pages/inquiry/inquiryNext.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/inquiry/inquiryNext.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_inquiryNext.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmessage%2Findex\"}":
+/*!*****************************************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmessage%2Findex"} ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/message/index.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/message/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_index.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmessage_info%2Fmessage_info\"}":
+/*!*****************************************************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmessage_info%2Fmessage_info"} ***!
+  \*****************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _message_info = _interopRequireDefault(__webpack_require__(/*! ./pages/message_info/message_info.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/message_info/message_info.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_message_info.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2Findex\"}":
+/*!************************************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2Findex"} ***!
+  \************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/my/index.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/my/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_index.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2FuserInquiry\"}":
+/*!******************************************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2FuserInquiry"} ***!
+  \******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _userInquiry = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userInquiry.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/my/userInquiry.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userInquiry.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2FuserTime\"}":
+/*!***************************************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2FuserTime"} ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _userTime = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userTime.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/my/userTime.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userTime.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Ftime%2FtimeBuy\"}":
+/*!****************************************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Ftime%2FtimeBuy"} ***!
+  \****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _timeBuy = _interopRequireDefault(__webpack_require__(/*! ./pages/time/timeBuy.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/time/timeBuy.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_timeBuy.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json":
+/*!*********************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/***/ }),
+
+/***/ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js":
 /*!************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js ***!
   \************************************************************/
@@ -39,7 +600,7 @@ createApp(app).$mount();
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.createApp = createApp;exports.createPage = createPage;exports.createComponent = createComponent;exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance");}function _iterableToArrayLimit(arr, i) {var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance");}function _iterableToArray(iter) {if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) {for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {arr2[i] = arr[i];}return arr2;}}
+Object.defineProperty(exports, "__esModule", { value: true });exports.createApp = createApp;exports.createPage = createPage;exports.createComponent = createComponent;exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance");}function _iterableToArrayLimit(arr, i) {var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
 
 var _toString = Object.prototype.toString;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -81,198 +642,7 @@ var camelize = cached(function (str) {
   return str.replace(camelizeRE, function (_, c) {return c ? c.toUpperCase() : '';});
 });
 
-var HOOKS = [
-'invoke',
-'success',
-'fail',
-'complete',
-'returnValue'];
-
-
-var globalInterceptors = {};
-var scopedInterceptors = {};
-
-function mergeHook(parentVal, childVal) {
-  var res = childVal ?
-  parentVal ?
-  parentVal.concat(childVal) :
-  Array.isArray(childVal) ?
-  childVal : [childVal] :
-  parentVal;
-  return res ?
-  dedupeHooks(res) :
-  res;
-}
-
-function dedupeHooks(hooks) {
-  var res = [];
-  for (var i = 0; i < hooks.length; i++) {
-    if (res.indexOf(hooks[i]) === -1) {
-      res.push(hooks[i]);
-    }
-  }
-  return res;
-}
-
-function removeHook(hooks, hook) {
-  var index = hooks.indexOf(hook);
-  if (index !== -1) {
-    hooks.splice(index, 1);
-  }
-}
-
-function mergeInterceptorHook(interceptor, option) {
-  Object.keys(option).forEach(function (hook) {
-    if (HOOKS.indexOf(hook) !== -1 && isFn(option[hook])) {
-      interceptor[hook] = mergeHook(interceptor[hook], option[hook]);
-    }
-  });
-}
-
-function removeInterceptorHook(interceptor, option) {
-  if (!interceptor || !option) {
-    return;
-  }
-  Object.keys(option).forEach(function (hook) {
-    if (HOOKS.indexOf(hook) !== -1 && isFn(option[hook])) {
-      removeHook(interceptor[hook], option[hook]);
-    }
-  });
-}
-
-function addInterceptor(method, option) {
-  if (typeof method === 'string' && isPlainObject(option)) {
-    mergeInterceptorHook(scopedInterceptors[method] || (scopedInterceptors[method] = {}), option);
-  } else if (isPlainObject(method)) {
-    mergeInterceptorHook(globalInterceptors, method);
-  }
-}
-
-function removeInterceptor(method, option) {
-  if (typeof method === 'string') {
-    if (isPlainObject(option)) {
-      removeInterceptorHook(scopedInterceptors[method], option);
-    } else {
-      delete scopedInterceptors[method];
-    }
-  } else if (isPlainObject(method)) {
-    removeInterceptorHook(globalInterceptors, method);
-  }
-}
-
-function wrapperHook(hook) {
-  return function (data) {
-    return hook(data) || data;
-  };
-}
-
-function isPromise(obj) {
-  return !!obj && (typeof obj === 'object' || typeof obj === 'function') && typeof obj.then === 'function';
-}
-
-function queue(hooks, data) {
-  var promise = false;
-  for (var i = 0; i < hooks.length; i++) {
-    var hook = hooks[i];
-    if (promise) {
-      promise = Promise.then(wrapperHook(hook));
-    } else {
-      var res = hook(data);
-      if (isPromise(res)) {
-        promise = Promise.resolve(res);
-      }
-      if (res === false) {
-        return {
-          then: function then() {} };
-
-      }
-    }
-  }
-  return promise || {
-    then: function then(callback) {
-      return callback(data);
-    } };
-
-}
-
-function wrapperOptions(interceptor) {var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-  ['success', 'fail', 'complete'].forEach(function (name) {
-    if (Array.isArray(interceptor[name])) {
-      var oldCallback = options[name];
-      options[name] = function callbackInterceptor(res) {
-        queue(interceptor[name], res).then(function (res) {
-          /* eslint-disable no-mixed-operators */
-          return isFn(oldCallback) && oldCallback(res) || res;
-        });
-      };
-    }
-  });
-  return options;
-}
-
-function wrapperReturnValue(method, returnValue) {
-  var returnValueHooks = [];
-  if (Array.isArray(globalInterceptors.returnValue)) {
-    returnValueHooks.push.apply(returnValueHooks, _toConsumableArray(globalInterceptors.returnValue));
-  }
-  var interceptor = scopedInterceptors[method];
-  if (interceptor && Array.isArray(interceptor.returnValue)) {
-    returnValueHooks.push.apply(returnValueHooks, _toConsumableArray(interceptor.returnValue));
-  }
-  returnValueHooks.forEach(function (hook) {
-    returnValue = hook(returnValue) || returnValue;
-  });
-  return returnValue;
-}
-
-function getApiInterceptorHooks(method) {
-  var interceptor = Object.create(null);
-  Object.keys(globalInterceptors).forEach(function (hook) {
-    if (hook !== 'returnValue') {
-      interceptor[hook] = globalInterceptors[hook].slice();
-    }
-  });
-  var scopedInterceptor = scopedInterceptors[method];
-  if (scopedInterceptor) {
-    Object.keys(scopedInterceptor).forEach(function (hook) {
-      if (hook !== 'returnValue') {
-        interceptor[hook] = (interceptor[hook] || []).concat(scopedInterceptor[hook]);
-      }
-    });
-  }
-  return interceptor;
-}
-
-function invokeApi(method, api, options) {for (var _len = arguments.length, params = new Array(_len > 3 ? _len - 3 : 0), _key = 3; _key < _len; _key++) {params[_key - 3] = arguments[_key];}
-  var interceptor = getApiInterceptorHooks(method);
-  if (interceptor && Object.keys(interceptor).length) {
-    if (Array.isArray(interceptor.invoke)) {
-      var res = queue(interceptor.invoke, options);
-      return res.then(function (options) {
-        return api.apply(void 0, [wrapperOptions(interceptor, options)].concat(params));
-      });
-    } else {
-      return api.apply(void 0, [wrapperOptions(interceptor, options)].concat(params));
-    }
-  }
-  return api.apply(void 0, [options].concat(params));
-}
-
-var promiseInterceptor = {
-  returnValue: function returnValue(res) {
-    if (!isPromise(res)) {
-      return res;
-    }
-    return res.then(function (res) {
-      return res[1];
-    }).catch(function (res) {
-      return res[0];
-    });
-  } };
-
-
-var SYNC_API_RE =
-/^\$|interceptors|Interceptor$|getSubNVueById|requireNativePlugin|upx2px|hideKeyboard|canIUse|^create|Sync$|Manager$|base64ToArrayBuffer|arrayBufferToBase64/;
+var SYNC_API_RE = /^\$|getSubNVueById|requireNativePlugin|upx2px|hideKeyboard|canIUse|^create|Sync$|Manager$|base64ToArrayBuffer|arrayBufferToBase64/;
 
 var CONTEXT_API_RE = /^create|Manager$/;
 
@@ -311,12 +681,12 @@ function promisify(name, api) {
   if (!shouldPromise(name)) {
     return api;
   }
-  return function promiseApi() {var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};for (var _len2 = arguments.length, params = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {params[_key2 - 1] = arguments[_key2];}
+  return function promiseApi() {var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};for (var _len = arguments.length, params = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {params[_key - 1] = arguments[_key];}
     if (isFn(options.success) || isFn(options.fail) || isFn(options.complete)) {
-      return wrapperReturnValue(name, invokeApi.apply(void 0, [name, api, options].concat(params)));
+      return api.apply(void 0, [options].concat(params));
     }
-    return wrapperReturnValue(name, handlePromise(new Promise(function (resolve, reject) {
-      invokeApi.apply(void 0, [name, api, Object.assign({}, options, {
+    return handlePromise(new Promise(function (resolve, reject) {
+      api.apply(void 0, [Object.assign({}, options, {
         success: resolve,
         fail: reject })].concat(
       params));
@@ -332,7 +702,7 @@ function promisify(name, api) {
 
         };
       }
-    })));
+    }));
   };
 }
 
@@ -377,19 +747,6 @@ function upx2px(number, newDeviceWidth) {
   }
   return number < 0 ? -result : result;
 }
-
-var interceptors = {
-  promiseInterceptor: promiseInterceptor };
-
-
-
-
-var baseApi = /*#__PURE__*/Object.freeze({
-  upx2px: upx2px,
-  interceptors: interceptors,
-  addInterceptor: addInterceptor,
-  removeInterceptor: removeInterceptor });
-
 
 var previewImage = {
   args: function args(fromArgs) {
@@ -633,7 +990,7 @@ function initTriggerEvent(mpInstance) {
     }
   }
   var oldTriggerEvent = mpInstance.triggerEvent;
-  mpInstance.triggerEvent = function (event) {for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {args[_key3 - 1] = arguments[_key3];}
+  mpInstance.triggerEvent = function (event) {for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {args[_key2 - 1] = arguments[_key2];}
     return oldTriggerEvent.apply(mpInstance, [customize(event)].concat(args));
   };
 }
@@ -646,7 +1003,7 @@ function initHook(name, options) {
     };
   } else {
     options[name] = function () {
-      initTriggerEvent(this);for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {args[_key4] = arguments[_key4];}
+      initTriggerEvent(this);for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {args[_key3] = arguments[_key3];}
       return oldHook.apply(this, args);
     };
   }
@@ -1439,8 +1796,8 @@ var uni = {};
 if (typeof Proxy !== 'undefined' && "mp-weixin" !== 'app-plus') {
   uni = new Proxy({}, {
     get: function get(target, name) {
-      if (baseApi[name]) {
-        return baseApi[name];
+      if (name === 'upx2px') {
+        return upx2px;
       }
       if (api[name]) {
         return promisify(name, api[name]);
@@ -1463,9 +1820,7 @@ if (typeof Proxy !== 'undefined' && "mp-weixin" !== 'app-plus') {
     } });
 
 } else {
-  Object.keys(baseApi).forEach(function (name) {
-    uni[name] = baseApi[name];
-  });
+  uni.upx2px = upx2px;
 
   {
     Object.keys(todoApis).forEach(function (name) {
@@ -1500,7 +1855,8 @@ var uni$1 = uni;var _default =
 uni$1;exports.default = _default;
 
 /***/ }),
-/* 2 */
+
+/***/ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js":
 /*!******************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js ***!
   \******************************************************************************************/
@@ -7445,56 +7801,11 @@ internalMixin(Vue);
 
 /* harmony default export */ __webpack_exports__["default"] = (Vue);
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
 /***/ }),
-/* 3 */
-/*!***********************************!*\
-  !*** (webpack)/buildin/global.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
 
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 4 */
-/*!***************************************************************************!*\
-  !*** /Users/zhujia/workspace/wechat-app/didi-fronts/didi-user/pages.json ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/***/ }),
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */
+/***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
   \********************************************************************/
@@ -7600,432 +7911,37 @@ function normalizeComponent (
 
 
 /***/ }),
-/* 11 */
-/*!*******************************************************************************!*\
-  !*** /Users/zhujia/workspace/wechat-app/didi-fronts/didi-user/common/util.js ***!
-  \*******************************************************************************/
+
+/***/ "./node_modules/webpack/buildin/global.js":
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {var _index = __webpack_require__(/*! ../config/index.js */ 12);
+var g;
 
-function formatTime(time) {
-  if (typeof time !== 'number' || time < 0) {
-    return time;
-  }
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
 
-  var hour = parseInt(time / 3600);
-  time = time % 3600;
-  var minute = parseInt(time / 60);
-  time = time % 60;
-  var second = time;
-
-  return [hour, minute, second].map(function (n) {
-    n = n.toString();
-    return n[1] ? n : '0' + n;
-  }).join(':');
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
 }
 
-function formatLocation(longitude, latitude) {
-  if (typeof longitude === 'string' && typeof latitude === 'string') {
-    longitude = parseFloat(longitude);
-    latitude = parseFloat(latitude);
-  }
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
 
-  longitude = longitude.toFixed(2);
-  latitude = latitude.toFixed(2);
+module.exports = g;
 
-  return {
-    longitude: longitude.toString().split('.'),
-    latitude: latitude.toString().split('.') };
-
-}
-var dateUtils = {
-  UNITS: {
-    '年': 31557600000,
-    '月': 2629800000,
-    '天': 86400000,
-    '小时': 3600000,
-    '分钟': 60000,
-    '秒': 1000 },
-
-  humanize: function humanize(milliseconds) {
-    var humanize = '';
-    for (var key in this.UNITS) {
-      if (milliseconds >= this.UNITS[key]) {
-        humanize = Math.floor(milliseconds / this.UNITS[key]) + key + '前';
-        break;
-      }
-    }
-    return humanize || '刚刚';
-  },
-  format: function format(dateStr) {
-    var date = this.parse(dateStr);
-    var diff = Date.now() - date.getTime();
-    if (diff < this.UNITS['天']) {
-      return this.humanize(diff);
-    }
-    var _format = function _format(number) {
-      return number < 10 ? '0' + number : number;
-    };
-    return date.getFullYear() + '/' + _format(date.getMonth() + 1) + '/' + _format(date.getDay()) + '-' +
-    _format(date.getHours()) + ':' + _format(date.getMinutes());
-  },
-  parse: function parse(str) {//将"yyyy-mm-dd HH:MM:ss"格式的字符串，转化为一个Date对象
-    var a = str.split(/[^0-9]/);
-    return new Date(a[0], a[1] - 1, a[2], a[3], a[4], a[5]);
-  },
-  dateFormat: function dateFormat(dateStr) {
-    var date = new Date(dateStr);
-    var _format = function _format(number) {
-      return number < 10 ? '0' + number : number;
-    };
-    return date.getFullYear() + '-' + _format(date.getMonth() + 1) + '-' + _format(date.getDay());
-  } };
-
-
-function substr(v) {
-  if (v != "" & v != undefined & v != null) {
-    if (v.substr(v.length - 1, 1) == "," || v.substr(v.length - 1, 1) == ";") {
-      return v.substr(0, v.length - 1);
-    }
-    return v;
-  }
-}
-
-function subFilter(v, len) {
-  if (v != "" & v != undefined & v != null) {
-    if (v.length > len) {
-      return v.substr(0, len);
-    } else {
-      return v;
-    }
-  }
-}
-
-function request(param) {
-  uni.showLoading({
-    title: '加载中' });
-
-  uni.request({
-    url: _index.serverUrl + param.url,
-    data: param.contentType ? param.param : JSON.stringify(param.param),
-    method: 'POST',
-    header: {
-      'content-type': param.contentType ? param.contentType : 'application/json',
-      'partnerId': uni.getStorageSync('partnerId') ? uni.getStorageSync('partnerId') : '1',
-      'token': uni.getStorageSync('Token') ? uni.getStorageSync('Token') : '' },
-
-    dateType: "json",
-    success: function success(res) {
-      uni.hideLoading();
-      if (res == null) {
-        res = {};
-      }
-      if (typeof res == "string") {
-        res = JSON.parse(res);
-      }
-      if (typeof param.success == 'function') {
-        if (res.data.errorCode == "SUCCESS") {
-          param.success(res.data);
-        } else if (res.data.errorCode == "E003") {
-          uni.showModal({
-            title: '提示',
-            content: '您未登陆，请先登陆',
-            success: function success(res) {
-              if (res.confirm) {
-                uni.switchTab({
-                  url: '/pages/center/center' });
-
-              } else if (res.cancel) {
-                console.log('用户点击取消');
-              }
-            } });
-
-        } else {
-          param.error(res.data);
-          uni.showToast({
-            title: res.data.message,
-            icon: 'none',
-            duration: 2000 });
-
-        }
-      } else {
-        uni.showToast({
-          title: '读取数据失败',
-          icon: 'none',
-          duration: 2000 });
-
-      }
-
-    },
-    fail: function fail(res) {
-      uni.hideLoading();
-      uni.showToast({
-        title: '读取数据失败',
-        icon: 'none',
-        duration: 2000 });
-
-    } });
-
-}
-
-function getSystemInfo() {
-  try {
-    var res = uni.getSystemInfoSync();
-    return res;
-  } catch (e) {
-    // error
-  }
-}
-
-function isEmojiCharacter(substring) {
-  if (substring) {
-    var reg = new RegExp("[~#^$@%&!?%*]", 'g');
-    if (substring.match(reg)) {
-      return true;
-    }
-    for (var i = 0; i < substring.length; i++) {
-      var hs = substring.charCodeAt(i);
-      if (0xd800 <= hs && hs <= 0xdbff) {
-        if (substring.length > 1) {
-          var ls = substring.charCodeAt(i + 1);
-          var uc = (hs - 0xd800) * 0x400 + (ls - 0xdc00) + 0x10000;
-          if (0x1d000 <= uc && uc <= 0x1f77f) {
-            return true;
-          }
-        }
-      } else if (substring.length > 1) {
-        var ls = substring.charCodeAt(i + 1);
-        if (ls == 0x20e3) {
-          return true;
-        }
-      } else {
-        if (0x2100 <= hs && hs <= 0x27ff) {
-          return true;
-        } else if (0x2B05 <= hs && hs <= 0x2b07) {
-          return true;
-        } else if (0x2934 <= hs && hs <= 0x2935) {
-          return true;
-        } else if (0x3297 <= hs && hs <= 0x3299) {
-          return true;
-        } else if (hs == 0xa9 || hs == 0xae || hs == 0x303d || hs == 0x3030 ||
-        hs == 0x2b55 || hs == 0x2b1c || hs == 0x2b1b ||
-        hs == 0x2b50) {
-          return true;
-        }
-      }
-    }
-  }
-}
-
-function gopro(id, state) {
-  if (state == 1) {//您购买的商品已经售罄，请选择其他商品购买，谢谢！
-    uni.showToast({
-      title: '已售罄',
-      icon: 'none',
-      duration: 2000 });
-
-    return false;
-  }
-  uni.navigateTo({
-    url: '../details/details?id=' + id });
-
-}
-
-function otime(str) {
-  if (str < 10) {
-    return '0' + str;
-  } else {
-    return str;
-  }
-}
-
-//团购开始时间+团购时间端+30分钟
-function getEndTime(start, h) {
-  if (start == null) {
-    return false;
-  }
-  return new Date(new Date(start).getTime() + (h * 60 + 30) * 60 * 1000);
-}
-
-//判断值是否有效
-function isEmpty(value) {
-  if (value == "" || value == 0 || value == null || value == undefined) {
-    return false;
-  }
-  return true;
-}
-
-//身份证号合法性验证 
-//支持15位和18位身份证号
-//支持地址编码、出生日期、校验位验证
-function IdentityCodeValid(code) {
-  var city = { 11: "北京", 12: "天津", 13: "河北", 14: "山西", 15: "内蒙古", 21: "辽宁", 22: "吉林", 23: "黑龙江 ", 31: "上海", 32: "江苏", 33: "浙江", 34: "安徽", 35: "福建", 36: "江西", 37: "山东", 41: "河南", 42: "湖北 ", 43: "湖南", 44: "广东", 45: "广西", 46: "海南", 50: "重庆", 51: "四川", 52: "贵州", 53: "云南", 54: "西藏 ", 61: "陕西", 62: "甘肃", 63: "青海", 64: "宁夏", 65: "新疆", 71: "台湾", 81: "香港", 82: "澳门", 91: "国外 " };
-  var tip = "";
-  var pass = true;
-  //验证身份证格式（6个地区编码，8位出生日期，3位顺序号，1位校验位）
-  if (!code || !/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i.test(code)) {
-    tip = "身份证号格式错误";
-    pass = false;
-  } else
-
-  if (!city[code.substr(0, 2)]) {
-    tip = "地址编码错误";
-    pass = false;
-  } else
-  {
-    //18位身份证需要验证最后一位校验位
-    if (code.length == 18) {
-      code = code.split('');
-      //∑(ai×Wi)(mod 11)
-      //加权因子
-      var factor = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
-      //校验位
-      var parity = [1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2];
-      var sum = 0;
-      var ai = 0;
-      var wi = 0;
-      for (var i = 0; i < 17; i++)
-      {
-        ai = code[i];
-        wi = factor[i];
-        sum += ai * wi;
-      }
-      var last = parity[sum % 11];
-      if (parity[sum % 11] != code[17]) {
-        tip = "身份证号格式错误";
-        pass = false;
-      }
-    }
-  }
-  if (!pass) {
-    uni.showToast({
-      title: tip,
-      icon: 'none',
-      duration: 2000 });
-
-  };
-  return pass;
-}
-
-function random() {
-  var num = '';
-  for (var i = 0; i < 3; i++)
-  {
-    num += Math.floor(Math.random() * 10);
-  }
-  return num;
-}
-
-module.exports = {
-  formatTime: formatTime,
-  formatLocation: formatLocation,
-  dateUtils: dateUtils,
-  substr: substr,
-  subFilter: subFilter,
-  request: request,
-  getSystemInfo: getSystemInfo,
-  isEmojiCharacter: isEmojiCharacter,
-  gopro: gopro,
-  otime: otime,
-  getEndTime: getEndTime,
-  isEmpty: isEmpty,
-  IdentityCodeValid: IdentityCodeValid,
-  random: random };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 12 */
-/*!********************************************************************************!*\
-  !*** /Users/zhujia/workspace/wechat-app/didi-fronts/didi-user/config/index.js ***!
-  \********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
- // export const serverUrl="";
-var serverUrl = "http://192.168.2.203:9000";
-
-module.exports = {
-  serverUrl: serverUrl };
-
-/***/ }),
-/* 13 */
-/*!*******************************************************************************!*\
-  !*** /Users/zhujia/workspace/wechat-app/didi-fronts/didi-user/config/json.js ***!
-  \*******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-var sexs = [
-{ value: '男', name: '男' },
-{ value: '女', name: '女' }];
-
-/***/ }),
-/* 14 */
-/*!*********************************************************************************************************!*\
-  !*** /Users/zhujia/workspace/wechat-app/didi-fronts/didi-user/main.js?{"page":"pages%2Findex%2Findex"} ***!
-  \*********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/index/index.vue */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_index.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
-
-/***/ }),
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */
-/*!***********************************************************************************************************!*\
-  !*** /Users/zhujia/workspace/wechat-app/didi-fronts/didi-user/main.js?{"page":"pages%2Fmessage%2Findex"} ***!
-  \***********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/message/index.vue */ 23));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_index.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
-
-/***/ }),
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */
-/*!******************************************************************************************************!*\
-  !*** /Users/zhujia/workspace/wechat-app/didi-fronts/didi-user/main.js?{"page":"pages%2Fmy%2Findex"} ***!
-  \******************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/my/index.vue */ 31));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_index.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ })
-]]);
+
+}]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/vendor.js.map

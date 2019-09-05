@@ -27,27 +27,12 @@
 				<!--模板-->
 				
 				<view class="con">
-					<view class="vi" @click="toUserAmount">
-						<view class="left"><image src="../../static/logo.png"></image>我的余额</view>
+					<view class="vi" @click="toMyInquiry">
+						<view class="left"><image src="../../static/logo.png"></image>我的问诊</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 					</view>
-					<view class="vi" @click="toBankInfo">
-						<view class="left"><image src="../../static/logo.png"></image>我的银行卡</view>
-						<view class="right"><image src="../../static/you.png"></image></view>
-						<navigator></navigator>
-					</view>
-					<view class="vi">
-						<view class="left"><image src="../../static/logo.png"></image>我的接单</view>
-						<view class="right"><image src="../../static/you.png"></image></view>
-						<navigator></navigator>
-					</view>
-					<view class="vi">
-						<view class="left"><image src="../../static/logo.png"></image>成为代理商</view>
-						<view class="right"><image src="../../static/you.png"></image></view>
-						<navigator></navigator>
-					</view>
-					<view class="vi" @click="toMy">
-						<view class="left"><image src="../../static/logo.png"></image>关于我们</view>
+					<view class="vi" @click="toMyTime">
+						<view class="left"><image src="../../static/logo.png"></image>我的时长</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 						<navigator></navigator>
 					</view>
@@ -86,24 +71,14 @@
 			// this.doctorInfo = uni.getStorageSync("doctorInfo");
 		},
 		methods: {
-			pdLogin:function(){
+			toMyTime:function(){
 				uni.navigateTo({
-					url: '/pages/my/userDetail'
+					url:'/pages/my/userTime'
 				})
 			},
-			setPassword:function(){
+			toMyInquiry:function(){
 				uni.navigateTo({
-					url: '/pages/my/userPassword'
-				})
-			},
-			toBankInfo:function(){
-				uni.navigateTo({
-					url:'/pages/my/userBank'
-				})
-			},
-			toUserAmount:function(){
-				uni.navigateTo({
-					url:'/pages/my/userAmount?amount='+this.doctorInfo.amount
+					url:'/pages/my/userInquiry'
 				})
 			}
 		}

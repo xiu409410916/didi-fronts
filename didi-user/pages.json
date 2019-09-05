@@ -15,41 +15,11 @@
 			"style": {
 				"navigationBarTitleText": "我的"
 			}
-		}
-	    ,{
-            "path" : "pages/my/userDetail",
-            "style" : {
-				"navigationBarTitleText":"完善资料"
-			}
-        },
-		{
-		    "path" : "pages/my/userPassword",
-		    "style" : {
-				"navigationBarTitleText":"提现密码"
-			}
 		},
 		{
-		    "path" : "pages/my/userBank",
+		    "path" : "pages/my/userTime",
 		    "style" : {
-				"navigationBarTitleText":"银行卡"
-			}
-		},
-		{
-		    "path" : "pages/my/userBankAdd",
-		    "style" : {
-				"navigationBarTitleText":"新增银行卡"
-			}
-		},
-		{
-		    "path" : "pages/my/userAmount",
-		    "style" : {
-				"navigationBarTitleText":"我的余额"
-			}
-		},
-		{
-		    "path" : "pages/my/userWithdraw",
-		    "style" : {
-				"navigationBarTitleText":"余额提现"
+				"navigationBarTitleText":"我的时长"
 			}
 		}
         ,{
@@ -57,7 +27,31 @@
             "style" : {
 				"navigationBarTitleText":"xx消息"
 			}
-        }
+        },
+		{
+		    "path" : "pages/time/timeBuy",
+		    "style" : {
+				"navigationBarTitleText":"购买时间卡"
+			}
+		},
+		{
+		    "path" : "pages/inquiry/inquiryAdd",
+		    "style" : {
+				"navigationBarTitleText":"新增问诊"
+			}
+		},
+		{
+		    "path" : "pages/inquiry/inquiryNext",
+		    "style" : {
+				"navigationBarTitleText":"第二步"
+			}
+		},
+		{
+		    "path" : "pages/my/userInquiry",
+		    "style" : {
+				"navigationBarTitleText":"我的问诊"
+			}
+		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

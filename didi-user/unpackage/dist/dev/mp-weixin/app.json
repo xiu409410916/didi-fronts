@@ -2,7 +2,13 @@
   "pages": [
     "pages/index/index",
     "pages/message/index",
-    "pages/my/index"
+    "pages/my/index",
+    "pages/my/userTime",
+    "pages/message_info/message_info",
+    "pages/time/timeBuy",
+    "pages/inquiry/inquiryAdd",
+    "pages/inquiry/inquiryNext",
+    "pages/my/userInquiry"
   ],
   "subPackages": [],
   "window": {

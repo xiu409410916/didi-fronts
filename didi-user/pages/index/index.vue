@@ -16,13 +16,22 @@
 		
 		<!--内容1-->
 		<view class="contBg">
-			<view class="contOver" v-for="(item,index) in contOneList" :key="index">
-				<view class="idxMainBox">
-					<view class="contRtImg"><image :src="item.imgs"></image></view>
+			<view class="contOver">
+				<view class="idxMainBox" @click="toTimeBuy">
+					<view class="contRtImg"><image src="../../static/banner.jpg"></image></view>
 					<view class="contOverLt">
-						<view class="contTxt">{{ item.title }}</view>
-						<view class="contTime">{{ item.updateTime }}</view>
+						<view class="contTxt">购买时间卡</view>
+						<view class="contTime">问诊前购买，快速方便，剩余时间可随机退回</view>
 					</view>
+					<view class="right"><image src="../../static/you.png"></image></view>
+				</view>
+				<view class="idxMainBox" @click="toInquiryAdd">
+					<view class="contRtImg"><image src="../../static/banner.jpg"></image></view>
+					<view class="contOverLt">
+						<view class="contTxt">快速问诊</view>
+						<view class="contTime">描述症状，快速匹配医生，及时解答</view>
+					</view>
+					<view class="right"><image src="../../static/you.png"></image></view>
 				</view>
 			</view>
 		</view>
@@ -40,10 +49,7 @@
 					{ id:1, imgs:'../../static/banner.jpg' },
 					{ id:2, imgs:'../../static/banner.jpg' }
 				],//轮播图
-				contOneList:[
-					{ id:1, title:'d发酵的发酵发酵粉阿噶鸡辣椒啊大', updateTime:'2019-7-30', imgs:'../../static/banner.jpg' },
-					{ id:2, title:'发大发看风景啊剪短发发酵的风景啊多了', updateTime:'2019-7-30', imgs:'../../static/banner.jpg' },
-				],//内容1
+				
 				indicatorDots: true,
 				autoplay: true,
 				interval: 2000,
@@ -54,7 +60,16 @@
 
 		},
 		methods: {
-
+			toTimeBuy:function(){
+				uni.navigateTo({
+					url:'/pages/time/timeBuy'
+				})
+			},
+			toInquiryAdd:function(){
+				uni.navigateTo({
+					url:'/pages/inquiry/inquiryAdd'
+				})
+			}
 		}
 	}
 </script>
@@ -88,8 +103,9 @@
 				margin: 0 auto; 
 			}
 			.contOverLt{ 
-				float: right;
+				float: left;
 				width: 500upx; 
+				margin-left: 30rpx;
 				.contTxt{
 					color: #333333;
 					font-size: 30upx;
@@ -122,6 +138,20 @@
 			}
 			
 			
+		}
+	}
+	
+	
+	.right {
+		float: right;
+		font-size: 28upx;
+		color: #333333;
+		margin-top: 40rpx;
+		image {
+			width: 20upx;
+			height: 20upx;
+			vertical-align: middle;
+			margin: 0 0 4upx 10upx;
 		}
 	}
 	

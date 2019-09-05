@@ -24,19 +24,12 @@
 				const param = {}
 				param.code = code
 				that.$util.request({
-					url: "/usermanager-client/ex/loginByCode",
+					url: "/didi-patient/ex/login_by_weixin",
 					param: param,
 					contentType: 'application/x-www-form-urlencoded',
 					success: function(res) {
-						uni.setStorageSync('Token', res.data.weixinOpenid);
-						uni.setStorageSync('userInfo', res.data);
-						// if(!res.data.telephone){
-						// 	setTimeout(function(){
-						// 		uni.redirectTo({
-						// 			url:'../../login/authorize'
-						// 		})
-						// 	},1000) 
-						// }
+						uni.setStorageSync('Token', res.data.openId);
+						uni.setStorageSync('patientInfo', res.data);
 					},
 					error: function() {}
 				})

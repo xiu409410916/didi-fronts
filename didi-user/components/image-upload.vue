@@ -3,7 +3,7 @@
 		<view class="upload">
 			<view class="imgbox" v-for="(item,index) in nrefundPicUrls" :key="index" v-if="nrefundPicUrls.length>0">
 				<label class="del" @click="del(index)">X</label>
-				<image class="img" :src="'http://'+item"></image>
+				<image class="img" :src="item"></image>
 			</view>
 			<view class="upimg" @click="upload">
 				<image class="icon_up" src="http://pvllxl0mi.bkt.clouddn.com/upload.png"></image>
@@ -61,7 +61,7 @@
 								duration: 10000  
 							})  
 							uni.uploadFile({  
-								url: serverUrl+'/didi-doctor/ossfile/fileUpload', 
+								url: serverUrl+'/didi-patient/ossfile/fileUpload', 
 								filePath: tempFilePaths[i],  
 								name: 'file',
 								header: {  
