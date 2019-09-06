@@ -1,6 +1,11 @@
 <template>
 	<view class="content">
 		<form>
+			<view class="text">
+				<!-- <label>过往病史</label> -->
+				<textarea v-model="temp.detail" />
+			</view>
+			
 			<view class="li">
 				<label>患者姓名</label>
 				<input class="inp" v-model="temp.realName" />
@@ -10,51 +15,38 @@
 				<input class="inp" v-model="temp.idCard" />
 			</view>
 			<view class="li">
-				<label>性别</label>
-				<radio-group @change="genderChange">
-					<radio value="0" />男</label>
-					<radio value="1" />女</label>
-				</radio-group>
+				<label>体重(kg)</label>
+				<input class="inp" v-model="temp.weight" />
 			</view>
 			<view class="li">
 				<label>体重(kg)</label>
 				<input class="inp" v-model="temp.weight" />
 			</view>
-			<view class="li">
-				<label>备孕情况</label>
-				<picker class="inp" @change="bindConceiveChange" :value="index" :range="conceive" range-key="value">
-					<input placeholder="请选择" disabled="true" :value="conceive[index].value" />
-				</picker>
-			</view>
-			<view class="li">
-				<label>过敏史</label>
-				<radio-group @change="allergicChange">
-					<radio value="0" />无</label>
-					<radio value="1" />有</label>
-				</radio-group>
-			</view>
-			<view class="li">
-				<label>肝功能</label>
-				<radio-group @change="liverChange">
-					<radio value="0" />异常</label>
-					<radio value="1" />正常</label>
-				</radio-group>
-			</view>
-			<view class="li">
-				<label>肾功能</label>
-				<radio-group @change="kidneyChange">
-					<radio value="0" />异常</label>
-					<radio value="1" />正常</label>
-				</radio-group>
-			</view>
 			<view class="text">
 				<label>过往病史</label>
-				<textarea placeholder="请输入过往病史..." v-model="temp.medicalHistory" />
+				<textarea v-model="temp.medicalHistory" />
 			</view>
 			<view class="savebox">
-				<page-button :height="40" :width="300" @click="submit" name="提交"></page-button>
+				<page-button :height="40" :width="100" @click="submit" name="取消问诊"></page-button>
+				<page-button :height="40" :width="100" @click="commentDoctor" name="评价医生"></page-button>
 			</view>
 		</form>
+		
+		
+		<view class="comment" v-if="comments">
+			<form>
+				<view class="li">
+				</view>
+				<view class="text">
+					<textarea placeholder="评价医生..." v-model="commentTemp.commentContent" />
+				</view>
+				<view class="savebox">
+					<page-button :height="40" :width="100" @click="submitComment" name="确定"></page-button>
+				</view>
+			</form>
+			
+			
+		</view>
 
 	</view>
 </template>
@@ -70,6 +62,7 @@
 		data() {
 			return {
 				temp:{
+					inquiryId:'',
 					detail:'',
 					picUrl:'',
 					realName:'',
@@ -82,52 +75,45 @@
 					kidney:'',
 					medicalHistory:''
 				},
-				conceive:[{"key":"-1","value":"请选择"},{"key":"0","value":"无备孕计划"},{"key":"1","value":"备孕中"},{"key":"2","value":"怀孕中"},{"key":"3","value":"哺乳期"}],
-				index:-1
-		
+				commentTemp:{
+					commentRate:'',
+					commentContent:''
+				},
+				comments:false
 			}
 		},
 		onLoad(options) {
-			this.temp = JSON.parse(options.temp);
+			this.temp.inquiryId = options.inquiryId;
+			this.getInquiryDetail();
 		},
 		onShow() {
 			
 		},
 		methods: {
-			genderChange:function(e){
-				this.temp.gender = e.target.value
-			},
-			allergicChange:function(e){
-				this.temp.allergic = e.target.value
-			},
-			liverChange:function(e){
-				this.temp.liver = e.target.value
-			},
-			kidneyChange:function(e){
-				this.temp.kidney = e.target.value
-			},
-			bindConceiveChange: function(e) {
+			getInquiryDetail:function(){
 				let that = this;
-				that.index = e.target.value;
-				that.temp.conceive = that.conceive[that.index].key;
-			},
-			submit:function(){
-				let that = this;
+				var dd = {"inquiryId":that.temp.inquiryId}
 				that.$util.request({
-					url: "/didi-patient/inquiryinfo/add" ,
-					param: that.temp,
+					url: "/didi-patient/inquiryinfo/getOneByEntity" ,
+					param: dd,
 					contentType: 'application/x-www-form-urlencoded',
 					success: function(res) {
-						uni.showToast({
-							title: '发布成功',
-							icon: 'success',
-							duration: 2000
-						})
-						setTimeout(function() {
-							uni.redirectTo({
-								url:'/pages/index/index'
-							})
-						}, 1000)
+						that.temp = res.data;
+					},
+					error: function() {}
+				})
+			},
+			commentDoctor:function(){
+				this.comments = true;
+			},
+			submitComment:function(){
+				let that = this;
+				that.$util.request({
+					url: "/didi-patient/inquiryinfo/getOneByEntity" ,
+					param: dd,
+					contentType: 'application/x-www-form-urlencoded',
+					success: function(res) {
+						that.temp = res.data;
 					},
 					error: function() {}
 				})

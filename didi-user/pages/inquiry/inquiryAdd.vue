@@ -1,10 +1,11 @@
 <template>
 	<view class="content">
 		<form>
-			<view class="li">
-				<textarea class="inp" v-model="temp.detail" placeholder="请描述你的性别，年龄，症状，就诊经历，我们会保证你的隐私权..." />
+			<view class="text">
+				<textarea v-model="temp.detail" placeholder="请描述你的性别，年龄，症状，就诊经历，我们会保证你的隐私权..." />
 			</view>
 			<view class="nli">
+				<label>病情</label>
 				<image-upload @click="getAvatarUrl" :picUrls="temp.url"></image-upload>
 				<image-upload @click="getAvatarUrl" :picUrls="temp.url"></image-upload>
 				<image-upload @click="getAvatarUrl" :picUrls="temp.url"></image-upload>
@@ -42,14 +43,30 @@
 		},
 		methods: {
 			submit:function(){
-				console.log("---------");
-				console.log(this.temp.picUrl);
+				let that = this;
+				if(!that.$util.isEmpty(that.temp.detail)){
+					uni.showToast({
+						title: '请输入病情描述',
+						icon:'none',
+						duration: 2000
+					});
+					return;
+				}
+				if(!that.$util.isEmpty(that.temp.picUrl)){
+					uni.showToast({
+						title: '请上传至少一张图片',
+						icon:'none',
+						duration: 2000
+					});
+					return;
+				}
+				var data = JSON.stringify(that.temp);
 				uni.navigateTo({
-					url:"/pages/inquiry/inquiryNext"
+					url:"/pages/inquiry/inquiryNext?temp="+data
 				})
 			},
 			getAvatarUrl:function(v){
-				this.temp.picUrl.concat(v+";");
+				this.temp.picUrl = this.temp.picUrl + v[0] + ";";
 			}
 		}
 	}
@@ -58,49 +75,42 @@
 <style lang="scss" scoped>
 	.content {
 		width: 100%;
-		position: relative;
+		background: $uni-text-color-inverse;
+		margin-top: 20upx;
 		
-		.li {
+		
+		.text {
+			align-items: left;
+			margin-left: 33px;
+			margin-right: 33rpx;
+		}
+		.text textarea{
+			width: 100%;
+			height: 250rpx;
+		}
+		
+		.nli {
+			min-height: 270upx;
 			width: calc(100%-33px);
 			margin-left: 33px;
-			height: 100upx;
 			display: flex;
-			flex-flow: row nowrap;
-			justify-content: space-between;
-			align-items: center;
+			flex-direction: column;
+			justify-content: flex-start;
+			margin-top: 30upx;
 		
 			label {
-				width: 20%;
+				display: block;
+				width: 100%;
 				color: $uni-text-color-qh;
 			}
-		
-			.inp {
-				height: 100%;
-				width: 80%;
-				border-bottom: 2upx solid $uni-text-color-eee;
-				display: flex;
-				flex-flow: row nowrap;
-				justify-content: flex-start;
-				align-items: center;
-		
-				.nla {
-					width: 20%;
-					display: flex;
-					flex-flow: row nowrap;
-					justify-content: flex-start;
-					align-items: center;
-		
-					.name {
-						color: $uni-text-color-grey;
-						font-size: $uni-font-size-sm;
-					}
-				}
-			}
-		
-			.nobottom {
-				border-bottom: 0;
-			}
 		}
+		
+		.savebox {
+			display: flex;
+			justify-content: center;
+			padding: 50upx 0 30upx;
+		}
+		
 		
 	}
 </style>

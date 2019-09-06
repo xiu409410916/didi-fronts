@@ -1,13 +1,7 @@
 <template>
 	<view class="content">
-		<view class="header">
-			<view class="center">
-				<label>时间:{{time}}分钟</label>
-			</view>
-		</view>
-
 		<view class="record">
-			<view class="li" v-if="list.length > 0" v-for="(item,index) in list" :key="index">
+			<view class="li" v-if="list.length > 0" v-for="(item,index) in list" :key="index" @click="toInquiryDetail(item.inquiryId)">
 				<view class="left">
 					<label>{{balanceType[item.timeType]}}</label>
 					<text>{{item.orderNo}}</text>
@@ -45,21 +39,20 @@
 
 		},
 		onShow() {
-			this.time = uni.getStorageSync("patientInfo").time;
 			this.pageNum = 1;
 			this.total = 1;
 			this.list = [];
-			this.getUserTime();
+			this.getUserInquiry();
 		},
 		onReady() {
 
 		},
 		onReachBottom() {
-			this.getUserTime();
+			this.getUserInquiry();
 		},
 
 		methods: {
-			getUserTime() {
+			getUserInquiry:function() {
 				let that = this;
 				if (that.total <= (that.pageNum - 1) * that.pageSize) {
 					return;
@@ -77,45 +70,18 @@
 					},
 					error: function() {}
 				})
+			},
+			toInquiryDetail:function(inquiryId){
+				uni.navigateTo({
+					url:'/pages/my/inquiryDetail?inquiryId='+inquiryId
+				})
 			}
+			
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	.header {
-		position: relative;
-		height: 150upx;
-		width: 100%;
-		background: linear-gradient(to right, $bg-start, $bg-end);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin-bottom: $uni-spacing-row-base;
-
-		.center {
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			color: #fff;
-			padding-top: 20upx;
-			font-size: 40upx;
-
-			button {
-				padding-left: 0rpx;
-				padding-right: 0rpx;
-				width: 100rpx;
-				height: 50rpx;
-				line-height: 50rpx;
-				float: left;
-				font-size: 30rpx;
-				color: #fb5b67;
-				margin-top: 10rpx;
-			}
-		}
-	}
 
 	.record {
 		width: 100%;

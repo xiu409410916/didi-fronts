@@ -6,8 +6,8 @@
 					
 				<!--头部-->
 				<view class="meHead">
-					<view class="meHeadAvatar"><image :src="doctorInfo.avatarUrl" mode="aspectFill"></image></view>
-					<view class="meHeadName"><text@click="BindGetUserInfo()">{{ doctorInfo.doctorName }}</text></view>
+					<view class="meHeadAvatar"><image :src="patientInfo.avatarUrl" mode="aspectFill"></image></view>
+					<view class="meHeadName"><button open-type="getUserInfo" @getuserinfo="wxGetUserInfo" withCredentials="true">{{ patientInfo.nickName }}</button></view>
 				</view>
 				<!--头部-->
 				
@@ -15,12 +15,12 @@
 				<view class="meOverBg">
 					<view class="meVisitor">
 						<view class="meVisitorLt">
-							<view class="meVisitorTxt_02">余额</view>
-							<view class="meVisitorTxt_01">{{doctorInfo.amount/100}}元</view>
+							<view class="meVisitorTxt_02">剩余时间</view>
+							<view class="meVisitorTxt_01">{{patientInfo.time}}分钟</view>
 						</view>
 						<view class="meVisitorLt" @click="pdLogin()">
-							<view class="meVisitorTxt_02">完善资料</view>
-							<view class="meVisitorTxt_01">未完善</view>
+							<button class="meVisitorTxt_02" plain="true" open-type="getPhoneNumber" @getphonenumber="getPhoneNumber">获取手机号</button>
+							<!-- <view class="meVisitorTxt_01">未完善</view> -->
 						</view>
 					</view>
 				</view>
@@ -46,21 +46,29 @@
 
 <script>
 	
-	import UserInfo from '../../components/userinfo.vue';
 	
 	export default {
 		components:{
-				UserInfo,
+	
 		},
 		
 		data() {
 			return {
-				doctorInfo: {
+				patientInfo: {
 					avatarUrl: '../../static/avatar.png',
-					doctorName:'点击登录',
-					amount:0,
+					nickName:'点击登录',
+					time:0,
+					patientId:''
 				}
 			}
+		},
+		onLoad() {
+			let that = this;
+			var info = uni.getStorageSync("patientInfo");
+			if(that.$util.isEmpty(info.avatarUrl)){
+				that.patientInfo = info;
+			}	
+			that.patientInfo.patientId = info.patientId;
 		},
 		onShow() {
 			uni.setNavigationBarColor({
@@ -68,7 +76,6 @@
 			    backgroundColor: '#00C694',
 			    
 			})
-			// this.doctorInfo = uni.getStorageSync("doctorInfo");
 		},
 		methods: {
 			toMyTime:function(){
@@ -80,7 +87,63 @@
 				uni.navigateTo({
 					url:'/pages/my/userInquiry'
 				})
+			},
+			wxGetUserInfo:function(res) {
+				console.log('-------');
+				let that = this
+				if (!res.detail.iv) {
+					uni.showToast({
+						title: "您取消了授权,登录失败",
+						icon: "none"
+					});
+					return false;
+				}
+				var uerInfo = res.detail.userInfo
+				that.modifyInfoByOpenId(uerInfo.avatarUrl,uerInfo.nickName)
+			},
+			//POST 
+			modifyInfoByOpenId:function(avatarUrl,nickName){
+				let that=this;
+				var temp = {};
+				temp.patientId = that.patientInfo.patientId;
+				temp.avatarUrl=avatarUrl;
+				temp.nickName=nickName;
+				that.$util.request({
+					url: "/didi-patient/patientinfo/modifyUserInfo",
+					param: temp,
+					success: function(res) {
+						that.patientInfo = res.data;
+						uni.setStorageSync('patientInfo', res.data);
+					},
+					error: function() {}
+				})
+			},
+			getPhoneNumber: function(e) {
+				if (e.target.errMsg == 'getPhoneNumber:ok') {
+					this.createUserByWechatTelephone(e.target.encryptedData,e.target.iv)
+				} else {
+			        uni.navigateTo({
+						url:'../../login/login'
+					})
+				} 
+			},
+			//微信手机号码创建用户
+			createUserByWechatTelephone: function(encryptedData,iv){
+				let that=this;
+				const params={}
+				params.encryptedData=encryptedData;
+				params.iv=iv;
+				that.$util.request({
+					url: "/didi-patient/patientinfo/modifyMobileInfo",
+					param: params,
+					success: function(res) { 
+						that.patientInfo = res.data;
+						uni.setStorageSync('patientInfo', res.data);
+					},
+					error: function() {}
+				})
 			}
+			
 		}
 	}
 </script>
@@ -125,12 +188,21 @@
 			float: left;
 			width: 81%;
 			line-height: 120upx;
-			color: #FFFFFF;
-			font-size: 28upx;
+			
 			overflow:hidden;
 			text-overflow:ellipsis;
 			white-space:nowrap; 
+			button{
+				margin: 0rpx;
+				padding: 0rpx;
+				background-color: #00C694;
+				border:none;
+				color: #FFFFFF;
+				font-size: 28upx;
+				width: 100rpx;
+			}
 		}
+		
 	}
 	
 	.meOverBg{ 
