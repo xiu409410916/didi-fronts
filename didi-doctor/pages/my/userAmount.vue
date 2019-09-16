@@ -3,7 +3,7 @@
 		<view class="header">
 			<view class="center">
 				<label>余额:{{amount/100}}元</label>
-				<button @click="toWithdraw">提现</button>
+				<button @click="toWithdraw" v-if="amount > 0">提现</button>
 			</view>
 		</view>
 

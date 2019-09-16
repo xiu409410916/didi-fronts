@@ -40,8 +40,8 @@
 				<textarea placeholder="简介..." class="inp" v-model="temp.introduction"></textarea>
 			</view>
 
-			<view class="savebox">
-				<page-button :height="40" :width="300" @click="submit" name="下一步"></page-button>
+			<view class="savebox" v-if="states!=1">
+				<page-button :height="40" :width="300" @click="submit" name="提交"></page-button>
 			</view>
 		</form>
 	</view>
@@ -67,10 +67,20 @@
 					title: '',
 					educationLevel:'',
 					credentialUrl: '',
-					introduction: ''
+					introduction: '',
+					states:''
 				},
 				array: [ '中专','大专', '本科', '硕士','博士'],
-				index: null,
+				index: null
+			}
+		},
+		onLoad() {
+			this.temp = uni.getStorageSync("doctorInfo");
+			for (let i = 0; i < this.array.length; i++) {
+				if(this.array[i] == this.temp.educationLevel){
+					this.index = i;
+					break;
+				}
 			}
 		},
 		methods: {
@@ -89,9 +99,6 @@
 			},
 			submit:function(){
 				let that = this;
-				uni.navigateTo({
-					url:'/pages/my/userPassword'
-				})
 				if(!that.$util.isEmpty(that.temp.doctorName)){
 					uni.showToast({
 						title: '请输入真实姓名',
@@ -176,11 +183,8 @@
 							duration: 2000
 						})
 						setTimeout(function() {
-							// uni.navigateBack({
-							// 	delta: 1
-							// })
-							uni.navigateTo({
-								url:'/pages/my/userPassword'
+							uni.navigateBack({
+								delta: 1
 							})
 						}, 500)
 					},

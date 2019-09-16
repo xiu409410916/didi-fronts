@@ -7,7 +7,7 @@
 				<!--头部-->
 				<view class="meHead">
 					<view class="meHeadAvatar"><image :src="doctorInfo.avatarUrl" mode="aspectFill"></image></view>
-					<view class="meHeadName"><text@click="BindGetUserInfo()">{{ doctorInfo.doctorName }}</text></view>
+					<view class="meHeadName"><text>{{ doctorInfo.doctorName }}</text></view>
 				</view>
 				<!--头部-->
 				
@@ -20,13 +20,20 @@
 						</view>
 						<view class="meVisitorLt" @click="pdLogin()">
 							<view class="meVisitorTxt_02">完善资料</view>
-							<view class="meVisitorTxt_01">未完善</view>
+							<view class="meVisitorTxt_01" v-if="doctorInfo.states == ''">未完善</view>
+							<view class="meVisitorTxt_01" v-if="doctorInfo.states == '0'">待审核</view>
+							<view class="meVisitorTxt_01" v-if="doctorInfo.states == '1'">审核通过</view>
+							<view class="meVisitorTxt_01" v-if="doctorInfo.states == '2'">审核拒绝</view>
 						</view>
 					</view>
 				</view>
 				<!--模板-->
 				
 				<view class="con">
+					<view class="vi" @click="setPassword" v-if="!isSetPassword">
+						<view class="left"><image src="../../static/logo.png"></image>设置支付密码</view>
+						<view class="right"><image src="../../static/you.png"></image></view>
+					</view>
 					<view class="vi" @click="toUserAmount">
 						<view class="left"><image src="../../static/logo.png"></image>我的余额</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
@@ -36,12 +43,12 @@
 						<view class="right"><image src="../../static/you.png"></image></view>
 						<navigator></navigator>
 					</view>
-					<view class="vi">
+					<view class="vi" @click="toMyRecept">
 						<view class="left"><image src="../../static/logo.png"></image>我的接单</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 						<navigator></navigator>
 					</view>
-					<view class="vi">
+					<view class="vi" @click="toAgent">
 						<view class="left"><image src="../../static/logo.png"></image>成为代理商</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 						<navigator></navigator>
@@ -71,19 +78,29 @@
 		data() {
 			return {
 				doctorInfo: {
-					avatarUrl: '../../static/avatar.png',
-					doctorName:'点击登录',
+					avatarUrl: '',
+					doctorName:'',
 					amount:0,
-				}
+					states:''
+				},
+				isSetPassword:false
 			}
 		},
 		onShow() {
 			uni.setNavigationBarColor({
 			    frontColor: '#ffffff',
 			    backgroundColor: '#00C694',
-			    
 			})
-			// this.doctorInfo = uni.getStorageSync("doctorInfo");
+			this.doctorInfo = uni.getStorageSync("doctorInfo");
+			if(!this.$util.isEmpty(this.doctorInfo.avatarUrl)){
+				this.doctorInfo.avatarUrl = '../../static/avatar.png';
+			}
+			if(!this.$util.isEmpty(this.doctorInfo.doctorName)){
+				this.doctorInfo.doctorName = '';
+			}
+			if(this.$util.isEmpty(this.doctorInfo.withdrawPassword)){
+				this.isSetPassword = true;
+			}
 		},
 		methods: {
 			pdLogin:function(){
@@ -92,19 +109,42 @@
 				})
 			},
 			setPassword:function(){
-				uni.navigateTo({
-					url: '/pages/my/userPassword'
-				})
+				let that = this;
+				if(that.$util.isPerfectInfo()){
+					uni.navigateTo({
+						url: '/pages/my/userPassword'
+					})
+				}
 			},
 			toBankInfo:function(){
-				uni.navigateTo({
-					url:'/pages/my/userBank'
-				})
+				let that = this;
+				if(that.$util.isPerfectInfo()){
+					uni.navigateTo({
+						url:'/pages/my/userBank'
+					})
+				}
 			},
 			toUserAmount:function(){
-				uni.navigateTo({
-					url:'/pages/my/userAmount?amount='+this.doctorInfo.amount
-				})
+				let that = this;
+				if(that.$util.isPerfectInfo()){
+					uni.navigateTo({
+						url:'/pages/my/userAmount?amount='+this.doctorInfo.amount
+					})
+				}
+			},
+			toMyRecept:function(){
+				let that = this;
+				if(that.$util.isPerfectInfo()){
+					uni.navigateTo({
+						url:'/pages/my/userRecept'
+					})
+				}
+			},
+			toAgent:function(){
+				let that = this;
+				if(that.$util.isPerfectInfo()){
+			
+				}
 			}
 		}
 	}

@@ -288,6 +288,28 @@ function random(){
 	return num
 }
 
+// 医生是否完善资料
+function isPerfectInfo(){
+	var doctor = uni.getStorageSync("doctorInfo");
+	if(!isEmpty(doctor.doctorName)){
+		uni.showToast({
+			title: '请完善资料',
+			icon: 'success',
+			duration: 2000
+		})
+		return false;
+	}
+	if(doctor.states != 1){
+		uni.showToast({
+			title: '资料还在审核，请耐心等待',
+			icon: 'success',
+			duration: 2000
+		})
+		return false;
+	}
+	return true;
+}
+
 module.exports = {
 	formatTime: formatTime,
 	formatLocation: formatLocation,
@@ -300,5 +322,6 @@ module.exports = {
 	otime:otime,
 	isEmpty,
 	IdentityCodeValid,
-	random
+	random,
+	isPerfectInfo
 }

@@ -16,12 +16,12 @@
 		
 		<!--内容1-->
 		<view class="contBg">
-			<view class="contOver" v-for="(item,index) in contOneList" :key="index">
+			<view class="contOver" v-for="(item,index) in inquiryList" :key="index" @click="toInquiryDetail(item.inquiryId)">
 				<view class="idxMainBox">
-					<view class="contRtImg"><image :src="item.imgs"></image></view>
+					<view class="contRtImg"><image :src="item.picUrl"></image></view>
 					<view class="contOverLt">
-						<view class="contTxt">{{ item.title }}</view>
-						<view class="contTime">{{ item.updateTime }}</view>
+						<view class="contTxt">{{ item.detail }}</view>
+						<view class="contTime">{{ item.createTime }}</view>
 					</view>
 				</view>
 			</view>
@@ -40,21 +40,58 @@
 					{ id:1, imgs:'../../static/banner.jpg' },
 					{ id:2, imgs:'../../static/banner.jpg' }
 				],//轮播图
-				contOneList:[
-					{ id:1, title:'d发酵的发酵发酵粉阿噶鸡辣椒啊大', updateTime:'2019-7-30', imgs:'../../static/banner.jpg' },
-					{ id:2, title:'发大发看风景啊剪短发发酵的风景啊多了', updateTime:'2019-7-30', imgs:'../../static/banner.jpg' },
-				],//内容1
 				indicatorDots: true,
 				autoplay: true,
 				interval: 2000,
 				duration: 500,
+				page: 1,
+				size: 10,
+				totalPages: 1,
+				inquiryList:[],//内容1
 			}
 		},
 		onLoad() {
-
+			this.getInquiryList();
+		},
+		onPullDownRefresh() {
+			// 增加下拉刷新数据的功能
+			var self = this;
+			self.getInquiryList();
 		},
 		methods: {
-
+			getInquiryList: function() {
+				let that = this;
+				if (that.totalPages <= (that.page - 1) * that.size) {
+					return;
+				}
+				var param = {};
+				param.pageNum = that.page;
+				param.pageSize = that.size;
+				param.states = 0;
+				that.$util.request({
+					url: "/didi-doctor/inquiryinfo/queryPage",
+					param: param,
+					contentType: 'application/x-www-form-urlencoded',
+					success: function(res) {
+						var data = res.data;
+						if (data == null) {
+							return;
+						}
+						that.inquiryList = that.inquiryList.concat(data.list);
+						for (var i = 0; i < that.inquiryList.length; i++) {
+							that.inquiryList[i].picUrl = that.inquiryList[i].picUrl.split(',')[0];
+						}
+						that.page = data.pageNum + 1;
+						that.totalPages = data.total;
+					},
+					error: function() {}
+				})
+			},
+			toInquiryDetail:function(inquiryId){
+				uni.navigateTo({
+					url:'/pages/inquiry/inquiryDetail?inquiryId='+inquiryId
+				})
+			}
 		}
 	}
 </script>
