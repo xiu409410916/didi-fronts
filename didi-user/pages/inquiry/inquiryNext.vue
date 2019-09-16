@@ -118,16 +118,17 @@
 					param: that.temp,
 					contentType: 'application/x-www-form-urlencoded',
 					success: function(res) {
+						setTimeout(function() {
+							uni.redirectTo({
+								url:'/pages/index/index'
+							})
+						}, 1000);
 						uni.showToast({
 							title: '发布成功',
 							icon: 'success',
 							duration: 2000
 						})
-						setTimeout(function() {
-							uni.redirectTo({
-								url:'/pages/index/index'
-							})
-						}, 1000)
+						
 					},
 					error: function() {}
 				})

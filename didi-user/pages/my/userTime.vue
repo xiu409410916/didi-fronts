@@ -3,6 +3,7 @@
 		<view class="header">
 			<view class="center">
 				<label>时间:{{time}}分钟</label>
+				<button @click="toRefund" v-if="time > 0">退款</button>
 			</view>
 		</view>
 
@@ -13,13 +14,13 @@
 					<text>{{item.orderNo}}</text>
 				</view>
 				<view class="right">
-					<label>{{item.time}}</label>
+					<label>{{balanceSymbol[item.timeType]+item.time}}</label>
 					<text>{{item.createTime}}</text>
 				</view>
 			</view>
 		</view>
-
 		<empty-view :data="list" :top="36"></empty-view>
+		
 	</view>
 </template>
 
@@ -34,7 +35,8 @@
 				pageSize: 10,
 				total: 1,
 				time: 0,
-				balanceType: ['购买', '消费', '退款','后台增加']
+				balanceType: ['购买', '消费', '退款','后台增加'],
+				balanceSymbol: ['+', '-', '-','+']
 			}
 		},
 		components: {
@@ -74,8 +76,16 @@
 						that.list = that.list.concat(res.data.list);
 						that.pageNum += 1;
 						that.total = res.data.total;
+						for (var i = 0; i < that.list.length; i++) {
+							that.list[i].createTime = that.list[i].createTime.split(' ')[0];
+						}
 					},
 					error: function() {}
+				})
+			},
+			toRefund:function(){
+				uni.navigateTo({
+					url:'/pages/my/userRefund?time='+this.time
 				})
 			}
 		}
@@ -87,7 +97,7 @@
 		position: relative;
 		height: 150upx;
 		width: 100%;
-		background: linear-gradient(to right, $bg-start, $bg-end);
+		background: #00C694;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -156,17 +166,14 @@
 				flex-direction: column;
 				justify-content: center;
 				align-items: flex-start;
-				
 				label {
 					font-size: $uni-font-size-lg;
 					color: $uni-text-color-qh;
-					
+					margin-left: 100rpx;
 				}
-				
 				text {
 					color: $uni-text-color-grey;
 					font-size: $uni-font-size-base;
-					margin-top: 10upx;
 				}
 			}
 		}

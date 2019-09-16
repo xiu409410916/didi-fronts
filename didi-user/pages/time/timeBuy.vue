@@ -2,12 +2,12 @@
 	<view class="content">
 		<view class="time">
 			<image src="../../static/banner.jpg"></image>
-			<page-button :height="20" :width="100" @click="timeBuy(50)" name="购买"></page-button>
+			<page-button :height="20" :width="100" @click="timeBuy(2)" name="购买"></page-button>
 		</view>
 			
 		<view class="time">
 			<image src="../../static/banner.jpg"></image>
-			<page-button :height="20" :width="100" @click="timeBuy(100)" name="购买"></page-button>
+			<page-button :height="20" :width="100" @click="timeBuy(3)" name="购买"></page-button>
 		</view>
 		
 		<view class="time">
@@ -85,15 +85,18 @@
 <style lang="scss" scoped>
 	.content {
 		width: 100%;
-		position: relative;
+		background: $uni-text-color-inverse;
+		margin-top: 20upx;
 		.time{
 			float: left;
-			width: 300rpx;;
+			width: 350rpx;;
 			margin-left: 25rpx;
+			margin-top: 20rpx;
 			image{
-				width: 280rpx;
-				height: 280rpx;
+				width: 350rpx;
+				height: 350rpx;
 			}
+			
 		}
 	}
 </style>

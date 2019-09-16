@@ -25,6 +25,9 @@
 					</view>
 					<view class="right"><image src="../../static/you.png"></image></view>
 				</view>
+				
+			</view>
+			<view class="contOver">
 				<view class="idxMainBox" @click="toInquiryAdd">
 					<view class="contRtImg"><image src="../../static/banner.jpg"></image></view>
 					<view class="contOverLt">
@@ -146,7 +149,7 @@
 		float: right;
 		font-size: 28upx;
 		color: #333333;
-		margin-top: 40rpx;
+		margin-top: 60rpx;
 		image {
 			width: 20upx;
 			height: 20upx;

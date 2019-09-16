@@ -18,9 +18,9 @@
 							<view class="meVisitorTxt_02">剩余时间</view>
 							<view class="meVisitorTxt_01">{{patientInfo.time}}分钟</view>
 						</view>
-						<view class="meVisitorLt" @click="pdLogin()">
+						<view class="meVisitorLt">
 							<button class="meVisitorTxt_02" plain="true" open-type="getPhoneNumber" @getphonenumber="getPhoneNumber">获取手机号</button>
-							<!-- <view class="meVisitorTxt_01">未完善</view> -->
+							<!-- <view class="meVisitorTxt_01" v-if="{{patientInfo.mobile}}">{{patientInfo.mobile}}</view> -->
 						</view>
 					</view>
 				</view>
@@ -34,7 +34,12 @@
 					<view class="vi" @click="toMyTime">
 						<view class="left"><image src="../../static/logo.png"></image>我的时长</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
-						<navigator></navigator>
+						<!-- <navigator></navigator> -->
+					</view>
+					<view class="vi">
+						<view class="left"><image src="../../static/logo.png"></image>关于我们</view>
+						<view class="right"><image src="../../static/you.png"></image></view>
+						<!-- <navigator></navigator> -->
 					</view>
 				</view>
 			</view>
@@ -58,7 +63,8 @@
 					avatarUrl: '../../static/avatar.png',
 					nickName:'点击登录',
 					time:0,
-					patientId:''
+					patientId:'',
+					mobile:''
 				}
 			}
 		},
@@ -196,11 +202,12 @@
 				margin: 0rpx;
 				padding: 0rpx;
 				background-color: #00C694;
-				border:none;
+				display: inline;
 				color: #FFFFFF;
 				font-size: 28upx;
 				width: 100rpx;
 			}
+			button::after{ border: none; }
 		}
 		
 	}
