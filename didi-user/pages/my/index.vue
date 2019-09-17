@@ -19,8 +19,8 @@
 							<view class="meVisitorTxt_01">{{patientInfo.time}}分钟</view>
 						</view>
 						<view class="meVisitorLt">
-							<button class="meVisitorTxt_02" plain="true" open-type="getPhoneNumber" @getphonenumber="getPhoneNumber">获取手机号</button>
-							<!-- <view class="meVisitorTxt_01" v-if="{{patientInfo.mobile}}">{{patientInfo.mobile}}</view> -->
+							<view v-if="patientInfo.mobile!=null" class="meVisitorTxt_01">{{patientInfo.mobile}}</view>
+							<button v-else class="meVisitorTxt_02" plain="true" open-type="getPhoneNumber" @getphonenumber="getPhoneNumber">获取手机号</button>
 						</view>
 					</view>
 				</view>
@@ -28,16 +28,16 @@
 				
 				<view class="con">
 					<view class="vi" @click="toMyInquiry">
-						<view class="left"><image src="../../static/logo.png"></image>我的问诊</view>
+						<view class="left"><image src="../../static/inquiry.png"></image>我的问诊</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 					</view>
-					<view class="vi" @click="toMyTime">
-						<view class="left"><image src="../../static/logo.png"></image>我的时长</view>
+					<view class="vi" @click="toMyTime" v-if="patientInfo.time > 0">
+						<view class="left"><image src="../../static/time.png"></image>我的时长</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 						<!-- <navigator></navigator> -->
 					</view>
-					<view class="vi">
-						<view class="left"><image src="../../static/logo.png"></image>关于我们</view>
+					<view class="vi" @click="toDidiDetail">
+						<view class="left"><image src="../../static/about.png"></image>关于我们</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 						<!-- <navigator></navigator> -->
 					</view>
@@ -148,6 +148,11 @@
 					},
 					error: function() {}
 				})
+			},
+			toDidiDetail:function(){
+				uni.navigateTo({
+					url:'/pages/my/didiDetail'
+				})	
 			}
 			
 		}
@@ -271,7 +276,7 @@
 					width: 20upx;
 					height: 20upx;
 					vertical-align: middle;
-					margin: 0 0 4upx 10upx;
+					margin: 5 0 4upx 10upx;
 				}
 			}
 		}
