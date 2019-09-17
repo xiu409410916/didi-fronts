@@ -40,8 +40,12 @@
 				<textarea placeholder="简介..." class="inp" v-model="temp.introduction"></textarea>
 			</view>
 
-			<view class="savebox" v-if="states!=1">
+			<view class="savebox" v-if="temp.states!=1">
 				<page-button :height="40" :width="300" @click="submit" name="提交"></page-button>
+			</view>
+			
+			<view class="auditRemark">
+				<text>{{temp.auditRemark}}</text>
 			</view>
 		</form>
 	</view>
@@ -68,7 +72,8 @@
 					educationLevel:'',
 					credentialUrl: '',
 					introduction: '',
-					states:''
+					states:'',
+					auditRemark:''
 				},
 				array: [ '中专','大专', '本科', '硕士','博士'],
 				index: null
@@ -274,6 +279,14 @@
 		.text textarea {
 			width: 100%;
 			height: 250rpx;
+		}
+		
+		.auditRemark{
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: space-between;
+			align-items: center;
+			color:red;
 		}
 	}
 </style>

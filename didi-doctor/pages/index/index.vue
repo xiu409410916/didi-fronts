@@ -37,8 +37,8 @@
 		data() {
 			return {
 				bannerList:[
-					{ id:1, imgs:'../../static/banner.jpg' },
-					{ id:2, imgs:'../../static/banner.jpg' }
+					{ id:1, imgs:'../../static/my1.jpeg' },
+					{ id:2, imgs:'../../static/my2.jpeg' }
 				],//轮播图
 				indicatorDots: true,
 				autoplay: true,

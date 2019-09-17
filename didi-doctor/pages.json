@@ -69,7 +69,25 @@
 		    "style" : {
 				"navigationBarTitleText":"我的接单"
 			}
+		},
+		{
+		    "path" : "pages/my/userAgent",
+		    "style" : {
+				"navigationBarTitleText":"代理商申请列表"
+			}
+		},
+		{
+		    "path" : "pages/my/userAgentAdd",
+		    "style" : {
+				"navigationBarTitleText":"申请代理商"
+			}
 		}
+        ,{
+            "path" : "pages/my/didiDetail",
+            "style" : {
+            	"navigationBarTitleText":"关于滴滴答答"
+            }
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
