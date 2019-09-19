@@ -45,7 +45,7 @@
 					success: function(res) {
 						uni.setStorageSync('patientInfo', res.data);
 						uni.showToast({
-							title: '体现成功',
+							title: '退款成功',
 							icon: 'success',
 							duration: 2000
 						})

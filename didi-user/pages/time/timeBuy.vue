@@ -2,9 +2,14 @@
 	<view class="content">
 		<view class="time">
 			<image src="../../static/banner.jpg"></image>
-			<page-button :height="20" :width="100" @click="timeBuy(2)" name="购买"></page-button>
+			<page-button :height="20" :width="100" @click="timeBuy(1)" name="购买"></page-button>
 		</view>
 			
+		<view class="time">
+			<image src="../../static/banner.jpg"></image>
+			<page-button :height="20" :width="100" @click="timeBuy(2)" name="购买"></page-button>
+		</view>
+		
 		<view class="time">
 			<image src="../../static/banner.jpg"></image>
 			<page-button :height="20" :width="100" @click="timeBuy(3)" name="购买"></page-button>
@@ -12,12 +17,7 @@
 		
 		<view class="time">
 			<image src="../../static/banner.jpg"></image>
-			<page-button :height="20" :width="100" @click="timeBuy(150)" name="购买"></page-button>
-		</view>
-		
-		<view class="time">
-			<image src="../../static/banner.jpg"></image>
-			<page-button :height="20" :width="100" @click="timeBuy(200)" name="购买"></page-button>
+			<page-button :height="20" :width="100" @click="timeBuy(4)" name="购买"></page-button>
 		</view>
 
 

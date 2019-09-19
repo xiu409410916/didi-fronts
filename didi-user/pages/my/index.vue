@@ -31,7 +31,7 @@
 						<view class="left"><image src="../../static/inquiry.png"></image>我的问诊</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 					</view>
-					<view class="vi" @click="toMyTime" v-if="patientInfo.time > 0">
+					<view class="vi" @click="toMyTime">
 						<view class="left"><image src="../../static/time.png"></image>我的时长</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 						<!-- <navigator></navigator> -->
