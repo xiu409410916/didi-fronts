@@ -30,9 +30,10 @@
 			return {
 				temp:{
 					bankName:"",
-					bankAccount:""
+					bankAccount:"",
+					bankCode:""
 				},
-				bankList:[{"bankName":"","bankAccount":""}],
+				bankList:[{"bankName":"","bankAccount":"","bankCode":""}],
 				bankIndex: null
 			}
 		},
@@ -59,6 +60,7 @@
 				that.bankIndex = e.target.value;
 				that.temp.bankName = that.bankList[that.bankIndex].bankName;
 				that.temp.bankAccount = that.bankList[that.bankIndex].bankAccount;
+				that.temp.bankCode = that.bankList[that.bankIndex].bankCode;
 			},
 			submit: function() {
 				let that = this;

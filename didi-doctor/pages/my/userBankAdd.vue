@@ -3,8 +3,8 @@
 		<form>
 			<view class="li">
 				<label>开户行</label>
-				<picker class="inp" @change="bindPickerChange" :value="index" :range="array">
-					<input placeholder="请选择" disabled="true" :value="array[index]" />
+				<picker class="inp" @change="bindPickerChange" :value="index" :range="bankList" :range-key="name">
+					<input placeholder="请选择" disabled="true" :value="array[index].name" />
 				</picker>
 			</view>
 			<view class="li">
@@ -30,16 +30,21 @@
 			return {
 				temp: {
 					bankName: '',
-					bankAccount: ''
+					bankAccount: '',
+					bankCode:''
 				},
-				array: [ '工商银行','招商银行', '农业银行', '建设银行','中国银行'],
+				bankList: [],
 				index: null,
 			}
+		},
+		onLoad() {
+			this.bankList = this.$json.bankList;
 		},
 		methods: {
 			bindPickerChange: function(e) {
 				this.index = e.target.value
-				this.temp.bankName = this.array[this.index]
+				this.temp.bankName = this.bankList[this.index].name
+				this.temp.bankCode = this.bankList[this.index].key
 			},
 			submit: function() {
 				let that = this;
