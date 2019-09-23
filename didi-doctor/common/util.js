@@ -310,6 +310,98 @@ function isPerfectInfo(){
 	return true;
 }
 
+function getFormatDate(date, formatStr) {
+	var o = {
+		"M+": date.getMonth() + 1, //月份
+		"d+": date.getDate(), //日
+		"h+": date.getHours(), //小时
+		"m+": date.getMinutes(), //分
+		"s+": date.getSeconds(), //秒
+		"q+": Math.floor((date.getMonth() + 3) / 3), //季度
+		"S": date.getMilliseconds() //毫秒
+	};
+	if (/(y+)/.test(formatStr))
+		formatStr = formatStr.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+	for (var k in o)
+		if (new RegExp("(" + k + ")").test(formatStr))
+			formatStr = formatStr.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+	return formatStr;
+}
+
+function beautyTime(dateStr) {
+	var date = new Date(dateStr);
+	if (getFormatDate(date, 'yyyyMMdd') == getFormatDate(new Date(), 'yyyyMMdd')) {
+		//如果年月日一样，取时分秒
+		return getFormatDate(date, 'hh:mm');
+	} else {
+		//如果年月日不一样，取年月日
+		return getFormatDate(date, 'yyyy-MM-dd');
+	}
+}
+
+function updateMessage(msg, hasRead) {
+	var fromUid = '';
+	if(hasRead == '0'){
+		fromUid = msg.fromUid;
+	}else{
+		fromUid = msg.toUid;
+	}
+	//更新消息列表
+	console.log('send msg');
+	console.log(msg.msg.content);
+	var messageList = uni.getStorageSync('messageList');
+	if (null != messageList) {
+		//如果消息列表中有历史消息 则更新
+		for (var i = 0; i < messageList.length; i++) {
+			if (messageList[i].openId == fromUid) {
+				messageList[i].message = msg.msg.content;
+				messageList[i].time = msg.time;
+				messageList[i].count = messageList[i].count + 1;
+			}
+		}
+	} else {
+		//如果消息列表中没有历史消息 则新增
+		var message = {
+			title: msg.username,
+			openId: fromUid,
+			avatarUrl: msg.face,
+			message: msg.msg.content,
+			time: msg.time,
+			count: 1,
+			type: 2 //普通用户类型消息
+		};
+		messageList = [];
+		messageList.push(message);
+	}
+	uni.setStorageSync('messageList', messageList);
+	//更新所有用户消息信息
+	msg.hasRead = hasRead; //设置消息未被读
+	var messageDetail = uni.getStorageSync("messageDetail");
+	var messageDetailList = messageDetail[fromUid];
+	if (messageList) {
+		messageDetailList.push(msg);
+	} else {
+		messageDetailList = [];
+		messageDetailList.push(msg);
+		messageDetail[fromUid] = messageDetailList;
+	}
+	uni.setStorageSync("messageDetail", messageDetail);
+}
+
+function uuid() {
+	var s = [];
+	var hexDigits = "0123456789abcdef";
+	for (var i = 0; i < 32; i++) {
+		s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+	}
+	s[12] = "4"; // bits 12-15 of the time_hi_and_version field to 0010
+	s[17] = hexDigits.substr((s[17] & 0x3) | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
+	// s[8] = s[13] = s[18] = s[23] = "-";
+
+	var uuid = s.join("");
+	return uuid;
+}
+
 module.exports = {
 	formatTime: formatTime,
 	formatLocation: formatLocation,
@@ -323,5 +415,9 @@ module.exports = {
 	isEmpty,
 	IdentityCodeValid,
 	random,
-	isPerfectInfo
+	isPerfectInfo,
+	uuid,
+	getFormatDate,
+	beautyTime,
+	updateMessage
 }

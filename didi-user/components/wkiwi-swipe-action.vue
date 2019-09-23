@@ -4,8 +4,8 @@
 			<view class="uni-swipe-action">
 				<view class="uni-swipe-action__container" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd"
 				 @touchcancel="touchEnd" :style="{'transform':messageIndex == i ? transformX : 'translateX(0px)','-webkit-transform':messageIndex == i ? transformX : 'translateX(0px)'}" :data-index="i" :data-disabled="it.disabled">
-					<view class="uni-swipe-action__content " @click="toMessageDetail(i,it.type)">
-						<view class="item" :class="it.stick  ? 'stick' : ''">
+					<view class="uni-swipe-action__content " @click="toMessageDetail(it.type,it.title,it.openId)">
+						<view class="item">
 							<block v-if="it.type == 1">
 								<view class="item-left">
 									<view class="avator"><view class="iconfont ic_system-news"></view></view>
@@ -21,14 +21,15 @@
 							</block>
 							<block v-if="it.type == 2 || it.type == 3">
 								<view class="item-left">
-									<avator-group :type ="it.type" :avator = "it.url"></avator-group>
+									<avator-group :type ="it.type" :avator = "it.avatarUrl"></avator-group>
 								</view>
 								<view class="item-middle">
 									<text class="title">{{it.title}}</text>
 									<text class="message">{{it.message}}</text>
 								</view>
 								<view class="item-right">
-									<view class="mark" v-if="it.count>0">{{it.count}}</view>
+									<view class="mark" v-if="it.count>0 && it.count<100 ">{{it.count}}</view>
+									<view class="mark" v-else-if="it.count>99">99+</view>
 									<view class="time">{{it.time}}</view>
 								</view>
 							</block>
@@ -81,19 +82,20 @@
 		},
 		// #endif
 		methods: {
-			toMessageDetail(i,type){
+			toMessageDetail(type,title,openId){
 				if(type == 2){
-					console.log('进入到聊天界面'+i)
 					uni.navigateTo({
-						url:"../message_info/message_info"
+						url:"../message_info/message_info?name="+title+"&toUser="+openId
 					})
 				}else if(type == 1){
-					console.log('进入系统消息界面'+i)
+					console.log('进入系统消息界面')
 				}
 			},
 			getSize() {
 				uni.createSelectorQuery().in(this).select(`#${this.elId}`).boundingClientRect().exec((ret) => {
-					this.btnGroupWidth = ret[0].width;
+					if(ret[0]){
+						this.btnGroupWidth = ret[0].width;
+					}
 				});
 			},
 			bindClickBtn(item, index) {
@@ -102,6 +104,7 @@
 				
 			},
 			touchStart(event) {
+				return;	//默认不允许右滑
 				if(event.currentTarget.dataset.disabled === true){
 					return;
 				}
@@ -255,6 +258,8 @@
 		  display: flex;
 		  flex-direction: column;
 		  align-items: center;
+		  justify-content: flex-end;
+		  width:120upx;
 			.time {
 			  color: #808080;
 			  font-size: 18upx;

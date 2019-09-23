@@ -1,4 +1,6 @@
-/******/ (function(modules) { // webpackBootstrap
+
+  !function(){try{var r=Function("return this")();r&&!r.Math&&Object.assign(r,{Array:Array,Date:Date,Error:Error,Function:Function,Math:Math,Object:Object,RegExp:RegExp,String:String,TypeError:TypeError,setTimeout:setTimeout,clearTimeout:clearTimeout,setInterval:setInterval,clearInterval:clearInterval})}catch(r){}}();
+  /******/ (function(modules) { // webpackBootstrap
 /******/ 	// install a JSONP callback for chunk loading
 /******/ 	function webpackJsonpCallback(data) {
 /******/ 		var chunkIds = data[0];
@@ -102,11 +104,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/wkiwi-swipe-action":1,"components/emptyview":1,"components/left-message":1,"components/right-message":1,"components/send-message":1,"components/button":1,"components/image-upload":1,"components/avator-group":1};
+/******/ 		var cssChunks = {"components/wkiwi-swipe-action":1,"components/emptyview":1,"components/button":1,"components/image-upload":1,"components/avator-group":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/wkiwi-swipe-action":"components/wkiwi-swipe-action","components/userinfo":"components/userinfo","components/emptyview":"components/emptyview","components/left-message":"components/left-message","components/right-message":"components/right-message","components/send-message":"components/send-message","components/button":"components/button","components/image-upload":"components/image-upload","components/avator-group":"components/avator-group"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/wkiwi-swipe-action":"components/wkiwi-swipe-action","components/emptyview":"components/emptyview","components/button":"components/button","components/image-upload":"components/image-upload","components/avator-group":"components/avator-group"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
@@ -263,3 +265,4 @@
 /************************************************************************/
 /******/ ([]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/runtime.js.map
+  
