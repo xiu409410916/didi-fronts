@@ -58,6 +58,11 @@
 						<view class="right"><image src="../../static/you.png"></image></view>
 						<navigator></navigator>
 					</view>
+					<view class="vi" @click="toMyQrCode">
+						<view class="left"><image src="../../static/qrcode.png"></image>我的二维码</view>
+						<view class="right"><image src="../../static/you.png"></image></view>
+						<navigator></navigator>
+					</view>
 				</view>
 			</view>
 		</view>
@@ -152,6 +157,11 @@
 				uni.navigateTo({
 					url:'/pages/my/didiDetail'
 				})	
+			},
+			toMyQrCode:function(){
+				uni.navigateTo({
+					url:'/pages/my/userQrCode'
+				})
 			}
 		}
 	}
@@ -253,7 +263,7 @@
 					width: 35upx;
 					height: 35upx;
 					vertical-align: middle;
-					margin: 0 10upx 4upx 0;
+					margin: -1rpx 10upx 4upx 0;
 				}
 			}
 			.right {

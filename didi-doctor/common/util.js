@@ -99,7 +99,7 @@ function request(param){
     title: '加载中'
     });
 	uni.request({
-		url: serverUrl + param.url,
+		url:  param.url.startsWith('http') ? param.url : serverUrl + param.url,
 		data: param.contentType?param.param:JSON.stringify(param.param),
 		method:'POST',
 		header: {
