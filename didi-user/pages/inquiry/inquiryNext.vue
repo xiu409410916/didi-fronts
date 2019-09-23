@@ -113,6 +113,30 @@
 			},
 			submit:function(){
 				let that = this;
+				if(!that.$util.isEmpty(that.temp.realName)){
+					uni.showToast({
+						title: '请输入真实姓名',
+						icon:'none',
+						duration: 2000
+					});
+					return;
+				}
+				if(!that.$util.isEmpty(that.temp.idCard)){
+					uni.showToast({
+						title: '请输入身份证号',
+						icon:'none',
+						duration: 2000
+					});
+					return;
+				}
+				if(!that.$util.isEmpty(that.temp.gender)){
+					uni.showToast({
+						title: '请选择性别',
+						icon:'none',
+						duration: 2000
+					});
+					return;
+				}
 				that.$util.request({
 					url: "/didi-patient/inquiryinfo/add" ,
 					param: that.temp,

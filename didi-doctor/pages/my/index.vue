@@ -31,30 +31,30 @@
 				
 				<view class="con">
 					<view class="vi" @click="setPassword" v-if="!isSetPassword">
-						<view class="left"><image src="../../static/logo.png"></image>设置支付密码</view>
+						<view class="left"><image src="../../static/password.png"></image>设置支付密码</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 					</view>
-					<view class="vi" @click="toUserAmount">
-						<view class="left"><image src="../../static/logo.png"></image>我的余额</view>
+					<view class="vi" @click="toUserAmount" v-if="doctorInfo.amount > 0">
+						<view class="left"><image src="../../static/amount.png"></image>我的余额</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 					</view>
 					<view class="vi" @click="toBankInfo">
-						<view class="left"><image src="../../static/logo.png"></image>我的银行卡</view>
+						<view class="left"><image src="../../static/bank.png"></image>我的银行卡</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 						<navigator></navigator>
 					</view>
 					<view class="vi" @click="toMyRecept">
-						<view class="left"><image src="../../static/logo.png"></image>我的接单</view>
+						<view class="left"><image src="../../static/inquiry.png"></image>我的接单</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 						<navigator></navigator>
 					</view>
 					<view class="vi" @click="toAgent">
-						<view class="left"><image src="../../static/logo.png"></image>成为代理商</view>
+						<view class="left"><image src="../../static/agent.png"></image>成为代理商</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 						<navigator></navigator>
 					</view>
-					<view class="vi" @click="toMy">
-						<view class="left"><image src="../../static/logo.png"></image>关于我们</view>
+					<view class="vi" @click="toDidiDetail">
+						<view class="left"><image src="../../static/about.png"></image>关于我们</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 						<navigator></navigator>
 					</view>
@@ -143,8 +143,15 @@
 			toAgent:function(){
 				let that = this;
 				if(that.$util.isPerfectInfo()){
-			
+					uni.navigateTo({
+						url:'/pages/my/userAgent'
+					})	
 				}
+			},
+			toDidiDetail:function(){
+				uni.navigateTo({
+					url:'/pages/my/didiDetail'
+				})	
 			}
 		}
 	}

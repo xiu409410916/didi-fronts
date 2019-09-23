@@ -301,7 +301,7 @@ function isPerfectInfo(){
 	}
 	if(doctor.states != 1){
 		uni.showToast({
-			title: '资料还在审核，请耐心等待',
+			title: '资料还在审核',
 			icon: 'success',
 			duration: 2000
 		})

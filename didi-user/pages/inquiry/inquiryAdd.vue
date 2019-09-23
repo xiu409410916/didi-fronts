@@ -2,10 +2,10 @@
 	<view class="content">
 		<form>
 			<view class="text">
-				<textarea v-model="temp.detail" placeholder="请描述你的性别，年龄，症状，就诊经历，我们会保证你的隐私权..." />
+				<textarea v-model="temp.detail" placeholder="请描述你的性别，年龄，症状，就诊经历，我们会保证你的隐私权...(10-500个字)" />
 			</view>
 			<view class="nli">
-				<label>病情</label>
+				<label>病情图片(上传的附件仅为解答的医生可见)</label>
 				<image-upload @click="getAvatarUrl" :picUrls="temp.url"></image-upload>
 				<image-upload @click="getAvatarUrl" :picUrls="temp.url"></image-upload>
 				<image-upload @click="getAvatarUrl" :picUrls="temp.url"></image-upload>
@@ -47,6 +47,14 @@
 				if(!that.$util.isEmpty(that.temp.detail)){
 					uni.showToast({
 						title: '请输入病情描述',
+						icon:'none',
+						duration: 2000
+					});
+					return;
+				}
+				if(that.temp.detail.length < 10 || that.temp.detail.length > 500){
+					uni.showToast({
+						title: '请输入10-500个字符',
 						icon:'none',
 						duration: 2000
 					});

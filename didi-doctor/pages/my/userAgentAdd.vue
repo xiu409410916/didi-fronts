@@ -2,12 +2,14 @@
 	<view class="content">
 		<form>
 			<view class="li">
-				<label>可退时间(分钟)</label>
-				<input class="inp" disabled="true" v-model="time" />
+				<label>银行名称</label>
+				<picker class="inp" @change="bindBankChange" :value="bankIndex" :range="bankList" range-key="bankName">
+					<input placeholder="请选择" disabled="true" :value="bankList[bankIndex].bankName" />
+				</picker>
 			</view>
 			<view class="li">
-				<label>退款时间(分钟)</label>
-				<input class="inp" v-model="temp.time" />
+				<label>银行账号</label>
+				<input class="inp" disabled="true" v-model="bankList[bankIndex].bankAccount" />
 			</view>
 			<view class="savebox">
 				<page-button :height="40" :width="300" @click="submit" name="提交"></page-button>
@@ -27,25 +29,56 @@
 		data() {
 			return {
 				temp:{
-					time:''
+					bankName:"",
+					bankAccount:"",
+					bankCode:""
 				},
-				time:0,
+				bankList:[{"bankName":"","bankAccount":"","bankCode":""}],
+				bankIndex: null
 			}
 		},
 		onLoad(options) {
-			this.time = options.time;
+			// this.getBankList();
+			this.bankList = JSON.parse(options.bankList);
 		},
 		methods: {
+			// getBankList:function(){
+			// 	let that = this;
+			// 	that.$util.request({
+			// 		url: "/didi-doctor/doctorbankinfo/findList",
+			// 		param: {},
+			// 		contentType: 'application/x-www-form-urlencoded',
+			// 		success: function(res) {
+			// 			console.log(res.data);
+			// 			that.bankList = res.data;
+			// 		},
+			// 		error: function() {}
+			// 	})
+			// },
+			bindBankChange: function(e) {
+				let that = this;
+				that.bankIndex = e.target.value;
+				that.temp.bankName = that.bankList[that.bankIndex].bankName;
+				that.temp.bankAccount = that.bankList[that.bankIndex].bankAccount;
+				that.temp.bankCode = that.bankList[that.bankIndex].bankCode;
+			},
 			submit: function() {
 				let that = this;
+				if (that.typeIndex == '1' && !that.$util.isEmpty(that.temp.bankName) ) {
+					uni.showToast({
+						title: '请选择银行',
+						icon: 'none',
+						duration: 2000
+					});
+					return;
+				}
 				that.$util.request({
-					url: "/didi-patient/patientrefundinfo/wxRefund",
+					url: "/didi-doctor/agentinfo/applyToAgent",
 					param: that.temp,
 					contentType: 'application/x-www-form-urlencoded',
 					success: function(res) {
-						uni.setStorageSync('patientInfo', res.data);
 						uni.showToast({
-							title: '退款成功',
+							title: '申请成功',
 							icon: 'success',
 							duration: 2000
 						})
