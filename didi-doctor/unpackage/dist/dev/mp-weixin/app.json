@@ -9,7 +9,12 @@
     "pages/my/userBankAdd",
     "pages/my/userAmount",
     "pages/my/userWithdraw",
-    "pages/message_info/message_info"
+    "pages/message_info/message_info",
+    "pages/inquiry/inquiryDetail",
+    "pages/my/userRecept",
+    "pages/my/userAgent",
+    "pages/my/userAgentAdd",
+    "pages/my/didiDetail"
   ],
   "subPackages": [],
   "window": {

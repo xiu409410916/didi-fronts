@@ -24,42 +24,42 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-79197225 {
+.content.data-v-6ebdd2e5 {
   width: 100%;
   position: relative;
 }
-.content .bg.data-v-79197225 {
+.content .bg.data-v-6ebdd2e5 {
     width: 100%;
     height: 220rpx;
     display: block;
     background: #00C694;
 }
-.content .content-view.data-v-79197225 {
+.content .content-view.data-v-6ebdd2e5 {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
 }
-.content .content-view .box-view.data-v-79197225 {
+.content .content-view .box-view.data-v-6ebdd2e5 {
       width: 92%;
       margin: 0 auto;
 }
-.meHead.data-v-79197225 {
+.meHead.data-v-6ebdd2e5 {
   overflow: hidden;
   position: relative;
 }
-.meHead .meHeadAvatar.data-v-79197225 {
+.meHead .meHeadAvatar.data-v-6ebdd2e5 {
     float: left;
     width: 19%;
     margin-top: 10rpx;
 }
-.meHead .meHeadAvatar image.data-v-79197225 {
+.meHead .meHeadAvatar image.data-v-6ebdd2e5 {
       width: 110rpx;
       height: 110rpx;
       display: block;
       border-radius: 50%;
 }
-.meHead .meHeadName.data-v-79197225 {
+.meHead .meHeadName.data-v-6ebdd2e5 {
     float: left;
     width: 81%;
     line-height: 120rpx;
@@ -70,13 +70,13 @@
        text-overflow: ellipsis;
     white-space: nowrap;
 }
-.meOverBg.data-v-79197225 {
+.meOverBg.data-v-6ebdd2e5 {
   background: #FFFFFF;
   overflow: hidden;
   border-radius: 12rpx;
   margin-top: 30rpx;
 }
-.meOverBg .meVisitor.data-v-79197225 {
+.meOverBg .meVisitor.data-v-6ebdd2e5 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -87,30 +87,30 @@
         -ms-flex-direction: row;
             flex-direction: row;
 }
-.meOverBg .meVisitor .meVisitorLt.data-v-79197225 {
+.meOverBg .meVisitor .meVisitorLt.data-v-6ebdd2e5 {
       width: 50%;
       text-align: center;
       margin: 30rpx 0;
 }
-.meOverBg .meVisitor .meVisitorLt.data-v-79197225:nth-child(1) {
+.meOverBg .meVisitor .meVisitorLt.data-v-6ebdd2e5:nth-child(1) {
         border-left: 1px #F5F5F5 solid;
         border-right: 1px #F5F5F5 solid;
 }
-.meOverBg .meVisitor .meVisitorLt .meVisitorTxt_01.data-v-79197225 {
+.meOverBg .meVisitor .meVisitorLt .meVisitorTxt_01.data-v-6ebdd2e5 {
         font-size: 28rpx;
         color: #666666;
 }
-.meOverBg .meVisitor .meVisitorLt .meVisitorTxt_02.data-v-79197225 {
+.meOverBg .meVisitor .meVisitorLt .meVisitorTxt_02.data-v-6ebdd2e5 {
         font-size: 30rpx;
         color: #3B7ED5;
 }
-.con.data-v-79197225 {
+.con.data-v-6ebdd2e5 {
   background: #FFFFFF;
   overflow: hidden;
   border-radius: 12rpx;
   margin-top: 30rpx;
 }
-.con .vi.data-v-79197225 {
+.con .vi.data-v-6ebdd2e5 {
     overflow: hidden;
     padding: 30rpx;
     border-bottom: 1px #F5F5F5 solid;
@@ -118,29 +118,29 @@
     -o-transition: all 0.4s;
     transition: all 0.4s;
 }
-.con .vi.data-v-79197225:active {
+.con .vi.data-v-6ebdd2e5:active {
       background: #E2E2E2;
 }
-.con .vi.data-v-79197225:last-child {
+.con .vi.data-v-6ebdd2e5:last-child {
       border-bottom: none;
 }
-.con .vi .left.data-v-79197225 {
+.con .vi .left.data-v-6ebdd2e5 {
       float: left;
       font-size: 28rpx;
       color: #333333;
 }
-.con .vi .left image.data-v-79197225 {
+.con .vi .left image.data-v-6ebdd2e5 {
         width: 35rpx;
         height: 35rpx;
         vertical-align: middle;
         margin: 0 10rpx 4rpx 0;
 }
-.con .vi .right.data-v-79197225 {
+.con .vi .right.data-v-6ebdd2e5 {
       float: right;
       font-size: 28rpx;
       color: #333333;
 }
-.con .vi .right image.data-v-79197225 {
+.con .vi .right image.data-v-6ebdd2e5 {
         width: 20rpx;
         height: 20rpx;
         vertical-align: middle;
