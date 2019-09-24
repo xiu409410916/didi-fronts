@@ -1,13 +1,15 @@
 <script>
 	export default {
-		onLaunch: function () {
+		onLaunch: function (query) {
+			const scene = decodeURIComponent(query.scene)
 			console.log('App Launch')
+			console.log(scene);
 			let that=this;
 			uni.login({
 				provider: 'weixin',
 				success: function(res) {
 					const code = res.code;
-					that.loginByCode(code)
+					that.loginByCode(code,scene)
 				}
 			})
 		},
@@ -19,10 +21,11 @@
 			console.log('App Hide')
 		},
 		methods: {
-			loginByCode(code) {
+			loginByCode(code,scene) {
 				let that = this;
 				const param = {}
-				param.code = code
+				param.code = code;
+				param.scene = scene;
 				that.$util.request({
 					url: "/didi-patient/ex/login_by_weixin",
 					param: param,

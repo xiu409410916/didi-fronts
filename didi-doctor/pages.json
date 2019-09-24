@@ -87,13 +87,7 @@
             "style" : {
             	"navigationBarTitleText":"关于滴滴答答"
             }
-        },
-		{
-		    "path" : "pages/my/userQrCode",
-		    "style" : {
-		    	"navigationBarTitleText":"我的二维码"
-		    }
-		}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
