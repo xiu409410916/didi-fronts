@@ -11,9 +11,13 @@
     "pages/my/userInquiry",
     "pages/my/inquiryDetail",
     "pages/my/userRefund",
+<<<<<<< HEAD
     "pages/my/commentDoctor",
     "pages/my/didiDetail",
     "pages/my/userQrCode"
+=======
+    "pages/my/commentDoctor"
+>>>>>>> ad02e4328bc54cbc3239a2c278f675f36c7100c9
   ],
   "subPackages": [],
   "window": {
@@ -48,5 +52,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap69.json"
 }
