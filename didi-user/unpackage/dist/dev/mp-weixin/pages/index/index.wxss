@@ -97,7 +97,7 @@
   float: right;
   font-size: 28rpx;
   color: #333333;
-  margin-top: 40rpx;
+  margin-top: 60rpx;
 }
 .right image {
     width: 20rpx;

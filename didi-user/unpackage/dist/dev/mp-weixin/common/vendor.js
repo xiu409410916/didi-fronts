@@ -512,6 +512,40 @@ createPage(_message_info.default);
 
 /***/ }),
 
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2FcommentDoctor\"}":
+/*!********************************************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2FcommentDoctor"} ***!
+  \********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _commentDoctor = _interopRequireDefault(__webpack_require__(/*! ./pages/my/commentDoctor.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/my/commentDoctor.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_commentDoctor.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2FdidiDetail\"}":
+/*!*****************************************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2FdidiDetail"} ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _didiDetail = _interopRequireDefault(__webpack_require__(/*! ./pages/my/didiDetail.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/my/didiDetail.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_didiDetail.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
 /***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2Findex\"}":
 /*!************************************************************************************************************!*\
   !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2Findex"} ***!
@@ -529,6 +563,23 @@ createPage(_index.default);
 
 /***/ }),
 
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2FinquiryDetail\"}":
+/*!********************************************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2FinquiryDetail"} ***!
+  \********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _inquiryDetail = _interopRequireDefault(__webpack_require__(/*! ./pages/my/inquiryDetail.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/my/inquiryDetail.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_inquiryDetail.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
 /***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2FuserInquiry\"}":
 /*!******************************************************************************************************************!*\
   !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2FuserInquiry"} ***!
@@ -542,6 +593,40 @@ createPage(_index.default);
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
 var _userInquiry = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userInquiry.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/my/userInquiry.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_userInquiry.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2FuserQrCode\"}":
+/*!*****************************************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2FuserQrCode"} ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _userQrCode = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userQrCode.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/my/userQrCode.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userQrCode.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2FuserRefund\"}":
+/*!*****************************************************************************************************************!*\
+  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2FuserRefund"} ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _userRefund = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userRefund.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/my/userRefund.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userRefund.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
 
 /***/ }),

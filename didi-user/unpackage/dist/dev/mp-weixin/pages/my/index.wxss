@@ -63,12 +63,22 @@
     float: left;
     width: 81%;
     line-height: 120rpx;
-    color: #FFFFFF;
-    font-size: 28rpx;
     overflow: hidden;
     -o-text-overflow: ellipsis;
        text-overflow: ellipsis;
     white-space: nowrap;
+}
+.meHead .meHeadName button.data-v-68ded579 {
+      margin: 0rpx;
+      padding: 0rpx;
+      background-color: #00C694;
+      display: inline;
+      color: #FFFFFF;
+      font-size: 28rpx;
+      width: 100rpx;
+}
+.meHead .meHeadName button.data-v-68ded579::after {
+      border: none;
 }
 .meOverBg.data-v-68ded579 {
   background: #FFFFFF;
@@ -144,6 +154,6 @@
         width: 20rpx;
         height: 20rpx;
         vertical-align: middle;
-        margin: 0 0 4rpx 10rpx;
+        margin: 5 0 4rpx 10rpx;
 }
 

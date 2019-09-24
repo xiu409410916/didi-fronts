@@ -98,69 +98,83 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var UserInfo = function UserInfo() {return __webpack_require__.e(/*! import() | components/userinfo */ "components/userinfo").then(__webpack_require__.bind(null, /*! ../../components/userinfo.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/components/userinfo.vue"));};var _default =
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default =
 
 
 {
-  components: {
-    UserInfo: UserInfo },
+  components: {},
+
 
 
   data: function data() {
     return {
-      doctorInfo: {
+      patientInfo: {
         avatarUrl: '../../static/avatar.png',
-        doctorName: '点击登录',
-        amount: 0 } };
+        nickName: '点击登录',
+        time: 0,
+        patientId: '',
+        mobile: '' } };
 
 
+  },
+  onLoad: function onLoad() {
+    var that = this;
+    var info = uni.getStorageSync("patientInfo");
+    if (that.$util.isEmpty(info.avatarUrl)) {
+      that.patientInfo = info;
+    }
+    that.patientInfo.patientId = info.patientId;
   },
   onShow: function onShow() {
     uni.setNavigationBarColor({
@@ -168,7 +182,6 @@ __webpack_require__.r(__webpack_exports__);
       backgroundColor: '#00C694' });
 
 
-    // this.doctorInfo = uni.getStorageSync("doctorInfo");
   },
   methods: {
     toMyTime: function toMyTime() {
@@ -179,6 +192,66 @@ __webpack_require__.r(__webpack_exports__);
     toMyInquiry: function toMyInquiry() {
       uni.navigateTo({
         url: '/pages/my/userInquiry' });
+
+    },
+    wxGetUserInfo: function wxGetUserInfo(res) {
+      console.log('-------');
+      var that = this;
+      if (!res.detail.iv) {
+        uni.showToast({
+          title: "您取消了授权,登录失败",
+          icon: "none" });
+
+        return false;
+      }
+      var uerInfo = res.detail.userInfo;
+      that.modifyInfoByOpenId(uerInfo.avatarUrl, uerInfo.nickName);
+    },
+    //POST 
+    modifyInfoByOpenId: function modifyInfoByOpenId(avatarUrl, nickName) {
+      var that = this;
+      var temp = {};
+      temp.patientId = that.patientInfo.patientId;
+      temp.avatarUrl = avatarUrl;
+      temp.nickName = nickName;
+      that.$util.request({
+        url: "/didi-patient/patientinfo/modifyUserInfo",
+        param: temp,
+        success: function success(res) {
+          that.patientInfo = res.data;
+          uni.setStorageSync('patientInfo', res.data);
+        },
+        error: function error() {} });
+
+    },
+    getPhoneNumber: function getPhoneNumber(e) {
+      if (e.target.errMsg == 'getPhoneNumber:ok') {
+        this.createUserByWechatTelephone(e.target.encryptedData, e.target.iv);
+      } else {
+        uni.navigateTo({
+          url: '../../login/login' });
+
+      }
+    },
+    //微信手机号码创建用户
+    createUserByWechatTelephone: function createUserByWechatTelephone(encryptedData, iv) {
+      var that = this;
+      var params = {};
+      params.encryptedData = encryptedData;
+      params.iv = iv;
+      that.$util.request({
+        url: "/didi-patient/patientinfo/modifyMobileInfo",
+        param: params,
+        success: function success(res) {
+          that.patientInfo = res.data;
+          uni.setStorageSync('patientInfo', res.data);
+        },
+        error: function error() {} });
+
+    },
+    toDidiDetail: function toDidiDetail() {
+      uni.navigateTo({
+        url: '/pages/my/didiDetail' });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))

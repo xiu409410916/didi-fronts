@@ -81,14 +81,16 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 {
-  onLaunch: function onLaunch() {
+  onLaunch: function onLaunch(query) {
+    var scene = decodeURIComponent(query.scene);
     console.log('App Launch');
+    console.log(scene);
     var that = this;
     uni.login({
       provider: 'weixin',
       success: function success(res) {
         var code = res.code;
-        that.loginByCode(code);
+        that.loginByCode(code, scene);
       } });
 
   },
@@ -100,10 +102,11 @@ __webpack_require__.r(__webpack_exports__);
     console.log('App Hide');
   },
   methods: {
-    loginByCode: function loginByCode(code) {
+    loginByCode: function loginByCode(code, scene) {
       var that = this;
       var param = {};
       param.code = code;
+      param.scene = scene;
       that.$util.request({
         url: "/didi-patient/ex/login_by_weixin",
         param: param,

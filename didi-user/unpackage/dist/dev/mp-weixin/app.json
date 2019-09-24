@@ -8,7 +8,12 @@
     "pages/time/timeBuy",
     "pages/inquiry/inquiryAdd",
     "pages/inquiry/inquiryNext",
-    "pages/my/userInquiry"
+    "pages/my/userInquiry",
+    "pages/my/inquiryDetail",
+    "pages/my/userRefund",
+    "pages/my/commentDoctor",
+    "pages/my/didiDetail",
+    "pages/my/userQrCode"
   ],
   "subPackages": [],
   "window": {
