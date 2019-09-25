@@ -68,6 +68,7 @@
 				param.pageNum = that.page;
 				param.pageSize = that.size;
 				param.states = 0;
+				param.payStates = 1;
 				that.$util.request({
 					url: "/didi-doctor/inquiryinfo/queryPage",
 					param: param,
