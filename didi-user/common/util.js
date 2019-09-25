@@ -252,7 +252,7 @@ function otime(str) {
 
 //判断值是否有效
 function isEmpty(value) {
-	if (value == "" || value == 0 || value == null || value == undefined) {
+	if (value == "" || value == null || value == undefined) {
 		return false
 	}
 	return true

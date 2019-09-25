@@ -7,6 +7,8 @@
 			</view>
 			<view class="li">
 				<image :src="picUrls[0]"></image>
+				<image :src="picUrls[1]"></image>
+				<image :src="picUrls[2]"></image>
 			</view>
 			<view class="li">
 				<label>患者姓名</label>
@@ -37,6 +39,7 @@
 				<textarea v-model="temp.introduction" auto-height="true" />
 			</view>
 			<view class="savebox">
+				<page-button v-if="temp.payStates != 1 && temp.states == 0" :height="40" :width="100" @click="payInquiry" name="立即支付"></page-button>
 				<page-button v-if="temp.states == 0" :height="40" :width="100" @click="cancelInquiry" name="取消问诊"></page-button>
 				<page-button v-if="temp.states == 3" :height="40" :width="100" @click="commentDoctor" name="评价医生"></page-button>
 			</view>
@@ -73,7 +76,8 @@
 					doctorName:'',
 					introduction:'',
 					receptId:'',
-					de:''
+					de:'',
+					payStates:''
 				},
 				picUrls:[]
 			}
@@ -119,6 +123,43 @@
 							duration: 2000
 						})
 						that.getInquiryDetail();
+					},
+					error: function() {}
+				})
+			},
+			payInquiry:function(){
+				let that = this;
+				var temp = {};
+				temp.inquiryId = that.temp.inquiryId;
+				that.$util.request({
+					url: "/didi-patient/patientpayinfo/unifiedOrder",
+					param: temp,
+					contentType: 'application/x-www-form-urlencoded',
+					success: function(res) {
+						var data = res.data;
+						 //调用微信支付
+						uni.requestPayment({
+						  'appId': data.appId,
+						  'timeStamp': data.timeStamp,
+						  'nonceStr': data.nonceStr,
+						  'package': data.package,
+						  'signType': data.signType,
+						  'paySign': data.paySign,
+						  'success': function (res) {
+						    util.showSuccessToast("支付成功");
+						    setTimeout(function () {
+								uni.navigateBack({
+									delta:1
+								})
+						    }, 1000);
+						  },
+						  'fail': function (res) {
+						    uni.showToast({
+						      title: res.message,
+						      icon: 'none'
+						    })
+						  }
+						})
 					},
 					error: function() {}
 				})

@@ -4,7 +4,7 @@
 		globalData: {
 			socket:''
 		},
-		onLaunch: function() {
+		onLaunch: function(query) {
 			const scene = decodeURIComponent(query.scene)
 			console.log('App Launch')
 			console.log(scene);
@@ -118,5 +118,5 @@
 <style lang="scss">
 	/*每个页面公共css */
 	@import './common/uni.css';
-	@import "/static/iconfont/font.scss";
+	@import "./static/iconfont/font.scss";
 </style>

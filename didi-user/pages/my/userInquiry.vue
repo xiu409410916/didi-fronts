@@ -6,7 +6,8 @@
 					 <image :src="item.picUrl"></image>
 				</view>
 				<view class="right">
-					<label style="color: red">{{statesDetail[item.states]}}</label>
+					<label style="color: red" v-if="item.payStates == 1 || item.states == 4">{{statesDetail[item.states]}}</label>
+					<label style="color: red" v-else>待支付</label>
 					<label>{{item.createTime}}</label>
 					<text>{{item.detail}}</text>
 				</view>
@@ -116,6 +117,7 @@
 
 			.right {
 				// margin-right: 40upx;
+				width:70%;
 				color: #fb5b67;
 				font-size: $uni-font-size-lg;
 				display: flex;

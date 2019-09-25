@@ -16,7 +16,7 @@
 		
 		<!--内容1-->
 		<view class="contBg">
-			<view class="contOver">
+			<!-- <view class="contOver">
 				<view class="idxMainBox" @click="toTimeBuy">
 					<view class="contRtImg"><image src="../../static/banner.jpg"></image></view>
 					<view class="contOverLt">
@@ -26,7 +26,7 @@
 					<view class="right"><image src="../../static/you.png"></image></view>
 				</view>
 				
-			</view>
+			</view> -->
 			<view class="contOver">
 				<view class="idxMainBox" @click="toInquiryAdd">
 					<view class="contRtImg"><image src="../../static/banner.jpg"></image></view>

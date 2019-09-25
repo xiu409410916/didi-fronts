@@ -74,7 +74,7 @@
 				})
 			},
 			getAvatarUrl:function(v){
-				this.temp.picUrl = this.temp.picUrl + v[0] + ";";
+				this.temp.picUrl = this.temp.picUrl + v[0] + ",";
 			}
 		}
 	}
@@ -85,18 +85,7 @@
 		width: 100%;
 		background: $uni-text-color-inverse;
 		margin-top: 20upx;
-		
-		
-		.text {
-			align-items: left;
-			margin-left: 33px;
-			margin-right: 33rpx;
-		}
-		.text textarea{
-			width: 100%;
-			height: 250rpx;
-		}
-		
+
 		.nli {
 			min-height: 270upx;
 			width: calc(100%-33px);
@@ -105,20 +94,29 @@
 			flex-direction: column;
 			justify-content: flex-start;
 			margin-top: 30upx;
-		
+	
 			label {
 				display: block;
 				width: 100%;
 				color: $uni-text-color-qh;
 			}
 		}
-		
+	
 		.savebox {
 			display: flex;
 			justify-content: center;
 			padding: 50upx 0 30upx;
 		}
-		
-		
+	
+		.text {
+			align-items: left;
+			margin-left: 33px;
+			margin-right: 33rpx;
+		}
+	
+		.text textarea {
+			width: 100%;
+			height: 250rpx;
+		}
 	}
 </style>

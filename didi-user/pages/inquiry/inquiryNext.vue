@@ -47,6 +47,13 @@
 					<radio value="1" />正常</label>
 				</radio-group>
 			</view>
+			<view class="li">
+				<label>付款方式</label>
+				<radio-group @change="payTypeChang">
+					<radio value="0" />20元1小时</label>
+					<radio value="1" />30元两小时</label>
+				</radio-group>
+			</view>
 			<view class="text">
 				<label>过往病史</label>
 				<textarea placeholder="请输入过往病史..." v-model="temp.medicalHistory" />
@@ -80,7 +87,8 @@
 					conceive:'',
 					liver:'',
 					kidney:'',
-					medicalHistory:''
+					medicalHistory:'',
+					payType:''
 				},
 				conceive:[{"key":"-1","value":"请选择"},{"key":"0","value":"无备孕计划"},{"key":"1","value":"备孕中"},{"key":"2","value":"怀孕中"},{"key":"3","value":"哺乳期"}],
 				index:-1
@@ -111,6 +119,9 @@
 				that.index = e.target.value;
 				that.temp.conceive = that.conceive[that.index].key;
 			},
+			payTypeChang:function(e){
+				this.temp.payType = e.target.value;
+			},
 			submit:function(){
 				let that = this;
 				if(!that.$util.isEmpty(that.temp.realName)){
@@ -137,26 +148,82 @@
 					});
 					return;
 				}
+				if(!that.$util.isEmpty(that.temp.payType)){
+					uni.showToast({
+						title: '请选择支付方式',
+						icon:'none',
+						duration: 2000
+					});
+					return;
+				}
 				that.$util.request({
 					url: "/didi-patient/inquiryinfo/add" ,
 					param: that.temp,
 					contentType: 'application/x-www-form-urlencoded',
 					success: function(res) {
-						setTimeout(function() {
-							uni.redirectTo({
-								url:'/pages/index/index'
-							})
-						}, 1000);
-						uni.showToast({
-							title: '发布成功',
-							icon: 'success',
-							duration: 2000
-						})
-						
+						that.payInquiry(res.data.inquiryId);
 					},
 					error: function() {}
 				})
+			},
+			
+			payInquiry:function(inquiryId){
+				let that = this;
+				var temp = {};
+				temp.inquiryId = inquiryId;
+				that.$util.request({
+					url: "/didi-patient/patientpayinfo/unifiedOrder",
+					param: temp,
+					contentType: 'application/x-www-form-urlencoded',
+					success: function(res) {
+						var data = res.data;
+						 //调用微信支付
+						uni.requestPayment({
+						  'appId': data.appId,
+						  'timeStamp': data.timeStamp,
+						  'nonceStr': data.nonceStr,
+						  'package': data.package,
+						  'signType': data.signType,
+						  'paySign': data.paySign,
+						  'success': function (res) {
+						    uni.showToast({
+						    	title: '下单成功',
+						    	icon:'none',
+						    	duration: 2000
+						    });
+							setTimeout(function () {
+								uni.navigateTo({
+									url:'/pages/my/index'
+								})
+							}, 1000);
+						  },
+						  'fail': function (res) {
+							setTimeout(function () {
+								uni.navigateTo({
+									url:'/pages/my/index'
+								})
+							}, 1000); 
+							  
+						    uni.showToast({
+						      title: res.message,
+						      icon: 'none'
+						    })
+							
+						  }
+						})
+						
+					},
+					error: function() {
+						setTimeout(function () {
+							uni.navigateTo({
+								url:'/pages/my/index'
+							})
+						}, 1000);
+					}
+				})
 			}
+			
+			
 		}
 	}
 </script>
@@ -166,8 +233,7 @@
 		width: 100%;
 		background: $uni-text-color-inverse;
 		margin-top: 20upx;
-		
-		
+	
 		.li {
 			width: calc(100%-33px);
 			margin-left: 33px;
@@ -176,12 +242,12 @@
 			flex-flow: row nowrap;
 			justify-content: space-between;
 			align-items: center;
-		
+	
 			label {
 				width: 20%;
 				color: $uni-text-color-qh;
 			}
-		
+	
 			.inp {
 				height: 100%;
 				width: 80%;
@@ -190,42 +256,49 @@
 				flex-flow: row nowrap;
 				justify-content: flex-start;
 				align-items: center;
-		
+	
 				.nla {
 					width: 20%;
 					display: flex;
 					flex-flow: row nowrap;
 					justify-content: flex-start;
 					align-items: center;
-		
+	
 					.name {
 						color: $uni-text-color-grey;
 						font-size: $uni-font-size-sm;
 					}
 				}
 			}
-		
+	
 			.nobottom {
 				border-bottom: 0;
 			}
 		}
-		
-		
-		.text {
-			align-items: left;
-			margin-left: 33px;
-			margin-right: 33rpx;
-		}
-		.text textarea{
-			width: 100%;
-			height: 350rpx;
-		}
-		
+
+	
 		.savebox {
 			display: flex;
 			justify-content: center;
 			padding: 50upx 0 30upx;
 		}
+	
+		.text {
+			align-items: left;
+			margin-left: 33px;
+			margin-right: 33rpx;
+		}
+	
+		.text textarea {
+			width: 100%;
+			height: 250rpx;
+		}
 		
 	}
+	
+	
+	
+	
+	
+	
 </style>

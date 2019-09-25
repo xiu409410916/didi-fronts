@@ -7,12 +7,18 @@
 				<!--头部-->
 				<view class="meHead">
 					<view class="meHeadAvatar"><image :src="patientInfo.avatarUrl" mode="aspectFill"></image></view>
-					<view class="meHeadName"><button open-type="getUserInfo" @getuserinfo="wxGetUserInfo" withCredentials="true">{{ patientInfo.nickName }}</button></view>
+					<view class="meHeadName">
+						<button open-type="getUserInfo" @getuserinfo="wxGetUserInfo" withCredentials="true">{{ patientInfo.nickName }}</button>
+					</view>
+					<view class="meHeadName">
+						<button plain="true" open-type="getPhoneNumber" @getphonenumber="getPhoneNumber">{{patientInfo.mobile}}</button>
+					</view>
+					
 				</view>
 				<!--头部-->
 				
 				<!--模板-->
-				<view class="meOverBg">
+				<!-- <view class="meOverBg">
 					<view class="meVisitor">
 						<view class="meVisitorLt">
 							<view class="meVisitorTxt_02">剩余时间</view>
@@ -23,7 +29,7 @@
 							<button v-else class="meVisitorTxt_02" plain="true" open-type="getPhoneNumber" @getphonenumber="getPhoneNumber">获取手机号</button>
 						</view>
 					</view>
-				</view>
+				</view> -->
 				<!--模板-->
 				
 				<view class="con">
@@ -31,11 +37,11 @@
 						<view class="left"><image src="../../static/inquiry.png"></image>我的问诊</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 					</view>
-					<view class="vi" @click="toMyTime">
+					<!-- <view class="vi" @click="toMyTime">
 						<view class="left"><image src="../../static/time.png"></image>我的时长</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
-						<!-- <navigator></navigator> -->
-					</view>
+						 <navigator></navigator> 
+					</view> -->
 					<view class="vi" @click="toDidiDetail">
 						<view class="left"><image src="../../static/about.png"></image>关于我们</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
@@ -64,7 +70,7 @@
 					nickName:'点击登录',
 					time:0,
 					patientId:'',
-					mobile:''
+					mobile:"获取手机号"
 				}
 			}
 		},
@@ -165,7 +171,7 @@
 		position: relative;
 		.bg {
 			width: 100%;
-			height: 220upx;
+			height: 150upx;
 			display: block;
 			background: #00C694;
 		}
@@ -186,7 +192,7 @@
 		position: relative; 
 		.meHeadAvatar{ 
 			float: left;
-			width: 19%;
+			width: 20%;
 			margin-top: 10upx; 
 			image{ 
 				width: 110upx;
@@ -197,7 +203,7 @@
 		}
 		.meHeadName{ 
 			float: left;
-			width: 81%;
+			width: 30%;
 			line-height: 120upx;
 			
 			overflow:hidden;
@@ -249,7 +255,7 @@
 		background: #FFFFFF;
 		overflow: hidden;
 		border-radius: 12upx;
-		margin-top: 30upx;
+		margin-top: 80upx;
 		.vi{
 			overflow: hidden;
 			padding: 30upx;
