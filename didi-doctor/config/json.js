@@ -77,8 +77,17 @@ const bankList = [{
   }
 ]
 
+const allergic=['无','有']
+
+const conceive=['无备孕计划','备孕中','怀孕中','哺乳期']
+
+const liver=['异常','正常']
+
 
 module.exports = {
 	sexs,
-	bankList
+	bankList,
+	allergic,
+	conceive,
+	liver
 }

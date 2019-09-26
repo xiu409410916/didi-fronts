@@ -117,7 +117,7 @@
 			}
 
 			.right {
-				// margin-right: 40upx;
+				margin-right: 40upx;
 				color: #fb5b67;
 				font-size: $uni-font-size-lg;
 				display: flex;

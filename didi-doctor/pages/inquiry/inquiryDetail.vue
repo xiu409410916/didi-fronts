@@ -7,6 +7,8 @@
 			</view>
 			<view class="li">
 				<image :src="picUrls[0]"></image>
+				<image :src="picUrls[1]"></image>
+				<image :src="picUrls[2]"></image>
 			</view>
 			<view class="li">
 				<label>患者姓名</label>
@@ -22,11 +24,11 @@
 			</view>
 			<view class="li">
 				<label>介绍</label>
-				<input class="inp" v-model="temp.de" disabled="true" />
+				<textarea v-model="temp.de" auto-height="true" disabled="true" />
 			</view>
 			<view class="text">
 				<label>过往病史</label>
-				<textarea v-model="temp.medicalHistory" auto-height="true" />
+				<textarea v-model="temp.medicalHistory"  />
 			</view>
 			<view class="savebox" v-if="temp.states == 0">
 				<page-button :height="40" :width="100" @click="receptInquiry" name="接单"></page-button>
@@ -82,7 +84,22 @@
 					contentType: 'application/x-www-form-urlencoded',
 					success: function(res) {
 						that.temp = res.data;
+						
 						that.picUrls = that.temp.picUrl.split(',');
+						
+						that.temp.de = "";
+						if(!that.$util.isEmpty(res.data.allergic)){
+							that.temp.de = that.temp.de +that.$json.allergic[res.data.allergic]+'过敏史/'; 
+						}
+						if(!that.$util.isEmpty(res.data.conceive)){
+							that.temp.de = that.temp.de +that.$json.conceive[res.data.conceive]+"/"; 
+						}
+						if(!that.$util.isEmpty(res.data.liver)){
+							that.temp.de = that.temp.de +'肝功能'+that.$json.liver[res.data.liver]+"/";
+						}
+						if(!that.$util.isEmpty(res.data.kidney)){
+							that.temp.de = that.temp.de +'肾功能'+that.$json.liver[res.data.kidney]; 
+						}
 					},
 					error: function() {}
 				})
