@@ -86,7 +86,8 @@
 					avatarUrl: '',
 					doctorName:'',
 					amount:0,
-					states:''
+					states:'',
+					bankList:[]
 				},
 				isSetPassword:false
 			}
@@ -145,13 +146,33 @@
 					})
 				}
 			},
+			getBankList:function(){
+				let that = this;
+				that.$util.request({
+					url: "/didi-doctor/doctorbankinfo/findList",
+					param: {},
+					contentType: 'application/x-www-form-urlencoded',
+					success: function(res) {
+						that.bankList = res.data;
+						if(that.bankList == null || that.bankList.length == 0){
+							uni.showToast({
+								title: '请添加银行卡',
+								icon: 'success',
+								duration: 2000
+							})
+							return;
+						}
+						uni.navigateTo({
+							url:'/pages/my/userAgent?bankList='+JSON.stringify(that.bankList)
+						})
+					},
+					error: function() { }
+				})
+			},
 			toAgent:function(){
 				let that = this;
-				if(that.$util.isPerfectInfo()){
-					uni.navigateTo({
-						url:'/pages/my/userAgent'
-					})	
-				}
+				that.getBankList(); 
+				
 			},
 			toDidiDetail:function(){
 				uni.navigateTo({

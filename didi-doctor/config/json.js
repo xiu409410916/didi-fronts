@@ -76,3 +76,9 @@ const bankList = [{
     name: '上海银行'
   }
 ]
+
+
+module.exports = {
+	sexs,
+	bankList
+}

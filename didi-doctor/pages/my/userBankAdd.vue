@@ -4,7 +4,7 @@
 			<view class="li">
 				<label>开户行</label>
 				<picker class="inp" @change="bindPickerChange" :value="index" :range="bankList" :range-key="name">
-					<input placeholder="请选择" disabled="true" :value="array[index].name" />
+					<input placeholder="请选择" disabled="true" :value="bankList[index].name" />
 				</picker>
 			</view>
 			<view class="li">

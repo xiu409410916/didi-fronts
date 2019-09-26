@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		
-
+		<image :src="qrCodeUrl"></image>
 	</view>
 </template>
 
@@ -19,31 +19,27 @@
 			}
 		},
 		onLoad(options) {
-			this.qrCodeUrl = uni.getStorageSync("doctorInfo").qrCodeUrl;
-			if(!this.$util.isEmpty(qrCodeUrl)){
-				this.getQrCodeUrl();
+			var info = uni.getStorageSync("doctorInfo")
+			this.qrCodeUrl = info.qrCodeUrl;
+			if(!this.$util.isEmpty(this.qrCodeUrl)){
+				this.getQrCodeUrl(info.doctorId);
 			}
 		},
 		onShow() {
 			
 		},
 		methods: {
-			getQrCodeUrl: function() {
+			getQrCodeUrl: function(doctorId) {
+				let that = this;
+				var url = "/didi-patient/doctorinfo/getDoctorQrCode";
 				that.$util.request({
-					url: "/didi-doctor/inquiryinfo/queryPage",
-					param: param,
+					url: url,
+					param: {doctorId:doctorId},
 					contentType: 'application/x-www-form-urlencoded',
 					success: function(res) {
-						var data = res.data;
-						if (data == null) {
-							return;
-						}
-						that.inquiryList = that.inquiryList.concat(data.list);
-						for (var i = 0; i < that.inquiryList.length; i++) {
-							that.inquiryList[i].picUrl = that.inquiryList[i].picUrl.split(',')[0];
-						}
-						that.page = data.pageNum + 1;
-						that.totalPages = data.total;
+						that.qrCodeUrl = res.data.qrCodeUrl;
+						uni.setStorageSync('doctorInfo', res.data);
+						console.log(that.qrCodeUrl);
 					},
 					error: function() {}
 				})

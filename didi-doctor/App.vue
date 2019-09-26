@@ -23,7 +23,7 @@
 						    title: "马云",
 						    openId:"user888",
 						    avatarUrl: [
-						      uni.getStorageSync("patientInfo").avatarUrl
+						      uni.getStorageSync("doctorInfo").avatarUrl
 						    ],
 						    message: "什么鬼，我有支付宝[禁止滑动]",
 						    time: "2019-07-16 15:15",
@@ -34,7 +34,7 @@
 						    title: "李彦宏",
 						    openId:"user777",
 						    avatarUrl: [
-						      uni.getStorageSync("patientInfo").avatarUrl
+						      uni.getStorageSync("doctorInfo").avatarUrl
 						    ],
 						    message: "抄袭我的吧，我早都做过了",
 						    time: "2019-08-15 12:13",
@@ -45,7 +45,7 @@
 						    title: "雷军",
 						    openId:"user666",
 						    avatarUrl: [
-						      uni.getStorageSync("patientInfo").avatarUrl
+						      uni.getStorageSync("doctorInfo").avatarUrl
 						    ],
 						    message: "微信给你下线，看你还嘚瑟",
 						    time: "2019-09-19 12:11",
@@ -55,12 +55,12 @@
 			];
 			uni.setStorageSync("messageList",messageList);
 			var messageDetail = {"user888":[
-						  {id:0,fromUid:'oucHX5YU-wAfuttdkkEu31JWoou8',username:'myName',face:uni.getStorageSync("patientInfo").avatarUrl,time:"12:56",type:"text",msg:{content:"为什么温度会相差那么大？"},hasRead:"1"},
-						  {id:1,fromUid:1,username:'myName',face:uni.getStorageSync("patientInfo").avatarUrl,time:"12:57",type:"text",msg:{content:"这个是有偏差的，两个温度相差十几二十度是很正常的，如果相差五十度，那即是质量问题了。"},hasRead:"1"},
-						  {id:2,fromUid:1,username:'myName',face:uni.getStorageSync("patientInfo").avatarUrl,time:"12:59",type:"voice",msg:{content:"[语音]",url:"/static/voice/3.aac",length:"00:06"},hasRead:"1"},
-						  {id:3,fromUid:'oucHX5YU-wAfuttdkkEu31JWoou8',username:'myName',face:uni.getStorageSync("patientInfo").avatarUrl,time:"13:05",type:"voice",msg:{content:"[语音]",url:"/static/voice/2.mp3",length:"00:06"},hasRead:"1"},
-						  {id:4,fromUid:'oucHX5YU-wAfuttdkkEu31JWoou8',username:'myName',face:uni.getStorageSync("patientInfo").avatarUrl,time:"13:05",type:"img",msg:{content:"[图片]",url:"/static/img/p10.jpg",w:200,h:200},hasRead:"1"},
-						  {id:5,fromUid:1,username:'myName',face:uni.getStorageSync("patientInfo").avatarUrl,time:"12:59",type:"img",msg:{content:"[图片]",url:"/static/img/q.jpg",w:1920,h:1080},hasRead:"1"}
+						  {id:0,fromUid:'oucHX5YU-wAfuttdkkEu31JWoou8',username:'myName',face:uni.getStorageSync("doctorInfo").avatarUrl,time:"12:56",type:"text",msg:{content:"为什么温度会相差那么大？"},hasRead:"1"},
+						  {id:1,fromUid:1,username:'myName',face:uni.getStorageSync("doctorInfo").avatarUrl,time:"12:57",type:"text",msg:{content:"这个是有偏差的，两个温度相差十几二十度是很正常的，如果相差五十度，那即是质量问题了。"},hasRead:"1"},
+						  {id:2,fromUid:1,username:'myName',face:uni.getStorageSync("doctorInfo").avatarUrl,time:"12:59",type:"voice",msg:{content:"[语音]",url:"/static/voice/3.aac",length:"00:06"},hasRead:"1"},
+						  {id:3,fromUid:'oucHX5YU-wAfuttdkkEu31JWoou8',username:'myName',face:uni.getStorageSync("doctorInfo").avatarUrl,time:"13:05",type:"voice",msg:{content:"[语音]",url:"/static/voice/2.mp3",length:"00:06"},hasRead:"1"},
+						  {id:4,fromUid:'oucHX5YU-wAfuttdkkEu31JWoou8',username:'myName',face:uni.getStorageSync("doctorInfo").avatarUrl,time:"13:05",type:"img",msg:{content:"[图片]",url:"/static/img/p10.jpg",w:200,h:200},hasRead:"1"},
+						  {id:5,fromUid:1,username:'myName',face:uni.getStorageSync("doctorInfo").avatarUrl,time:"12:59",type:"img",msg:{content:"[图片]",url:"/static/img/q.jpg",w:1920,h:1080},hasRead:"1"}
 			]}
 			uni.setStorageSync("messageDetail",messageDetail);  
 		},
@@ -88,9 +88,9 @@
 					error: function() {}
 				})
 			},
-			connectMsgServer(patientInfo){
+			connectMsgServer(doctorInfo){
 				var that = this;
-				var fromUser = patientInfo.openId;
+				var fromUser = doctorInfo.openId;
 				var url = 'http://localhost:9092?token='+fromUser;
 				const socket = io.connect(url);
 				getApp().globalData.socket = socket;

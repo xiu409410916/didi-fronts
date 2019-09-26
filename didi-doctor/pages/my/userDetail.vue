@@ -44,7 +44,7 @@
 				<page-button :height="40" :width="300" @click="submit" name="提交"></page-button>
 			</view>
 			
-			<view class="auditRemark">
+			<view class="auditRemark" v-if="temp.states == '2'">
 				<text>{{temp.auditRemark}}</text>
 			</view>
 		</form>

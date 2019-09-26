@@ -39,7 +39,7 @@
 				doctorInfo:'',
 				bankList:[],
 				states:['正在审核','审核通过','审核失败'],
-				isAudit:''		//是否有正在审核的
+				isAudit:'2'		//是否有正在审核的
 			}
 		},
 		onShow() {
@@ -51,8 +51,8 @@
 			that.totalPages = 1;
 			that.getAgentList();
 		},
-		onLoad() {
-			this.getBankList();
+		onLoad(options) {
+			this.bankList = JSON.parse(options.bankList);
 		},
 		onPullDownRefresh() {
 			// 增加下拉刷新数据的功能
@@ -75,7 +75,7 @@
 					contentType: 'application/x-www-form-urlencoded',
 					success: function(res) {
 						var data = res.data;
-						if (data == null) {
+						if (data == null || data.list == null || data.list.length == 0) {
 							return;
 						}
 						that.isAudit = data.list[0].states;
@@ -89,27 +89,8 @@
 					error: function() {}
 				})
 			},
-			getBankList:function(){
-				let that = this;
-				that.$util.request({
-					url: "/didi-doctor/doctorbankinfo/findList",
-					param: {},
-					contentType: 'application/x-www-form-urlencoded',
-					success: function(res) {
-						that.bankList = res.data;
-					},
-					error: function() {}
-				})
-			},
+			
 			jumpToAddAgent: function() {
-				if(this.bankList.length == 0){
-					uni.showToast({
-						title: '请添加银行卡',
-						icon: 'success',
-						duration: 2000
-					})
-					return;
-				}
 				if(this.doctorInfo.isAgent == '1'){
 					uni.showToast({
 						title: '不能重复申请',
