@@ -3,7 +3,7 @@
     <div class="filter-container">
       <el-input style="width: 200px;" class="filter-item" placeholder="手机号" v-model="listQuery.mobile" clearable></el-input>
       <el-button class="filter-item" data-id="1001" v-display type="primary" icon="el-icon-search" @click="handleFilter">搜索</el-button>
-      <el-button class="filter-item" data-id="1002" v-display type="primary" @click="timeAdd">增加时长</el-button>
+      <!-- <el-button class="filter-item" data-id="1002" v-display type="primary" @click="timeAdd">增加时长</el-button> -->
     </div>
     <el-table :data="list" v-loading="listLoading" element-loading-text="给我一点时间" border fit highlight-current-row
       @selection-change="handleSelectionChange" ref="multipleTable">
@@ -17,12 +17,11 @@
           <span>{{scope.row.mobile}}</span>
         </template>
       </el-table-column>
-      <!-- 积分池名称：1-注册积分池；2-活动积分池；3-贡献积分池；4-特殊积分池；5-交易积分池 -->
-      <el-table-column min-width="60px" align="center" label="剩余时长">
+    <!--  <el-table-column min-width="60px" align="center" label="剩余时长">
         <template slot-scope="scope">
           <span>{{scope.row.time}}</span>
         </template>
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column min-width="60px" align="center" label="注册时间">
         <template slot-scope="scope">
           <span>{{scope.row.createTime}}</span>

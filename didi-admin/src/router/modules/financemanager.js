@@ -12,18 +12,12 @@ const financeManageRouter = {
     noCache: true
   },
   children: [
-    {
-      path: 'patientPayInfo',
-      component: () => import('@/views/patientPayInfo/list'),
-      name: 'patientPayInfo',
-      meta: {  title: '患者交易列表', icon: 'list', noCache: true}
-    },
-    {
-      path: 'patientTimeInfo',
-      component: () => import('@/views/patientTimeInfo/list'),
-      name: 'patientTimeInfo',
-      meta: {  title: '患者时间列表', icon: 'list', noCache: true}
-    },
+    // {
+    //   path: 'patientPayInfo',
+    //   component: () => import('@/views/patientPayInfo/list'),
+    //   name: 'patientPayInfo',
+    //   meta: {  title: '患者交易列表', icon: 'list', noCache: true}
+    // },
     {
       path: 'inquiryInfo',
       component: () => import('@/views/inquiryInfo/list'),

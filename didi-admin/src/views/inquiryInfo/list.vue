@@ -1,7 +1,12 @@
 <template>
   <div class="app-container calendar-list-container">
     <div class="filter-container">
+      <el-input style="width: 100px;" class="filter-item" placeholder="手机号" v-model="listQuery.mobile" clearable></el-input>
       <el-input style="width: 200px;" class="filter-item" placeholder="身份证号" v-model="listQuery.idCard" clearable></el-input>
+      <el-input style="width: 200px;" class="filter-item" placeholder="问诊单号" v-model="listQuery.orderNo" clearable></el-input>
+      <el-select style="width: 130px" class="filter-item" v-model="listQuery.payStates">
+        <el-option v-for="item in payStatesList" :label="item.value" :value="item.key"></el-option>
+      </el-select>
       <el-button class="filter-item" data-id="1001" v-display type="primary" icon="el-icon-search" @click="handleFilter">搜索</el-button>
     </div>
     <el-table :data="list" v-loading="listLoading" element-loading-text="给我一点时间" border fit highlight-current-row
@@ -11,14 +16,25 @@
           <span>{{scope.row.realName}}</span>
         </template>
       </el-table-column>
+       <el-table-column min-width="60px" align="center" label="手机号">
+        <template slot-scope="scope">
+          <span>{{scope.row.mobile}}</span>
+        </template>
+      </el-table-column>
       <el-table-column min-width="60px" align="center" label="身份证号">
         <template slot-scope="scope">
           <span>{{scope.row.idCard}}</span>
         </template>
       </el-table-column>
+      <el-table-column min-width="60px" align="center" label="问诊单号">
+        <template slot-scope="scope">
+          <span>{{scope.row.orderNo}}</span>
+        </template>
+      </el-table-column>
       <el-table-column min-width="60px" align="center" label="状态">
         <template slot-scope="scope">
-          <span>{{states[scope.row.states]}}</span>
+          <span v-if="scope.row.payStates == 1">{{states[scope.row.states]}}</span>
+          <span v-else>{{payStates[scope.row.payStates]}}</span>
         </template>
       </el-table-column>
       <el-table-column min-width="60px" align="center" label="医生姓名">
@@ -26,9 +42,10 @@
           <span>{{scope.row.doctorName}}</span>
         </template>
       </el-table-column>
-      <el-table-column min-width="60px" align="center" label="操作">
+      <el-table-column min-width="120px" align="center" label="操作">
         <template slot-scope="scope">
           <el-button class="filter-item" data-id="1002" v-display type="primary" @click="detail(scope.row)">查看详情</el-button>
+          <el-button v-if="scope.row.states == 1 || scope.row.states == 3"  class="filter-item" data-id="1002" v-display type="primary" @click="cancelInquiry(scope.row)">取消问诊</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -48,7 +65,7 @@
   } from 'vuex'
   import Cookies from 'js-cookie'
   import {
-    queryList
+    queryList,systemCancelInquiry
   } from '@/api/inquiryInfo'
   import display from '@/directive/display'
 
@@ -62,12 +79,17 @@
         listLoading: false,
         total: 0,
         list: [],
-        states: ["新问诊", "正在问诊", "已结束",'已取消'],
+        states: ["等待接单中", "正在问诊", "已结束",'已取消'],
+        payStates:['支付中','支付成功','支付失败'],
+        payStatesList:[{key:"",value:"请选择"},{key:"0",value:"支付中"},{key:"1",value:"支付成功"},{key:"2",value:"支付失败"}],
         multipleSelection: [],
         listQuery: {
           pageNum: 1,
           pageSize: 10,
-          mobile: ''
+          mobile: '',
+          payStates:'',
+          orderNo:'',
+          idCard:''
         }
       }
     },
@@ -102,6 +124,23 @@
           query: {
             id: row.inquiryId
           }
+        })
+      },
+      cancelInquiry(row){
+         this.$confirm('确定取消问诊?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          var dd = {inquiryId:row.inquiryId}
+          systemCancelInquiry(dd).then(response => {
+            this.$message({
+              type: 'success',
+              message: '取消成功!'
+            });
+          })
+        }).catch(() => {
+
         })
       }
     }

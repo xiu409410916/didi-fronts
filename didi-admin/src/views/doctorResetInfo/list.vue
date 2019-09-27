@@ -24,7 +24,7 @@
       </el-table-column>
       <el-table-column min-width="60px" align="center" label="操作">
         <template slot-scope="scope">
-          <el-button class="filter-item" data-id="1002" v-display type="primary" @click="reset(scope.row)">重置密码</el-button>
+          <el-button v-if="scope.row.states == 0" class="filter-item" data-id="1002" v-display type="primary" @click="reset(scope.row)">重置密码</el-button>
         </template>
       </el-table-column>
     </el-table>

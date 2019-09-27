@@ -31,11 +31,12 @@
       <el-form-item label="医生姓名">
         <span>{{dataForm.doctorName}}</span>
       </el-form-item>
-      <el-form-item label="医生简介">
+  <!--    <el-form-item label="医生简介">
         <span>{{dataForm.introduction}}</span>
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item label="问诊状态" class="red">
-        <span>{{states[dataForm.states]}}</span>
+        <span v-if="dataForm.payStates == 1">{{states[dataForm.states]}}</span>
+        <span v-else>{{payStates[dataForm.payStates]}}</span>
       </el-form-item>
 
     </el-form>
@@ -77,7 +78,9 @@
     medicalHistory: '',
     states: '',
     doctorName: '',
-    receptTime: ''
+    receptTime: '',
+    payStates:'',
+    introduction:''
   }
 
 
@@ -87,7 +90,8 @@
     data() {
       return {
         conceive:['没有备孕计划','备孕中','怀孕中','哺乳期'],
-        states:['新问诊','正在问诊','已结束','已取消'],
+        states: ["等待接单中", "正在问诊", "已结束",'已取消'],
+        payStates:['支付中','支付成功','支付失败'],
         picUrlList: [],
         dataForm: JSON.parse(JSON.stringify(defaultDataForm))
       }
@@ -102,7 +106,7 @@
         this.ntemp.inquiryId = this.dataForm.inquiryId;
       },
       getOneDetail(id) {
-        getOneByEntity(id).then(response => {
+        getOneByEntity({"inquiryId":id}).then(response => {
           this.dataForm = response.data
           this.picUrlList = response.data.picUrl.split(',');
         })

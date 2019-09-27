@@ -2,6 +2,10 @@
   <div class="app-container calendar-list-container">
     <div class="filter-container">
       <el-input style="width: 200px;" class="filter-item" placeholder="手机号" v-model="listQuery.mobile" clearable></el-input>
+      <el-input style="width: 200px;" class="filter-item" placeholder="医生姓名" v-model="listQuery.doctorName" clearable></el-input>
+      <el-select style="width: 130px" class="filter-item" v-model="listQuery.states">
+        <el-option v-for="item in statesList" :label="item.value" :value="item.key"></el-option>
+      </el-select>
       <el-button class="filter-item" data-id="1001" v-display type="primary" icon="el-icon-search" @click="handleFilter">搜索</el-button>
     </div>
     <el-table :data="list" v-loading="listLoading" element-loading-text="给我一点时间" border fit highlight-current-row
@@ -64,11 +68,14 @@
         total: 0,
         list: [],
         states: ["待审核", "审核通过", "审核拒绝"],
+        statesList:[{key:'',value:'请选择'},{key:'0',value:'待审核'},{key:'1',value:'审核通过'},{key:'2',value:'审核拒绝'}],
         multipleSelection: [],
         listQuery: {
           pageNum: 1,
           pageSize: 10,
-          mobile: ''
+          mobile: '',
+          doctorName:'',
+          states:''
         }
       }
     },

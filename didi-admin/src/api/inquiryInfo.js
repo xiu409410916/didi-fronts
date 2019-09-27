@@ -9,6 +9,16 @@ export function queryList(query) {
   })
 }
 
+// 系统取消问诊
+export function systemCancelInquiry(query) {
+  return request({
+    url: '/inquiryinfo/systemCancelInquiry',
+    method: 'post',
+    data: query
+  })
+}
+
+
 // 查询单个
 export function getOneByEntity(query) {
   return request({
