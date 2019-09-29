@@ -34,6 +34,10 @@
 						<view class="left"><image src="../../static/password.png"></image>设置支付密码</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 					</view>
+					<view class="vi" @click="resetPassword" v-if="isSetPassword">
+						<view class="left"><image src="../../static/password.png"></image>充值支付密码</view>
+						<view class="right"><image src="../../static/you.png"></image></view>
+					</view>
 					<view class="vi" @click="toUserAmount" v-if="doctorInfo.amount > 0">
 						<view class="left"><image src="../../static/amount.png"></image>我的余额</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
@@ -121,6 +125,9 @@
 						url: '/pages/my/userPassword'
 					})
 				}
+			},
+			resetPassword:function(){
+				
 			},
 			toBankInfo:function(){
 				let that = this;
