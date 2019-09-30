@@ -1,14 +1,17 @@
 <template>
 	<view class="content">
 		<view class="record">
-			<view class="li" v-if="list.length > 0" v-for="(item,index) in list" :key="index" @click="toInquiryDetail(item.inquiryId)">
+			<view class="li" v-if="list.length > 0" v-for="(item,index) in list" :key="index">
 				<view class="left">
 					 <image :src="item.picUrl"></image>
 				</view>
-				<view class="right">
+				<view class="right" @click="toInquiryDetail(item.inquiryId)">
 					<label style="color: red">{{item.realName}}</label>
 					<label>{{item.createTime}}</label>
 					<text>{{item.detail}}</text>
+				</view>
+				<view class="right">
+					<page-button :height="25" :width="75" @click="toGene(item.inquiryId)" name="基因检测"></page-button>
 				</view>
 			</view>
 		</view>
@@ -19,6 +22,7 @@
 
 <script>
 	import emptyView from '../../components/emptyview.vue';
+	import PageButton from '../../components/button.vue';
 
 	export default {
 		data() {
@@ -31,7 +35,8 @@
 			}
 		},
 		components: {
-			emptyView
+			emptyView,
+			PageButton
 		},
 		onLoad(options) {
 			this.doctorId = uni.getStorageSync("doctorInfo").doctorId;
@@ -79,6 +84,11 @@
 				uni.navigateTo({
 					url:'/pages/inquiry/inquiryDetail?inquiryId='+inquiryId
 				})
+			},
+			toGene:function(inquiryId){
+				uni.navigateTo({
+					url:'/pages/my/userGeneAdd?inquiryId='+inquiryId
+				})
 			}
 			
 		}
@@ -93,7 +103,7 @@
 
 		.li {
 			margin-left: 40upx;
-			margin-right: 50rpx;
+			// margin-right: 50rpx;
 			height: 150upx;
 			display: flex;
 			flex-flow: row nowrap;

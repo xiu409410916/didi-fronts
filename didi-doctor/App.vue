@@ -7,16 +7,19 @@
 		onLaunch: function () {
 			console.log('App Launch')
 			let that=this;
-			uni.setTabBarBadge({
-				index: 1,
-				text: '31'
-			});
 			uni.login({
 				provider: 'weixin',
 				success: function(res) {
 					const code = res.code;
 					that.loginByCode(code)
+				},
+				error:function(res){
+					console.log(res);
 				}
+			});
+			uni.setTabBarBadge({
+				index: 1,
+				text: '31'
 			});
 			var messageList = [
 						  {

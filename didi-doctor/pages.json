@@ -93,6 +93,12 @@
 		    "style" : {
 		    	"navigationBarTitleText":"我的二维码"
 		    }
+		},
+		{
+		    "path" : "pages/my/userGeneAdd",
+		    "style" : {
+		    	"navigationBarTitleText":"问诊的基因检测"
+		    }
 		}
     ],
 	"globalStyle": {
