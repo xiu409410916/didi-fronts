@@ -81,6 +81,12 @@
 		    "style" : {
 		    	"navigationBarTitleText":"我的二维码"
 		    }
+		},
+		{
+		    "path" : "pages/my/userGene",
+		    "style" : {
+		    	"navigationBarTitleText":"我的基因检测"
+		    }
 		}
 	],
 	"globalStyle": {

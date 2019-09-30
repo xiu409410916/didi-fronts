@@ -37,11 +37,11 @@
 						<view class="left"><image src="../../static/inquiry.png"></image>我的问诊</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 					</view>
-					<!-- <view class="vi" @click="toMyTime">
-						<view class="left"><image src="../../static/time.png"></image>我的时长</view>
+					<view class="vi" @click="toMyGene">
+						<view class="left"><image src="../../static/time.png"></image>我的基因检测</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 						 <navigator></navigator> 
-					</view> -->
+					</view>
 					<view class="vi" @click="toQrCode">
 						<view class="left"><image src="../../static/qrcode.png"></image>我的二维码</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
@@ -168,6 +168,11 @@
 			toQrCode:function(){
 				uni.navigateTo({
 					url:'/pages/my/userQrCode'
+				})
+			},
+			toMyGene:function(){
+				uni.navigateTo({
+					url:'/pages/my/userGene'
 				})
 			}
 			
