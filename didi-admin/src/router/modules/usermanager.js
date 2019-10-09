@@ -56,6 +56,12 @@ const userManageRouter = {
       component: () => import('@/views/doctorResetInfo/list'),
       name: 'doctorResetInfo',
       meta: {  title: '医生重置密码', icon: 'list', noCache: true }
+    },
+    {
+      path: 'doctorCommentInfo',
+      component: () => import('@/views/doctorCommentInfo/list'),
+      name: 'doctorCommentInfo',
+      meta: {  title: '评价医生列表', icon: 'list', noCache: true }
     }
   ]
 }

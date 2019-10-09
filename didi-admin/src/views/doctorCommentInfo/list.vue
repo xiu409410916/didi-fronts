@@ -1,43 +1,34 @@
 <template>
   <div class="app-container calendar-list-container">
-    <div class="filter-container">
-      <el-input style="width: 100px;" class="filter-item" placeholder="手机号" v-model="listQuery.mobile" clearable></el-input>
-      <el-input style="width: 200px;" class="filter-item" placeholder="基因检测单号" v-model="listQuery.orderNo" clearable></el-input>
-      <el-select style="width: 130px" class="filter-item" v-model="listQuery.payStates">
-        <el-option v-for="item in payStatesList" :label="item.value" :value="item.key"></el-option>
-      </el-select>
+   <!-- <div class="filter-container">
+      <el-input style="width: 200px;" class="filter-item" placeholder="手机号" v-model="listQuery.mobile" clearable></el-input>
       <el-button class="filter-item" data-id="1001" v-display type="primary" icon="el-icon-search" @click="handleFilter">搜索</el-button>
-    </div>
+    </div> -->
     <el-table :data="list" v-loading="listLoading" element-loading-text="给我一点时间" border fit highlight-current-row
       @selection-change="handleSelectionChange" ref="multipleTable">
-      <el-table-column min-width="60px" align="center" label="检测名称">
+      <el-table-column min-width="60px" align="center" label="医生姓名">
         <template slot-scope="scope">
-          <span>{{scope.row.geneName}}</span>
+          <span>{{scope.row.doctorName}}</span>
         </template>
       </el-table-column>
-       <el-table-column min-width="60px" align="center" label="手机号">
+      <el-table-column min-width="60px" align="center" label="用户手机号">
         <template slot-scope="scope">
           <span>{{scope.row.mobile}}</span>
         </template>
       </el-table-column>
-      <el-table-column min-width="60px" align="center" label="基因检测单号">
+       <el-table-column min-width="60px" align="center" label="评论打分">
         <template slot-scope="scope">
-          <span>{{scope.row.orderNo}}</span>
+          <span>{{scope.row.commentRate}}</span>
         </template>
       </el-table-column>
-      <el-table-column min-width="60px" align="center" label="检测的图片地址">
+       <el-table-column min-width="60px" align="center" label="评论内容">
         <template slot-scope="scope">
-          <span>{{scope.row.geneUrl}}</span>
+          <span>{{scope.row.commentContent}}</span>
         </template>
       </el-table-column>
-      <el-table-column min-width="60px" align="center" label="状态">
+      <!-- <el-table-column min-width="60px" align="center" label="操作">
         <template slot-scope="scope">
-          <span>{{payStates[scope.row.payStates]}}</span>
-        </template>
-      </el-table-column>
-      <!-- <el-table-column min-width="120px" align="center" label="操作">
-        <template slot-scope="scope">
-          <el-button class="filter-item" data-id="1002" v-display type="primary" @click="detail(scope.row)">查看详情</el-button>
+          <el-button v-if="scope.row.states == 0" class="filter-item" data-id="1002" v-display type="primary" @click="Comment(scope.row)">重置密码</el-button>
         </template>
       </el-table-column> -->
     </el-table>
@@ -58,11 +49,11 @@
   import Cookies from 'js-cookie'
   import {
     queryList
-  } from '@/api/geneInfo'
+  } from '@/api/doctorCommentInfo'
   import display from '@/directive/display'
 
   export default {
-    name: "geneInfo",
+    name: "doctorCommentInfo",
     directives: {
       display
     },
@@ -71,15 +62,10 @@
         listLoading: false,
         total: 0,
         list: [],
-        payStates:['支付中','支付成功','支付失败'],
-        payStatesList:[{key:"",value:"请选择"},{key:"0",value:"支付中"},{key:"1",value:"支付成功"},{key:"2",value:"支付失败"}],
         multipleSelection: [],
         listQuery: {
           pageNum: 1,
-          pageSize: 10,
-          mobile: '',
-          payStates:'',
-          orderNo:''
+          pageSize: 10
         }
       }
     },
@@ -107,14 +93,6 @@
       handleCurrentChange(val) {
         this.listQuery.pageNum = val;
         this.getList();
-      },
-      detail(row) {
-        this.$router.push({
-          name: "geneDetail",
-          query: {
-            id: row.geneId
-          }
-        })
       }
     }
   }

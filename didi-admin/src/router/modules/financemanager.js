@@ -42,19 +42,6 @@ const financeManageRouter = {
       component: () => import('@/views/agentWithdrawInfo/list'),
       name: 'agentWithdrawInfo',
       meta: {  title: '代理商打款', icon: 'list', noCache: true}
-    },
-    {
-      path: 'geneInfo',
-      component: () => import('@/views/geneInfo/list'),
-      name: 'geneInfo',
-      meta: {  title: '基因检测列表', icon: 'list', noCache: true}
-    },
-     {
-      path: 'geneDetail',
-      component: () => import('@/views/geneInfo/components/geneDetail'),
-      name: 'geneDetail',
-      meta: {  title: '基因检测详情', icon: 'list', noCache: true},
-      hidden: true
     }
 
   ]

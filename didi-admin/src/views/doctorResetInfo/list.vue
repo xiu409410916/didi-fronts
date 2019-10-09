@@ -16,7 +16,6 @@
           <span>{{scope.row.mobile}}</span>
         </template>
       </el-table-column>
-      </el-table-column>
       <el-table-column min-width="60px" align="center" label="状态">
         <template slot-scope="scope">
           <span>{{states[scope.row.states]}}</span>
