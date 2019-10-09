@@ -7,7 +7,7 @@
 		onLaunch: function(query) {
 			const scene = decodeURIComponent(query.scene)
 			console.log('App Launch')
-			console.log(scene);
+			console.log("scene-----------"+scene);
 			let that=this;
 			uni.login({
 				provider: 'weixin',

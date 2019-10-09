@@ -57,7 +57,7 @@
 			<view class="text">
 				<label>过往病史</label>
 				<textarea placeholder="请输入过往病史..." v-model="temp.medicalHistory" />
-			</view>
+				</view>
 			<view class="savebox">
 				<page-button :height="40" :width="300" @click="submit" name="提交"></page-button>
 			</view>
@@ -198,28 +198,13 @@
 							}, 1000);
 						  },
 						  'fail': function (res) {
-							setTimeout(function () {
-								uni.navigateTo({
-									url:'/pages/my/index'
-								})
-							}, 1000); 
-							  
-						    uni.showToast({
-						      title: res.message,
-						      icon: 'none'
-						    })
-							
-						  }
-						})
-						
-					},
-					error: function() {
-						setTimeout(function () {
 							uni.navigateTo({
 								url:'/pages/my/index'
 							})
-						}, 1000);
-					}
+						  }
+						})
+					},
+					error: function() {}
 				})
 			}
 			

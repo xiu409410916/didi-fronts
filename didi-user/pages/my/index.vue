@@ -85,6 +85,9 @@
 			if(that.$util.isEmpty(info.avatarUrl)){
 				that.patientInfo = info;
 			}	
+			if(!that.$util.isEmpty(info.mobile)){
+				info.mobile = '获取手机号';
+			}
 			that.patientInfo.patientId = info.patientId;
 		},
 		onShow() {
@@ -106,7 +109,6 @@
 				})
 			},
 			wxGetUserInfo:function(res) {
-				console.log('-------');
 				let that = this
 				if (!res.detail.iv) {
 					uni.showToast({
@@ -129,6 +131,9 @@
 					url: "/didi-patient/patientinfo/modifyUserInfo",
 					param: temp,
 					success: function(res) {
+						if(!that.$util.isEmpty(res.data.mobile)){
+							res.data.mobile = '获取手机号';
+						}
 						that.patientInfo = res.data;
 						uni.setStorageSync('patientInfo', res.data);
 					},

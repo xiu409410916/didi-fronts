@@ -3,7 +3,11 @@
 		<form>
 			<view class="text">
 				<label>打分</label>
-				<input v-model="temp.commentRate" placeholder="请输入1—10分的评价" />
+				<image :src="url[0]" @click="starClick(0)"></image>
+				<image :src="url[1]" @click="starClick(1)"></image>
+				<image :src="url[2]" @click="starClick(2)"></image>
+				<image :src="url[3]" @click="starClick(3)"></image>
+				<image :src="url[4]" @click="starClick(4)"></image>
 			</view>
 			<view class="text">
 				<label>评价</label>
@@ -34,7 +38,9 @@
 					doctorName:'',
 					commentRate:'',
 					commentContent:''
-				}
+				},
+				commentRate:'',
+				url:['../../static/star.png','../../static/star.png','../../static/star.png','../../static/star.png','../../static/star.png']
 			}
 		},
 		onLoad(options) {
@@ -45,10 +51,28 @@
 		},
 		methods: {
 			commentDoctor:function(){
-				let that = this;
-				that.$util.request({
+				// let that = this;
+				if(!this.$util.isEmpty(this.commentRate)){
+					uni.showToast({
+						title: '请打分',
+						icon:'none',
+						duration: 2000
+					});
+					return;
+				}
+				if(!this.$util.isEmpty(this.temp.commentContent)){
+					uni.showToast({
+						title: '请输入评价内容',
+						icon:'none',
+						duration: 2000
+					});
+					return;
+				}
+				this.temp.commentRate = this.commentRate;
+				console.log(this.temp);
+				this.$util.request({
 					url: "/didi-patient/patientcommentdoctor/add" ,
-					param: that.temp,
+					param: this.temp,
 					contentType: 'application/x-www-form-urlencoded',
 					success: function(res) {
 						setTimeout(function() {
@@ -64,6 +88,15 @@
 					},
 					error: function() {}
 				})
+			},
+			starClick:function(index){
+				this.commentRate = index + 1;
+				for(var i = 0 ; i< index+1 ;i++){
+					this.url[i] = '../../static/star_select.png';
+				}
+				for(var i = index+1 ; i< 5 ;i++){
+					this.url[i] = '../../static/star.png';
+				}
 			}
 			
 		}
@@ -83,18 +116,17 @@
 			textarea{
 				width: 80%;
 				height: 350rpx;
-				margin-left: 20%;
-				border-bottom: 2upx solid $uni-text-color-eee;
-				
-			}
-			input{
-				border-bottom: 2upx solid $uni-text-color-eee;
-				
+				margin-left: 20%;				
 			}
 			label {
 				width: 20%;
 				color: $uni-text-color-qh;
 				float: left;
+			}
+			image{
+				width: 50rpx;
+				height: 50rpx;
+				margin-right: 20rpx;
 			}
 		}
 		

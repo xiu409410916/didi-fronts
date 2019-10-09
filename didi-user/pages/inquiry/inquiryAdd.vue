@@ -5,7 +5,7 @@
 				<textarea v-model="temp.detail" placeholder="请描述你的性别，年龄，症状，就诊经历，我们会保证你的隐私权...(10-500个字)" />
 			</view>
 			<view class="nli">
-				<label>病情图片(上传的附件仅为解答的医生可见)</label>
+				<label>病情图片(上传的附件仅为解答的医生可见,至少上传一张)</label>
 				<image-upload @click="getAvatarUrl" :picUrls="temp.url"></image-upload>
 				<image-upload @click="getAvatarUrl" :picUrls="temp.url"></image-upload>
 				<image-upload @click="getAvatarUrl" :picUrls="temp.url"></image-upload>

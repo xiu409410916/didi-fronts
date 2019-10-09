@@ -24,9 +24,9 @@
 			</view>
 			<view class="li">
 				<label>介绍</label>
-				<input class="inp" v-model="temp.de" disabled="true" />
+				<textarea v-model="temp.de" auto-height="true" disabled="true" />
 			</view>
-			<view class="text">
+			<view class="li">
 				<label>过往病史</label>
 				<textarea v-model="temp.medicalHistory" auto-height="true" />
 			</view>
@@ -37,6 +37,8 @@
 			<view class="text" v-if="temp.states == 1 || temp.states == 3">
 				<label>医生简介</label>
 				<textarea v-model="temp.introduction" auto-height="true" />
+			</view>
+			<view class="savebox">
 			</view>
 			<view class="savebox">
 				<page-button v-if="temp.payStates != 1 && temp.states == 0" :height="40" :width="100" @click="payInquiry" name="立即支付"></page-button>
@@ -100,6 +102,20 @@
 					success: function(res) {
 						that.temp = res.data;
 						that.picUrls = that.temp.picUrl.split(',');
+						
+						that.temp.de = "";
+						if(that.$util.isEmpty(res.data.allergic)){
+							that.temp.de = that.temp.de +that.$json.allergic[res.data.allergic]+'过敏史/'; 
+						}
+						if(that.$util.isEmpty(res.data.conceive)){
+							that.temp.de = that.temp.de +that.$json.conceive[res.data.conceive]+"/"; 
+						}
+						if(that.$util.isEmpty(res.data.liver)){
+							that.temp.de = that.temp.de +'肝功能'+that.$json.liver[res.data.liver]+"/";
+						}
+						if(that.$util.isEmpty(res.data.kidney)){
+							that.temp.de = that.temp.de +'肾功能'+that.$json.liver[res.data.kidney]; 
+						}
 					},
 					error: function() {}
 				})
@@ -154,10 +170,7 @@
 						    }, 1000);
 						  },
 						  'fail': function (res) {
-						    uni.showToast({
-						      title: res.message,
-						      icon: 'none'
-						    })
+							
 						  }
 						})
 					},
@@ -244,8 +257,9 @@
 		.savebox {
 			display: flex;
 			justify-content: center;
-			padding: 50upx 0 30upx;
+			padding: 50upx 0;
 		}
+	
 		
 	}
 	
