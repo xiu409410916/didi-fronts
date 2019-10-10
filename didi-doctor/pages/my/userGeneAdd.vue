@@ -3,7 +3,7 @@
 		<form>
 			<view class="li">
 				<label>检测名称</label>
-				<picker class="inp" @change="bindPickerChange" :value="index" :range="geneList" :range-key="geneName">
+				<picker class="inp" @change="bindPickerChange" :value="index" :range="geneList" :range-key="'geneName'">
 					<input placeholder="请选择" disabled="true" :value="geneList[index].geneName" />
 				</picker>
 			</view>
@@ -11,9 +11,9 @@
 				<label>检测价格</label>
 				<input class="inp" disabled="true" v-model="geneList[index].genePrice" />
 			</view>
-			<view class="text">
+			<view class="li">
 				<label>检测详情</label>				
-				<textarea class="inp" disabled="true" auto-height="true" v-model="geneList[index].geneDetail" />
+				<textarea disabled="true" auto-height="true" v-model="geneList[index].geneDetail" />
 			</view>
 			<view class="savebox">
 				<page-button :height="40" :width="300" @click="submit" name="提交"></page-button>
@@ -142,6 +142,11 @@
 			.nobottom {
 				border-bottom: 0;
 			}
+			
+			textarea{
+				width: 80%;
+
+			}
 		}
 
 		.nli {
@@ -166,15 +171,15 @@
 			padding: 50upx 0 30upx;
 		}
 
-		.text {
-			align-items: left;
-			margin-left: 33px;
-			margin-right: 33rpx;
-		}
+		// .text {
+		// 	align-items: left;
+		// 	margin-left: 33px;
+		// 	margin-right: 33rpx;
+		// }
 
-		.text textarea {
-			width: 100%;
-			height: 250rpx;
-		}
+		// .text textarea {
+		// 	width: 100%;
+		// 	height: 250rpx;
+		// }
 	}
 </style>

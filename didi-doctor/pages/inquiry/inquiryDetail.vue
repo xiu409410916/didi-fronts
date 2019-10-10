@@ -1,41 +1,53 @@
 <template>
 	<view class="content">
-		<form>
-			<view class="text">
-				<label>问题描述</label>
-				<textarea v-model="temp.detail" auto-height="true"  disabled="true" />
+		<view class="form">
+			<form>
+				<view class="li">
+					<label>问题描述</label>
+					<textarea v-model="temp.detail" auto-height="true" disabled="true" />
+				</view>
+				<view class="li">
+					<image :src="picUrls[0]"></image>
+					<image :src="picUrls[1]"></image>
+					<image :src="picUrls[2]"></image>
+				</view>
+				<view class="li">
+					<label>患者姓名</label>
+					<input class="inp" v-model="temp.realName" disabled="true" />
+				</view>
+				<view class="li">
+					<label>身份证号</label>
+					<input class="inp" v-model="temp.idCard" disabled="true" />
+				</view>
+				<view class="li">
+					<label>体重(kg)</label>
+					<input class="inp" v-model="temp.weight" disabled="true" />
+				</view>
+				<view class="li">
+					<label>介绍</label>
+					<textarea v-model="temp.de" auto-height="true" disabled="true" />
+				</view>
+				<view class="li">
+					<label>过往病史</label>
+					<textarea v-model="temp.medicalHistory" auto-height="true" disabled="true" />
+				</view>
+				<view class="savebox" v-if="temp.states == 0">
+					<page-button :height="40" :width="100" @click="receptInquiry" name="接单"></page-button>
+				</view>
+			</form>
+		
+		</view>
+		
+		<view v-if="geneList.length > 0" class="geneList">
+			<label>已有基因检测</label>
+			<view class="gene" v-for="(item,index) in geneList" :key="index">
+				{{(index+1)+'.'+item.geneName}}
 			</view>
-			<view class="li">
-				<image :src="picUrls[0]"></image>
-				<image :src="picUrls[1]"></image>
-				<image :src="picUrls[2]"></image>
-			</view>
-			<view class="li">
-				<label>患者姓名</label>
-				<input class="inp" v-model="temp.realName" disabled="true" />
-			</view>
-			<view class="li">
-				<label>身份证号</label>
-				<input class="inp" v-model="temp.idCard" disabled="true" />
-			</view>
-			<view class="li">
-				<label>体重(kg)</label>
-				<input class="inp" v-model="temp.weight" disabled="true" />
-			</view>
-			<view class="li">
-				<label>介绍</label>
-				<textarea v-model="temp.de" auto-height="true" disabled="true" />
-			</view>
-			<view class="text">
-				<label>过往病史</label>
-				<textarea v-model="temp.medicalHistory"  />
-			</view>
-			<view class="savebox" v-if="temp.states == 0">
-				<page-button :height="40" :width="100" @click="receptInquiry" name="接单"></page-button>
-			</view>
-		</form>
-
+		</view>
+		
 	</view>
+	
+	
 </template>
 
 <script>
@@ -64,12 +76,14 @@
 					states:'',
 					de:''
 				},
-				picUrls:[]
+				picUrls:[],
+				geneList:[]
 			}
 		},
 		onLoad(options) {
 			this.temp.inquiryId = options.inquiryId;
 			this.getInquiryDetail();
+			this.getGeneList();
 		},
 		onShow() {
 			
@@ -88,16 +102,16 @@
 						that.picUrls = that.temp.picUrl.split(',');
 						
 						that.temp.de = "";
-						if(!that.$util.isEmpty(res.data.allergic)){
+						if(that.$util.isEmpty(res.data.allergic)){
 							that.temp.de = that.temp.de +that.$json.allergic[res.data.allergic]+'过敏史/'; 
 						}
-						if(!that.$util.isEmpty(res.data.conceive)){
+						if(that.$util.isEmpty(res.data.conceive)){
 							that.temp.de = that.temp.de +that.$json.conceive[res.data.conceive]+"/"; 
 						}
-						if(!that.$util.isEmpty(res.data.liver)){
+						if(that.$util.isEmpty(res.data.liver)){
 							that.temp.de = that.temp.de +'肝功能'+that.$json.liver[res.data.liver]+"/";
 						}
-						if(!that.$util.isEmpty(res.data.kidney)){
+						if(that.$util.isEmpty(res.data.kidney)){
 							that.temp.de = that.temp.de +'肾功能'+that.$json.liver[res.data.kidney]; 
 						}
 					},
@@ -126,6 +140,19 @@
 					},
 					error: function() {}
 				})
+			},
+			getGeneList:function(){
+				let that = this;
+				var dd = {"inquiryId":that.temp.inquiryId}
+				that.$util.request({
+					url: "/didi-doctor/inquirygeneinfo/findList" ,
+					param: dd,
+					contentType: 'application/x-www-form-urlencoded',
+					success: function(res) {
+						that.geneList = res.data;
+					},
+					error: function() {}
+				})
 			}
 			
 		}
@@ -133,7 +160,7 @@
 </script>
 
 <style lang="scss" scoped>
-	.content {
+	.form {
 		width: 100%;
 		background: $uni-text-color-inverse;
 		margin-top: 20upx;
@@ -151,6 +178,9 @@
 				width: 20%;
 				color: $uni-text-color-qh;
 			}
+			textarea{
+				width: 80%;
+			}
 		
 			.inp {
 				height: 100%;
@@ -160,47 +190,10 @@
 				flex-flow: row nowrap;
 				justify-content: flex-start;
 				align-items: center;
-		
-				.nla {
-					width: 20%;
-					display: flex;
-					flex-flow: row nowrap;
-					justify-content: flex-start;
-					align-items: center;
-		
-					.name {
-						color: $uni-text-color-grey;
-						font-size: $uni-font-size-sm;
-					}
-				}
 			}
-		
-			.nobottom {
-				border-bottom: 0;
-			}
-			
 			image{
 				width: 100rpx;
 				height: 100rpx;
-			}
-		}
-		
-		
-		.text {
-			align-items: left;
-			margin-left: 33px;
-			margin-right: 33rpx;
-			padding-top: 30rpx;
-			textarea{
-				width: 80%;
-				height: 350rpx;
-				margin-left: 20%;
-				
-			}
-			label {
-				width: 20%;
-				color: $uni-text-color-qh;
-				float: left;
 			}
 		}
 		
@@ -210,6 +203,26 @@
 			padding: 50upx 0 30upx;
 		}
 		
+	}
+	
+	.geneList {
+		width: 100%;
+		background: $uni-text-color-inverse;
+		margin-top: 20upx;
+		padding: 10px 10px 10px 33px;
+		
+		
+		label {
+			width: 20%;
+			color: $uni-text-color-qh;
+			float: left;
+		}
+		
+		.gene{
+			width: 80%;
+			margin-left: 20%;
+			margin-top: 5rpx;
+		}
 	}
 	
 	

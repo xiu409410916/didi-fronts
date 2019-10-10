@@ -3,7 +3,7 @@
 		<form>
 			<view class="li">
 				<label>开户行</label>
-				<picker class="inp" @change="bindPickerChange" :value="index" :range="bankList" :range-key="name">
+				<picker class="inp" @change="bindPickerChange" :value="index" :range="bankList" :range-key="'name'">
 					<input placeholder="请选择" disabled="true" :value="bankList[index].name" />
 				</picker>
 			</view>
@@ -23,22 +23,24 @@
 
 	export default {
 		components: {
-
 			PageButton
 		},
 		data() {
 			return {
+				bankList: [],
 				temp: {
 					bankName: '',
 					bankAccount: '',
 					bankCode:''
 				},
-				bankList: [],
 				index: null,
 			}
 		},
 		onLoad() {
 			this.bankList = this.$json.bankList;
+		},
+		onShow(){
+			
 		},
 		methods: {
 			bindPickerChange: function(e) {
