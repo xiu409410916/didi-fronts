@@ -1,6 +1,7 @@
 module.exports = {
   NODE_ENV: '"production"',
   ENV_CONFIG: '"sit"',
-  BASE_API: '"/adminApi"',
-  PUBLIC_PATH: '/adminPc/integral/'
+  BASE_API: '"/didi-admin"',
+  PUBLIC_PATH: '/didi-admin/'
 }
+
