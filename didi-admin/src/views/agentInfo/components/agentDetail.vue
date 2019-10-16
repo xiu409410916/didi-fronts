@@ -1,7 +1,7 @@
 <template>
   <div class="app-container calendar-list-container">
     <el-form :rules="rules" ref="dataForm" :model="dataForm" label-position="left" label-width="120px" style="width: 400px;">
-      <el-form-item label="医生姓名" prop="agentName">
+      <el-form-item label="供应商姓名" prop="agentName">
         <el-input :disabled="isDetail" v-model="dataForm.agentName"></el-input>
       </el-form-item>
       <el-form-item label="手机号" prop="mobile">

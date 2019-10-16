@@ -61,7 +61,7 @@ const userManageRouter = {
       path: 'doctorCommentInfo',
       component: () => import('@/views/doctorCommentInfo/list'),
       name: 'doctorCommentInfo',
-      meta: {  title: '评价医生列表', icon: 'list', noCache: true }
+      meta: {  title: '医生评价列表', icon: 'list', noCache: true }
     }
   ]
 }
