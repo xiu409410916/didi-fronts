@@ -47,6 +47,11 @@
 						<view class="right"><image src="../../static/you.png"></image></view>
 						<navigator></navigator>
 					</view>
+					<view class="vi" @click="toUserAmount" v-if="patientInfo.agentId">
+						<view class="left"><image src="../../static/qrcode.png"></image>我的余额</view>
+						<view class="right"><image src="../../static/you.png"></image></view>
+						<navigator></navigator>
+					</view>
 					<view class="vi" @click="toDidiDetail">
 						<view class="left"><image src="../../static/about.png"></image>关于我们</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
@@ -75,19 +80,25 @@
 					nickName:'点击登录',
 					time:0,
 					patientId:'',
-					mobile:"获取手机号"
+					mobile:"获取手机号",
+					agentId:null
 				}
 			}
 		},
 		onLoad() {
 			let that = this;
 			var info = uni.getStorageSync("patientInfo");
-			if(that.$util.isEmpty(info.avatarUrl)){
-				that.patientInfo = info;
-			}	
+			// if(that.$util.isEmpty(info.avatarUrl)){
+			// 	that.patientInfo = info;
+			// }
 			if(!that.$util.isEmpty(info.mobile)){
 				info.mobile = '获取手机号';
 			}
+			if(!that.$util.isEmpty(info.avatarUrl)){
+				info.avatarUrl = '../../static/avatar.png';
+				info.nickName = '点击登录';
+			}
+			that.patientInfo = info;
 			that.patientInfo.patientId = info.patientId;
 		},
 		onShow() {
@@ -160,6 +171,10 @@
 					param: params,
 					success: function(res) { 
 						that.patientInfo = res.data;
+						if(!that.$util.isEmpty(res.data.avatarUrl)){
+							res.data.avatarUrl = '../../static/avatar.png';
+							res.data.nickName = '点击登录';
+						}
 						uni.setStorageSync('patientInfo', res.data);
 					},
 					error: function() {}
@@ -178,6 +193,11 @@
 			toMyGene:function(){
 				uni.navigateTo({
 					url:'/pages/my/userGene'
+				})
+			},
+			toUserAmount:function(){
+				uni.navigateTo({
+					url:'/pages/my/userAmount?agentId='+this.agentId
 				})
 			}
 			

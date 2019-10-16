@@ -21,7 +21,9 @@
 		onLoad(options) {
 			var info = uni.getStorageSync("patientInfo")
 			this.qrCodeUrl = info.qrCodeUrl;
-			if(!this.$util.isEmpty(this.qrCodeUrl)){
+			if(this.$util.isEmpty(info.agentId)){
+				this.getQrCodeUrl(info.patientId);
+			}else if(!this.$util.isEmpty(this.qrCodeUrl)){
 				this.getQrCodeUrl(info.patientId);
 			}
 		},

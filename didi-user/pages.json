@@ -87,6 +87,12 @@
 		    "style" : {
 		    	"navigationBarTitleText":"我的基因检测"
 		    }
+		},
+		{
+		    "path" : "pages/my/userAmount",
+		    "style" : {
+		    	"navigationBarTitleText":"我的余额"
+		    }
 		}
 	],
 	"globalStyle": {
