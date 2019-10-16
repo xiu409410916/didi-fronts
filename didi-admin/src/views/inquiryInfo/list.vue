@@ -5,7 +5,7 @@
       <el-input style="width: 200px;" class="filter-item" placeholder="身份证号" v-model="listQuery.idCard" clearable></el-input>
       <el-input style="width: 200px;" class="filter-item" placeholder="问诊单号" v-model="listQuery.orderNo" clearable></el-input>
       <el-select style="width: 130px" class="filter-item" v-model="listQuery.payStates">
-        <el-option v-for="item in payStatesList" :label="item.value" :value="item.key"></el-option>
+        <el-option v-for="item in payStatesList" v-bind:key="item.key" :label="item.value" :value="item.key"></el-option>
       </el-select>
       <el-button class="filter-item" data-id="1001" v-display type="primary" icon="el-icon-search" @click="handleFilter">搜索</el-button>
     </div>

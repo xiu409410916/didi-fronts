@@ -4,7 +4,7 @@
       <el-input style="width: 200px;" class="filter-item" placeholder="手机号" v-model="listQuery.mobile" clearable></el-input>
       <el-input style="width: 200px;" class="filter-item" placeholder="医生姓名" v-model="listQuery.doctorName" clearable></el-input>
       <el-select style="width: 130px" class="filter-item" v-model="listQuery.states">
-        <el-option v-for="item in statesList" :label="item.value" :value="item.key"></el-option>
+        <el-option v-for="item in statesList" v-bind:key="item.key" :label="item.value" :value="item.key"></el-option>
       </el-select>
       <el-button class="filter-item" data-id="1001" v-display type="primary" icon="el-icon-search" @click="handleFilter">搜索</el-button>
     </div>
