@@ -60,8 +60,11 @@
 			}
 		},
 		onLoad() {
-
+			uni.showShareMenu({
+				"title":"滴滴健康"
+			});
 		},
+		
 		methods: {
 			toTimeBuy:function(){
 				uni.navigateTo({

@@ -198,9 +198,10 @@
 							}, 1000);
 						  },
 						  'fail': function (res) {
-							uni.navigateTo({
-								url:'/pages/my/index'
-							})
+							  console.log(res);
+							  uni.navigateTo({
+							  	url:'/pages/my/index'
+							  })
 						  }
 						})
 					},
