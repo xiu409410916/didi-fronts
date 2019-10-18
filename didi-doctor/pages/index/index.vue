@@ -53,7 +53,7 @@
 		onLoad() {
 			this.getInquiryList();
 			uni.showShareMenu({
-				"title":"滴滴健康"
+				"title":"滴滴答答"
 			});
 		},
 		onPullDownRefresh() {
