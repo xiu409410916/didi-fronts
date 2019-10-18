@@ -52,6 +52,9 @@
 		},
 		onLoad() {
 			this.getInquiryList();
+			uni.showShareMenu({
+				"title":"滴滴健康"
+			});
 		},
 		onPullDownRefresh() {
 			// 增加下拉刷新数据的功能
