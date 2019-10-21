@@ -132,7 +132,8 @@
         this.ntemp.doctorId = this.dataForm.doctorId;
       },
       getOneDetail(id) {
-        getOneByEntity({"doctorId":id}).then(response => {
+         const query = {doctorId:id};
+        getOneByEntity(query).then(response => {
           this.dataForm = response.data
         })
       },
