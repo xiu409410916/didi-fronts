@@ -32,7 +32,7 @@
       </el-table-column>
       <el-table-column min-width="60px" align="center" label="操作">
         <template slot-scope="scope">
-          <el-button class="filter-item" data-id="1002" v-display type="primary" @click="detail(scope.row.prodoctId)">查看详情</el-button>
+          <el-button class="filter-item" data-id="1002" v-display type="primary" @click="detail(scope.row.doctorId)">查看详情</el-button>
         </template>
       </el-table-column>
     </el-table>
