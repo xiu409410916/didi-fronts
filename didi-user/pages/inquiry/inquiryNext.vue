@@ -191,14 +191,13 @@
 						    	icon:'none',
 						    	duration: 2000
 						    });
-							uni.navigateBack({
-								delta:2
+							uni.redirectTo({
+								url:'../my/userInquiry'
 							})
 						  },
 						  'fail': function (res) {
-							 console.log(res);
-							 uni.navigateBack({
-							 	delta:2
+							 uni.redirectTo({
+							 	url:'../my/userInquiry'
 							 })
 						  }
 						})
