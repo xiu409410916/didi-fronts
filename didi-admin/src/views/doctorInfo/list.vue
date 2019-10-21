@@ -105,6 +105,7 @@
         this.getList();
       },
       detail(doctorId) {
+        console.log('list页面----------'+doctorId);
         this.$router.push({
           name: "doctorDetail",
           query: {

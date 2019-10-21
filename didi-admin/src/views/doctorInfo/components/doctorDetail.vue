@@ -123,6 +123,7 @@
     },
     created() {
       const id = this.$route.query.id
+      console.log('detail----------'+id);
       this.getOneDetail(id);
     },
     methods: {
@@ -131,7 +132,7 @@
         this.ntemp.doctorId = this.dataForm.doctorId;
       },
       getOneDetail(id) {
-        getOneByEntity(id).then(response => {
+        getOneByEntity({"doctorId":id}).then(response => {
           this.dataForm = response.data
         })
       },
