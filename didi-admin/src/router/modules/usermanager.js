@@ -42,13 +42,13 @@ const userManageRouter = {
       path: 'agentInfo',
       component: () => import('@/views/agentInfo/list'),
       name: 'agentInfo',
-      meta: {  title: '供应商列表', icon: 'list', noCache: true}
+      meta: {  title: '代理商列表', icon: 'list', noCache: true}
     },
     {
       path: 'agentDetail',
       component: () => import('@/views/agentInfo/components/agentDetail'),
       name: 'agentDetail',
-      meta: {  title: '供应商详情', icon: 'list', noCache: true },
+      meta: {  title: '代理商详情', icon: 'list', noCache: true },
       hidden: true
     },
     {

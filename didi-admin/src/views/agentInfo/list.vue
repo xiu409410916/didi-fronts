@@ -183,12 +183,20 @@
       },
       updateLevel(id) {
         const param = {agentId:id};
-        updateAgentLevel(param).then(response => {
-          this.getList();
-          this.$message({
-            message: '升级成功',
-            type: 'success'
+        this.$confirm('确定升级吗?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          updateAgentLevel(param).then(response => {
+            this.getList();
+            this.$message({
+              message: '升级成功',
+              type: 'success'
+            })
           })
+        }).catch(() => {
+        
         })
       },
       handleaudit() {
