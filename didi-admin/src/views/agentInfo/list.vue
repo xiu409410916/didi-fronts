@@ -183,7 +183,7 @@
       },
       updateLevel(id) {
         const param = {agentId:id};
-        this.$confirm('确定升级吗?', '提示', {
+        this.$confirm('确定升级为一级代理吗?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
