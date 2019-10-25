@@ -105,7 +105,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PageButton = function PageButton() {return __webpack_require__.e(/*! import() | components/button */ "components/button").then(__webpack_require__.bind(null, /*! ../../components/button.vue */ 125));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PageButton = function PageButton() {return __webpack_require__.e(/*! import() | components/button */ "components/button").then(__webpack_require__.bind(null, /*! ../../components/button.vue */ 155));};var _default =
+
+
+
+
+
+
+
 
 
 
@@ -187,7 +194,8 @@ __webpack_require__.r(__webpack_exports__);
         conceive: '',
         liver: '',
         kidney: '',
-        medicalHistory: '' },
+        medicalHistory: '',
+        payType: '' },
 
       conceive: [{ "key": "-1", "value": "请选择" }, { "key": "0", "value": "无备孕计划" }, { "key": "1", "value": "备孕中" }, { "key": "2", "value": "怀孕中" }, { "key": "3", "value": "哺乳期" }],
       index: -1 };
@@ -218,23 +226,90 @@ __webpack_require__.r(__webpack_exports__);
       that.index = e.target.value;
       that.temp.conceive = that.conceive[that.index].key;
     },
+    payTypeChang: function payTypeChang(e) {
+      this.temp.payType = e.target.value;
+    },
     submit: function submit() {
       var that = this;
+      if (!that.$util.isEmpty(that.temp.realName)) {
+        uni.showToast({
+          title: '请输入真实姓名',
+          icon: 'none',
+          duration: 2000 });
+
+        return;
+      }
+      if (!that.$util.isEmpty(that.temp.idCard)) {
+        uni.showToast({
+          title: '请输入身份证号',
+          icon: 'none',
+          duration: 2000 });
+
+        return;
+      }
+      if (!that.$util.isEmpty(that.temp.gender)) {
+        uni.showToast({
+          title: '请选择性别',
+          icon: 'none',
+          duration: 2000 });
+
+        return;
+      }
+      if (!that.$util.isEmpty(that.temp.payType)) {
+        uni.showToast({
+          title: '请选择支付方式',
+          icon: 'none',
+          duration: 2000 });
+
+        return;
+      }
       that.$util.request({
         url: "/didi-patient/inquiryinfo/add",
         param: that.temp,
         contentType: 'application/x-www-form-urlencoded',
         success: function success(res) {
-          setTimeout(function () {
-            uni.redirectTo({
-              url: '/pages/index/index' });
+          that.payInquiry(res.data.inquiryId);
+        },
+        error: function error() {} });
 
-          }, 1000);
-          uni.showToast({
-            title: '发布成功',
-            icon: 'success',
-            duration: 2000 });
+    },
 
+    payInquiry: function payInquiry(inquiryId) {
+      var that = this;
+      var temp = {};
+      temp.inquiryId = inquiryId;
+      that.$util.request({
+        url: "/didi-patient/patientpayinfo/unifiedOrder",
+        param: temp,
+        contentType: 'application/x-www-form-urlencoded',
+        success: function success(res) {
+          var data = res.data;
+          //调用微信支付
+          uni.requestPayment({
+            'appId': data.appId,
+            'timeStamp': data.timeStamp,
+            'nonceStr': data.nonceStr,
+            'package': data.package,
+            'signType': data.signType,
+            'paySign': data.paySign,
+            'success': function success(res) {
+              uni.showToast({
+                title: '下单成功',
+                icon: 'none',
+                duration: 2000 });
+
+              setTimeout(function () {
+                uni.navigateTo({
+                  url: '/pages/my/index' });
+
+              }, 1000);
+            },
+            'fail': function fail(res) {
+              console.log(res);
+              uni.navigateTo({
+                url: '/pages/my/index' });
+
+            } });
 
         },
         error: function error() {} });

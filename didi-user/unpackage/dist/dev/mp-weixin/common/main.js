@@ -68,17 +68,13 @@ __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 var io = __webpack_require__(/*! common/weapp.socket.io.js */ 8);var _default =
 {
-<<<<<<< HEAD
-  onLaunch: function onLaunch(query) {
-    var scene = decodeURIComponent(query.scene);
-=======
   globalData: {
     socket: '' },
 
-  onLaunch: function onLaunch() {
->>>>>>> ad02e4328bc54cbc3239a2c278f675f36c7100c9
+  onLaunch: function onLaunch(query) {
+    var scene = decodeURIComponent(query.scene);
     console.log('App Launch');
-    console.log(scene);
+    console.log("scene-----------" + scene);
     var that = this;
     uni.login({
       provider: 'weixin',
@@ -87,6 +83,7 @@ var io = __webpack_require__(/*! common/weapp.socket.io.js */ 8);var _default =
         that.loginByCode(code, scene);
       } });
 
+    //TODO 请注释
     var messageList = [
     {
       title: "马云",
@@ -141,12 +138,7 @@ var io = __webpack_require__(/*! common/weapp.socket.io.js */ 8);var _default =
     console.log('App Hide');
   },
   methods: {
-<<<<<<< HEAD
     loginByCode: function loginByCode(code, scene) {
-=======
-    loginByCode: function loginByCode(code) {
-      console.log('login');
->>>>>>> ad02e4328bc54cbc3239a2c278f675f36c7100c9
       var that = this;
       var param = {};
       param.code = code;

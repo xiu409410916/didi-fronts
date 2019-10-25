@@ -365,20 +365,13 @@ function uuid() {
 }
 
 function updateMessage(msg, hasRead) {
-	var fromUid = '';
-	if(hasRead == '0'){
-		fromUid = msg.fromUid;
-	}else{
-		fromUid = msg.toUid;
-	}
+	var orderId = msg.orderId;
 	//更新消息列表
-	console.log('send msg');
-	console.log(msg.msg.content);
 	var messageList = uni.getStorageSync('messageList');
-	if (null != messageList) {
+	if (messageList.length>0) {
 		//如果消息列表中有历史消息 则更新
 		for (var i = 0; i < messageList.length; i++) {
-			if (messageList[i].openId == fromUid) {
+			if (messageList[i].orderId == orderId) {
 				messageList[i].message = msg.msg.content;
 				messageList[i].time = msg.time;
 				messageList[i].count = messageList[i].count + 1;
@@ -387,6 +380,7 @@ function updateMessage(msg, hasRead) {
 	} else {
 		//如果消息列表中没有历史消息 则新增
 		var message = {
+			orderId:msg.orderId,
 			title: msg.username,
 			openId: fromUid,
 			avatarUrl: msg.face,
@@ -395,20 +389,19 @@ function updateMessage(msg, hasRead) {
 			count: 1,
 			type: 2 //普通用户类型消息
 		};
-		messageList = [];
 		messageList.push(message);
 	}
 	uni.setStorageSync('messageList', messageList);
 	//更新所有用户消息信息
 	msg.hasRead = hasRead; //设置消息未被读
 	var messageDetail = uni.getStorageSync("messageDetail");
-	var messageDetailList = messageDetail[fromUid];
-	if (messageList) {
+	var messageDetailList = messageDetail['order'+orderId];
+	if (messageDetailList) {
 		messageDetailList.push(msg);
 	} else {
 		messageDetailList = [];
 		messageDetailList.push(msg);
-		messageDetail[fromUid] = messageDetailList;
+		messageDetail['order'+orderId] = messageDetailList;
 	}
 	uni.setStorageSync("messageDetail", messageDetail);
 }

@@ -104,18 +104,6 @@
 .content .li .nobottom.data-v-13e12b1b {
       border-bottom: 0;
 }
-.content .text.data-v-13e12b1b {
-    -webkit-box-align: left;
-    -webkit-align-items: left;
-        -ms-flex-align: left;
-            align-items: left;
-    margin-left: 33px;
-    margin-right: 33rpx;
-}
-.content .text textarea.data-v-13e12b1b {
-    width: 100%;
-    height: 350rpx;
-}
 .content .savebox.data-v-13e12b1b {
     display: -webkit-box;
     display: -webkit-flex;
@@ -126,5 +114,17 @@
         -ms-flex-pack: center;
             justify-content: center;
     padding: 50rpx 0 30rpx;
+}
+.content .text.data-v-13e12b1b {
+    -webkit-box-align: left;
+    -webkit-align-items: left;
+        -ms-flex-align: left;
+            align-items: left;
+    margin-left: 33px;
+    margin-right: 33rpx;
+}
+.content .text textarea.data-v-13e12b1b {
+    width: 100%;
+    height: 250rpx;
 }
 

@@ -14,7 +14,9 @@
     "pages/my/userRecept",
     "pages/my/userAgent",
     "pages/my/userAgentAdd",
-    "pages/my/didiDetail"
+    "pages/my/didiDetail",
+    "pages/my/userQrCode",
+    "pages/my/userGeneAdd"
   ],
   "subPackages": [],
   "window": {

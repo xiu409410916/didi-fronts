@@ -30,7 +30,7 @@
 }
 .content .bg.data-v-4e6919f6 {
     width: 100%;
-    height: 220rpx;
+    height: 150rpx;
     display: block;
     background: #00C694;
 }
@@ -50,7 +50,7 @@
 }
 .meHead .meHeadAvatar.data-v-4e6919f6 {
     float: left;
-    width: 19%;
+    width: 20%;
     margin-top: 10rpx;
 }
 .meHead .meHeadAvatar image.data-v-4e6919f6 {
@@ -61,18 +61,14 @@
 }
 .meHead .meHeadName.data-v-4e6919f6 {
     float: left;
-    width: 81%;
+    width: 30%;
     line-height: 120rpx;
     overflow: hidden;
     -o-text-overflow: ellipsis;
        text-overflow: ellipsis;
     white-space: nowrap;
 }
-<<<<<<< HEAD
-.meHead .meHeadName button.data-v-68ded579 {
-=======
 .meHead .meHeadName button.data-v-4e6919f6 {
->>>>>>> ad02e4328bc54cbc3239a2c278f675f36c7100c9
       margin: 0rpx;
       padding: 0rpx;
       background-color: #00C694;
@@ -81,17 +77,10 @@
       font-size: 28rpx;
       width: 100rpx;
 }
-<<<<<<< HEAD
-.meHead .meHeadName button.data-v-68ded579::after {
-      border: none;
-}
-.meOverBg.data-v-68ded579 {
-=======
 .meHead .meHeadName button.data-v-4e6919f6::after {
       border: none;
 }
 .meOverBg.data-v-4e6919f6 {
->>>>>>> ad02e4328bc54cbc3239a2c278f675f36c7100c9
   background: #FFFFFF;
   overflow: hidden;
   border-radius: 12rpx;
@@ -129,7 +118,7 @@
   background: #FFFFFF;
   overflow: hidden;
   border-radius: 12rpx;
-  margin-top: 30rpx;
+  margin-top: 80rpx;
 }
 .con .vi.data-v-4e6919f6 {
     overflow: hidden;

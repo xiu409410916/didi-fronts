@@ -42,15 +42,16 @@
       width: 80%;
       height: 350rpx;
       margin-left: 20%;
-      border-bottom: 2rpx solid #eeeeee;
-}
-.content .text input.data-v-32f0e782 {
-      border-bottom: 2rpx solid #eeeeee;
 }
 .content .text label.data-v-32f0e782 {
       width: 20%;
       color: #4A4A4A;
       float: left;
+}
+.content .text image.data-v-32f0e782 {
+      width: 50rpx;
+      height: 50rpx;
+      margin-right: 20rpx;
 }
 .content .savebox.data-v-32f0e782 {
     display: -webkit-box;

@@ -89,8 +89,6 @@ render._withStripped = true
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
-=======
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/babel-loader/lib!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/vue-loader/lib??vue-loader-options!../../../../../../../../../Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!./index.vue?vue&type=script&lang=js& */ 36);
 /* harmony import */ var _Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
@@ -107,8 +105,23 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
->>>>>>> ad02e4328bc54cbc3239a2c278f675f36c7100c9
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -174,16 +187,25 @@ var _default =
         nickName: '点击登录',
         time: 0,
         patientId: '',
-        mobile: '' } };
+        mobile: "获取手机号",
+        agentId: null } };
 
 
   },
   onLoad: function onLoad() {
     var that = this;
     var info = uni.getStorageSync("patientInfo");
-    if (that.$util.isEmpty(info.avatarUrl)) {
-      that.patientInfo = info;
+    // if(that.$util.isEmpty(info.avatarUrl)){
+    // 	that.patientInfo = info;
+    // }
+    if (!that.$util.isEmpty(info.mobile)) {
+      info.mobile = '获取手机号';
     }
+    if (!that.$util.isEmpty(info.avatarUrl)) {
+      info.avatarUrl = '../../static/avatar.png';
+      info.nickName = '点击登录';
+    }
+    that.patientInfo = info;
     that.patientInfo.patientId = info.patientId;
   },
   onShow: function onShow() {
@@ -205,7 +227,6 @@ var _default =
 
     },
     wxGetUserInfo: function wxGetUserInfo(res) {
-      console.log('-------');
       var that = this;
       if (!res.detail.iv) {
         uni.showToast({
@@ -228,11 +249,13 @@ var _default =
         url: "/didi-patient/patientinfo/modifyUserInfo",
         param: temp,
         success: function success(res) {
+          if (!that.$util.isEmpty(res.data.mobile)) {
+            res.data.mobile = '获取手机号';
+          }
           that.patientInfo = res.data;
           uni.setStorageSync('patientInfo', res.data);
         },
         error: function error() {} });
-<<<<<<< HEAD
 
     },
     getPhoneNumber: function getPhoneNumber(e) {
@@ -255,6 +278,10 @@ var _default =
         param: params,
         success: function success(res) {
           that.patientInfo = res.data;
+          if (!that.$util.isEmpty(res.data.avatarUrl)) {
+            res.data.avatarUrl = '../../static/avatar.png';
+            res.data.nickName = '点击登录';
+          }
           uni.setStorageSync('patientInfo', res.data);
         },
         error: function error() {} });
@@ -264,37 +291,20 @@ var _default =
       uni.navigateTo({
         url: '/pages/my/didiDetail' });
 
-    } } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
-
-/***/ }),
-=======
->>>>>>> ad02e4328bc54cbc3239a2c278f675f36c7100c9
+    },
+    toQrCode: function toQrCode() {
+      uni.navigateTo({
+        url: '/pages/my/userQrCode' });
 
     },
-    getPhoneNumber: function getPhoneNumber(e) {
-      if (e.target.errMsg == 'getPhoneNumber:ok') {
-        this.createUserByWechatTelephone(e.target.encryptedData, e.target.iv);
-      } else {
-        uni.navigateTo({
-          url: '../../login/login' });
+    toMyGene: function toMyGene() {
+      uni.navigateTo({
+        url: '/pages/my/userGene' });
 
-      }
     },
-    //微信手机号码创建用户
-    createUserByWechatTelephone: function createUserByWechatTelephone(encryptedData, iv) {
-      var that = this;
-      var params = {};
-      params.encryptedData = encryptedData;
-      params.iv = iv;
-      that.$util.request({
-        url: "/didi-patient/patientinfo/modifyMobileInfo",
-        param: params,
-        success: function success(res) {
-          that.patientInfo = res.data;
-          uni.setStorageSync('patientInfo', res.data);
-        },
-        error: function error() {} });
+    toUserAmount: function toUserAmount() {
+      uni.navigateTo({
+        url: '/pages/my/userAmount?agentId=' + this.agentId });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

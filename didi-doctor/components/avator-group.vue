@@ -1,7 +1,7 @@
 <template>
 	<view class="avator-wrapper">
 		<view class="avator" v-if="type == 2">
-			<img class="img" :src="avator[0]" >
+			<img class="img" :src="avator" >
 		</view>
 		<view class="avator-group" v-if="type == 3">
 			<block  v-for="(it,i) of avator" :key="i">
@@ -18,7 +18,7 @@
 	export default {
 		name: 'avator_group',
 		props: {
-			avator: Array,//头像组
+			avator: String,//头像组
 			type: Number | String, //2单个头像，3群组聊天头像组，4默认头像提取文字
 			text: String,//提取名称的一个字
 		}
