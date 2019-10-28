@@ -133,7 +133,7 @@
         width: 35rpx;
         height: 35rpx;
         vertical-align: middle;
-        margin: 0 10rpx 4rpx 0;
+        margin: -1rpx 10rpx 4rpx 0;
 }
 .con .vi .right.data-v-6ebdd2e5 {
       float: right;
