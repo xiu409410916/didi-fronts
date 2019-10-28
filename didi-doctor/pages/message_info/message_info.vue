@@ -138,7 +138,7 @@
 				initPoint:{identifier:0,Y:0},
 				recordTimer:null,
 				recordLength:0,
-				over:'1',
+				over:'0',
 				//播放语音相关参数
 				AUDIO:uni.createInnerAudioContext(),
 				playMsgid:null,
@@ -215,13 +215,17 @@
 				for (var i=0;i<messageList.length;i++){
 					if(messageList[i].openId == this.toUser){
 						messageList[i].count = 0;
+						this.messageListInfo = messageList[i];
 					}
 				}
 				uni.setStorageSync('messageList',messageList);
 			},
 			resetUnreadMsgList(){
+				console.log('1111 start')
 				var messageDetail = uni.getStorageSync("messageDetail");
+				console.log(messageDetail)
 				var userMsgDetail = messageDetail['order'+this.orderId];
+				console.log(userMsgDetail)
 				if(userMsgDetail != null){
 					for(var i=0;i<userMsgDetail.length;i++){
 						if(userMsgDetail[i].hasRead == '0'){
@@ -229,12 +233,15 @@
 						}
 						this.resetUnreadMsgCount();
 					}
+					console.log(userMsgDetail);
 					messageDetail['order'+this.orderId] = userMsgDetail;
 				}else{
 					messageDetail = {};
 					messageDetail['order'+this.orderId] = [];
 				}
 				
+				console.log(messageDetail)
+				console.log('1111 end')
 				uni.setStorageSync("messageDetail",messageDetail);
 			},
 			getMsgList(){
@@ -353,7 +360,7 @@
 							var filePath = res.tempFilePaths[i];
 							uni.showLoading({mask:true});
 							uni.uploadFile({
-								url: serverUrl+'/didi-patient/ossfile/fileUpload', 
+								url: serverUrl+'/didi-doctor/ossfile/fileUpload', 
 								filePath: filePath,  
 								name: 'file',
 								header: {  
@@ -396,10 +403,32 @@
 				//实际应用中，此处应该提交长连接，模板仅做本地处理。
 				var that = this;
 				var nowDate = new Date();
+				//检查订单是否结束 false结束 true未结束
+				if(!this.checkSessionNotOuttime(nowDate)){
+					//消息超时 提示消息并更改状态
+					this.over = '1';
+					this.messageListInfo.over = '1';
+					//更新缓存
+					var messageList = uni.getStorageSync('messageList');
+					for (var i=0;i<messageList.length;i++){
+						if(messageList[i].openId == this.toUser){
+							messageList[i] = messageListInfo;
+							this.messageListInfo = messageList[i];
+						}
+					}
+					uni.setStorageSync('messageList',messageList);
+					
+					uni.showToast({
+						title: '此次订单已结束！',
+						icon:'none',
+						duration: 2000
+					});
+					return;
+				} 
 				let singleRequest = {
 					orderId:this.orderId,
 					id:that.$util.uuid(),
-					username:this.info.nickName,
+					username:this.info.doctorName,
 					face:this.info.avatarUrl,
 					fromUid: that.myuid,
 					toUid: that.toUser,
@@ -407,6 +436,7 @@
 					type:type,
 					msg:content
 				};
+				console.log(singleRequest);
 				this.socket.emit('chat', singleRequest, function (data) {
 					console.log('系统通知: 你刚刚和 '+that.toUser+' 说了句悄悄话');
 					if (data && data.flag) {
@@ -415,8 +445,24 @@
 						console.log('系统通知: 悄悄话 '+data.message+' 说了句悄悄话');
 					}
 				});
+				//屏幕添加发送的消息
 				this.screenMsg(singleRequest);
+				//发送的消息记录到缓存
 				this.$util.updateMessage(singleRequest,"1");
+			},
+			
+			checkSessionNotOuttime(checkDate){
+				var startDate = this.messageListInfo.startTime;
+				var inquiryTime = this.messageListInfo.inquiryTime;
+				if(startDate == null){
+					//第一次发送的消息不作判断
+					return true;
+				}else if(checkDate - Date(startDate)<inquiryTime*1000){
+					//未超时
+					return true;
+				}else{
+					return false;
+				}
 			},
 			
 			// 处理文字消息

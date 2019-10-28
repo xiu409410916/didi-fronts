@@ -22,7 +22,7 @@
 				var messageList = [];
 				uni.setStorageSync("messageList", messageList);
 			}
-			uni.setStorageSync("messageDetail", messageDetail);
+			// uni.setStorageSync("messageDetail", messageDetail); 
 		},
 		onShow: function() {
 			console.log('App Show')

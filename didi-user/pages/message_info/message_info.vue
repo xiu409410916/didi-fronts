@@ -160,8 +160,7 @@
 		onLoad(option) {
 			var that = this;
 			var toUser = option.toUser;
-			var orderId = option.orderId;
-			this.orderId = orderId;
+			this.orderId = option.orderId;
 			this.toUser = toUser;
 			this.socket = app.globalData.socket;
 			this.over = option.over;
@@ -215,6 +214,7 @@
 				for (var i=0;i<messageList.length;i++){
 					if(messageList[i].openId == this.toUser){
 						messageList[i].count = 0;
+						this.messageListInfo = messageList[i];
 					}
 				}
 				uni.setStorageSync('messageList',messageList);
@@ -240,7 +240,7 @@
 			getMsgList(){
 				this.resetUnreadMsgCount();
 				// 消息列表
-				let list = uni.getStorageSync("messageDetail")[this.toUser];
+				let list = uni.getStorageSync("messageDetail")['order'+this.orderId];
 				// 获取消息中的图片,并处理显示尺寸
 				if(list != null) {
 					for(let i=0;i<list.length;i++){
@@ -396,6 +396,28 @@
 				//实际应用中，此处应该提交长连接，模板仅做本地处理。
 				var that = this;
 				var nowDate = new Date();
+				//检查订单是否结束 false结束 true未结束
+				if(!this.checkSessionNotOuttime(nowDate)){
+					//消息超时 提示消息并更改状态
+					this.over = '1';
+					this.messageListInfo.over = '1';
+					//更新缓存
+					var messageList = uni.getStorageSync('messageList');
+					for (var i=0;i<messageList.length;i++){
+						if(messageList[i].openId == this.toUser){
+							messageList[i] = messageListInfo;
+							this.messageListInfo = messageList[i];
+						}
+					}
+					uni.setStorageSync('messageList',messageList);
+					
+					uni.showToast({
+						title: '此次订单已结束！',
+						icon:'none',
+						duration: 2000
+					});
+					return;
+				}
 				let singleRequest = {
 					orderId:this.orderId,
 					id:that.$util.uuid(),
@@ -415,8 +437,63 @@
 						console.log('系统通知: 悄悄话 '+data.message+' 说了句悄悄话');
 					}
 				});
+				//检查是否为用户第一条消息
+				this.checkFistMsg(singleRequest);
+				//屏幕添加发送的消息
 				this.screenMsg(singleRequest);
+				//发送的消息记录到缓存
 				this.$util.updateMessage(singleRequest,"1");
+			},
+			
+			checkFistMsg(msg) {
+				var that = this;
+				var messageDetail = uni.getStorageSync("messageDetail");
+				var userMsgDetail = messageDetail['order'+this.orderId];	//获取消息数组
+				//判断用户之前是否有发送过消息
+				var tmpArr = userMsgDetail.filter(function(p){
+				  return p.fromUid === this.myuid;
+				});
+				if(tmpArr.length<1){
+					//未发送过消息 调用首次发送消息
+					that.$util.request({
+						url: "/didi-patient/inquiryinfo/patientFirstSendMessage",
+						param: {inquiryId:this.orderId},
+						success: function(res) {
+							//记录接单开始时间 付费时间
+							var startTime= res.data.startTime;
+							var payType = res.data.payType;
+							var inquiryTime = that.$util.getInquiryTimeByType(payType);
+							var messageListInfo = this.messageListInfo;
+							messageListInfo.startTime = startTime;
+							messageListInfo.inquiryTime = inquiryTime;
+							
+							//更新缓存
+							var messageList = uni.getStorageSync('messageList');
+							for (var i=0;i<messageList.length;i++){
+								if(messageList[i].openId == this.toUser){
+									messageList[i] = messageListInfo;
+									this.messageListInfo = messageList[i];
+								}
+							}
+							uni.setStorageSync('messageList',messageList);
+						},
+						error: function() {}
+					})
+				}
+			},
+			
+			checkSessionNotOuttime(checkDate){
+				var startDate = this.messageListInfo.startTime;
+				var inquiryTime = this.messageListInfo.inquiryTime;
+				if(startDate == null){
+					//第一次发送的消息不作判断
+					return true;
+				}else if(checkDate - Date(startDate)<inquiryTime*1000){
+					//未超时
+					return true;
+				}else{
+					return false;
+				}
 			},
 			
 			// 处理文字消息

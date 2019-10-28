@@ -185,14 +185,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
   onReady: function onReady() {
-    this.getSize();
+    // this.getSize()
   },
 
   methods: {
-    toMessageDetail: function toMessageDetail(type, title, openId) {
-      if (type == 2) {
+    toMessageDetail: function toMessageDetail(i, it) {
+      if (it.type == 2) {
+        console.log(it);
         uni.navigateTo({
-          url: "../message_info/message_info?name=" + title + "&toUser=" + openId });
+          url: "../message_info/message_info?name=" + it.title + "&toUser=" + it.openId + "&orderId=" + it.orderId + "&over=" + it.over });
 
       } else if (type == 1) {
         console.log('进入系统消息界面');

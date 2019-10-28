@@ -2064,6 +2064,7 @@ function createMsgSession(message, messageInfo) {
   var messageDetailList = [];
   messageDetailList.push(messageInfo);
   messageDetail['order' + message.orderId] = messageDetailList;
+  console.log(messageDetail);
   uni.setStorageSync("messageDetail", messageDetail);
 }
 
@@ -2075,6 +2076,7 @@ function updateMessage(msg, hasRead) {
     //如果消息列表中有历史消息 则更新
     for (var i = 0; i < messageList.length; i++) {
       if (messageList[i].orderId == orderId) {
+
         messageList[i].message = msg.msg.content;
         messageList[i].time = msg.time;
         messageList[i].count = messageList[i].count + 1;
@@ -2099,6 +2101,23 @@ function updateMessage(msg, hasRead) {
   msg.hasRead = hasRead; //设置消息未被读
   var messageDetail = uni.getStorageSync("messageDetail");
   var messageDetailList = messageDetail['order' + orderId];
+  var tmpArr = messageDetailList.filter(function (p) {
+    return p.fromUid !== uni.getStorageSync("doctorInfo").openId;
+  });
+
+  if (tmpArr.length < 1) {
+    //未收到过消息 设置为接单开始时间
+    //更新缓存
+    var messageList = uni.getStorageSync('messageList');
+    for (var i = 0; i < messageList.length; i++) {
+      if (messageList[i].openId == this.toUser) {
+        messageList[i] = messageListInfo;
+        var startTime = new Date();
+        messageList[i].startTime = startTime;
+      }
+    }
+    uni.setStorageSync('messageList', messageList);
+  }
   if (messageDetailList) {
     messageDetailList.push(msg);
   } else {
@@ -2123,6 +2142,19 @@ function uuid() {
   return uuid;
 }
 
+function getInquiryTimeByType(type) {
+  if (type == '0') {
+    //0：20元1小时 3600s
+    return 1 * 60 * 60;
+  } else if (type == '1') {
+    //1：30元两小时
+    return 2 * 60 * 60;
+  } else {
+    //其他异常情况 返回0立即结束
+    return 0;
+  }
+}
+
 module.exports = {
   formatTime: formatTime,
   formatLocation: formatLocation,
@@ -2141,7 +2173,8 @@ module.exports = {
   getFormatDate: getFormatDate,
   beautyTime: beautyTime,
   createMsgSession: createMsgSession,
-  updateMessage: updateMessage };
+  updateMessage: updateMessage,
+  getInquiryTimeByType: getInquiryTimeByType };
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

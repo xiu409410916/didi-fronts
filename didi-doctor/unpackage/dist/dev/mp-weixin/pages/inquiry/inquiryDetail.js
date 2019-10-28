@@ -160,13 +160,14 @@
             message: msg,
             time: time,
             count: 1,
+            inquiryTime: that.$util.getInquiryTimeByType(orderInfo.payType),
             over: 0,
             type: 2 //普通用户类型消息
           };
           var messageInfo = {
             orderId: orderInfo.inquiryId,
             id: that.$util.uuid(),
-            username: info.nickName,
+            username: info.doctorName,
             face: info.avatarUrl,
             fromUid: info.openId,
             toUid: patientInfo.openId,
@@ -175,10 +176,12 @@
             type: 'text',
             msg: { content: msg } };
 
+          console.log(message);
+          console.log(messageInfo);
           that.$util.createMsgSession(message, messageInfo);
 
           uni.navigateTo({
-            url: '/pages/message_info/message_info?msg=' + msg + '&orderId=' + orderInfo.receptId + '&toUser=' + patientInfo.openId + '&name=' + patientInfo.nickName + '&firstMsg=true' });
+            url: '/pages/message_info/message_info?msg=' + msg + '&orderId=' + orderInfo.inquiryId + '&toUser=' + patientInfo.openId + '&name=' + patientInfo.nickName + '&over=0' });
 
 
         },

@@ -84,6 +84,7 @@
 		methods: {
 			toMessageDetail(i,it){
 				if(it.type == 2){
+					console.log(it);
 					uni.navigateTo({
 						url:"../message_info/message_info?name="+it.title+"&toUser="+it.openId+"&orderId="+it.orderId+"&over="+it.over
 					})

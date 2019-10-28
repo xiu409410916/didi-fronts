@@ -2042,52 +2042,82 @@ function uuid() {
 }
 
 function updateMessage(msg, hasRead) {
-  var fromUid = '';
-  if (hasRead == '0') {
-    fromUid = msg.fromUid;
-  } else {
-    fromUid = msg.toUid;
-  }
+  console.log(msg);
+  var orderId = msg.orderId;
   //更新消息列表
-  console.log('send msg');
-  console.log(msg.msg.content);
   var messageList = uni.getStorageSync('messageList');
-  if (null != messageList) {
+  if (messageList != '' && messageList.length > 0) {
     //如果消息列表中有历史消息 则更新
+    var updated = false;
     for (var i = 0; i < messageList.length; i++) {
-      if (messageList[i].openId == fromUid) {
+      if (messageList[i].orderId == orderId) {
         messageList[i].message = msg.msg.content;
         messageList[i].time = msg.time;
         messageList[i].count = messageList[i].count + 1;
+        updated = true;
+        break;
       }
+    }
+    if (!updated) {
+      //如果消息列表中不存该用户订单，则新建
+      var message = {
+        orderId: msg.orderId,
+        title: msg.username,
+        openId: msg.fromUid,
+        avatarUrl: msg.face,
+        message: msg.msg.content,
+        time: msg.time,
+        count: 1,
+        type: 2, //普通用户类型消息
+        over: '0' };
+
+      messageList.push(message);
     }
   } else {
     //如果消息列表中没有历史消息 则新增
+    messageList = [];
     var message = {
+      orderId: msg.orderId,
       title: msg.username,
-      openId: fromUid,
+      openId: msg.fromUid,
       avatarUrl: msg.face,
       message: msg.msg.content,
       time: msg.time,
       count: 1,
-      type: 2 //普通用户类型消息
-    };
-    messageList = [];
+      type: 2, //普通用户类型消息
+      over: '0' };
+
     messageList.push(message);
   }
   uni.setStorageSync('messageList', messageList);
   //更新所有用户消息信息
   msg.hasRead = hasRead; //设置消息未被读
   var messageDetail = uni.getStorageSync("messageDetail");
-  var messageDetailList = messageDetail[fromUid];
-  if (messageList) {
+  if (messageDetail == null || messageDetail == '') {
+    messageDetail = {};
+  }
+  var messageDetailList = messageDetail['order' + orderId];
+  if (messageDetailList) {
     messageDetailList.push(msg);
   } else {
     messageDetailList = [];
     messageDetailList.push(msg);
-    messageDetail[fromUid] = messageDetailList;
+    messageDetail['order' + orderId] = messageDetailList;
   }
   uni.setStorageSync("messageDetail", messageDetail);
+}
+
+function getInquiryTimeByType(type) {
+  if (type == '0') {
+    //0：20元1小时 3600s
+    return 1 * 60 * 60;
+  } else if (type == '1') {
+    //1：30元两小时
+    return 2 * 60 * 60;
+  } else {
+    //其他异常情况 返回0立即结束
+    return 0;
+  }
 }
 
 module.exports = {
@@ -2106,7 +2136,8 @@ module.exports = {
   uuid: uuid,
   getFormatDate: getFormatDate,
   beautyTime: beautyTime,
-  updateMessage: updateMessage };
+  updateMessage: updateMessage,
+  getInquiryTimeByType: getInquiryTimeByType };
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
