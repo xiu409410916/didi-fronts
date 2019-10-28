@@ -58,7 +58,7 @@
 			</swiper>
 		</view>
 		<!-- 底部输入栏 -->
-		<view class="input-box" :class="showEmji" @touchmove.stop.prevent="discard">
+		<view v-if="over=='0'" class="input-box" :class="showEmji" @touchmove.stop.prevent="discard">
 			<!-- H5下不能录音，输入栏布局改动一下 -->
 			<!-- #ifndef H5 -->
 			<view class="voice">
@@ -95,6 +95,10 @@
 			</view>
 			</label>
 		</view>
+		<view v-else-if="over=='1'" class="over-view">
+			<text>咨询已结束</text>
+		</view>
+		
 		<!-- 录音效果(上滑取消) -->
 		<view class="record" :class="recording?'':'hidden'">
 			<view class="ing" :class="willStop?'hidden':''"><view class="icon luyin2" ></view></view>
@@ -120,7 +124,7 @@
 				scrollToView:'',
 				msgList:[],
 				msgImgList:[],
-				myuid:uni.getStorageSync("patientInfo").openId,
+				myuid:uni.getStorageSync("doctorInfo").openId,
 				//录音相关参数
 				// #ifndef H5
 				//H5不能录音
@@ -134,13 +138,14 @@
 				initPoint:{identifier:0,Y:0},
 				recordTimer:null,
 				recordLength:0,
+				over:'0',
 				//播放语音相关参数
 				AUDIO:uni.createInnerAudioContext(),
 				playMsgid:null,
 				VoiceTimer:null,
 				//表情定义
 				showEmji:'',
-				info : uni.getStorageSync("patientInfo"),
+				info : uni.getStorageSync("doctorInfo"),
 				emojiList:[
 					[{"url":"100.gif",alt:"[微笑]"},{"url":"101.gif",alt:"[伤心]"},{"url":"102.gif",alt:"[美女]"},{"url":"103.gif",alt:"[发呆]"},{"url":"104.gif",alt:"[墨镜]"},{"url":"105.gif",alt:"[哭]"},{"url":"106.gif",alt:"[羞]"},{"url":"107.gif",alt:"[哑]"},{"url":"108.gif",alt:"[睡]"},{"url":"109.gif",alt:"[哭]"},{"url":"110.gif",alt:"[囧]"},{"url":"111.gif",alt:"[怒]"},{"url":"112.gif",alt:"[调皮]"},{"url":"113.gif",alt:"[笑]"},{"url":"114.gif",alt:"[惊讶]"},{"url":"115.gif",alt:"[难过]"},{"url":"116.gif",alt:"[酷]"},{"url":"117.gif",alt:"[汗]"},{"url":"118.gif",alt:"[抓狂]"},{"url":"119.gif",alt:"[吐]"},{"url":"120.gif",alt:"[笑]"},{"url":"121.gif",alt:"[快乐]"},{"url":"122.gif",alt:"[奇]"},{"url":"123.gif",alt:"[傲]"}],
 					[{"url":"124.gif",alt:"[饿]"},{"url":"125.gif",alt:"[累]"},{"url":"126.gif",alt:"[吓]"},{"url":"127.gif",alt:"[汗]"},{"url":"128.gif",alt:"[高兴]"},{"url":"129.gif",alt:"[闲]"},{"url":"130.gif",alt:"[努力]"},{"url":"131.gif",alt:"[骂]"},{"url":"132.gif",alt:"[疑问]"},{"url":"133.gif",alt:"[秘密]"},{"url":"134.gif",alt:"[乱]"},{"url":"135.gif",alt:"[疯]"},{"url":"136.gif",alt:"[哀]"},{"url":"137.gif",alt:"[鬼]"},{"url":"138.gif",alt:"[打击]"},{"url":"139.gif",alt:"[bye]"},{"url":"140.gif",alt:"[汗]"},{"url":"141.gif",alt:"[抠]"},{"url":"142.gif",alt:"[鼓掌]"},{"url":"143.gif",alt:"[糟糕]"},{"url":"144.gif",alt:"[恶搞]"},{"url":"145.gif",alt:"[什么]"},{"url":"146.gif",alt:"[什么]"},{"url":"147.gif",alt:"[累]"}],
@@ -155,8 +160,11 @@
 		onLoad(option) {
 			var that = this;
 			var toUser = option.toUser;
+			var orderId = option.orderId;
+			this.orderId = orderId;
 			this.toUser = toUser;
 			this.socket = app.globalData.socket;
+			this.over = option.over;
 			uni.setNavigationBarTitle({
 				title: option.name
 			});
@@ -187,15 +195,17 @@
 			loadMessageDetail(){
 				//获取消息列表中未读的消息
 				var messageDetail = uni.getStorageSync("messageDetail");
-				var userMsgDetail = messageDetail[this.toUser];
-				for(var i=0;i<userMsgDetail.length;i++){
-					if(userMsgDetail[i].hasRead == '0'){
-						this.screenMsg(userMsgDetail[i]);
-						userMsgDetail[i].hasRead ='1';
+				var userMsgDetail = messageDetail['order'+this.orderId];
+				if(userMsgDetail != null){
+					for(var i=0;i<userMsgDetail.length;i++){
+						if(userMsgDetail[i].hasRead == '0'){
+							this.screenMsg(userMsgDetail[i]);
+							userMsgDetail[i].hasRead ='1';
+						}
+						this.resetUnreadMsgCount();
 					}
-					this.resetUnreadMsgCount();
 				}
-				messageDetail[this.toUser] = userMsgDetail;
+				messageDetail['order'+this.orderId] = userMsgDetail;
 				uni.setStorageSync("messageDetail",messageDetail);
 			},
 			
@@ -205,35 +215,51 @@
 				for (var i=0;i<messageList.length;i++){
 					if(messageList[i].openId == this.toUser){
 						messageList[i].count = 0;
+						this.messageListInfo = messageList[i];
 					}
 				}
 				uni.setStorageSync('messageList',messageList);
 			},
 			resetUnreadMsgList(){
+				console.log('1111 start')
 				var messageDetail = uni.getStorageSync("messageDetail");
-				var userMsgDetail = messageDetail[this.toUser];
-				for(var i=0;i<userMsgDetail.length;i++){
-					if(userMsgDetail[i].hasRead == '0'){
-						userMsgDetail[i].hasRead ='1';
+				console.log(messageDetail)
+				var userMsgDetail = messageDetail['order'+this.orderId];
+				console.log(userMsgDetail)
+				if(userMsgDetail != null){
+					for(var i=0;i<userMsgDetail.length;i++){
+						if(userMsgDetail[i].hasRead == '0'){
+							userMsgDetail[i].hasRead ='1';
+						}
+						this.resetUnreadMsgCount();
 					}
-					this.resetUnreadMsgCount();
+					console.log(userMsgDetail);
+					messageDetail['order'+this.orderId] = userMsgDetail;
+				}else{
+					messageDetail = {};
+					messageDetail['order'+this.orderId] = [];
 				}
-				messageDetail[this.toUser] = userMsgDetail;
+				
+				console.log(messageDetail)
+				console.log('1111 end')
 				uni.setStorageSync("messageDetail",messageDetail);
 			},
 			getMsgList(){
 				this.resetUnreadMsgCount();
 				// 消息列表
-				let list = uni.getStorageSync("messageDetail")[this.toUser];
+				let list = uni.getStorageSync("messageDetail")['order'+this.orderId];
 				// 获取消息中的图片,并处理显示尺寸
-				for(let i=0;i<list.length;i++){
-					if(list[i].type=='img'){
-						list[i] = this.setPicSize(list[i]);
-						console.log("list[i]: " + JSON.stringify(list[i]));
-						this.msgImgList.push(list[i].msg.url);
+				if(list != null) {
+					for(let i=0;i<list.length;i++){
+						if(list[i].type=='img'){
+							list[i] = this.setPicSize(list[i]);
+							console.log("list[i]: " + JSON.stringify(list[i]));
+							this.msgImgList.push(list[i].msg.url);
+						}
 					}
+					this.msgList = list;
 				}
-				this.msgList = list;
+				
 				// 滚动到底部
 				this.$nextTick(function() {
 					this.scrollTop = 9999;
@@ -334,7 +360,7 @@
 							var filePath = res.tempFilePaths[i];
 							uni.showLoading({mask:true});
 							uni.uploadFile({
-								url: serverUrl+'/didi-patient/ossfile/fileUpload', 
+								url: serverUrl+'/didi-doctor/ossfile/fileUpload', 
 								filePath: filePath,  
 								name: 'file',
 								header: {  
@@ -377,10 +403,32 @@
 				//实际应用中，此处应该提交长连接，模板仅做本地处理。
 				var that = this;
 				var nowDate = new Date();
-				let lastid = this.$util.uuid();
+				//检查订单是否结束 false结束 true未结束
+				if(!this.checkSessionNotOuttime(nowDate)){
+					//消息超时 提示消息并更改状态
+					this.over = '1';
+					this.messageListInfo.over = '1';
+					//更新缓存
+					var messageList = uni.getStorageSync('messageList');
+					for (var i=0;i<messageList.length;i++){
+						if(messageList[i].openId == this.toUser){
+							messageList[i] = messageListInfo;
+							this.messageListInfo = messageList[i];
+						}
+					}
+					uni.setStorageSync('messageList',messageList);
+					
+					uni.showToast({
+						title: '此次订单已结束！',
+						icon:'none',
+						duration: 2000
+					});
+					return;
+				} 
 				let singleRequest = {
+					orderId:this.orderId,
 					id:that.$util.uuid(),
-					username:this.info.nickName,
+					username:this.info.doctorName,
 					face:this.info.avatarUrl,
 					fromUid: that.myuid,
 					toUid: that.toUser,
@@ -388,6 +436,7 @@
 					type:type,
 					msg:content
 				};
+				console.log(singleRequest);
 				this.socket.emit('chat', singleRequest, function (data) {
 					console.log('系统通知: 你刚刚和 '+that.toUser+' 说了句悄悄话');
 					if (data && data.flag) {
@@ -396,8 +445,24 @@
 						console.log('系统通知: 悄悄话 '+data.message+' 说了句悄悄话');
 					}
 				});
+				//屏幕添加发送的消息
 				this.screenMsg(singleRequest);
+				//发送的消息记录到缓存
 				this.$util.updateMessage(singleRequest,"1");
+			},
+			
+			checkSessionNotOuttime(checkDate){
+				var startDate = this.messageListInfo.startTime;
+				var inquiryTime = this.messageListInfo.inquiryTime;
+				if(startDate == null){
+					//第一次发送的消息不作判断
+					return true;
+				}else if(checkDate - Date(startDate)<inquiryTime*1000){
+					//未超时
+					return true;
+				}else{
+					return false;
+				}
 			},
 			
 			// 处理文字消息
@@ -681,6 +746,18 @@ page{
 			}
 		}
 	}
+}
+.over-view {
+	width: 700upx;
+	background-color: rgba($color: #aaaaaa, $alpha: 0.5);
+	color: #FFFFFF;
+	text-align: center;
+	min-height: 40upx;
+	padding: 10upx 0;
+	position: fixed;
+	z-index: 20;
+	bottom: 10upx;
+	left: 25upx;
 }
 .record{
 	width: 40vw;

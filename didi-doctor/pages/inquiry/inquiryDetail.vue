@@ -114,6 +114,7 @@
 						if(that.$util.isEmpty(res.data.kidney)){
 							that.temp.de = that.temp.de +'肾功能'+that.$json.liver[res.data.kidney]; 
 						}
+						console.log(that.temp);
 					},
 					error: function() {}
 				})
@@ -126,6 +127,8 @@
 					param: dd,
 					contentType: 'application/x-www-form-urlencoded',
 					success: function(res) {
+						var patientInfo = res.data.patientInfo;
+						var orderInfo = res.data.inquiryInfo;
 						setTimeout(function(){
 							uni.navigateTo({
 								url:'/pages/index/index'
@@ -135,6 +138,40 @@
 							title: '接单成功',
 							icon: 'success',
 							duration: 2000
+						})
+						var info = uni.getStorageSync("doctorInfo");
+						var msg = '你好,我是'+uni.getStorageSync('doctorInfo').doctorName+'医生。';
+						var time = that.$util.getFormatDate(new Date(),'yyyy-MM-dd hh:mm:ss');
+						var message = {
+							title: patientInfo.nickName,
+							orderId: orderInfo.inquiryId,
+							openId: patientInfo.openId,
+							avatarUrl: patientInfo.avatarUrl,
+							message: msg,
+							time: time,
+							count: 1,
+							inquiryTime:that.$util.getInquiryTimeByType(orderInfo.payType),
+							over:0,
+							type: 2 //普通用户类型消息
+						};
+						var messageInfo = {
+							orderId:orderInfo.inquiryId,
+							id:that.$util.uuid(),
+							username:info.doctorName,
+							face:info.avatarUrl,
+							fromUid: info.openId,
+							toUid: patientInfo.openId,
+							time:time,
+							firstMsg:false,
+							type:'text',
+							msg:{content:msg}
+						};
+						console.log(message);
+						console.log(messageInfo);
+						that.$util.createMsgSession(message, messageInfo);
+						
+						uni.navigateTo({
+							url:'/pages/message_info/message_info?msg='+msg+'&orderId='+orderInfo.inquiryId+'&toUser='+patientInfo.openId+'&name='+patientInfo.nickName+'&over=0'
 						})
 						
 					},

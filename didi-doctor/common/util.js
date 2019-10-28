@@ -372,29 +372,60 @@ function beautyTime(dateStr) {
 	}
 }
 
-function updateMessage(msg, hasRead) {
-	var fromUid = '';
-	if (hasRead == '0') {
-		fromUid = msg.fromUid;
-	} else {
-		fromUid = msg.toUid;
-	}
-	//更新消息列表
-	console.log('send msg');
-	console.log(msg.msg.content);
+//接单创建消息
+function createMsgSession(message,messageInfo){
+	//新增消息列表
 	var messageList = uni.getStorageSync('messageList');
-	if (null != messageList) {
+	messageList.push(message);
+	uni.setStorageSync('messageList', messageList);
+	
+	//新增消息
+	var messageDetail = uni.getStorageSync("messageDetail");
+	if(messageDetail==null || messageDetail == ''){
+		messageDetail = {};
+	}
+	var messageDetailList = [];
+	messageDetailList.push(messageInfo);
+	messageDetail['order'+message.orderId] = messageDetailList;
+	console.log(messageDetail);
+	uni.setStorageSync("messageDetail", messageDetail);
+}
+
+function updateMessage(msg, hasRead) {
+	var orderId = msg.orderId;
+	//更新消息列表
+	var messageList = uni.getStorageSync('messageList');
+	if (messageList.length>0) {
 		//如果消息列表中有历史消息 则更新
+		var updated = false;
 		for (var i = 0; i < messageList.length; i++) {
-			if (messageList[i].openId == fromUid) {
+			if (messageList[i].orderId == orderId) {
 				messageList[i].message = msg.msg.content;
 				messageList[i].time = msg.time;
 				messageList[i].count = messageList[i].count + 1;
+				updated = true;
+				break;
 			}
 		}
+		if(!updated){
+			//如果消息列表中不存该用户订单，则新建
+			var message = {
+				orderId:msg.orderId,
+				title: msg.username,
+				openId: msg.fromUid, 
+				avatarUrl: msg.face,
+				message: msg.msg.content,
+				time: msg.time,
+				count: 1,
+				type: 2 ,//普通用户类型消息
+				over:'0'
+			};
+			messageList.push(message);
+		}
 	} else {
-		//如果消息列表中没有历史消息 则新增
+		//如果消息列表中没有历史消息 则新增 正常情况不会走到这个方法
 		var message = {
+			orderId:msg.orderId,
 			title: msg.username,
 			openId: fromUid,
 			avatarUrl: msg.face,
@@ -403,20 +434,36 @@ function updateMessage(msg, hasRead) {
 			count: 1,
 			type: 2 //普通用户类型消息
 		};
-		messageList = [];
 		messageList.push(message);
 	}
 	uni.setStorageSync('messageList', messageList);
 	//更新所有用户消息信息
 	msg.hasRead = hasRead; //设置消息未被读
 	var messageDetail = uni.getStorageSync("messageDetail");
-	var messageDetailList = messageDetail[fromUid];
-	if (messageList) {
+	var messageDetailList = messageDetail['order'+orderId];
+	var tmpArr = messageDetailList.filter(function(p){
+	  return p.fromUid !== uni.getStorageSync("doctorInfo").openId
+	});
+	
+	if(tmpArr.length<1){
+		//未收到过消息 设置为接单开始时间
+		//更新缓存
+		var messageList = uni.getStorageSync('messageList');
+		for (var i=0;i<messageList.length;i++){
+			if(messageList[i].openId == this.toUser){
+				messageList[i] = messageListInfo;
+				var startTime= new Date();
+				messageList[i].startTime = startTime;
+			}
+		}
+		uni.setStorageSync('messageList',messageList);
+	}	
+	if (messageDetailList) {
 		messageDetailList.push(msg);
 	} else {
 		messageDetailList = [];
 		messageDetailList.push(msg);
-		messageDetail[fromUid] = messageDetailList;
+		messageDetail['order'+orderId] = messageDetailList;
 	}
 	uni.setStorageSync("messageDetail", messageDetail);
 }
@@ -433,6 +480,19 @@ function uuid() {
 
 	var uuid = s.join("");
 	return uuid;
+}
+
+function getInquiryTimeByType(type){
+	if(type=='0'){
+		//0：20元1小时 3600s
+		return 1 * 60 * 60;
+	}else if(type=='1'){
+		//1：30元两小时
+		return 2 * 60 * 60;
+	}else{
+		//其他异常情况 返回0立即结束
+		return 0;
+	}
 }
 
 module.exports = {
@@ -452,5 +512,7 @@ module.exports = {
 	uuid,
 	getFormatDate,
 	beautyTime,
-	updateMessage
+	createMsgSession,
+	updateMessage,
+	getInquiryTimeByType
 }

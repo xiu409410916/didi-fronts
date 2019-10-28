@@ -267,6 +267,21 @@ page {
             -ms-flex-align: center;
                 align-items: center;
 }
+<<<<<<< HEAD
+=======
+.over-view {
+  width: 700rpx;
+  background-color: rgba(170, 170, 170, 0.5);
+  color: #FFFFFF;
+  text-align: center;
+  min-height: 40rpx;
+  padding: 10rpx 0;
+  position: fixed;
+  z-index: 20;
+  bottom: 10rpx;
+  left: 25rpx;
+}
+>>>>>>> 655fa8fba58ac50cb995820fc8ff0f67ebe63338
 .record {
   width: 40vw;
   height: 40vw;
