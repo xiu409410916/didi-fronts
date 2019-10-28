@@ -268,7 +268,10 @@ page {
                 align-items: center;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 655fa8fba58ac50cb995820fc8ff0f67ebe63338
 .over-view {
   width: 700rpx;
   background-color: rgba(170, 170, 170, 0.5);
@@ -281,6 +284,9 @@ page {
   bottom: 10rpx;
   left: 25rpx;
 }
+<<<<<<< HEAD
+>>>>>>> 655fa8fba58ac50cb995820fc8ff0f67ebe63338
+=======
 >>>>>>> 655fa8fba58ac50cb995820fc8ff0f67ebe63338
 .record {
   width: 40vw;
