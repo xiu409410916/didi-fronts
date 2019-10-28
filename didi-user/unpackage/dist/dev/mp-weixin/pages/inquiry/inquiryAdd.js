@@ -105,7 +105,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PageButton = function PageButton() {return __webpack_require__.e(/*! import() | components/button */ "components/button").then(__webpack_require__.bind(null, /*! ../../components/button.vue */ 125));};var ImageUpload = function ImageUpload() {return Promise.all(/*! import() | components/image-upload */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/image-upload")]).then(__webpack_require__.bind(null, /*! ../../components/image-upload.vue */ 132));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PageButton = function PageButton() {return __webpack_require__.e(/*! import() | components/button */ "components/button").then(__webpack_require__.bind(null, /*! ../../components/button.vue */ 155));};var ImageUpload = function ImageUpload() {return Promise.all(/*! import() | components/image-upload */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/image-upload")]).then(__webpack_require__.bind(null, /*! ../../components/image-upload.vue */ 162));};var _default =
 
 
 
@@ -159,6 +159,14 @@ __webpack_require__.r(__webpack_exports__);
 
         return;
       }
+      if (that.temp.detail.length < 10 || that.temp.detail.length > 500) {
+        uni.showToast({
+          title: '请输入10-500个字符',
+          icon: 'none',
+          duration: 2000 });
+
+        return;
+      }
       if (!that.$util.isEmpty(that.temp.picUrl)) {
         uni.showToast({
           title: '请上传至少一张图片',
@@ -173,7 +181,7 @@ __webpack_require__.r(__webpack_exports__);
 
     },
     getAvatarUrl: function getAvatarUrl(v) {
-      this.temp.picUrl = this.temp.picUrl + v[0] + ";";
+      this.temp.picUrl = this.temp.picUrl + v[0] + ",";
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

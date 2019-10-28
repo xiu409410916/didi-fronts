@@ -178,8 +178,11 @@ var _default =
 
   },
   onLoad: function onLoad() {
+    uni.showShareMenu({
+      "title": "滴滴健康" });
 
   },
+
   methods: {
     toTimeBuy: function toTimeBuy() {
       uni.navigateTo({
@@ -187,6 +190,15 @@ var _default =
 
     },
     toInquiryAdd: function toInquiryAdd() {
+      var info = uni.getStorageSync("patientInfo");
+      if (!this.$util.isEmpty(info.mobile)) {
+        uni.showToast({
+          title: '请先获取手机号',
+          icon: 'none',
+          duration: 2000 });
+
+        return;
+      }
       uni.navigateTo({
         url: '/pages/inquiry/inquiryAdd' });
 

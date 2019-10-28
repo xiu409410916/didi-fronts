@@ -105,7 +105,12 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PageButton = function PageButton() {return __webpack_require__.e(/*! import() | components/button */ "components/button").then(__webpack_require__.bind(null, /*! ../../components/button.vue */ 125));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PageButton = function PageButton() {return __webpack_require__.e(/*! import() | components/button */ "components/button").then(__webpack_require__.bind(null, /*! ../../components/button.vue */ 155));};var _default =
+
+
+
+
+
 
 
 
@@ -180,7 +185,8 @@ __webpack_require__.r(__webpack_exports__);
         doctorName: '',
         introduction: '',
         receptId: '',
-        de: '' },
+        de: '',
+        payStates: '' },
 
       picUrls: [] };
 
@@ -203,6 +209,20 @@ __webpack_require__.r(__webpack_exports__);
         success: function success(res) {
           that.temp = res.data;
           that.picUrls = that.temp.picUrl.split(',');
+
+          that.temp.de = "";
+          if (that.$util.isEmpty(res.data.allergic)) {
+            that.temp.de = that.temp.de + that.$json.allergic[res.data.allergic] + '过敏史/';
+          }
+          if (that.$util.isEmpty(res.data.conceive)) {
+            that.temp.de = that.temp.de + that.$json.conceive[res.data.conceive] + "/";
+          }
+          if (that.$util.isEmpty(res.data.liver)) {
+            that.temp.de = that.temp.de + '肝功能' + that.$json.liver[res.data.liver] + "/";
+          }
+          if (that.$util.isEmpty(res.data.kidney)) {
+            that.temp.de = that.temp.de + '肾功能' + that.$json.liver[res.data.kidney];
+          }
         },
         error: function error() {} });
 
@@ -226,6 +246,42 @@ __webpack_require__.r(__webpack_exports__);
             duration: 2000 });
 
           that.getInquiryDetail();
+        },
+        error: function error() {} });
+
+    },
+    payInquiry: function payInquiry() {
+      var that = this;
+      var temp = {};
+      temp.inquiryId = that.temp.inquiryId;
+      that.$util.request({
+        url: "/didi-patient/patientpayinfo/unifiedOrder",
+        param: temp,
+        contentType: 'application/x-www-form-urlencoded',
+        success: function success(res) {
+          var data = res.data;
+          //调用微信支付
+          uni.requestPayment({
+            'appId': data.appId,
+            'timeStamp': data.timeStamp,
+            'nonceStr': data.nonceStr,
+            'package': data.package,
+            'signType': data.signType,
+            'paySign': data.paySign,
+            'success': function success(res) {
+              uni.showToast({
+                title: '支付成功',
+                icon: 'none',
+                duration: 2000 });
+
+              uni.navigateBack({
+                delta: 1 });
+
+            },
+            'fail': function fail(res) {
+
+            } });
+
         },
         error: function error() {} });
 

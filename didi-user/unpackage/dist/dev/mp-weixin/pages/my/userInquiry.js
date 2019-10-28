@@ -105,7 +105,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var emptyView = function emptyView() {return __webpack_require__.e(/*! import() | components/emptyview */ "components/emptyview").then(__webpack_require__.bind(null, /*! ../../components/emptyview.vue */ 118));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var emptyView = function emptyView() {return __webpack_require__.e(/*! import() | components/emptyview */ "components/emptyview").then(__webpack_require__.bind(null, /*! ../../components/emptyview.vue */ 148));};var _default =
+
 
 
 
@@ -151,6 +152,11 @@ __webpack_require__.r(__webpack_exports__);
     this.getUserInquiry();
   },
   onReady: function onReady() {
+
+  },
+  onUnload: function onUnload() {
+    uni.switchTab({
+      url: 'index' });
 
   },
   onReachBottom: function onReachBottom() {

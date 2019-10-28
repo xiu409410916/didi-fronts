@@ -4,7 +4,7 @@
 			<view class="uni-swipe-action">
 				<view class="uni-swipe-action__container" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd"
 				 @touchcancel="touchEnd" :style="{'transform':messageIndex == i ? transformX : 'translateX(0px)','-webkit-transform':messageIndex == i ? transformX : 'translateX(0px)'}" :data-index="i" :data-disabled="it.disabled">
-					<view class="uni-swipe-action__content " @click="toMessageDetail(it.type,it.title,it.openId)">
+					<view class="uni-swipe-action__content " @click="toMessageDetail(i,it)">
 						<view class="item">
 							<block v-if="it.type == 1">
 								<view class="item-left">
@@ -73,19 +73,20 @@
 		},
 		// #ifdef H5
 		mounted() {
-			this.getSize()
+			// this.getSize()
 		},
 		// #endif
 		// #ifndef H5
 		onReady() {
-			this.getSize()
+			// this.getSize()
 		},
 		// #endif
 		methods: {
-			toMessageDetail(type,title,openId){
-				if(type == 2){
+			toMessageDetail(i,it){
+				if(it.type == 2){
+					console.log(it);
 					uni.navigateTo({
-						url:"../message_info/message_info?name="+title+"&toUser="+openId
+						url:"../message_info/message_info?name="+it.title+"&toUser="+it.openId+"&orderId="+it.orderId+"&over="+it.over
 					})
 				}else if(type == 1){
 					console.log('进入系统消息界面')

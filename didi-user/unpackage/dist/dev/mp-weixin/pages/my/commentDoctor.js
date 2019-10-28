@@ -105,7 +105,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PageButton = function PageButton() {return __webpack_require__.e(/*! import() | components/button */ "components/button").then(__webpack_require__.bind(null, /*! ../../components/button.vue */ 125));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PageButton = function PageButton() {return __webpack_require__.e(/*! import() | components/button */ "components/button").then(__webpack_require__.bind(null, /*! ../../components/button.vue */ 155));};var _default =
+
+
+
+
 
 
 
@@ -140,8 +144,10 @@ __webpack_require__.r(__webpack_exports__);
         doctorId: '',
         doctorName: '',
         commentRate: '',
-        commentContent: '' } };
+        commentContent: '' },
 
+      commentRate: '',
+      url: ['../../static/star.png', '../../static/star.png', '../../static/star.png', '../../static/star.png', '../../static/star.png'] };
 
   },
   onLoad: function onLoad(options) {
@@ -152,10 +158,28 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     commentDoctor: function commentDoctor() {
-      var that = this;
-      that.$util.request({
+      // let that = this;
+      if (!this.$util.isEmpty(this.commentRate)) {
+        uni.showToast({
+          title: '请打分',
+          icon: 'none',
+          duration: 2000 });
+
+        return;
+      }
+      if (!this.$util.isEmpty(this.temp.commentContent)) {
+        uni.showToast({
+          title: '请输入评价内容',
+          icon: 'none',
+          duration: 2000 });
+
+        return;
+      }
+      this.temp.commentRate = this.commentRate;
+      console.log(this.temp);
+      this.$util.request({
         url: "/didi-patient/patientcommentdoctor/add",
-        param: that.temp,
+        param: this.temp,
         contentType: 'application/x-www-form-urlencoded',
         success: function success(res) {
           setTimeout(function () {
@@ -171,6 +195,15 @@ __webpack_require__.r(__webpack_exports__);
         },
         error: function error() {} });
 
+    },
+    starClick: function starClick(index) {
+      this.commentRate = index + 1;
+      for (var i = 0; i < index + 1; i++) {
+        this.url[i] = '../../static/star_select.png';
+      }
+      for (var i = index + 1; i < 5; i++) {
+        this.url[i] = '../../static/star.png';
+      }
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

@@ -79,6 +79,7 @@
         height: 125rpx;
 }
 .record .li .right.data-v-5a7fc2c0 {
+      width: 70%;
       color: #fb5b67;
       font-size: 32rpx;
       display: -webkit-box;

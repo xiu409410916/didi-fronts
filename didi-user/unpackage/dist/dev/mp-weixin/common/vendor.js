@@ -535,52 +535,9 @@ function createTodoApi(name) {
   };
 }
 
-<<<<<<< HEAD
-/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2FcommentDoctor\"}":
-/*!********************************************************************************************************************!*\
-  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2FcommentDoctor"} ***!
-  \********************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _commentDoctor = _interopRequireDefault(__webpack_require__(/*! ./pages/my/commentDoctor.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/my/commentDoctor.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_commentDoctor.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2FdidiDetail\"}":
-/*!*****************************************************************************************************************!*\
-  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2FdidiDetail"} ***!
-  \*****************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _didiDetail = _interopRequireDefault(__webpack_require__(/*! ./pages/my/didiDetail.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/my/didiDetail.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_didiDetail.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2Findex\"}":
-/*!************************************************************************************************************!*\
-  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2Findex"} ***!
-  \************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-=======
 TODOS.forEach(function (name) {
   todoApis[name] = createTodoApi(name);
 });
->>>>>>> ad02e4328bc54cbc3239a2c278f675f36c7100c9
 
 var providers = {
   oauth: ['weixin'],
@@ -591,32 +548,6 @@ var providers = {
 
 function getProvider(_ref2)
 
-<<<<<<< HEAD
-/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2FinquiryDetail\"}":
-/*!********************************************************************************************************************!*\
-  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2FinquiryDetail"} ***!
-  \********************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _inquiryDetail = _interopRequireDefault(__webpack_require__(/*! ./pages/my/inquiryDetail.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/my/inquiryDetail.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_inquiryDetail.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2FuserInquiry\"}":
-/*!******************************************************************************************************************!*\
-  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2FuserInquiry"} ***!
-  \******************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-=======
->>>>>>> ad02e4328bc54cbc3239a2c278f675f36c7100c9
 
 
 
@@ -628,53 +559,10 @@ createPage(_inquiryDetail.default);
       service: service,
       provider: providers[service] };
 
-<<<<<<< HEAD
-/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2FuserQrCode\"}":
-/*!*****************************************************************************************************************!*\
-  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2FuserQrCode"} ***!
-  \*****************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _userQrCode = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userQrCode.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/my/userQrCode.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_userQrCode.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2FuserRefund\"}":
-/*!*****************************************************************************************************************!*\
-  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2FuserRefund"} ***!
-  \*****************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _userRefund = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userRefund.vue */ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/pages/my/userRefund.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_userRefund.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "../../../../../../Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{\"page\":\"pages%2Fmy%2FuserTime\"}":
-/*!***************************************************************************************************************!*\
-  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-user/main.js?{"page":"pages%2Fmy%2FuserTime"} ***!
-  \***************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-=======
     isFn(success) && success(res);
   } else {
     res = {
       errMsg: 'getProvider:fail:服务[' + service + ']不存在' };
->>>>>>> ad02e4328bc54cbc3239a2c278f675f36c7100c9
 
     isFn(fail) && fail(res);
   }
@@ -1745,6 +1633,40 @@ function normalizeComponent (
 
 /***/ }),
 
+/***/ 111:
+/*!********************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-user/main.js?{"page":"pages%2Fmy%2FdidiDetail"} ***!
+  \********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _didiDetail = _interopRequireDefault(__webpack_require__(/*! ./pages/my/didiDetail.vue */ 112));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_didiDetail.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 117:
+/*!********************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-user/main.js?{"page":"pages%2Fmy%2FuserQrCode"} ***!
+  \********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _userQrCode = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userQrCode.vue */ 118));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userQrCode.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
 /***/ 12:
 /*!****************************************************************************************!*\
   !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-user/common/util.js ***!
@@ -2007,7 +1929,7 @@ function otime(str) {
 
 //判断值是否有效
 function isEmpty(value) {
-  if (value == "" || value == 0 || value == null || value == undefined) {
+  if (value == "" || value == null || value == undefined) {
     return false;
   }
   return true;
@@ -2120,52 +2042,82 @@ function uuid() {
 }
 
 function updateMessage(msg, hasRead) {
-  var fromUid = '';
-  if (hasRead == '0') {
-    fromUid = msg.fromUid;
-  } else {
-    fromUid = msg.toUid;
-  }
+  console.log(msg);
+  var orderId = msg.orderId;
   //更新消息列表
-  console.log('send msg');
-  console.log(msg.msg.content);
   var messageList = uni.getStorageSync('messageList');
-  if (null != messageList) {
+  if (messageList != '' && messageList.length > 0) {
     //如果消息列表中有历史消息 则更新
+    var updated = false;
     for (var i = 0; i < messageList.length; i++) {
-      if (messageList[i].openId == fromUid) {
+      if (messageList[i].orderId == orderId) {
         messageList[i].message = msg.msg.content;
         messageList[i].time = msg.time;
         messageList[i].count = messageList[i].count + 1;
+        updated = true;
+        break;
       }
+    }
+    if (!updated) {
+      //如果消息列表中不存该用户订单，则新建
+      var message = {
+        orderId: msg.orderId,
+        title: msg.username,
+        openId: msg.fromUid,
+        avatarUrl: msg.face,
+        message: msg.msg.content,
+        time: msg.time,
+        count: 1,
+        type: 2, //普通用户类型消息
+        over: '0' };
+
+      messageList.push(message);
     }
   } else {
     //如果消息列表中没有历史消息 则新增
+    messageList = [];
     var message = {
+      orderId: msg.orderId,
       title: msg.username,
-      openId: fromUid,
+      openId: msg.fromUid,
       avatarUrl: msg.face,
       message: msg.msg.content,
       time: msg.time,
       count: 1,
-      type: 2 //普通用户类型消息
-    };
-    messageList = [];
+      type: 2, //普通用户类型消息
+      over: '0' };
+
     messageList.push(message);
   }
   uni.setStorageSync('messageList', messageList);
   //更新所有用户消息信息
   msg.hasRead = hasRead; //设置消息未被读
   var messageDetail = uni.getStorageSync("messageDetail");
-  var messageDetailList = messageDetail[fromUid];
-  if (messageList) {
+  if (messageDetail == null || messageDetail == '') {
+    messageDetail = {};
+  }
+  var messageDetailList = messageDetail['order' + orderId];
+  if (messageDetailList) {
     messageDetailList.push(msg);
   } else {
     messageDetailList = [];
     messageDetailList.push(msg);
-    messageDetail[fromUid] = messageDetailList;
+    messageDetail['order' + orderId] = messageDetailList;
   }
   uni.setStorageSync("messageDetail", messageDetail);
+}
+
+function getInquiryTimeByType(type) {
+  if (type == '0') {
+    //0：20元1小时 3600s
+    return 1 * 60 * 60;
+  } else if (type == '1') {
+    //1：30元两小时
+    return 2 * 60 * 60;
+  } else {
+    //其他异常情况 返回0立即结束
+    return 0;
+  }
 }
 
 module.exports = {
@@ -2184,8 +2136,26 @@ module.exports = {
   uuid: uuid,
   getFormatDate: getFormatDate,
   beautyTime: beautyTime,
-  updateMessage: updateMessage };
+  updateMessage: updateMessage,
+  getInquiryTimeByType: getInquiryTimeByType };
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 125:
+/*!******************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-user/main.js?{"page":"pages%2Fmy%2FuserGene"} ***!
+  \******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _userGene = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userGene.vue */ 126));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userGene.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
 
@@ -2205,6 +2175,23 @@ module.exports = {
 
 /***/ }),
 
+/***/ 133:
+/*!********************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-user/main.js?{"page":"pages%2Fmy%2FuserAmount"} ***!
+  \********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _userAmount = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userAmount.vue */ 134));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userAmount.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
 /***/ 14:
 /*!****************************************************************************************!*\
   !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-user/config/json.js ***!
@@ -2216,6 +2203,95 @@ module.exports = {
 var sexs = [
 { value: '男', name: '男' },
 { value: '女', name: '女' }];
+
+
+var bankList = [{
+  key: '1002',
+  name: '工商银行' },
+
+{
+  key: '1005',
+  name: '农业银行' },
+
+{
+  key: '1026',
+  name: '中国银行' },
+
+{
+  key: '1003',
+  name: '建设银行' },
+
+{
+  key: '1001',
+  name: '招商银行' },
+
+{
+  key: '1066',
+  name: '邮储银行' },
+
+{
+  key: '1020',
+  name: '交通银行' },
+
+{
+  key: '1004',
+  name: '浦发银行' },
+
+{
+  key: '1006',
+  name: '民生银行' },
+
+{
+  key: '1009',
+  name: '兴业银行' },
+
+{
+  key: '1010',
+  name: '平安银行' },
+
+{
+  key: '1021',
+  name: '中信银行' },
+
+{
+  key: '1025',
+  name: '华夏银行' },
+
+{
+  key: '1027',
+  name: '广发银行' },
+
+{
+  key: '1022',
+  name: '光大银行' },
+
+{
+  key: '4836',
+  name: '北京银行' },
+
+{
+  key: '1056',
+  name: '宁波银行' },
+
+{
+  key: '1024',
+  name: '上海银行' }];
+
+
+
+var allergic = ['无', '有'];
+
+var conceive = ['无备孕计划', '备孕中', '怀孕中', '哺乳期'];
+
+var liver = ['异常', '正常'];
+
+
+module.exports = {
+  sexs: sexs,
+  bankList: bankList,
+  allergic: allergic,
+  conceive: conceive,
+  liver: liver };
 
 /***/ }),
 

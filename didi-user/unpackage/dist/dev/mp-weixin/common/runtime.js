@@ -108,11 +108,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-<<<<<<< HEAD
-/******/ 				var href = "" + ({"components/wkiwi-swipe-action":"components/wkiwi-swipe-action","components/emptyview":"components/emptyview","components/left-message":"components/left-message","components/right-message":"components/right-message","components/send-message":"components/send-message","components/button":"components/button","components/image-upload":"components/image-upload","components/avator-group":"components/avator-group"}[chunkId]||chunkId) + ".wxss";
-=======
 /******/ 				var href = "" + ({"components/wkiwi-swipe-action":"components/wkiwi-swipe-action","components/emptyview":"components/emptyview","components/button":"components/button","components/image-upload":"components/image-upload","components/avator-group":"components/avator-group"}[chunkId]||chunkId) + ".wxss";
->>>>>>> ad02e4328bc54cbc3239a2c278f675f36c7100c9
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

@@ -68,17 +68,13 @@ __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 var io = __webpack_require__(/*! common/weapp.socket.io.js */ 8);var _default =
 {
-<<<<<<< HEAD
-  onLaunch: function onLaunch(query) {
-    var scene = decodeURIComponent(query.scene);
-=======
   globalData: {
     socket: '' },
 
-  onLaunch: function onLaunch() {
->>>>>>> ad02e4328bc54cbc3239a2c278f675f36c7100c9
+  onLaunch: function onLaunch(query) {
+    var scene = decodeURIComponent(query.scene);
     console.log('App Launch');
-    console.log(scene);
+    console.log("scene-----------" + scene);
     var that = this;
     uni.login({
       provider: 'weixin',
@@ -87,51 +83,13 @@ var io = __webpack_require__(/*! common/weapp.socket.io.js */ 8);var _default =
         that.loginByCode(code, scene);
       } });
 
-    var messageList = [
-    {
-      title: "马云",
-      openId: "user888",
-      avatarUrl: [
-      uni.getStorageSync("patientInfo").avatarUrl],
-
-      message: "什么鬼，我有支付宝[禁止滑动]",
-      time: "2019-07-16 15:15",
-      count: 0,
-      type: 2 //普通用户类型消息
-    },
-    {
-      title: "李彦宏",
-      openId: "user777",
-      avatarUrl: [
-      uni.getStorageSync("patientInfo").avatarUrl],
-
-      message: "抄袭我的吧，我早都做过了",
-      time: "2019-08-15 12:13",
-      count: 102,
-      type: 2 //普通用户类型消息
-    },
-    {
-      title: "雷军",
-      openId: "user666",
-      avatarUrl: [
-      uni.getStorageSync("patientInfo").avatarUrl],
-
-      message: "微信给你下线，看你还嘚瑟",
-      time: "2019-09-19 12:11",
-      count: 0,
-      type: 2 //普通用户类型消息
-    }];
-
-    uni.setStorageSync("messageList", messageList);
-    var messageDetail = { "user888": [
-      { id: 0, fromUid: 'oucHX5YU-wAfuttdkkEu31JWoou8', username: 'myName', face: uni.getStorageSync("patientInfo").avatarUrl, time: "12:56", type: "text", msg: { content: "为什么温度会相差那么大？" }, hasRead: "1" },
-      { id: 1, fromUid: 1, username: 'myName', face: uni.getStorageSync("patientInfo").avatarUrl, time: "12:57", type: "text", msg: { content: "这个是有偏差的，两个温度相差十几二十度是很正常的，如果相差五十度，那即是质量问题了。" }, hasRead: "1" },
-      { id: 2, fromUid: 1, username: 'myName', face: uni.getStorageSync("patientInfo").avatarUrl, time: "12:59", type: "voice", msg: { content: "[语音]", url: "/static/voice/3.aac", length: "00:06" }, hasRead: "1" },
-      { id: 3, fromUid: 'oucHX5YU-wAfuttdkkEu31JWoou8', username: 'myName', face: uni.getStorageSync("patientInfo").avatarUrl, time: "13:05", type: "voice", msg: { content: "[语音]", url: "/static/voice/2.mp3", length: "00:06" }, hasRead: "1" },
-      { id: 4, fromUid: 'oucHX5YU-wAfuttdkkEu31JWoou8', username: 'myName', face: uni.getStorageSync("patientInfo").avatarUrl, time: "13:05", type: "img", msg: { content: "[图片]", url: "/static/img/p10.jpg", w: 200, h: 200 }, hasRead: "1" },
-      { id: 5, fromUid: 1, username: 'myName', face: uni.getStorageSync("patientInfo").avatarUrl, time: "12:59", type: "img", msg: { content: "[图片]", url: "/static/img/q.jpg", w: 1920, h: 1080 }, hasRead: "1" }] };
-
-    uni.setStorageSync("messageDetail", messageDetail);
+    var messageList = [];
+    if (!uni.getStorageSync("messageList")) {
+      //消息列表为空 初始化消息列表
+      var messageList = [];
+      uni.setStorageSync("messageList", messageList);
+    }
+    // uni.setStorageSync("messageDetail", messageDetail); 
   },
   onShow: function onShow() {
     console.log('App Show');
@@ -141,12 +99,7 @@ var io = __webpack_require__(/*! common/weapp.socket.io.js */ 8);var _default =
     console.log('App Hide');
   },
   methods: {
-<<<<<<< HEAD
     loginByCode: function loginByCode(code, scene) {
-=======
-    loginByCode: function loginByCode(code) {
-      console.log('login');
->>>>>>> ad02e4328bc54cbc3239a2c278f675f36c7100c9
       var that = this;
       var param = {};
       param.code = code;

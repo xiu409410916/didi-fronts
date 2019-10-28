@@ -8,7 +8,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PageButton = function PageButton() {return __webpack_require__.e(/*! import() | components/button */ "components/button").then(__webpack_require__.bind(null, /*! ../../components/button.vue */ 125));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PageButton = function PageButton() {return __webpack_require__.e(/*! import() | components/button */ "components/button").then(__webpack_require__.bind(null, /*! ../../components/button.vue */ 155));};var _default =
 
 
 
@@ -55,7 +55,7 @@
         success: function success(res) {
           uni.setStorageSync('patientInfo', res.data);
           uni.showToast({
-            title: '体现成功',
+            title: '退款成功',
             icon: 'success',
             duration: 2000 });
 
