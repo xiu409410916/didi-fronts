@@ -269,15 +269,16 @@ __webpack_require__.r(__webpack_exports__);
             'signType': data.signType,
             'paySign': data.paySign,
             'success': function success(res) {
-              util.showSuccessToast("支付成功");
-              setTimeout(function () {
-                uni.navigateBack({
-                  delta: 1 });
+              uni.showToast({
+                title: '支付成功',
+                icon: 'none',
+                duration: 2000 });
 
-              }, 1000);
+              uni.navigateBack({
+                delta: 1 });
+
             },
             'fail': function fail(res) {
-
 
             } });
 

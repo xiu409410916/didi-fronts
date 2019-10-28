@@ -298,16 +298,13 @@ __webpack_require__.r(__webpack_exports__);
                 icon: 'none',
                 duration: 2000 });
 
-              setTimeout(function () {
-                uni.navigateTo({
-                  url: '/pages/my/index' });
+              uni.redirectTo({
+                url: '../my/userInquiry' });
 
-              }, 1000);
             },
             'fail': function fail(res) {
-              console.log(res);
-              uni.navigateTo({
-                url: '/pages/my/index' });
+              uni.redirectTo({
+                url: '../my/userInquiry' });
 
             } });
 
