@@ -1,5 +1,5 @@
 // export const serverUrl="";
-const serverUrl="http://127.0.0.1:9002";
+const serverUrl="https://patient.dididoctor.cn";
 
 module.exports = {
 	serverUrl
