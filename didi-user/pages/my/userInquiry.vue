@@ -47,6 +47,11 @@
 		onReady() {
 
 		},
+		onUnload() {
+			uni.switchTab({
+				url:'index'
+			})
+		},
 		onReachBottom() {
 			this.getUserInquiry();
 		},

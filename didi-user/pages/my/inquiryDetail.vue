@@ -162,15 +162,16 @@
 						  'signType': data.signType,
 						  'paySign': data.paySign,
 						  'success': function (res) {
-						    util.showSuccessToast("支付成功");
-						    setTimeout(function () {
-								uni.navigateBack({
-									delta:1
-								})
-						    }, 1000);
+						    uni.showToast({
+						    	title: '支付成功',
+						    	icon:'none',
+						    	duration: 2000
+						    });
+							uni.navigateBack({
+								delta:1
+							})
 						  },
 						  'fail': function (res) {
-								
 							
 						  }
 						})

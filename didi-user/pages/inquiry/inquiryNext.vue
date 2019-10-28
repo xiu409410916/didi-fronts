@@ -191,17 +191,14 @@
 						    	icon:'none',
 						    	duration: 2000
 						    });
-							setTimeout(function () {
-								uni.navigateTo({
-									url:'/pages/my/index'
-								})
-							}, 1000);
+							uni.redirectTo({
+								url:'../my/userInquiry'
+							})
 						  },
 						  'fail': function (res) {
-							  console.log(res);
-							  uni.navigateTo({
-							  	url:'/pages/my/index'
-							  })
+							 uni.redirectTo({
+							 	url:'../my/userInquiry'
+							 })
 						  }
 						})
 					},
