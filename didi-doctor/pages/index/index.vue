@@ -92,9 +92,12 @@
 				})
 			},
 			toInquiryDetail:function(inquiryId){
-				uni.navigateTo({
-					url:'/pages/inquiry/inquiryDetail?inquiryId='+inquiryId
-				})
+				let that = this;
+				if (that.$util.isPerfectInfo()) {
+					uni.navigateTo({
+						url:'/pages/inquiry/inquiryDetail?inquiryId='+inquiryId
+					})
+				}
 			}
 		}
 	}
