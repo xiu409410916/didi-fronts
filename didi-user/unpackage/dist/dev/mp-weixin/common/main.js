@@ -94,11 +94,33 @@ var io = __webpack_require__(/*! common/weapp.socket.io.js */ 8);var _default =
   onShow: function onShow() {
     console.log('App Show');
     uni.removeStorageSync('updateCart');
+    this.getHistoryMessage();
   },
   onHide: function onHide() {
     console.log('App Hide');
   },
   methods: {
+    getHistoryMessage: function getHistoryMessage() {
+      var patientInfo = uni.getStorageSync("patientInfo");
+      if (null == patientInfo) {
+        return;
+      }
+      uni.showToast({
+        icon: 'none',
+        title: '加载消息中...',
+        // duration:1500,
+        mask: true });
+
+      this.$util.request({
+        url: "/didi-patient/message/getUserUnreadedMessage",
+        param: { userId: patientInfo.openId },
+        contentType: 'application/x-www-form-urlencoded',
+        success: function success(res) {
+          console.log(res);
+        },
+        error: function error() {} });
+
+    },
     loginByCode: function loginByCode(code, scene) {
       var that = this;
       var param = {};

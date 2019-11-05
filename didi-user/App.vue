@@ -27,11 +27,33 @@
 		onShow: function() {
 			console.log('App Show')
 			uni.removeStorageSync('updateCart');
+			this.getHistoryMessage();
 		},
 		onHide: function() {
 			console.log('App Hide')
 		},
 		methods: {
+			getHistoryMessage() {
+				var patientInfo = uni.getStorageSync("patientInfo");
+				if(null == patientInfo){
+					return;
+				}
+				uni.showToast({
+					icon:'none',
+					title:'加载消息中...',
+					// duration:1500,
+					mask:true,
+				})
+				this.$util.request({
+					url: "/didi-patient/message/getUserUnreadedMessage",
+					param: {userId:patientInfo.openId},
+					contentType: 'application/x-www-form-urlencoded',
+					success: function(res) {
+						console.log(res);
+					},
+					error: function() {}
+				})
+			},
 			loginByCode(code, scene) {
 				let that = this;
 				const param = {}
