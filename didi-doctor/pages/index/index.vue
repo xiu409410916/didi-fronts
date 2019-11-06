@@ -51,12 +51,10 @@
 			}
 		},
 		onLoad() {
+			this.getInquiryList();
 			uni.showShareMenu({
 				"title":"滴滴答答"
 			});
-		},
-		onShow() {
-			this.getInquiryList();
 		},
 		onPullDownRefresh() {
 			// 增加下拉刷新数据的功能
