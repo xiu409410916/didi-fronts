@@ -34,6 +34,7 @@
 		},
 		methods: {
 			getHistoryMessage() {
+				var that = this;
 				var patientInfo = uni.getStorageSync("patientInfo");
 				if(null == patientInfo){
 					return;
@@ -49,7 +50,14 @@
 					param: {userId:patientInfo.openId},
 					contentType: 'application/x-www-form-urlencoded',
 					success: function(res) {
-						console.log(res);
+						var messages = res.data;
+						if(null!=messages && messages.length>0){
+							for(var i=0;i<messages.length;i++){
+								var message = messages[i];
+								console.log(message);
+								that.$util.updateMessage(message, '0');
+							}
+						}
 					},
 					error: function() {}
 				})

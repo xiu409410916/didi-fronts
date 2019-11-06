@@ -1946,11 +1946,18 @@ var config = ({
    */
   parsePlatformTagName: identity,
 
+<<<<<<< HEAD
   /**
    * Check if an attribute must be bound using property, e.g. value
    * Platform-dependent.
    */
   mustUseProp: no,
+=======
+"use strict";
+ // export const serverUrl="";
+// const serverUrl="https://patient.dididoctor.cn";
+var serverUrl = "http://localhost:9002";
+>>>>>>> ae1f39f77c486be1a0bfd318ebcaba06c994094e
 
   /**
    * Perform updates asynchronously. Intended to be used by Vue Test Utils
