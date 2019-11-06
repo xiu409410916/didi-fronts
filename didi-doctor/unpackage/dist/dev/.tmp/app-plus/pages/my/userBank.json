@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "银行卡",
-  "usingComponents": {
-    "page-button": "/components/button",
-    "empty-view": "/components/emptyview"
-  }
-}

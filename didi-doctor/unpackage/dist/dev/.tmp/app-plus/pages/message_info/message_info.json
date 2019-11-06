@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "xx消息",
-  "usingComponents": {
-    "left-message": "/components/left-message",
-    "right-message": "/components/right-message",
-    "send-message": "/components/send-message"
-  }
-}

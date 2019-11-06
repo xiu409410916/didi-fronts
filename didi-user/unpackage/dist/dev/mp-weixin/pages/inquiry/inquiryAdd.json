@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "新增问诊",
-  "usingComponents": {
-    "image-upload": "/components/image-upload",
-    "page-button": "/components/button"
-  }
-}

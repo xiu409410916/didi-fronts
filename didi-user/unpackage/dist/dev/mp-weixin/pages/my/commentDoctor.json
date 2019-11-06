@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "评价医生",
-  "usingComponents": {
-    "page-button": "/components/button"
-  }
-}
