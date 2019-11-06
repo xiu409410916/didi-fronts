@@ -24,23 +24,23 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.avator-wrapper.data-v-3f38a3ea {
+.avator-wrapper.data-v-80cba872 {
   width: 100rpx;
   height: 100rpx;
 }
-.avator.data-v-3f38a3ea {
+.avator.data-v-80cba872 {
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
   overflow: hiideen;
   background: #f1f1f1;
 }
-.avator .img.data-v-3f38a3ea {
+.avator .img.data-v-80cba872 {
     width: 100%;
     height: 100%;
     border-radius: 50%;
 }
-.avator-group.data-v-3f38a3ea {
+.avator-group.data-v-80cba872 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -49,12 +49,12 @@
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
 }
-.avator-group .img.data-v-3f38a3ea {
+.avator-group .img.data-v-80cba872 {
     width: 50rpx;
     height: 50rpx;
     border-radius: 50%;
 }
-.avator-text.data-v-3f38a3ea {
+.avator-text.data-v-80cba872 {
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;

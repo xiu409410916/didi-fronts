@@ -130,11 +130,11 @@
 					success: function(res) {
 						var patientInfo = res.data.patientInfo;
 						var orderInfo = res.data.inquiryInfo;
-						setTimeout(function(){
-							uni.navigateTo({
-								url:'/pages/index/index'
-							})
-						},1000)
+						// setTimeout(function(){
+						// 	uni.navigateTo({
+						// 		url:'/pages/index/index'
+						// 	})
+						// },1000)
 						uni.showToast({
 							title: '接单成功',
 							icon: 'success',

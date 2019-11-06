@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "avator-group": "/components/avator-group"
+  },
+  "component": true
+}

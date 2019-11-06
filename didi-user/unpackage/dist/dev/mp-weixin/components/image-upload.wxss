@@ -24,10 +24,10 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-1e58fb40 {
+.content.data-v-71350a3d {
   width: 100%;
 }
-.content .upload.data-v-1e58fb40 {
+.content .upload.data-v-71350a3d {
     width: 100%;
     min-height: 230rpx;
     display: -webkit-box;
@@ -49,21 +49,21 @@
             align-items: center;
     padding-top: 20rpx;
 }
-.content .upload .imgbox.data-v-1e58fb40 {
+.content .upload .imgbox.data-v-71350a3d {
       position: relative;
 }
-.content .upload .del.data-v-1e58fb40 {
+.content .upload .del.data-v-71350a3d {
       position: absolute;
       top: 5rpx;
       right: 30rpx;
 }
-.content .upload .img.data-v-1e58fb40 {
+.content .upload .img.data-v-71350a3d {
       height: 200rpx;
       width: 200rpx;
       background: #f4f4f4;
       margin-right: 20rpx;
 }
-.content .upload .upimg.data-v-1e58fb40 {
+.content .upload .upimg.data-v-71350a3d {
       height: 192rpx;
       width: 192rpx;
       border: 2px dashed #ccc;
@@ -82,7 +82,7 @@
               align-items: center;
       margin-bottom: 10rpx;
 }
-.content .upload .upimg .icon_up.data-v-1e58fb40 {
+.content .upload .upimg .icon_up.data-v-71350a3d {
         height: 60rpx;
         width: 60rpx;
 }
