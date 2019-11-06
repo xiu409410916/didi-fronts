@@ -24,12 +24,12 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-36ff1ff6 {
+.content.data-v-32f0e782 {
   width: 100%;
   background: #fff;
   margin-top: 20rpx;
 }
-.content .text.data-v-36ff1ff6 {
+.content .text.data-v-32f0e782 {
     -webkit-box-align: left;
     -webkit-align-items: left;
         -ms-flex-align: left;
@@ -38,22 +38,22 @@
     margin-right: 33rpx;
     padding-top: 30rpx;
 }
-.content .text textarea.data-v-36ff1ff6 {
+.content .text textarea.data-v-32f0e782 {
       width: 80%;
       height: 350rpx;
       margin-left: 20%;
 }
-.content .text label.data-v-36ff1ff6 {
+.content .text label.data-v-32f0e782 {
       width: 20%;
       color: #4A4A4A;
       float: left;
 }
-.content .text image.data-v-36ff1ff6 {
+.content .text image.data-v-32f0e782 {
       width: 50rpx;
       height: 50rpx;
       margin-right: 20rpx;
 }
-.content .savebox.data-v-36ff1ff6 {
+.content .savebox.data-v-32f0e782 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;

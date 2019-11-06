@@ -169,10 +169,12 @@ var _default =
     };
   },
   onLoad: function onLoad() {
-    this.getInquiryList();
     uni.showShareMenu({
       "title": "滴滴答答" });
 
+  },
+  onShow: function onShow() {
+    this.getInquiryList();
   },
   onPullDownRefresh: function onPullDownRefresh() {
     // 增加下拉刷新数据的功能
