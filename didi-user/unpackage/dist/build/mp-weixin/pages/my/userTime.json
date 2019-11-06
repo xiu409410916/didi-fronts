@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "我的时长",
-  "usingComponents": {
-    "empty-view": "/components/emptyview"
-  }
-}

@@ -1,1 +1,0 @@
-<block wx:if="{{data.length<=0}}"><view class="empty-view data-v-7923cc95" style="{{'margin-top:'+(marginTop)+';'}}"><image class="icon data-v-7923cc95" src="http://webcharpic.xfshequ.com/community/icon-kongbai@2x.png"></image><text class="text data-v-7923cc95">无数据</text></view></block>

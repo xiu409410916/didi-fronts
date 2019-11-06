@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "新增银行卡",
-  "usingComponents": {
-    "page-button": "/components/button"
-  }
-}

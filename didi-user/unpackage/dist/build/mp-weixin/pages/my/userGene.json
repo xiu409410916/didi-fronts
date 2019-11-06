@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "我的基因检测",
-  "usingComponents": {
-    "empty-view": "/components/emptyview",
-    "page-button": "/components/button"
-  }
-}
