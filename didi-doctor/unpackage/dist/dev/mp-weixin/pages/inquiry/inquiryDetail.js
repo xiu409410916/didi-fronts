@@ -8,7 +8,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PageButton = function PageButton() {return __webpack_require__.e(/*! import() | components/button */ "components/button").then(__webpack_require__.bind(null, /*! ../../components/button.vue */ 168));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PageButton = function PageButton() {return __webpack_require__.e(/*! import() | components/button */ "components/button").then(__webpack_require__.bind(null, /*! ../../components/button.vue */ 168));};
 
 
 
@@ -62,7 +62,7 @@
 
 
 
-
+var app = getApp();var _default =
 {
   components: {
     PageButton: PageButton },
@@ -92,6 +92,7 @@
   },
   onLoad: function onLoad(options) {
     this.temp.inquiryId = options.inquiryId;
+    this.socket = app.globalData.socket;
     this.getInquiryDetail();
     this.getGeneList();
   },
@@ -139,11 +140,11 @@
         success: function success(res) {
           var patientInfo = res.data.patientInfo;
           var orderInfo = res.data.inquiryInfo;
-          // setTimeout(function(){
-          // 	uni.navigateTo({
-          // 		url:'/pages/index/index'
-          // 	})
-          // },1000)
+          setTimeout(function () {
+            uni.navigateTo({
+              url: '/pages/index/index' });
+
+          }, 1000);
           uni.showToast({
             title: '接单成功',
             icon: 'success',
@@ -176,8 +177,14 @@
             type: 'text',
             msg: { content: msg } };
 
-          console.log(message);
-          console.log(messageInfo);
+          that.socket.emit('chat', messageInfo, function (data) {
+            console.log('系统通知: 你刚刚和 ' + that.toUser + ' 说了句悄悄话');
+            if (data && data.flag) {
+              console.log('系统通知: 悄悄话 ' + data.message + ' 说了句悄悄话');
+            } else {
+              console.log('系统通知: 悄悄话 ' + data.message + ' 说了句悄悄话');
+            }
+          });
           that.$util.createMsgSession(message, messageInfo);
 
           uni.navigateTo({

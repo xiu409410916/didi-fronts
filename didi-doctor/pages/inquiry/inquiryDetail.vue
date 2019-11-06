@@ -52,7 +52,7 @@
 
 <script>
 	import PageButton from '../../components/button.vue';
-
+	const app = getApp()
 	export default {
 		components: {
 			PageButton,
@@ -82,6 +82,7 @@
 		},
 		onLoad(options) {
 			this.temp.inquiryId = options.inquiryId;
+			this.socket = app.globalData.socket;
 			this.getInquiryDetail();
 			this.getGeneList();
 		},
@@ -166,8 +167,14 @@
 							type:'text',
 							msg:{content:msg}
 						};
-						console.log(message);
-						console.log(messageInfo);
+						that.socket.emit('chat', messageInfo, function (data) {
+							console.log('系统通知: 你刚刚和 '+that.toUser+' 说了句悄悄话');
+							if (data && data.flag) {
+								console.log('系统通知: 悄悄话 '+data.message+' 说了句悄悄话');
+							} else {
+								console.log('系统通知: 悄悄话 '+data.message+' 说了句悄悄话');
+							}
+						});
 						that.$util.createMsgSession(message, messageInfo);
 						
 						uni.navigateTo({

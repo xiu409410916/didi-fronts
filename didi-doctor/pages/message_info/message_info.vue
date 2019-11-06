@@ -221,11 +221,8 @@
 				uni.setStorageSync('messageList',messageList);
 			},
 			resetUnreadMsgList(){
-				console.log('1111 start')
 				var messageDetail = uni.getStorageSync("messageDetail");
-				console.log(messageDetail)
 				var userMsgDetail = messageDetail['order'+this.orderId];
-				console.log(userMsgDetail)
 				if(userMsgDetail != null){
 					for(var i=0;i<userMsgDetail.length;i++){
 						if(userMsgDetail[i].hasRead == '0'){
@@ -233,15 +230,12 @@
 						}
 						this.resetUnreadMsgCount();
 					}
-					console.log(userMsgDetail);
 					messageDetail['order'+this.orderId] = userMsgDetail;
 				}else{
 					messageDetail = {};
 					messageDetail['order'+this.orderId] = [];
 				}
 				
-				console.log(messageDetail)
-				console.log('1111 end')
 				uni.setStorageSync("messageDetail",messageDetail);
 			},
 			getMsgList(){
