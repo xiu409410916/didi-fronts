@@ -339,16 +339,10 @@ var app = getApp();var _default = { data: function data() {return { //文字消�
     this.RECORDER.onStart(function (e) {_this.recordBegin(e);}); //录音结束事件
     this.RECORDER.onStop(function (e) {_this.recordEnd(e);});}, onHide: function onHide() {clearInterval(this.interval);}, methods: { loadMessageDetail: function loadMessageDetail() {//获取消息列表中未读的消息
       var messageDetail = uni.getStorageSync("messageDetail");var userMsgDetail = messageDetail['order' + this.orderId];if (userMsgDetail != null) {for (var i = 0; i < userMsgDetail.length; i++) {if (userMsgDetail[i].hasRead == '0') {this.screenMsg(userMsgDetail[i]);userMsgDetail[i].hasRead = '1';}this.resetUnreadMsgCount();}}messageDetail['order' + this.orderId] = userMsgDetail;uni.setStorageSync("messageDetail", messageDetail);}, resetUnreadMsgCount: function resetUnreadMsgCount() {// 消息列表置未读消息数置为0
-      var messageList = uni.getStorageSync('messageList');for (var i = 0; i < messageList.length; i++) {if (messageList[i].openId == this.toUser) {messageList[i].count = 0;this.messageListInfo = messageList[i];}}uni.setStorageSync('messageList', messageList);}, resetUnreadMsgList: function resetUnreadMsgList() {console.log('1111 start');var messageDetail = uni.getStorageSync("messageDetail");console.log(messageDetail);var userMsgDetail = messageDetail['order' + this.orderId];console.log(userMsgDetail);if (userMsgDetail != null) {for (var i = 0; i < userMsgDetail.length; i++) {if (userMsgDetail[i].hasRead == '0') {userMsgDetail[i].hasRead = '1';}this.resetUnreadMsgCount();}
-        console.log(userMsgDetail);
-        messageDetail['order' + this.orderId] = userMsgDetail;
-      } else {
-        messageDetail = {};
+      var messageList = uni.getStorageSync('messageList');for (var i = 0; i < messageList.length; i++) {if (messageList[i].openId == this.toUser) {messageList[i].count = 0;this.messageListInfo = messageList[i];}}uni.setStorageSync('messageList', messageList);}, resetUnreadMsgList: function resetUnreadMsgList() {var messageDetail = uni.getStorageSync("messageDetail");var userMsgDetail = messageDetail['order' + this.orderId];if (userMsgDetail != null) {for (var i = 0; i < userMsgDetail.length; i++) {if (userMsgDetail[i].hasRead == '0') {userMsgDetail[i].hasRead = '1';}this.resetUnreadMsgCount();}messageDetail['order' + this.orderId] = userMsgDetail;} else {messageDetail = {};
         messageDetail['order' + this.orderId] = [];
       }
 
-      console.log(messageDetail);
-      console.log('1111 end');
       uni.setStorageSync("messageDetail", messageDetail);
     },
     getMsgList: function getMsgList() {
