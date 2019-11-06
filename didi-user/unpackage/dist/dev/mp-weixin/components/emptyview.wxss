@@ -1,5 +1,5 @@
 
-.empty-view.data-v-7923cc95{
+.empty-view.data-v-66f199d8{
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -19,12 +19,12 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
-.empty-view .icon.data-v-7923cc95{
+.empty-view .icon.data-v-66f199d8{
   height: 254rpx;
   width: 448rpx;
   margin-bottom: 30rpx;
 }
-.empty-view .text.data-v-7923cc95{
+.empty-view .text.data-v-66f199d8{
   width: auto;
   font-size: 28rpx;
   line-height: 35rpx;
