@@ -75,11 +75,41 @@
 		onShow: function () {
 			console.log('App Show')
 			uni.removeStorageSync('updateCart');
+			this.getHistoryMessage();
 		},
 		onHide: function () {
 			console.log('App Hide')
 		},
 		methods: {
+			getHistoryMessage() {
+				var that = this;
+				var patientInfo = uni.getStorageSync("patientInfo");
+				if(null == patientInfo){
+					return;
+				}
+				uni.showToast({
+					icon:'none',
+					title:'加载消息中...',
+					// duration:1500,
+					mask:true,
+				})
+				this.$util.request({
+					url: "/didi-patient/message/getUserUnreadedMessage",
+					param: {userId:patientInfo.openId},
+					contentType: 'application/x-www-form-urlencoded',
+					success: function(res) {
+						var messages = res.data;
+						if(null!=messages && messages.length>0){
+							for(var i=0;i<messages.length;i++){
+								var message = messages[i];
+								console.log(message);
+								that.$util.updateMessage(message, '0');
+							}
+						}
+					},
+					error: function() {}
+				})
+			},
 			loginByCode(code) {
 				let that = this;
 				const param = {}

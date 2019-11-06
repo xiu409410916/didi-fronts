@@ -2168,7 +2168,8 @@ createPage(_userGene.default);
 
 "use strict";
  // export const serverUrl="";
-var serverUrl = "https://patient.dididoctor.cn";
+// const serverUrl="https://patient.dididoctor.cn";
+var serverUrl = "http://localhost:9002";
 
 module.exports = {
   serverUrl: serverUrl };
