@@ -2,7 +2,6 @@
 	<view>
 		<image src="../../static/my1.jpeg"></image>
 		<image src="../../static/my2.jpeg"></image>
-		<image src="../../static/my3.jpeg"></image>
 	</view>
 </template>
 
@@ -20,5 +19,8 @@
 </script>
 
 <style>
-
+	image{
+		width: 100%;
+		height: 300rpx;
+	}
 </style>
