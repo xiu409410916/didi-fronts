@@ -124,7 +124,7 @@
 				scrollToView:'',
 				msgList:[],
 				msgImgList:[],
-				myuid:uni.getStorageSync("patientInfo").openId,
+				myuid:'',
 				//录音相关参数
 				// #ifndef H5
 				//H5不能录音
@@ -157,6 +157,10 @@
 				onlineEmoji:{"100.gif":"AbNQgA.gif","101.gif":"AbN3ut.gif","102.gif":"AbNM3d.gif","103.gif":"AbN8DP.gif","104.gif":"AbNljI.gif","105.gif":"AbNtUS.gif","106.gif":"AbNGHf.gif","107.gif":"AbNYE8.gif","108.gif":"AbNaCQ.gif","109.gif":"AbNN4g.gif","110.gif":"AbN0vn.gif","111.gif":"AbNd3j.gif","112.gif":"AbNsbV.gif","113.gif":"AbNwgs.gif","114.gif":"AbNrD0.gif","115.gif":"AbNDuq.gif","116.gif":"AbNg5F.gif","117.gif":"AbN6ET.gif","118.gif":"AbNcUU.gif","119.gif":"AbNRC4.gif","120.gif":"AbNhvR.gif","121.gif":"AbNf29.gif","122.gif":"AbNW8J.gif","123.gif":"AbNob6.gif","124.gif":"AbN5K1.gif","125.gif":"AbNHUO.gif","126.gif":"AbNIDx.gif","127.gif":"AbN7VK.gif","128.gif":"AbNb5D.gif","129.gif":"AbNX2d.gif","130.gif":"AbNLPe.gif","131.gif":"AbNjxA.gif","132.gif":"AbNO8H.gif","133.gif":"AbNxKI.gif","134.gif":"AbNzrt.gif","135.gif":"AbU9Vf.gif","136.gif":"AbUSqP.gif","137.gif":"AbUCa8.gif","138.gif":"AbUkGQ.gif","139.gif":"AbUFPg.gif","140.gif":"AbUPIS.gif","141.gif":"AbUZMn.gif","142.gif":"AbUExs.gif","143.gif":"AbUA2j.gif","144.gif":"AbUMIU.gif","145.gif":"AbUerq.gif","146.gif":"AbUKaT.gif","147.gif":"AbUmq0.gif","148.gif":"AbUuZV.gif","149.gif":"AbUliF.gif","150.gif":"AbU1G4.gif","151.gif":"AbU8z9.gif","152.gif":"AbU3RJ.gif","153.gif":"AbUYs1.gif","154.gif":"AbUJMR.gif","155.gif":"AbUadK.gif","156.gif":"AbUtqx.gif","157.gif":"AbUUZ6.gif","158.gif":"AbUBJe.gif","159.gif":"AbUdIO.gif","160.gif":"AbU0iD.gif","161.gif":"AbUrzd.gif","162.gif":"AbUDRH.gif","163.gif":"AbUyQA.gif","164.gif":"AbUWo8.gif","165.gif":"AbU6sI.gif","166.gif":"AbU2eP.gif","167.gif":"AbUcLt.gif","168.gif":"AbU4Jg.gif","169.gif":"AbURdf.gif","170.gif":"AbUhFS.gif","171.gif":"AbU5WQ.gif","172.gif":"AbULwV.gif","173.gif":"AbUIzj.gif","174.gif":"AbUTQs.gif","175.gif":"AbU7yn.gif","176.gif":"AbUqe0.gif","177.gif":"AbUHLq.gif","178.gif":"AbUOoT.gif","179.gif":"AbUvYF.gif","180.gif":"AbUjFU.gif","181.gif":"AbaSSJ.gif","182.gif":"AbUxW4.gif","183.gif":"AbaCO1.gif","184.gif":"Abapl9.gif","185.gif":"Aba9yR.gif","186.gif":"AbaFw6.gif","187.gif":"Abaiex.gif","188.gif":"AbakTK.gif","189.gif":"AbaZfe.png","190.gif":"AbaEFO.gif","191.gif":"AbaVYD.gif","192.gif":"AbamSH.gif","193.gif":"AbaKOI.gif","194.gif":"Abanld.gif","195.gif":"Abau6A.gif","196.gif":"AbaQmt.gif","197.gif":"Abal0P.gif","198.gif":"AbatpQ.gif","199.gif":"Aba1Tf.gif","200.png":"Aba8k8.png","201.png":"AbaGtS.png","202.png":"AbaJfg.png","203.png":"AbaNlj.png","204.png":"Abawmq.png","205.png":"AbaU6s.png","206.png":"AbaaXn.png","207.png":"Aba000.png","208.png":"AbarkT.png","209.png":"AbastU.png","210.png":"AbaB7V.png","211.png":"Abafn1.png","212.png":"Abacp4.png","213.png":"AbayhF.png","214.png":"Abag1J.png","215.png":"Aba2c9.png","216.png":"AbaRXR.png","217.png":"Aba476.png","218.png":"Abah0x.png","219.png":"Abdg58.png"}
 			};
 		},
+		onUnload() {
+			console.log('unload');
+			clearInterval(this.interval);//停止
+		},
 		onLoad(option) {
 			var that = this;
 			var toUser = option.toUser;
@@ -164,6 +168,7 @@
 			this.toUser = toUser;
 			this.socket = app.globalData.socket;
 			this.over = option.over;
+			this.myuid = uni.getStorageSync("patientInfo").openId;
 			uni.setNavigationBarTitle({
 				title: option.name
 			});
@@ -187,9 +192,6 @@
 			})
 			// #endif
 		},
-		onHide() {
-			clearInterval(this.interval);
-		},
 		methods:{
 			loadMessageDetail(){
 				//获取消息列表中未读的消息
@@ -212,7 +214,7 @@
 				// 消息列表置未读消息数置为0
 				var messageList = uni.getStorageSync('messageList');
 				for (var i=0;i<messageList.length;i++){
-					if(messageList[i].openId == this.toUser){
+					if(messageList[i].orderId == this.orderId){
 						messageList[i].count = 0;
 						this.messageListInfo = messageList[i];
 					}
@@ -227,7 +229,7 @@
 						if(userMsgDetail[i].hasRead == '0'){
 							userMsgDetail[i].hasRead ='1';
 						}
-						this.resetUnreadMsgCount();
+						// this.resetUnreadMsgCount();
 					}
 					messageDetail['order'+this.orderId] = userMsgDetail;
 				}else{
@@ -238,7 +240,7 @@
 				uni.setStorageSync("messageDetail",messageDetail);
 			},
 			getMsgList(){
-				this.resetUnreadMsgCount();
+				// this.resetUnreadMsgCount();
 				// 消息列表
 				let list = uni.getStorageSync("messageDetail")['order'+this.orderId];
 				// 获取消息中的图片,并处理显示尺寸
@@ -351,6 +353,7 @@
 					success: (res)=>{
 						for(let i=0;i<res.tempFilePaths.length;i++){
 							var filePath = res.tempFilePaths[i];
+							console.log(res.tempFilePaths[i]);
 							uni.showLoading({mask:true});
 							uni.uploadFile({
 								url: serverUrl+'/didi-patient/ossfile/fileUpload', 
@@ -404,8 +407,8 @@
 					//更新缓存
 					var messageList = uni.getStorageSync('messageList');
 					for (var i=0;i<messageList.length;i++){
-						if(messageList[i].openId == this.toUser){
-							messageList[i] = messageListInfo;
+						if(messageList[i].orderId == this.orderId){
+							messageList[i] = this.messageListInfo;
 							this.messageListInfo = messageList[i];
 						}
 					}
@@ -429,6 +432,7 @@
 					type:type,
 					msg:content
 				};
+				console.log(singleRequest);
 				this.socket.emit('chat', singleRequest, function (data) {
 					console.log('系统通知: 你刚刚和 '+that.toUser+' 说了句悄悄话');
 					if (data && data.flag) {
@@ -451,28 +455,31 @@
 				var userMsgDetail = messageDetail['order'+this.orderId];	//获取消息数组
 				//判断用户之前是否有发送过消息
 				var tmpArr = userMsgDetail.filter(function(p){
-				  return p.fromUid === this.myuid;
+				  return p.fromUid === that.myuid;
 				});
 				if(tmpArr.length<1){
 					//未发送过消息 调用首次发送消息
 					that.$util.request({
 						url: "/didi-patient/inquiryinfo/patientFirstSendMessage",
-						param: {inquiryId:this.orderId},
+						param: {"inquiryId":that.orderId}, 
+						contentType: 'application/x-www-form-urlencoded',
 						success: function(res) {
 							//记录接单开始时间 付费时间
 							var startTime= res.data.startTime;
+							var endTime= res.data.endTime;
 							var payType = res.data.payType;
 							var inquiryTime = that.$util.getInquiryTimeByType(payType);
-							var messageListInfo = this.messageListInfo;
+							var messageListInfo = that.messageListInfo;
 							messageListInfo.startTime = startTime;
+							messageListInfo.endTime = endTime;
 							messageListInfo.inquiryTime = inquiryTime;
 							
 							//更新缓存
 							var messageList = uni.getStorageSync('messageList');
 							for (var i=0;i<messageList.length;i++){
-								if(messageList[i].openId == this.toUser){
+								if(messageList[i].orderId == that.orderId){
 									messageList[i] = messageListInfo;
-									this.messageListInfo = messageList[i];
+									that.messageListInfo = messageList[i];
 								}
 							}
 							uni.setStorageSync('messageList',messageList);
@@ -483,12 +490,14 @@
 			},
 			
 			checkSessionNotOuttime(checkDate){
-				var startDate = this.messageListInfo.startTime;
+				var startTime = this.messageListInfo.startTime;
+				var endTime = this.messageListInfo.endTime;
 				var inquiryTime = this.messageListInfo.inquiryTime;
-				if(startDate == null){
+				console.log(this.messageListInfo);
+				if(endTime == null){
 					//第一次发送的消息不作判断
 					return true;
-				}else if(checkDate - Date(startDate)<inquiryTime*1000){
+				}else if(checkDate <= new Date(endTime)){
 					//未超时
 					return true;
 				}else{
@@ -579,17 +588,9 @@
 			
 			//录音结束(回调文件)
 			recordEnd(e){
+				var that = this;
 				clearInterval(this.recordTimer);
 				if(!this.willStop){
-					plus.io.resolveLocalFileSystemURL( e.tempFilePath, function( entry ) {
-						// 可通过entry对象操作test.html文件 
-						entry.file( function(file){
-							console.log(file.size + '--' + file.name);
-						} );
-					}, function ( e ) {
-						alert( "Resolve file URL failed: " + e.message );
-					} );
-					console.log("e: " + JSON.stringify(e));
 					let msg = {
 						content:'[语音]',
 						length:0,
@@ -602,18 +603,19 @@
 					msg.length = min+':'+sec;
 					
 					uni.showLoading({mask:true});
+					var filePath = e.tempFilePath;
 					uni.uploadFile({
-						url: serverUrl+'/didi-patient/ossfile/fileUpload', 
+						url: serverUrl+'/didi-patient/ossfile/fileUpload',
 						filePath: filePath,  
 						name: 'file',
 						header: {  
 							"Content-Type": "multipart/form-data",
 							'partnerId':uni.getStorageSync('channelId')?uni.getStorageSync('channelId'):'1',
-					        'token':uni.getStorageSync('Token')?uni.getStorageSync('Token'):''
+						    'token':uni.getStorageSync('Token')?uni.getStorageSync('Token'):''
 						},
 						success: (result) => {  
 							var resData =  JSON.parse(result.data);
-							msg.url = resData.data;
+							msg.url = resData.data[0];
 							that.sendMsg(msg,'voice');
 						},  
 						fail: function(err) {  

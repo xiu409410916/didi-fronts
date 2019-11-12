@@ -1,14 +1,17 @@
-<template>
+<template> 
 	<view class="message-list">
 		<block v-for="(it,i) of messagesList" :key="i">
 			<view class="uni-swipe-action">
 				<view class="uni-swipe-action__container" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd"
-				 @touchcancel="touchEnd" :style="{'transform':messageIndex == i ? transformX : 'translateX(0px)','-webkit-transform':messageIndex == i ? transformX : 'translateX(0px)'}" :data-index="i" :data-disabled="it.disabled">
+				 @touchcancel="touchEnd" :style="{'transform':messageIndex == i ? transformX : 'translateX(0px)','-webkit-transform':messageIndex == i ? transformX : 'translateX(0px)'}"
+				 :data-index="i" :data-disabled="it.disabled">
 					<view class="uni-swipe-action__content " @click="toMessageDetail(i,it)">
 						<view class="item">
 							<block v-if="it.type == 1">
 								<view class="item-left">
-									<view class="avator"><view class="iconfont ic_system-news"></view></view>
+									<view class="avator">
+										<view class="iconfont ic_system-news"></view>
+									</view>
 								</view>
 								<view class="item-middle">
 									<text class="title">{{it.title}}</text>
@@ -21,13 +24,14 @@
 							</block>
 							<block v-if="it.type == 2 || it.type == 3">
 								<view class="item-left">
-									<avator-group :type ="it.type" :avator = "it.avatarUrl"></avator-group>
+									<avator-group :type="it.type" :avator="it.avatarUrl"></avator-group>
 								</view>
 								<view class="item-middle">
 									<text class="title">{{it.title}}</text>
 									<text class="message">{{it.message}}</text>
 								</view>
 								<view class="item-right">
+									<view class="over-tag" v-if="it.over==1">咨询已结束</view>
 									<view class="mark" v-if="it.count>0 && it.count<100 ">{{it.count}}</view>
 									<view class="mark" v-else-if="it.count>99">99+</view>
 									<view class="time">{{it.time}}</view>
@@ -53,9 +57,11 @@
 		name: 'wkiwi-swipe-action',
 		props: {
 			options: Array,
-			messagesList:Array,
+			messagesList: Array,
 		},
-		components: {avatorGroup},
+		components: {
+			avatorGroup
+		},
 		data() {
 			const elId = `Uni_${Math.ceil(Math.random() * 10e5).toString(36)}`
 			return {
@@ -82,31 +88,32 @@
 		},
 		// #endif
 		methods: {
-			toMessageDetail(i,it){
-				if(it.type == 2){
+			toMessageDetail(i, it) {
+				if (it.type == 2) {
 					console.log(it);
 					uni.navigateTo({
-						url:"../message_info/message_info?name="+it.title+"&toUser="+it.openId+"&orderId="+it.orderId+"&over="+it.over
+						url: "../message_info/message_info?name=" + it.title + "&toUser=" + it.openId + "&orderId=" + it.orderId +
+							"&over=" + it.over
 					})
-				}else if(type == 1){
+				} else if (type == 1) {
 					console.log('进入系统消息界面')
 				}
 			},
 			getSize() {
 				uni.createSelectorQuery().in(this).select(`#${this.elId}`).boundingClientRect().exec((ret) => {
-					if(ret[0]){
+					if (ret[0]) {
 						this.btnGroupWidth = ret[0].width;
 					}
 				});
 			},
 			bindClickBtn(item, index) {
 				this.messageIndex = -1;
-				console.log(item.text +'message第'+ index+ '项');
-				
+				console.log(item.text + 'message第' + index + '项');
+
 			},
 			touchStart(event) {
-				return;	//默认不允许右滑
-				if(event.currentTarget.dataset.disabled === true){
+				return; //默认不允许右滑
+				if (event.currentTarget.dataset.disabled === true) {
 					return;
 				}
 				this.startX = event.touches[0].pageX;
@@ -118,7 +125,7 @@
 					return;
 				}
 				var moveY = event.touches[0].pageY - this.startY,
-						moveX = event.touches[0].pageX - this.startX;
+					moveX = event.touches[0].pageX - this.startX;
 				if (!this.isMoving && Math.abs(moveY) > Math.abs(moveX) || Math.abs(moveY) > 100 || Math.abs(moveX) < 50) { //纵向滑动//参数100与50可调节侧滑灵敏度
 					this.direction = 'Y';
 					return;
@@ -135,7 +142,7 @@
 				}
 				if (this.direction == 'right') {
 					this.messageIndex = -1;
-				} 
+				}
 				this.endMove(event)
 			},
 			endMove(event) {
@@ -160,6 +167,7 @@
 	.uni-swipe-action {
 		width: 100%;
 		overflow: hidden;
+
 		&__container {
 			background-color: #FFFFFF;
 			width: 200%;
@@ -168,13 +176,16 @@
 			flex-wrap: wrap;
 			transition: transform 350ms cubic-bezier(.165, .84, .44, 1);
 		}
+
 		&__content {
 			width: 50%;
 		}
+
 		&__btn-group {
 			display: flex;
 			flex-direction: row;
 		}
+
 		&--btn {
 			padding: 0 32upx;
 			color: #FFFFFF;
@@ -186,25 +197,30 @@
 			align-items: center;
 		}
 	}
+
 	.item {
-	  display: flex;
-	  flex-direction: row;
-	  justify-content: space-between;
-	  padding: 10upx 16upx;
-	  background-color: #fff;
-		border-bottom:1px solid rgb(243,243,243);
-		&.stick{
-			background-color: rgba(243, 236, 221,.5);
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 10upx 16upx;
+		background-color: #fff;
+		border-bottom: 1px solid rgb(243, 243, 243);
+
+		&.stick {
+			background-color: rgba(243, 236, 221, .5);
 		}
+
 		.item-left {
-		  text-align: center;
+			text-align: center;
+
 			.image {
-			  width: 100upx;
-			  height: 100upx;
-			  border-radius: 50upx;
-			  background-color: #eee;
+				width: 100upx;
+				height: 100upx;
+				border-radius: 50upx;
+				background-color: #eee;
 			}
-			.avator{
+
+			.avator {
 				width: 100upx;
 				height: 100upx;
 				text-align: center;
@@ -212,7 +228,8 @@
 				background: #4191ea;
 				border-radius: 50%;
 				overflow: hidden;
-				.iconfont{
+
+				.iconfont {
 					width: 100upx;
 					height: 100upx;
 					text-align: center;
@@ -222,60 +239,83 @@
 				}
 			}
 		}
+
 		.item-middle {
 			display: flex;
-		  flex: 1;
+			flex: 1;
 			flex-wrap: wrap;
 			flex-direction: row;
 			justify-content: flex-start;
-		  margin-left: 15upx;
-		  overflow: hidden;
+			margin-left: 15upx;
+			overflow: hidden;
+
 			.title {
 				width: 100%;
-			  color: #000;
-			  font-family: "微软雅黑";
-			  font-weight: 400;
-			  font-size: 30upx;
+				color: #000;
+				font-family: "微软雅黑";
+				font-weight: 400;
+				font-size: 30upx;
 				height: 50upx;
-			  line-height:60upx;
-			  overflow: hidden; /*自动隐藏文字*/
-			  text-overflow: ellipsis; /*文字隐藏后添加省略号*/
-				white-space: nowrap; /**强制不换行*/
+				line-height: 60upx;
+				overflow: hidden;
+				/*自动隐藏文字*/
+				text-overflow: ellipsis;
+				/*文字隐藏后添加省略号*/
+				white-space: nowrap;
+				/**强制不换行*/
 			}
+
 			.message {
 				width: 100%;
-			  font-family: "微软雅黑";
-			  color: #808080;
+				font-family: "微软雅黑";
+				color: #808080;
 				height: 50upx;
-			  line-height: 40upx;
-			  font-size: 24upx;
-			  overflow: hidden; /**自动隐藏文字*/
-			  text-overflow: ellipsis; /**文字隐藏后添加省略号*/
-			  white-space: nowrap; /**强制不换行*/
+				line-height: 40upx;
+				font-size: 24upx;
+				overflow: hidden;
+				/**自动隐藏文字*/
+				text-overflow: ellipsis;
+				/**文字隐藏后添加省略号*/
+				white-space: nowrap;
+				/**强制不换行*/
 			}
 		}
+
 		.item-right {
-		  overflow: hidden;
-		  display: flex;
-		  flex-direction: column;
-		  align-items: center;
-		  justify-content: flex-end;
-		  width:120upx;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-end;
+			width: 120upx;
+
 			.time {
-			  color: #808080;
-			  font-size: 18upx;
-				height:60upx;
+				color: #808080;
+				font-size: 18upx;
+				height: 60upx;
 				line-height: 60upx;
 			}
-			.mark {
-			  background-color: #f74c31;
-			  line-height: 35upx;
+
+			.over-tag {
+				background-color: #bbb;
+				line-height: 35upx;
 				text-align: center;
-			  font-size: 18upx;
-			  min-width: 35upx;
-			  min-height: 35upx;
-			  border-radius: 18upx;
-			  color: #fff;
+				font-size: 18upx;
+				min-width: 35upx;
+				min-height: 35upx;
+				padding:5upx 10upx; 
+				color: #fff;
+			}
+
+			.mark {
+				background-color: #f74c31;
+				line-height: 35upx;
+				text-align: center;
+				font-size: 18upx;
+				min-width: 35upx;
+				min-height: 35upx;
+				border-radius: 18upx;
+				color: #fff;
 			}
 		}
 	}

@@ -168,6 +168,7 @@
 			uni.setNavigationBarTitle({
 				title: option.name
 			});
+			this.checkStartSession();
 			this.resetUnreadMsgList();
 			this.getMsgList();
 			this.interval = setInterval(function() {
@@ -188,7 +189,7 @@
 			})
 			// #endif
 		},
-		onHide() {
+		onUnload() {
 			clearInterval(this.interval);
 		},
 		methods:{
@@ -213,7 +214,7 @@
 				// 消息列表置未读消息数置为0
 				var messageList = uni.getStorageSync('messageList');
 				for (var i=0;i<messageList.length;i++){
-					if(messageList[i].openId == this.toUser){
+					if(messageList[i].orderId == this.orderId){
 						messageList[i].count = 0;
 						this.messageListInfo = messageList[i];
 					}
@@ -228,7 +229,7 @@
 						if(userMsgDetail[i].hasRead == '0'){
 							userMsgDetail[i].hasRead ='1';
 						}
-						this.resetUnreadMsgCount();
+						// this.resetUnreadMsgCount();
 					}
 					messageDetail['order'+this.orderId] = userMsgDetail;
 				}else{
@@ -239,7 +240,7 @@
 				uni.setStorageSync("messageDetail",messageDetail);
 			},
 			getMsgList(){
-				this.resetUnreadMsgCount();
+				// this.resetUnreadMsgCount();
 				// 消息列表
 				let list = uni.getStorageSync("messageDetail")['order'+this.orderId];
 				// 获取消息中的图片,并处理显示尺寸
@@ -405,8 +406,8 @@
 					//更新缓存
 					var messageList = uni.getStorageSync('messageList');
 					for (var i=0;i<messageList.length;i++){
-						if(messageList[i].openId == this.toUser){
-							messageList[i] = messageListInfo;
+						if(messageList[i].orderId == this.orderId){
+							messageList[i] = this.messageListInfo;
 							this.messageListInfo = messageList[i];
 						}
 					}
@@ -444,14 +445,51 @@
 				//发送的消息记录到缓存
 				this.$util.updateMessage(singleRequest,"1");
 			},
-			
+			checkStartSession(msg) {
+				//每次打开消息列表 判断订单是否开始状态
+				var that = this;
+				that.$util.request({
+					url: "/didi-doctor/inquiryinfo/getOneByEntity",
+					param: {"inquiryId":that.orderId}, 
+					contentType: 'application/x-www-form-urlencoded',
+					success: function(res) {
+						//记录接单开始时间 付费时间
+						var startTime= res.data.startTime;
+						var endTime= res.data.endTime;
+						var payType = res.data.payType;
+						var messageListInfo = that.messageListInfo;
+						
+						if(res.data.startTime == null || res.data.endTime ==null || messageListInfo.startTime != null){
+							//订单未开始，不记录
+							return;
+						}
+						var inquiryTime = that.$util.getInquiryTimeByType(payType);
+						messageListInfo.startTime = startTime;
+						messageListInfo.endTime = endTime;
+						messageListInfo.inquiryTime = inquiryTime;
+						
+						//更新缓存
+						var messageList = uni.getStorageSync('messageList');
+						for (var i=0;i<messageList.length;i++){
+							if(messageList[i].orderId == that.orderId){
+								messageList[i] = messageListInfo;
+								that.messageListInfo = messageList[i];
+							}
+						}
+						uni.setStorageSync('messageList',messageList);
+					},
+					error: function() {}
+				})
+			},
 			checkSessionNotOuttime(checkDate){
-				var startDate = this.messageListInfo.startTime;
+				var startTime = this.messageListInfo.startTime;
+				var endTime = this.messageListInfo.endTime;
 				var inquiryTime = this.messageListInfo.inquiryTime;
-				if(startDate == null){
+				console.log(this.messageListInfo);
+				if(endTime == null){
 					//第一次发送的消息不作判断
 					return true;
-				}else if(checkDate - Date(startDate)<inquiryTime*1000){
+				}else if(checkDate <= new Date(endTime)){
 					//未超时
 					return true;
 				}else{
@@ -544,15 +582,6 @@
 			recordEnd(e){
 				clearInterval(this.recordTimer);
 				if(!this.willStop){
-					plus.io.resolveLocalFileSystemURL( e.tempFilePath, function( entry ) {
-						// 可通过entry对象操作test.html文件 
-						entry.file( function(file){
-							console.log(file.size + '--' + file.name);
-						} );
-					}, function ( e ) {
-						alert( "Resolve file URL failed: " + e.message );
-					} );
-					console.log("e: " + JSON.stringify(e));
 					let msg = {
 						content:'[语音]',
 						length:0,
@@ -565,6 +594,7 @@
 					msg.length = min+':'+sec;
 					
 					uni.showLoading({mask:true});
+					var filePath = e.tempFilePath;
 					uni.uploadFile({
 						url: serverUrl+'/didi-patient/ossfile/fileUpload', 
 						filePath: filePath,  
@@ -576,7 +606,7 @@
 						},
 						success: (result) => {  
 							var resData =  JSON.parse(result.data);
-							msg.url = resData.data;
+							msg.url = resData.data[0];
 							that.sendMsg(msg,'voice');
 						},  
 						fail: function(err) {  
