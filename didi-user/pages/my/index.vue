@@ -47,11 +47,11 @@
 						<view class="right"><image src="../../static/you.png"></image></view>
 						<navigator></navigator>
 					</view>
-					<view class="vi" @click="toUserAmount" v-if="patientInfo.agentId">
+					<!-- <view class="vi" @click="toUserAmount" v-if="patientInfo.agentId">
 						<view class="left"><image src="../../static/qrcode.png"></image>我的余额</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
 						<navigator></navigator>
-					</view>
+					</view> -->
 					<view class="vi" @click="toDidiDetail">
 						<view class="left"><image src="../../static/about.png"></image>关于我们</view>
 						<view class="right"><image src="../../static/you.png"></image></view>
