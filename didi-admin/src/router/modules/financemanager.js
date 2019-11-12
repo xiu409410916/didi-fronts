@@ -36,13 +36,13 @@ const financeManageRouter = {
       component: () => import('@/views/doctorWithdrawInfo/list'),
       name: 'doctorWithdrawInfo',
       meta: {  title: '医生提现列表', icon: 'list', noCache: true}
-    },
-    {
-      path: 'agentWithdrawInfo',
-      component: () => import('@/views/agentWithdrawInfo/list'),
-      name: 'agentWithdrawInfo',
-      meta: {  title: '代理商打款', icon: 'list', noCache: true}
     }
+    // {
+    //   path: 'agentWithdrawInfo',
+    //   component: () => import('@/views/agentWithdrawInfo/list'),
+    //   name: 'agentWithdrawInfo',
+    //   meta: {  title: '代理商打款', icon: 'list', noCache: true}
+    // }
 
   ]
 }
