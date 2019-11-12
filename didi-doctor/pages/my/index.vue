@@ -48,7 +48,7 @@
 							<image src="../../static/you.png"></image>
 						</view>
 					</view>
-					<view class="vi" @click="toUserAmount" v-if="doctorInfo.amount > 0">
+					<view class="vi" @click="toUserAmount">
 						<view class="left">
 							<image src="../../static/amount.png"></image>我的余额
 						</view>
@@ -56,7 +56,7 @@
 							<image src="../../static/you.png"></image>
 						</view>
 					</view>
-					<view class="vi" @click="toBankInfo">
+					<!-- <view class="vi" @click="toBankInfo">
 						<view class="left">
 							<image src="../../static/bank.png"></image>我的银行卡
 						</view>
@@ -64,7 +64,7 @@
 							<image src="../../static/you.png"></image>
 						</view>
 						<navigator></navigator>
-					</view>
+					</view> -->
 					<view class="vi" @click="toMyRecept">
 						<view class="left">
 							<image src="../../static/inquiry.png"></image>我的接单
@@ -184,6 +184,14 @@
 				}
 			},
 			toUserAmount: function() {
+				if(this.doctorInfo.amount <= 0){
+					uni.showToast({
+						title: '余额为0',
+						icon: 'success',
+						duration: 2000
+					})
+					return;
+				}
 				let that = this;
 				if (that.$util.isPerfectInfo()) {
 					uni.navigateTo({
@@ -224,8 +232,22 @@
 			},
 			toAgent: function() {
 				let that = this;
-				that.getBankList();
-
+				// that.getBankList();
+				that.$util.request({
+					url: "/didi-doctor/agentinfo/applyToAgent",
+					param: that.temp,
+					contentType: 'application/x-www-form-urlencoded',
+					success: function(res) {
+						uni.showToast({
+							title: '申请成功',
+							icon: 'success',
+							duration: 2000
+						})
+					},
+					error: function() {
+						
+					}
+				})
 			},
 			toDidiDetail: function() {
 				uni.navigateTo({

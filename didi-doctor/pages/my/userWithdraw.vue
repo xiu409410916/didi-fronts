@@ -7,7 +7,7 @@
 					<input placeholder="请选择" disabled="true" :value="withdrawType[typeIndex]" />
 				</picker>
 			</view>
-			<view class="li" v-if="typeIndex == 1">
+			<!-- <view class="li" v-if="typeIndex == 1">
 				<label>银行名称</label>
 				<picker class="inp" @change="bindBankChange" :value="bankIndex" :range="bankList" range-key="bankName">
 					<input placeholder="请选择" disabled="true" :value="bankList[bankIndex].bankName" />
@@ -16,7 +16,7 @@
 			<view class="li" v-if="typeIndex == 1">
 				<label>银行账号</label>
 				<input class="inp" disabled="true" v-model="bankList[bankIndex].bankAccount" />
-			</view>
+			</view> -->
 			<view class="li">
 				<label>可提余额</label>
 				<input class="inp" disabled="true" v-model="amount" />
@@ -54,7 +54,7 @@
 					withdrawPassword:''
 				},
 				amount:0,
-				withdrawType:['提到余额','提到银行卡'],
+				withdrawType:['提到余额'],
 				typeIndex:null,
 				bankList:[{"bankName":"","bankAccount":""}],
 				bankIndex: null
