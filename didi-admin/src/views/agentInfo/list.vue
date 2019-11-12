@@ -3,7 +3,7 @@
     <div class="filter-container">
       <el-input style="width: 200px;" class="filter-item" placeholder="手机号" v-model="listQuery.mobile" clearable></el-input>
       <el-button class="filter-item" data-id="1001" v-display type="primary" icon="el-icon-search" @click="handleFilter">搜索</el-button>
-      <el-button class="filter-item" data-id="1002" v-display type="primary" @click="addAgent">新增</el-button>
+      <!-- <el-button class="filter-item" data-id="1002" v-display type="primary" @click="addAgent">新增</el-button> -->
     </div>
     <el-table :data="list" v-loading="listLoading" element-loading-text="给我一点时间" border fit highlight-current-row
       @selection-change="handleSelectionChange" ref="multipleTable">
