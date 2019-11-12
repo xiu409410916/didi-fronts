@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "购买时间卡",
+  "usingComponents": {
+    "page-button": "/components/button"
+  }
+}

@@ -25,14 +25,35 @@
 			// uni.setStorageSync("messageDetail", messageDetail); 
 		},
 		onShow: function() {
+			var that = this;
 			console.log('App Show')
 			uni.removeStorageSync('updateCart');
+			//获取历史未读消息
 			this.getHistoryMessage();
+			//定时判断订单是否结束,每10秒检查一次
+			this.interval = setInterval(function() {
+			      that.checkOuttimeMsg()
+			}, 10000)
 		},
 		onHide: function() {
 			console.log('App Hide')
+			//退出app时停止检查消息
+			clearInterval(this.interval);
 		},
 		methods: {
+			checkOuttimeMsg(){
+				var messageList = uni.getStorageSync('messageList');
+				if(messageList!=null && messageList.length>0){
+					for(var i=0 ;i<messageList.length;i++){
+						var message = messageList[i];
+						if(message.over=='0' && (message.endTime!=null && message.endTime!='') && new Date(message.endTime)>new Date()){
+							message.over=='1';
+							messageList[i] = message;
+						}
+					}
+					uni.setStorageSync('messageList',messageList);
+				}
+			},
 			getHistoryMessage() {
 				var that = this;
 				var patientInfo = uni.getStorageSync("patientInfo");
@@ -82,7 +103,7 @@
 			connectMsgServer(patientInfo) {
 				var that = this;
 				var fromUser = patientInfo.openId;
-				var url = 'http://localhost:9092?token=' + fromUser;
+				var url = 'https://ws.dididoctor.cn?token=' + fromUser;
 				const socket = io.connect(url);
 				getApp().globalData.socket = socket;
 				socket.on('connect', function() {
