@@ -50,8 +50,8 @@
 			<view class="li">
 				<label>付款方式</label>
 				<radio-group @change="payTypeChang">
-					<radio value="0" />20元1小时</label>
-					<radio value="1" />30元两小时</label>
+					<radio value="0" />20元半小时</label>
+					<radio value="1" />30元一小时</label>
 				</radio-group>
 			</view>
 			<view class="text">
