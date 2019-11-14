@@ -239,13 +239,17 @@
 					contentType: 'application/x-www-form-urlencoded',
 					success: function(res) {
 						uni.showToast({
-							title: '申请成功',
+							title: '申请成功,等待审核',
 							icon: 'success',
 							duration: 2000
 						})
 					},
 					error: function() {
-						
+						uni.showToast({
+							title: res.message,
+							icon: 'success',
+							duration: 2000
+						})
 					}
 				})
 			},
