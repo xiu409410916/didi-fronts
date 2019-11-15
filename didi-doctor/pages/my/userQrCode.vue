@@ -28,7 +28,7 @@
 			// }
 			this.qrCodeUrlAgent = info.qr_code_url_agent;
 			if(!this.$util.isEmpty(this.qrCodeUrlAgent)){
-				this.qrCodeUrlAgent(info.doctorId);
+				this.getQrCodeUrlAgent(info.doctorId);
 			}
 		},
 		onShow() {
@@ -50,7 +50,7 @@
 					error: function() {}
 				})
 			},
-			qrCodeUrlAgent: function(doctorId) {
+			getQrCodeUrlAgent: function(doctorId) {
 				let that = this;
 				var url = "/didi-doctor/doctorinfo/getQrCodeForDididada";
 				that.$util.request({
