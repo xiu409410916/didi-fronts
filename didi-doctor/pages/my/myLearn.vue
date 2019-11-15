@@ -74,7 +74,7 @@
 			downloadlearn:function(url){
 				uni.downloadFile({
 				    url: url, 
-				    success: (res) => {
+				    success: function(res) {
 						console.log(res);
 				        if (res.statusCode === 200) {
 				            console.log('下载成功');

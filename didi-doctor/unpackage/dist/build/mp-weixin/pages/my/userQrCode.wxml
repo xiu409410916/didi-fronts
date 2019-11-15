@@ -1,0 +1,1 @@
+<view class="content data-v-50d6f4f6"><image src="{{qrCodeUrl}}" class="data-v-50d6f4f6"></image><image src="{{qrCodeUrlAgent}}" class="data-v-50d6f4f6"></image></view>

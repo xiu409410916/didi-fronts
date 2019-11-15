@@ -129,6 +129,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 
 
@@ -139,14 +140,19 @@ var _default =
 
   data: function data() {
     return {
-      qrCodeUrl: '' };
+      qrCodeUrl: '',
+      qrCodeUrlAgent: '' };
 
   },
   onLoad: function onLoad(options) {
     var info = uni.getStorageSync("doctorInfo");
-    this.qrCodeUrl = info.qrCodeUrl;
-    if (!this.$util.isEmpty(this.qrCodeUrl)) {
-      this.getQrCodeUrl(info.doctorId);
+    // this.qrCodeUrl = info.qrCodeUrl;
+    // if(!this.$util.isEmpty(this.qrCodeUrl)){
+    // 	this.getQrCodeUrl(info.doctorId);
+    // }
+    this.qrCodeUrlAgent = info.qr_code_url_agent;
+    if (!this.$util.isEmpty(this.qrCodeUrlAgent)) {
+      this.qrCodeUrlAgent(info.doctorId);
     }
   },
   onShow: function onShow() {
@@ -164,6 +170,21 @@ var _default =
           that.qrCodeUrl = res.data.qrCodeUrl;
           uni.setStorageSync('doctorInfo', res.data);
           console.log(that.qrCodeUrl);
+        },
+        error: function error() {} });
+
+    },
+    qrCodeUrlAgent: function qrCodeUrlAgent(doctorId) {
+      var that = this;
+      var url = "/didi-doctor/doctorinfo/getQrCodeForDididada";
+      that.$util.request({
+        url: url,
+        param: { doctorId: doctorId },
+        contentType: 'application/x-www-form-urlencoded',
+        success: function success(res) {
+          that.qrCodeUrlAgent = res.data.qrCodeUrlAgent;
+          uni.setStorageSync('doctorInfo', res.data);
+          console.log(that.qrCodeUrlAgent);
         },
         error: function error() {} });
 

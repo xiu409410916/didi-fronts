@@ -29,4 +29,8 @@
   background: #fff;
   margin-top: 20rpx;
 }
+.content image.data-v-35cb8dd6 {
+    width: 300rpx;
+    height: 300rpx;
+}
 

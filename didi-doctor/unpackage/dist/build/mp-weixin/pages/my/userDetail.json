@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "完善资料",
+  "usingComponents": {
+    "image-upload": "/components/image-upload",
+    "page-button": "/components/button"
+  }
+}
