@@ -72,13 +72,13 @@
 				})
 			},
 			downloadlearn:function(url){
+				console.log(url);
 				uni.downloadFile({
 				    url: url, 
 				    success: function(res) {
-						console.log(res);
-				        if (res.statusCode === 200) {
-				            console.log('下载成功');
-				        }
+						uni.playVoice({
+						        filePath: res.tempFilePath
+						      })
 				    },
 					fail:function(res) {
 						console.log(res);

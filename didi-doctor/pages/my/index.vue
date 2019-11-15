@@ -253,7 +253,7 @@
 							duration: 2000
 						})
 					},
-					error: function() {
+					error: function(res) {
 						uni.showToast({
 							title: res.message,
 							icon: 'success',
