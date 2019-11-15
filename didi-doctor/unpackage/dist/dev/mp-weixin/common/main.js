@@ -176,17 +176,38 @@ var io = __webpack_require__(/*! common/weapp.socket.io.js */ 12);var _default =
   },
   onShow: function onShow() {
     console.log('App Show');
+    var that = this;
     uni.removeStorageSync('updateCart');
-    this.getHistoryMessage();
+    //获取历史未读消息
+    that.getHistoryMessage();
+    //定时判断订单是否结束,每10秒检查一次
+    that.interval = setInterval(function () {
+      that.checkOuttimeMsg();
+    }, 10000);
   },
   onHide: function onHide() {
     console.log('App Hide');
+    //退出app时停止检查消息
+    clearInterval(this.interval);
   },
   methods: {
+    checkOuttimeMsg: function checkOuttimeMsg() {
+      var messageList = uni.getStorageSync('messageList');
+      if (messageList != null && messageList.length > 0) {
+        for (var i = 0; i < messageList.length; i++) {
+          var message = messageList[i];
+          if (message.over == '0' && message.endTime != null && message.endTime != '' && new Date(message.endTime) > new Date()) {
+            message.over == '1';
+            messageList[i] = message;
+          }
+        }
+        uni.setStorageSync('messageList', messageList);
+      }
+    },
     getHistoryMessage: function getHistoryMessage() {
       var that = this;
-      var patientInfo = uni.getStorageSync("patientInfo");
-      if (null == patientInfo) {
+      var doctorInfo = uni.getStorageSync("doctorInfo");
+      if (null == doctorInfo) {
         return;
       }
       uni.showToast({
@@ -195,9 +216,9 @@ var io = __webpack_require__(/*! common/weapp.socket.io.js */ 12);var _default =
         // duration:1500,
         mask: true });
 
-      this.$util.request({
+      that.$util.request({
         url: "/didi-patient/message/getUserUnreadedMessage",
-        param: { userId: patientInfo.openId },
+        param: { userId: doctorInfo.openId },
         contentType: 'application/x-www-form-urlencoded',
         success: function success(res) {
           var messages = res.data;
@@ -231,7 +252,7 @@ var io = __webpack_require__(/*! common/weapp.socket.io.js */ 12);var _default =
     connectMsgServer: function connectMsgServer(doctorInfo) {
       var that = this;
       var fromUser = doctorInfo.openId;
-      var url = 'http://localhost:9092?token=' + fromUser;
+      var url = 'https://ws.dididoctor.cn?token=' + fromUser;
       var socket = io.connect(url);
       getApp().globalData.socket = socket;
       socket.on('connect', function () {

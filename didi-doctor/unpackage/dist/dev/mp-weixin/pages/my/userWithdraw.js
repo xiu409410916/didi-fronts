@@ -122,7 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PageButton = function PageButton() {return __webpack_require__.e(/*! import() | components/button */ "components/button").then(__webpack_require__.bind(null, /*! ../../components/button.vue */ 172));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var PageButton = function PageButton() {return __webpack_require__.e(/*! import() | components/button */ "components/button").then(__webpack_require__.bind(null, /*! ../../components/button.vue */ 182));};var _default =
 
 
 
@@ -178,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
         withdrawPassword: '' },
 
       amount: 0,
-      withdrawType: ['提到余额', '提到银行卡'],
+      withdrawType: ['提到余额'],
       typeIndex: null,
       bankList: [{ "bankName": "", "bankAccount": "" }],
       bankIndex: null };

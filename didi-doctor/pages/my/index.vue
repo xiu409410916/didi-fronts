@@ -92,6 +92,15 @@
 						</view>
 						<navigator></navigator>
 					</view>
+					<view class="vi" @click="toMyLearn">
+						<view class="left">
+							<image src="../../static/learn.png"></image>我的学习
+						</view>
+						<view class="right">
+							<image src="../../static/you.png"></image>
+						</view>
+						<navigator></navigator>
+					</view>
 					<view class="vi" @click="toDidiDetail">
 						<view class="left">
 							<image src="../../static/about.png"></image>关于我们
@@ -261,6 +270,11 @@
 			toQrCode: function() {
 				uni.navigateTo({
 					url: '/pages/my/userQrCode'
+				})
+			},
+			toMyLearn:function(){
+				uni.navigateTo({
+					url: '/pages/my/myLearn'
 				})
 			}
 		}

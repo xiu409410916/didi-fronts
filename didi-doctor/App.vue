@@ -74,11 +74,12 @@
 		},
 		onShow: function () {
 			console.log('App Show')
+			let that = this;
 			uni.removeStorageSync('updateCart');
 			//获取历史未读消息
-			this.getHistoryMessage();
+			that.getHistoryMessage();
 			//定时判断订单是否结束,每10秒检查一次
-			this.interval = setInterval(function() {
+			that.interval = setInterval(function() {
 			      that.checkOuttimeMsg()
 			}, 10000)
 		},
@@ -88,7 +89,7 @@
 			clearInterval(this.interval);
 		},
 		methods: {
-			checkOuttimeMsg(){
+			checkOuttimeMsg:function(){
 				var messageList = uni.getStorageSync('messageList');
 				if(messageList!=null && messageList.length>0){
 					for(var i=0 ;i<messageList.length;i++){
@@ -101,7 +102,7 @@
 					uni.setStorageSync('messageList',messageList);
 				}
 			},
-			getHistoryMessage() {
+			getHistoryMessage:function() {
 				var that = this;
 				var doctorInfo = uni.getStorageSync("doctorInfo");
 				if(null == doctorInfo){
@@ -113,7 +114,7 @@
 					// duration:1500,
 					mask:true,
 				})
-				this.$util.request({
+				that.$util.request({
 					url: "/didi-patient/message/getUserUnreadedMessage",
 					param: {userId:doctorInfo.openId},
 					contentType: 'application/x-www-form-urlencoded',
@@ -130,7 +131,7 @@
 					error: function() {}
 				})
 			},
-			loginByCode(code) {
+			loginByCode:function(code) {
 				let that = this;
 				const param = {}
 				param.code = code
@@ -146,7 +147,7 @@
 					error: function() {}
 				})
 			},
-			connectMsgServer(doctorInfo){
+			connectMsgServer:function(doctorInfo){
 				var that = this;
 				var fromUser = doctorInfo.openId;
 				var url = 'https://ws.dididoctor.cn?token='+fromUser;

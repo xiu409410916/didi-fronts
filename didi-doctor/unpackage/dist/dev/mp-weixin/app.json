@@ -16,7 +16,8 @@
     "pages/my/userAgentAdd",
     "pages/my/didiDetail",
     "pages/my/userQrCode",
-    "pages/my/userGeneAdd"
+    "pages/my/userGeneAdd",
+    "pages/my/myLearn"
   ],
   "subPackages": [],
   "window": {

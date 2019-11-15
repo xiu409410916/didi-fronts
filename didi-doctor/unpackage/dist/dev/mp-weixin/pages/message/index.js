@@ -122,7 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wkiwiSwipeAction = function wkiwiSwipeAction() {return __webpack_require__.e(/*! import() | components/wkiwi-swipe-action */ "components/wkiwi-swipe-action").then(__webpack_require__.bind(null, /*! ../../components/wkiwi-swipe-action.vue */ 153));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wkiwiSwipeAction = function wkiwiSwipeAction() {return __webpack_require__.e(/*! import() | components/wkiwi-swipe-action */ "components/wkiwi-swipe-action").then(__webpack_require__.bind(null, /*! ../../components/wkiwi-swipe-action.vue */ 163));};var _default =
 
 
 

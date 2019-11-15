@@ -122,7 +122,16 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var UserInfo = function UserInfo() {return __webpack_require__.e(/*! import() | components/userinfo */ "components/userinfo").then(__webpack_require__.bind(null, /*! ../../components/userinfo.vue */ 160));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var UserInfo = function UserInfo() {return __webpack_require__.e(/*! import() | components/userinfo */ "components/userinfo").then(__webpack_require__.bind(null, /*! ../../components/userinfo.vue */ 170));};var _default =
+
+
+
+
+
+
+
+
+
 
 
 
@@ -308,6 +317,14 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     toUserAmount: function toUserAmount() {
+      if (this.doctorInfo.amount <= 0) {
+        uni.showToast({
+          title: '余额为0',
+          icon: 'success',
+          duration: 2000 });
+
+        return;
+      }
       var that = this;
       if (that.$util.isPerfectInfo()) {
         uni.navigateTo({
@@ -348,7 +365,25 @@ __webpack_require__.r(__webpack_exports__);
     },
     toAgent: function toAgent() {
       var that = this;
-      that.getBankList();
+      // that.getBankList();
+      that.$util.request({
+        url: "/didi-doctor/agentinfo/applyToAgent",
+        param: that.temp,
+        contentType: 'application/x-www-form-urlencoded',
+        success: function success(res) {
+          uni.showToast({
+            title: '申请成功,等待审核',
+            icon: 'success',
+            duration: 2000 });
+
+        },
+        error: function error() {
+          uni.showToast({
+            title: res.message,
+            icon: 'success',
+            duration: 2000 });
+
+        } });
 
     },
     toDidiDetail: function toDidiDetail() {
@@ -359,6 +394,11 @@ __webpack_require__.r(__webpack_exports__);
     toQrCode: function toQrCode() {
       uni.navigateTo({
         url: '/pages/my/userQrCode' });
+
+    },
+    toMyLearn: function toMyLearn() {
+      uni.navigateTo({
+        url: '/pages/my/myLearn' });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

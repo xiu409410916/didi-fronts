@@ -122,7 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var emptyView = function emptyView() {return __webpack_require__.e(/*! import() | components/emptyview */ "components/emptyview").then(__webpack_require__.bind(null, /*! ../../components/emptyview.vue */ 179));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var emptyView = function emptyView() {return __webpack_require__.e(/*! import() | components/emptyview */ "components/emptyview").then(__webpack_require__.bind(null, /*! ../../components/emptyview.vue */ 189));};var _default =
 
 
 
@@ -204,6 +204,14 @@ __webpack_require__.r(__webpack_exports__);
 
     },
     toWithdraw: function toWithdraw() {
+      if (this.amount <= 0) {
+        uni.showToast({
+          title: '余额为0',
+          icon: 'success',
+          duration: 2000 });
+
+        return;
+      }
       uni.navigateTo({
         url: '/pages/my/userWithdraw?amount=' + this.amount });
 
