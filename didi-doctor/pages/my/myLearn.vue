@@ -6,7 +6,7 @@
 					<label>{{item.fileName}}</label>
 				</view>
 				<view class="right">
-					<button @click="downloadlearn(item.url)">下载</button>
+					<button @click="downloadlearn(item.url)">查看</button>
 				</view>
 			</view>
 		</view>
@@ -72,13 +72,20 @@
 				})
 			},
 			downloadlearn:function(url){
-				console.log(url);
+				// uni.navigateTo({
+				// 	url:'/pages/my/myLearnDetail?url='+url
+				// })
 				uni.downloadFile({
 				    url: url, 
 				    success: function(res) {
-						uni.playVoice({
-						        filePath: res.tempFilePath
-						      })
+						const filePath = res.tempFilePath
+						uni.openDocument({
+							filePath:filePath,
+							fileType:'doc',
+							success: function (res) {
+								console.log('打开文档成功')
+							}
+						})
 				    },
 					fail:function(res) {
 						console.log(res);
