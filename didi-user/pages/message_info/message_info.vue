@@ -493,8 +493,9 @@
 								}
 							}
 							uni.setStorageSync('messageList',messageList);
+							var leftTime = that.getLeftTime();
 							uni.setNavigationBarTitle({
-								title: option.name+' '+that.getLeftTime();
+								title: option.name+' '+leftTime
 							});
 						},
 						error: function() {}

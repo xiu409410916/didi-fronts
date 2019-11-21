@@ -212,6 +212,16 @@
       height: 60rpx;
       line-height: 60rpx;
 }
+.item .item-right .over-tag {
+      background-color: #bbb;
+      line-height: 35rpx;
+      text-align: center;
+      font-size: 18rpx;
+      min-width: 35rpx;
+      min-height: 35rpx;
+      padding: 5rpx 10rpx;
+      color: #fff;
+}
 .item .item-right .mark {
       background-color: #f74c31;
       line-height: 35rpx;
