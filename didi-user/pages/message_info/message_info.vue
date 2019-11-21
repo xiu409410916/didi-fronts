@@ -158,7 +158,6 @@
 			};
 		},
 		onUnload() {
-			console.log('unload');
 			clearInterval(this.interval);//停止
 		},
 		onLoad(option) {
@@ -169,8 +168,9 @@
 			this.socket = app.globalData.socket;
 			this.over = option.over;
 			this.myuid = uni.getStorageSync("patientInfo").openId;
+			var leftTime = this.getLeftTime();
 			uni.setNavigationBarTitle({
-				title: option.name
+				title: option.name+' '+leftTime
 			});
 			this.resetUnreadMsgList();
 			this.getMsgList();
@@ -193,6 +193,17 @@
 			// #endif
 		},
 		methods:{
+			getLeftTime(){
+				var endTime = this.messageListInfo.endTime;
+				if(endTime == null){
+					return '';
+				}else if(new Date() <= new Date(endTime)){
+					return this.$util.getFormatDate(new Date(endTime),'hh:mm');
+				}else{
+					return '已结束';
+				}
+				
+			},
 			loadMessageDetail(){
 				//获取消息列表中未读的消息
 				var messageDetail = uni.getStorageSync("messageDetail");
@@ -473,7 +484,6 @@
 							messageListInfo.startTime = startTime;
 							messageListInfo.endTime = endTime;
 							messageListInfo.inquiryTime = inquiryTime;
-							
 							//更新缓存
 							var messageList = uni.getStorageSync('messageList');
 							for (var i=0;i<messageList.length;i++){
@@ -483,6 +493,9 @@
 								}
 							}
 							uni.setStorageSync('messageList',messageList);
+							uni.setNavigationBarTitle({
+								title: option.name+' '+that.getLeftTime();
+							});
 						},
 						error: function() {}
 					})

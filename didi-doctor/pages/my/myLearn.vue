@@ -76,9 +76,7 @@
 				uni.downloadFile({
 				    url: url, 
 				    success: function(res) {
-						uni.playVoice({
-						        filePath: res.tempFilePath
-						      })
+						console.log(res);
 				    },
 					fail:function(res) {
 						console.log(res);
