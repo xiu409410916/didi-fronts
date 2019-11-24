@@ -166,23 +166,23 @@
 			})
 		},
 		onLoad(option) {
-			// var that = this;
+			var that = this;
 			var toUser = option.toUser;
 			var orderId = option.orderId;
 			this.orderId = orderId;
 			this.toUser = toUser;
 			this.socket = app.globalData.socket;
 			this.over = option.over;
+			this.titleName = option.name;
 			this.myuid = uni.getStorageSync("doctorInfo").openId;
-			var leftTime = this.getLeftTime();
 			uni.setNavigationBarTitle({
-				title: option.name+' '+leftTime
+				title: this.titleName
 			});
-			this.checkStartSession();
+			
 			this.resetUnreadMsgList();
 			this.getMsgList();
 			this.interval = setInterval(function() {
-			      this.loadMessageDetail()
+			      that.loadMessageDetail()
 			}, 2000)
 			//语音自然播放结束
 			this.AUDIO.onEnded((res)=>{
@@ -205,7 +205,7 @@
 				if(endTime == null){
 					return '';
 				}else if(new Date() <= new Date(endTime)){
-					return this.$util.getFormatDate(new Date(endTime),'hh:mm');
+					return this.$util.getFormatDate(new Date(endTime),'hh:mm')+'结束';
 				}else{
 					return '已结束';
 				}
@@ -221,14 +221,15 @@
 							this.screenMsg(userMsgDetail[i]);
 							userMsgDetail[i].hasRead ='1';
 						}
-						this.resetUnreadMsgCount();
 					}
+					this.resetUnreadMsgCount();
 				}
 				messageDetail['order'+this.orderId] = userMsgDetail;
 				uni.setStorageSync("messageDetail",messageDetail);
 			},
 			
 			resetUnreadMsgCount(){
+				var that = this;
 				// 消息列表置未读消息数置为0
 				var messageList = uni.getStorageSync('messageList');
 				for (var i=0;i<messageList.length;i++){
@@ -236,6 +237,14 @@
 						messageList[i].count = 0;
 						this.messageListInfo = messageList[i];
 					}
+				}
+				var leftTime = this.getLeftTime();
+				uni.setNavigationBarTitle({
+					title: that.titleName + ' '+leftTime
+				})
+				if(that.messageListInfo.startTime==null){
+					that.checkStartSession();
+					// console.log('meikaishi')
 				}
 				uni.setStorageSync('messageList',messageList);
 			},
@@ -497,7 +506,7 @@
 						uni.setStorageSync('messageList',messageList);
 					},
 					error: function() {}
-				})
+				},false)
 			},
 			checkSessionNotOuttime(checkDate){
 				var startTime = this.messageListInfo.startTime;

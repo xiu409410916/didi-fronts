@@ -154,9 +154,9 @@ __webpack_require__.r(__webpack_exports__);
   onReady: function onReady() {
 
   },
-  onUnload: function onUnload() {
+  onHide: function onHide() {
     uni.switchTab({
-      url: 'index' });
+      url: './index' });
 
   },
   onReachBottom: function onReachBottom() {

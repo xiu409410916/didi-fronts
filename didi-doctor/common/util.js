@@ -96,10 +96,12 @@ function subFilter(v, len) {
 	}
 }
 
-function request(param) {
-	uni.showLoading({
-		title: '加载中'
-	});
+function request(param,showLoading) {
+	if(showLoading!=false){
+		uni.showLoading({
+			title: '加载中'
+		});
+	}
 	uni.request({
 		url: param.url.indexOf("didi-patient") != -1 ? serverPatientUrl + param.url : serverUrl + param.url,
 		data: param.contentType ? param.param : JSON.stringify(param.param),

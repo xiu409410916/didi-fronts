@@ -24,19 +24,11 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-<<<<<<< HEAD
-.record.data-v-55ae704b {
-  width: 100%;
-  background: #ffffff;
-}
-.record .li.data-v-55ae704b {
-=======
 .record.data-v-2b582e48 {
   width: 100%;
   background: #ffffff;
 }
 .record .li.data-v-2b582e48 {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
     margin-left: 66rpx;
     margin-top: 20rpx;
     height: 125rpx;
@@ -59,11 +51,7 @@
             align-items: center;
     border-bottom: 1px solid #f8f8f8;
 }
-<<<<<<< HEAD
-.record .li .left.data-v-55ae704b {
-=======
 .record .li .left.data-v-2b582e48 {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -82,37 +70,21 @@
           -ms-flex-align: start;
               align-items: flex-start;
 }
-<<<<<<< HEAD
-.record .li .left label.data-v-55ae704b {
-        font-size: 32rpx;
-        color: #4A4A4A;
-}
-.record .li .left text.data-v-55ae704b {
-=======
 .record .li .left label.data-v-2b582e48 {
         font-size: 32rpx;
         color: #4A4A4A;
 }
 .record .li .left text.data-v-2b582e48 {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
         color: #999;
         font-size: 28rpx;
         margin-top: 10rpx;
 }
-<<<<<<< HEAD
-.record .li .right.data-v-55ae704b {
-=======
 .record .li .right.data-v-2b582e48 {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
       margin-right: 40rpx;
       color: #fb5b67;
       font-size: 32rpx;
 }
-<<<<<<< HEAD
-.record .li .right button.data-v-55ae704b {
-=======
 .record .li .right button.data-v-2b582e48 {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
         padding-left: 0rpx;
         padding-right: 0rpx;
         width: 100rpx;
@@ -123,11 +95,7 @@
         color: #fb5b67;
         margin-top: 10rpx;
 }
-<<<<<<< HEAD
-.defaultBox.data-v-55ae704b {
-=======
 .defaultBox.data-v-2b582e48 {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
   width: 100%;
   position: fixed;
   height: 100rpx;

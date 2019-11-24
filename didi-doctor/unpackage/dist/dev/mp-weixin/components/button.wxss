@@ -24,11 +24,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-<<<<<<< HEAD
-.fx-btn.data-v-3ce56fd0 {
-=======
 .fx-btn.data-v-1c737173 {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
   display: inline-block;
   background: -webkit-gradient(linear, left top, right top, from(#00C694), to(#9BE6EA));
   background: -o-linear-gradient(left, #00C694, #9BE6EA);

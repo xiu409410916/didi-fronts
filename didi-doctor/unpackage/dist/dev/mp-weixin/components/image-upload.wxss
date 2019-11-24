@@ -24,17 +24,10 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-<<<<<<< HEAD
-.content.data-v-6e43335e {
-  width: 100%;
-}
-.content .upload.data-v-6e43335e {
-=======
 .content.data-v-4a813c98 {
   width: 100%;
 }
 .content .upload.data-v-4a813c98 {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
     width: 100%;
     min-height: 230rpx;
     display: -webkit-box;
@@ -56,36 +49,21 @@
             align-items: center;
     padding-top: 20rpx;
 }
-<<<<<<< HEAD
-.content .upload .imgbox.data-v-6e43335e {
-      position: relative;
-}
-.content .upload .del.data-v-6e43335e {
-=======
 .content .upload .imgbox.data-v-4a813c98 {
       position: relative;
 }
 .content .upload .del.data-v-4a813c98 {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
       position: absolute;
       top: 5rpx;
       right: 30rpx;
 }
-<<<<<<< HEAD
-.content .upload .img.data-v-6e43335e {
-=======
 .content .upload .img.data-v-4a813c98 {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
       height: 200rpx;
       width: 200rpx;
       background: #f4f4f4;
       margin-right: 20rpx;
 }
-<<<<<<< HEAD
-.content .upload .upimg.data-v-6e43335e {
-=======
 .content .upload .upimg.data-v-4a813c98 {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
       height: 192rpx;
       width: 192rpx;
       border: 2px dashed #ccc;
@@ -104,11 +82,7 @@
               align-items: center;
       margin-bottom: 10rpx;
 }
-<<<<<<< HEAD
-.content .upload .upimg .icon_up.data-v-6e43335e {
-=======
 .content .upload .upimg .icon_up.data-v-4a813c98 {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
         height: 60rpx;
         width: 60rpx;
 }

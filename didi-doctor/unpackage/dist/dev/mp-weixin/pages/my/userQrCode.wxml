@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-<view class="content data-v-35cb8dd6"><label class="data-v-35cb8dd6">医生端小程序</label><image src="{{qrCodeUrlAgent}}" class="data-v-35cb8dd6"></image></view>
-=======
 <view class="content data-v-69dfb2b9"><label class="data-v-69dfb2b9">医生端小程序</label><image src="{{qrCodeUrlAgent}}" class="data-v-69dfb2b9"></image></view>
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b

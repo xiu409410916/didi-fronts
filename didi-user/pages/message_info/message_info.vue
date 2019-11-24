@@ -169,19 +169,22 @@
 			var that = this;
 			var toUser = option.toUser;
 			this.orderId = option.orderId;
+			this.titleName = option.name;
 			this.toUser = toUser;
 			this.socket = app.globalData.socket;
 			this.over = option.over;
 			this.myuid = uni.getStorageSync("patientInfo").openId;
-			var leftTime = this.getLeftTime();
 			uni.setNavigationBarTitle({
-				title: option.name+' '+leftTime
+				title: this.titleName 
 			});
 			this.resetUnreadMsgList();
+			
 			this.getMsgList();
 			this.interval = setInterval(function() {
 			      that.loadMessageDetail()
 			}, 2000)
+			
+			
 			//语音自然播放结束
 			this.AUDIO.onEnded((res)=>{
 				this.playMsgid=null;
@@ -203,7 +206,7 @@
 				if(endTime == null){
 					return '';
 				}else if(new Date() <= new Date(endTime)){
-					return this.$util.getFormatDate(new Date(endTime),'hh:mm');
+					return this.$util.getFormatDate(new Date(endTime),'hh:mm'+'结束');
 				}else{
 					return '已结束';
 				}
@@ -219,8 +222,8 @@
 							this.screenMsg(userMsgDetail[i]);
 							userMsgDetail[i].hasRead ='1';
 						}
-						this.resetUnreadMsgCount();
 					}
+					this.resetUnreadMsgCount();
 				}
 				messageDetail['order'+this.orderId] = userMsgDetail;
 				uni.setStorageSync("messageDetail",messageDetail);
@@ -228,13 +231,19 @@
 			
 			resetUnreadMsgCount(){
 				// 消息列表置未读消息数置为0
+				var that = this;
 				var messageList = uni.getStorageSync('messageList');
 				for (var i=0;i<messageList.length;i++){
 					if(messageList[i].orderId == this.orderId){
 						messageList[i].count = 0;
 						this.messageListInfo = messageList[i];
+						
 					}
 				}
+				var leftTime = this.getLeftTime();
+				uni.setNavigationBarTitle({
+					title: that.titleName + ' '+leftTime
+				})
 				uni.setStorageSync('messageList',messageList);
 			},
 			resetUnreadMsgList(){

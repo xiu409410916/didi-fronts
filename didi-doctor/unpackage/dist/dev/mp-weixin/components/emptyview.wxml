@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-<block wx:if="{{data.length<=0}}"><view class="empty-view data-v-30005378" style="{{'margin-top:'+(marginTop)+';'}}"><image class="icon data-v-30005378" src="http://webcharpic.xfshequ.com/community/icon-kongbai@2x.png"></image><text class="text data-v-30005378">无数据</text></view></block>
-=======
 <block wx:if="{{data.length<=0}}"><view class="empty-view data-v-36704dc1" style="{{'margin-top:'+(marginTop)+';'}}"><image class="icon data-v-36704dc1" src="http://webcharpic.xfshequ.com/community/icon-kongbai@2x.png"></image><text class="text data-v-36704dc1">无数据</text></view></block>
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b

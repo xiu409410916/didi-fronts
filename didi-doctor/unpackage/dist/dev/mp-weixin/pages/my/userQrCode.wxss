@@ -24,20 +24,12 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-<<<<<<< HEAD
-.content.data-v-35cb8dd6 {
-=======
 .content.data-v-69dfb2b9 {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
   width: 100%;
   background: #fff;
   margin-top: 20rpx;
 }
-<<<<<<< HEAD
-.content image.data-v-35cb8dd6 {
-=======
 .content image.data-v-69dfb2b9 {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
     width: 300rpx;
     height: 300rpx;
 }

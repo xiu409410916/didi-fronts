@@ -24,19 +24,11 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-<<<<<<< HEAD
-.record.data-v-6d792e8d {
-  width: 100%;
-  background: #ffffff;
-}
-.record .li.data-v-6d792e8d {
-=======
 .record.data-v-7fab614a {
   width: 100%;
   background: #ffffff;
 }
 .record .li.data-v-7fab614a {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
     margin-left: 66rpx;
     margin-top: 20rpx;
     height: 125rpx;
@@ -59,11 +51,7 @@
             align-items: center;
     border-bottom: 1px solid #f8f8f8;
 }
-<<<<<<< HEAD
-.record .li .left.data-v-6d792e8d {
-=======
 .record .li .left.data-v-7fab614a {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -82,28 +70,16 @@
           -ms-flex-align: start;
               align-items: flex-start;
 }
-<<<<<<< HEAD
-.record .li .left label.data-v-6d792e8d {
-        font-size: 32rpx;
-        color: #4A4A4A;
-}
-.record .li .left text.data-v-6d792e8d {
-=======
 .record .li .left label.data-v-7fab614a {
         font-size: 32rpx;
         color: #4A4A4A;
 }
 .record .li .left text.data-v-7fab614a {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
         color: #999;
         font-size: 28rpx;
         margin-top: 10rpx;
 }
-<<<<<<< HEAD
-.record .li .right.data-v-6d792e8d {
-=======
 .record .li .right.data-v-7fab614a {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
       margin-right: 40rpx;
       display: -webkit-box;
       display: -webkit-flex;
@@ -123,28 +99,16 @@
           -ms-flex-align: start;
               align-items: flex-start;
 }
-<<<<<<< HEAD
-.record .li .right label.data-v-6d792e8d {
-        font-size: 32rpx;
-        color: red;
-}
-.record .li .right text.data-v-6d792e8d {
-=======
 .record .li .right label.data-v-7fab614a {
         font-size: 32rpx;
         color: red;
 }
 .record .li .right text.data-v-7fab614a {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
         color: #999;
         font-size: 28rpx;
         margin-top: 10rpx;
 }
-<<<<<<< HEAD
-.defaultBox.data-v-6d792e8d {
-=======
 .defaultBox.data-v-7fab614a {
->>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
   width: 100%;
   position: fixed;
   height: 100rpx;
