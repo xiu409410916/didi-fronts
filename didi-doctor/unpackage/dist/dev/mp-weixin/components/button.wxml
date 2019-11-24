@@ -1,0 +1,1 @@
+<view class="data-v-3ce56fd0"><button class="fx-btn data-v-3ce56fd0" style="{{'height:'+(fxheight)+';'+('line-height:'+(fxheight)+';')+('width:'+(fxwidth)+';')}}" plain="true" disabled="{{disabled}}" data-event-opts="{{[['tap',[['btnuse',['$event']]]]]}}" bindtap="__e">{{name}}</button></view>
