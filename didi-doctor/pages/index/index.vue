@@ -50,8 +50,13 @@
 				inquiryList:[],//内容1
 			}
 		},
-		onLoad() {
+		onShow() {
+			this.page = 1;
+			this.totalPages = 1;
+			this.inquiryList = [];
 			this.getInquiryList();
+		},
+		onLoad() {
 			uni.showShareMenu({
 				"title":"滴滴答答"
 			});

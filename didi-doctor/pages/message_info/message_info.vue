@@ -160,6 +160,11 @@
 		onUnload() {
 			clearInterval(this.interval);
 		},
+		onHide() {
+			uni.switchTab({
+				url:'../message/index'
+			})
+		},
 		onLoad(option) {
 			var that = this;
 			var toUser = option.toUser;
