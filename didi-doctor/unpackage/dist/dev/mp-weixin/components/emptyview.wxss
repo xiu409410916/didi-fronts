@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 .empty-view.data-v-30005378{
+=======
+.empty-view.data-v-36704dc1{
+>>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -19,12 +23,20 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
+<<<<<<< HEAD
 .empty-view .icon.data-v-30005378{
+=======
+.empty-view .icon.data-v-36704dc1{
+>>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
   height: 254rpx;
   width: 448rpx;
   margin-bottom: 30rpx;
 }
+<<<<<<< HEAD
 .empty-view .text.data-v-30005378{
+=======
+.empty-view .text.data-v-36704dc1{
+>>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
   width: auto;
   font-size: 28rpx;
   line-height: 35rpx;

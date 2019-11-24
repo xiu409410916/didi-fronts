@@ -24,11 +24,11 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.record.data-v-7ee4283a {
+.record.data-v-5a7fc2c0 {
   width: 100%;
   background: #ffffff;
 }
-.record .li.data-v-7ee4283a {
+.record .li.data-v-5a7fc2c0 {
     margin-left: 40rpx;
     margin-right: 50rpx;
     height: 150rpx;
@@ -55,7 +55,7 @@
        text-overflow: ellipsis;
     white-space: nowrap;
 }
-.record .li .left.data-v-7ee4283a {
+.record .li .left.data-v-5a7fc2c0 {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -74,11 +74,11 @@
           -ms-flex-align: start;
               align-items: flex-start;
 }
-.record .li .left image.data-v-7ee4283a {
+.record .li .left image.data-v-5a7fc2c0 {
         width: 125rpx;
         height: 125rpx;
 }
-.record .li .right.data-v-7ee4283a {
+.record .li .right.data-v-5a7fc2c0 {
       width: 70%;
       color: #fb5b67;
       font-size: 32rpx;
@@ -100,11 +100,11 @@
           -ms-flex-align: start;
               align-items: flex-start;
 }
-.record .li .right label.data-v-7ee4283a {
+.record .li .right label.data-v-5a7fc2c0 {
         font-size: 32rpx;
         color: #4A4A4A;
 }
-.record .li .right text.data-v-7ee4283a {
+.record .li .right text.data-v-5a7fc2c0 {
         color: #999;
         font-size: 28rpx;
         margin-top: 10rpx;

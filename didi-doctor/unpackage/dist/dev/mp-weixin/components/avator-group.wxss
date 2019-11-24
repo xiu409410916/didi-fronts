@@ -24,23 +24,39 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+<<<<<<< HEAD
 .avator-wrapper.data-v-174387db {
   width: 100rpx;
   height: 100rpx;
 }
 .avator.data-v-174387db {
+=======
+.avator-wrapper.data-v-2924833e {
+  width: 100rpx;
+  height: 100rpx;
+}
+.avator.data-v-2924833e {
+>>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
   overflow: hiideen;
   background: #f1f1f1;
 }
+<<<<<<< HEAD
 .avator .img.data-v-174387db {
+=======
+.avator .img.data-v-2924833e {
+>>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
     width: 100%;
     height: 100%;
     border-radius: 50%;
 }
+<<<<<<< HEAD
 .avator-group.data-v-174387db {
+=======
+.avator-group.data-v-2924833e {
+>>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -49,12 +65,20 @@
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
 }
+<<<<<<< HEAD
 .avator-group .img.data-v-174387db {
+=======
+.avator-group .img.data-v-2924833e {
+>>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
     width: 50rpx;
     height: 50rpx;
     border-radius: 50%;
 }
+<<<<<<< HEAD
 .avator-text.data-v-174387db {
+=======
+.avator-text.data-v-2924833e {
+>>>>>>> 6d1551e1b1f2032016a75c3a60e74abbee8c389b
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
