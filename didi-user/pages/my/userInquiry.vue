@@ -47,9 +47,9 @@
 		onReady() {
 
 		},
-		onUnload() {
+		onHide() {
 			uni.switchTab({
-				url:'index'
+				url:'./index'
 			})
 		},
 		onReachBottom() {
