@@ -1,7 +1,7 @@
 <template>
 	<view>
-		<image src="../../static/my1.jpeg"></image>
-		<image src="../../static/my2.jpeg"></image>
+		<image src="../../static/user.jpeg"></image>
+		<!-- <image src="../../static/my2.jpeg"></image> -->
 	</view>
 </template>
 
@@ -21,6 +21,6 @@
 <style>
 	image{
 		width: 100%;
-		height: 300rpx;
-	}
+		height: 1500rpx;
+	} 
 </style>
