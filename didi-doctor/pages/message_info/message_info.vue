@@ -166,7 +166,7 @@
 			})
 		},
 		onLoad(option) {
-			var that = this;
+			// var that = this;
 			var toUser = option.toUser;
 			var orderId = option.orderId;
 			this.orderId = orderId;
@@ -182,7 +182,7 @@
 			this.resetUnreadMsgList();
 			this.getMsgList();
 			this.interval = setInterval(function() {
-			      that.loadMessageDetail()
+			      this.loadMessageDetail()
 			}, 2000)
 			//语音自然播放结束
 			this.AUDIO.onEnded((res)=>{
