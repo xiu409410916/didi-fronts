@@ -1,1 +1,1 @@
-<block wx:if="{{data.length<=0}}"><view class="empty-view data-v-1c9327ca" style="{{'margin-top:'+(marginTop)+';'}}"><image class="icon data-v-1c9327ca" src="http://webcharpic.xfshequ.com/community/icon-kongbai@2x.png"></image><text class="text data-v-1c9327ca">无数据</text></view></block>
+<block wx:if="{{data.length<=0}}"><view class="empty-view data-v-457f640d" style="{{'margin-top:'+(marginTop)+';'}}"><image class="icon data-v-457f640d" src="http://webcharpic.xfshequ.com/community/icon-kongbai@2x.png"></image><text class="text data-v-457f640d">无数据</text></view></block>

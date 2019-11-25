@@ -44,6 +44,7 @@
 				<page-button v-if="temp.payStates != 1 && temp.states == 0" :height="40" :width="100" @click="payInquiry" name="立即支付"></page-button>
 				<page-button v-if="temp.states == 0" :height="40" :width="100" @click="cancelInquiry" name="取消问诊"></page-button>
 				<page-button v-if="temp.states == 3" :height="40" :width="100" @click="commentDoctor" name="评价医生"></page-button>
+				<page-button v-if="temp.states == 1 || temp.states == 3 || temp.states == 5" :height="40" :width="100" @click="toMessage" name="消息"></page-button>
 			</view>
 		</form>
 
@@ -177,6 +178,11 @@
 						})
 					},
 					error: function() {}
+				})
+			},
+			toMessage:function(){
+				uni.switchTab({
+					url:'../message/index'
 				})
 			}
 			
