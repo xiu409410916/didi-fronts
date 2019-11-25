@@ -47,11 +47,7 @@
 		onReady() {
 
 		},
-		onHide() {
-			uni.switchTab({
-				url:'./index'
-			})
-		},
+		
 		onReachBottom() {
 			this.getUserInquiry();
 		},

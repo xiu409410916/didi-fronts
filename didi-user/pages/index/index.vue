@@ -55,8 +55,8 @@
 				
 				indicatorDots: true,
 				autoplay: true,
-				interval: 2000,
-				duration: 500,
+				interval: 2500,
+				duration: 1000,
 			}
 		},
 		onLoad() {
