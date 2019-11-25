@@ -627,7 +627,7 @@
 					uni.showLoading({mask:true});
 					var filePath = e.tempFilePath;
 					uni.uploadFile({
-						url: serverUrl+'/didi-patient/ossfile/fileUpload', 
+						url: serverUrl+'/didi-doctor/ossfile/fileUpload', 
 						filePath: filePath,  
 						name: 'file',
 						header: {  

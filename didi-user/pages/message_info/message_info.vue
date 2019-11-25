@@ -512,7 +512,7 @@
 							uni.setStorageSync('messageList',messageList);
 							var leftTime = that.getLeftTime();
 							uni.setNavigationBarTitle({
-								title: option.name+' '+leftTime
+								title: that.titleName+' '+leftTime
 							});
 						},
 						error: function() {}

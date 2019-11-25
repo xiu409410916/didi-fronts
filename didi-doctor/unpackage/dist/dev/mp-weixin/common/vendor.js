@@ -1,6 +1,39 @@
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],[
-/* 0 */,
-/* 1 */
+(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],{
+
+/***/ 0:
+/*!***********************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createApp) {__webpack_require__(/*! uni-pages */ 4);
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 5));
+
+var _util = _interopRequireDefault(__webpack_require__(/*! ./common/util.js */ 12));
+var _json = _interopRequireDefault(__webpack_require__(/*! ./config/json.js */ 14));
+var _index = _interopRequireDefault(__webpack_require__(/*! ./config/index.js */ 13));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+_vue.default.config.productionTip = false;
+
+
+_vue.default.prototype.$util = _util.default;
+_vue.default.prototype.$config = _index.default;
+_vue.default.prototype.$json = _json.default;
+
+_App.default.mpType = 'app';
+
+var app = new _vue.default(_objectSpread({},
+_App.default));
+
+createApp(app).$mount();
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createApp"]))
+
+/***/ }),
+
+/***/ 1:
 /*!************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js ***!
   \************************************************************/
@@ -241,7 +274,7 @@ var promiseInterceptor = {
 
 
 var SYNC_API_RE =
-/^\$|getMenuButtonBoundingClientRect|^report|interceptors|Interceptor$|getSubNVueById|requireNativePlugin|upx2px|hideKeyboard|canIUse|^create|Sync$|Manager$|base64ToArrayBuffer|arrayBufferToBase64/;
+/^\$|interceptors|Interceptor$|getSubNVueById|requireNativePlugin|upx2px|hideKeyboard|canIUse|^create|Sync$|Manager$|base64ToArrayBuffer|arrayBufferToBase64/;
 
 var CONTEXT_API_RE = /^create|Manager$/;
 
@@ -397,9 +430,7 @@ var previewImage = {
 var protocols = {
   previewImage: previewImage };
 
-var todos = [
-'vibrate'];
-
+var todos = [];
 var canIUses = [];
 
 var CALLBACKS = ['success', 'fail', 'cancel', 'complete'];
@@ -1127,10 +1158,6 @@ function parseBaseApp(vm, _ref3)
 
 
 {var mocks = _ref3.mocks,initRefs = _ref3.initRefs;
-  if (vm.$options.store) {
-    _vue.default.prototype.$store = vm.$options.store;
-  }
-
   _vue.default.prototype.mpHost = "mp-weixin";
 
   _vue.default.mixin({
@@ -1347,14 +1374,6 @@ function parseBaseComponent(vueComponentOptions)
 
 
 
-  if (Array.isArray(vueOptions.wxsCallMethods)) {
-    vueOptions.wxsCallMethods.forEach(function (callMethod) {
-      componentOptions.methods[callMethod] = function (args) {
-        return this.$vm[callMethod](args);
-      };
-    });
-  }
-
   if (isPage) {
     return componentOptions;
   }
@@ -1428,9 +1447,6 @@ var uni = {};
 if (typeof Proxy !== 'undefined' && "mp-weixin" !== 'app-plus') {
   uni = new Proxy({}, {
     get: function get(target, name) {
-      if (target[name]) {
-        return target[name];
-      }
       if (baseApi[name]) {
         return baseApi[name];
       }
@@ -1452,10 +1468,6 @@ if (typeof Proxy !== 'undefined' && "mp-weixin" !== 'app-plus') {
         return;
       }
       return promisify(name, wrapper(name, wx[name]));
-    },
-    set: function set(target, name, value) {
-      target[name] = value;
-      return true;
     } });
 
 } else {
@@ -1496,7 +1508,905 @@ var uni$1 = uni;var _default =
 uni$1;exports.default = _default;
 
 /***/ }),
-/* 2 */
+
+/***/ 103:
+/*!**********************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Fmy%2FuserRecept"} ***!
+  \**********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _userRecept = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userRecept.vue */ 104));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userRecept.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 11:
+/*!********************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode /* vue-cli only */
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ 111:
+/*!*********************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Fmy%2FuserAgent"} ***!
+  \*********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _userAgent = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userAgent.vue */ 112));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userAgent.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 119:
+/*!************************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Fmy%2FuserAgentAdd"} ***!
+  \************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _userAgentAdd = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userAgentAdd.vue */ 120));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userAgentAdd.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 12:
+/*!******************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/common/util.js ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {var _index = __webpack_require__(/*! ../config/index.js */ 13);
+
+
+
+function formatTime(time) {
+  if (typeof time !== 'number' || time < 0) {
+    return time;
+  }
+
+  var hour = parseInt(time / 3600);
+  time = time % 3600;
+  var minute = parseInt(time / 60);
+  time = time % 60;
+  var second = time;
+
+  return [hour, minute, second].map(function (n) {
+    n = n.toString();
+    return n[1] ? n : '0' + n;
+  }).join(':');
+}
+
+function formatLocation(longitude, latitude) {
+  if (typeof longitude === 'string' && typeof latitude === 'string') {
+    longitude = parseFloat(longitude);
+    latitude = parseFloat(latitude);
+  }
+
+  longitude = longitude.toFixed(2);
+  latitude = latitude.toFixed(2);
+
+  return {
+    longitude: longitude.toString().split('.'),
+    latitude: latitude.toString().split('.') };
+
+}
+var dateUtils = {
+  UNITS: {
+    '年': 31557600000,
+    '月': 2629800000,
+    '天': 86400000,
+    '小时': 3600000,
+    '分钟': 60000,
+    '秒': 1000 },
+
+  humanize: function humanize(milliseconds) {
+    var humanize = '';
+    for (var key in this.UNITS) {
+      if (milliseconds >= this.UNITS[key]) {
+        humanize = Math.floor(milliseconds / this.UNITS[key]) + key + '前';
+        break;
+      }
+    }
+    return humanize || '刚刚';
+  },
+  format: function format(dateStr) {
+    var date = this.parse(dateStr);
+    var diff = Date.now() - date.getTime();
+    if (diff < this.UNITS['天']) {
+      return this.humanize(diff);
+    }
+    var _format = function _format(number) {
+      return number < 10 ? '0' + number : number;
+    };
+    return date.getFullYear() + '/' + _format(date.getMonth() + 1) + '/' + _format(date.getDay()) + '-' +
+    _format(date.getHours()) + ':' + _format(date.getMinutes());
+  },
+  parse: function parse(str) {//将"yyyy-mm-dd HH:MM:ss"格式的字符串，转化为一个Date对象
+    var a = str.split(/[^0-9]/);
+    return new Date(a[0], a[1] - 1, a[2], a[3], a[4], a[5]);
+  },
+  dateFormat: function dateFormat(dateStr) {
+    var date = new Date(dateStr);
+    var _format = function _format(number) {
+      return number < 10 ? '0' + number : number;
+    };
+    return date.getFullYear() + '-' + _format(date.getMonth() + 1) + '-' + _format(date.getDay());
+  } };
+
+
+function substr(v) {
+  if (v != "" & v != undefined & v != null) {
+    if (v.substr(v.length - 1, 1) == "," || v.substr(v.length - 1, 1) == ";") {
+      return v.substr(0, v.length - 1);
+    }
+    return v;
+  }
+}
+
+function subFilter(v, len) {
+  if (v != "" & v != undefined & v != null) {
+    if (v.length > len) {
+      return v.substr(0, len);
+    } else {
+      return v;
+    }
+  }
+}
+
+function request(param, showLoading) {
+  if (showLoading != false) {
+    uni.showLoading({
+      title: '加载中' });
+
+  }
+  uni.request({
+    url: param.url.indexOf("didi-patient") != -1 ? _index.serverPatientUrl + param.url : _index.serverUrl + param.url,
+    data: param.contentType ? param.param : JSON.stringify(param.param),
+    method: 'POST',
+    header: {
+      'content-type': param.contentType ? param.contentType : 'application/json',
+      'token': uni.getStorageSync('Token') ? uni.getStorageSync('Token') : '' },
+
+    dateType: "json",
+    success: function success(res) {
+      uni.hideLoading();
+      if (res == null) {
+        res = {};
+      }
+      if (typeof res == "string") {
+        res = JSON.parse(res);
+      }
+      if (typeof param.success == 'function') {
+        if (res.data.errorCode == "SUCCESS") {
+          param.success(res.data);
+        } else if (res.data.errorCode == "E003") {
+          uni.showModal({
+            title: '提示',
+            content: '您未登陆，请先登陆',
+            success: function success(res) {
+              if (res.confirm) {
+                uni.switchTab({
+                  url: '/pages/center/center' });
+
+              } else if (res.cancel) {
+                console.log('用户点击取消');
+              }
+            } });
+
+        } else {
+          param.error(res.data);
+          uni.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 2000 });
+
+        }
+      } else {
+        uni.showToast({
+          title: '读取数据失败',
+          icon: 'none',
+          duration: 2000 });
+
+      }
+
+    },
+    fail: function fail(res) {
+      uni.hideLoading();
+      uni.showToast({
+        title: '读取数据失败',
+        icon: 'none',
+        duration: 2000 });
+
+    } });
+
+}
+
+function getSystemInfo() {
+  try {
+    var res = uni.getSystemInfoSync();
+    return res;
+  } catch (e) {
+    // error
+  }
+}
+
+function isEmojiCharacter(substring) {
+  if (substring) {
+    var reg = new RegExp("[~#^$@%&!?%*]", 'g');
+    if (substring.match(reg)) {
+      return true;
+    }
+    for (var i = 0; i < substring.length; i++) {
+      var hs = substring.charCodeAt(i);
+      if (0xd800 <= hs && hs <= 0xdbff) {
+        if (substring.length > 1) {
+          var ls = substring.charCodeAt(i + 1);
+          var uc = (hs - 0xd800) * 0x400 + (ls - 0xdc00) + 0x10000;
+          if (0x1d000 <= uc && uc <= 0x1f77f) {
+            return true;
+          }
+        }
+      } else if (substring.length > 1) {
+        var ls = substring.charCodeAt(i + 1);
+        if (ls == 0x20e3) {
+          return true;
+        }
+      } else {
+        if (0x2100 <= hs && hs <= 0x27ff) {
+          return true;
+        } else if (0x2B05 <= hs && hs <= 0x2b07) {
+          return true;
+        } else if (0x2934 <= hs && hs <= 0x2935) {
+          return true;
+        } else if (0x3297 <= hs && hs <= 0x3299) {
+          return true;
+        } else if (hs == 0xa9 || hs == 0xae || hs == 0x303d || hs == 0x3030 ||
+        hs == 0x2b55 || hs == 0x2b1c || hs == 0x2b1b ||
+        hs == 0x2b50) {
+          return true;
+        }
+      }
+    }
+  }
+}
+
+
+function otime(str) {
+  if (str < 10) {
+    return '0' + str;
+  } else {
+    return str;
+  }
+}
+
+
+//判断值是否有效
+function isEmpty(value) {
+  if (value == "" || value == 0 || value == null || value == undefined) {
+    return false;
+  }
+  return true;
+}
+
+//身份证号合法性验证 
+//支持15位和18位身份证号
+//支持地址编码、出生日期、校验位验证
+function IdentityCodeValid(code) {
+  var city = {
+    11: "北京",
+    12: "天津",
+    13: "河北",
+    14: "山西",
+    15: "内蒙古",
+    21: "辽宁",
+    22: "吉林",
+    23: "黑龙江 ",
+    31: "上海",
+    32: "江苏",
+    33: "浙江",
+    34: "安徽",
+    35: "福建",
+    36: "江西",
+    37: "山东",
+    41: "河南",
+    42: "湖北 ",
+    43: "湖南",
+    44: "广东",
+    45: "广西",
+    46: "海南",
+    50: "重庆",
+    51: "四川",
+    52: "贵州",
+    53: "云南",
+    54: "西藏 ",
+    61: "陕西",
+    62: "甘肃",
+    63: "青海",
+    64: "宁夏",
+    65: "新疆",
+    71: "台湾",
+    81: "香港",
+    82: "澳门",
+    91: "国外 " };
+
+  var tip = "";
+  var pass = true;
+  //验证身份证格式（6个地区编码，8位出生日期，3位顺序号，1位校验位）
+  if (!code || !/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i.test(code)) {
+    tip = "身份证号格式错误";
+    pass = false;
+  } else if (!city[code.substr(0, 2)]) {
+    tip = "地址编码错误";
+    pass = false;
+  } else {
+    //18位身份证需要验证最后一位校验位
+    if (code.length == 18) {
+      code = code.split('');
+      //∑(ai×Wi)(mod 11)
+      //加权因子
+      var factor = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
+      //校验位
+      var parity = [1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2];
+      var sum = 0;
+      var ai = 0;
+      var wi = 0;
+      for (var i = 0; i < 17; i++) {
+        ai = code[i];
+        wi = factor[i];
+        sum += ai * wi;
+      }
+      var last = parity[sum % 11];
+      if (parity[sum % 11] != code[17]) {
+        tip = "身份证号格式错误";
+        pass = false;
+      }
+    }
+  }
+  if (!pass) {
+    uni.showToast({
+      title: tip,
+      icon: 'none',
+      duration: 2000 });
+
+  };
+  return pass;
+}
+
+function random() {
+  var num = '';
+  for (var i = 0; i < 3; i++) {
+    num += Math.floor(Math.random() * 10);
+  }
+  return num;
+}
+
+// 医生是否完善资料
+function isPerfectInfo() {
+  var doctor = uni.getStorageSync("doctorInfo");
+  if (!isEmpty(doctor.doctorName)) {
+    uni.showToast({
+      title: '请完善资料',
+      icon: 'success',
+      duration: 2000 });
+
+    return false;
+  }
+  if (doctor.states != 1) {
+    uni.showToast({
+      title: '资料还在审核',
+      icon: 'success',
+      duration: 2000 });
+
+    return false;
+  }
+  return true;
+}
+
+function getFormatDate(date, formatStr) {
+  var o = {
+    "M+": date.getMonth() + 1, //月份
+    "d+": date.getDate(), //日
+    "h+": date.getHours(), //小时
+    "m+": date.getMinutes(), //分
+    "s+": date.getSeconds(), //秒
+    "q+": Math.floor((date.getMonth() + 3) / 3), //季度
+    "S": date.getMilliseconds() //毫秒
+  };
+  if (/(y+)/.test(formatStr))
+  formatStr = formatStr.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+  for (var k in o) {
+    if (new RegExp("(" + k + ")").test(formatStr))
+    formatStr = formatStr.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));}
+  return formatStr;
+}
+
+function beautyTime(dateStr) {
+  var date = new Date(dateStr);
+  if (getFormatDate(date, 'yyyyMMdd') == getFormatDate(new Date(), 'yyyyMMdd')) {
+    //如果年月日一样，取时分秒
+    return getFormatDate(date, 'hh:mm');
+  } else {
+    //如果年月日不一样，取年月日
+    return getFormatDate(date, 'yyyy-MM-dd');
+  }
+}
+
+//接单创建消息
+function createMsgSession(message, messageInfo) {
+  //新增消息列表
+  var messageList = uni.getStorageSync('messageList');
+  messageList.push(message);
+  uni.setStorageSync('messageList', messageList);
+
+  //新增消息
+  var messageDetail = uni.getStorageSync("messageDetail");
+  if (messageDetail == null || messageDetail == '') {
+    messageDetail = {};
+  }
+  var messageDetailList = [];
+  messageDetailList.push(messageInfo);
+  messageDetail['order' + message.orderId] = messageDetailList;
+  console.log(messageDetail);
+  uni.setStorageSync("messageDetail", messageDetail);
+}
+
+function updateMessage(msg, hasRead) {
+  var orderId = msg.orderId;
+  //更新消息列表
+  var messageList = uni.getStorageSync('messageList');
+  if (messageList.length > 0) {
+    //如果消息列表中有历史消息 则更新
+    var updated = false;
+    for (var i = 0; i < messageList.length; i++) {
+      if (messageList[i].orderId == orderId) {
+        messageList[i].message = msg.msg.content;
+        messageList[i].time = msg.time;
+        messageList[i].count = messageList[i].count + 1;
+        updated = true;
+        break;
+      }
+    }
+    if (!updated) {
+      //如果消息列表中不存该用户订单，则新建
+      var message = {
+        orderId: msg.orderId,
+        title: msg.username,
+        openId: msg.fromUid,
+        avatarUrl: msg.face,
+        message: msg.msg.content,
+        time: msg.time,
+        count: 1,
+        type: 2, //普通用户类型消息
+        over: '0' };
+
+      messageList.push(message);
+    }
+  } else {
+    //如果消息列表中没有历史消息 则新增 正常情况不会走到这个方法
+    var message = {
+      orderId: msg.orderId,
+      title: msg.username,
+      openId: fromUid,
+      avatarUrl: msg.face,
+      message: msg.msg.content,
+      time: msg.time,
+      count: 1,
+      type: 2 //普通用户类型消息
+    };
+    messageList.push(message);
+  }
+  uni.setStorageSync('messageList', messageList);
+  //更新所有用户消息信息
+  msg.hasRead = hasRead; //设置消息未被读
+  var messageDetail = uni.getStorageSync("messageDetail");
+  var messageDetailList = messageDetail['order' + orderId];
+  var tmpArr = messageDetailList.filter(function (p) {
+    return p.fromUid !== uni.getStorageSync("doctorInfo").openId;
+  });
+
+  if (tmpArr.length < 1) {
+    //未收到过消息 设置为接单开始时间
+    //更新缓存
+    var messageList = uni.getStorageSync('messageList');
+    for (var i = 0; i < messageList.length; i++) {
+      if (messageList[i].openId == this.toUser) {
+        messageList[i] = messageListInfo;
+        var startTime = new Date();
+        messageList[i].startTime = startTime;
+      }
+    }
+    uni.setStorageSync('messageList', messageList);
+  }
+  if (messageDetailList) {
+    messageDetailList.push(msg);
+  } else {
+    messageDetailList = [];
+    messageDetailList.push(msg);
+    messageDetail['order' + orderId] = messageDetailList;
+  }
+  uni.setStorageSync("messageDetail", messageDetail);
+}
+
+function uuid() {
+  var s = [];
+  var hexDigits = "0123456789abcdef";
+  for (var i = 0; i < 32; i++) {
+    s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+  }
+  s[12] = "4"; // bits 12-15 of the time_hi_and_version field to 0010
+  s[17] = hexDigits.substr(s[17] & 0x3 | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
+  // s[8] = s[13] = s[18] = s[23] = "-";
+
+  var uuid = s.join("");
+  return uuid;
+}
+
+function getInquiryTimeByType(type) {
+  if (type == '0') {
+    //0：20元1小时 3600s
+    return 1 * 60 * 60;
+  } else if (type == '1') {
+    //1：30元两小时
+    return 2 * 60 * 60;
+  } else {
+    //其他异常情况 返回0立即结束
+    return 0;
+  }
+}
+
+module.exports = {
+  formatTime: formatTime,
+  formatLocation: formatLocation,
+  dateUtils: dateUtils,
+  substr: substr,
+  subFilter: subFilter,
+  request: request,
+  getSystemInfo: getSystemInfo,
+  isEmojiCharacter: isEmojiCharacter,
+  otime: otime,
+  isEmpty: isEmpty,
+  IdentityCodeValid: IdentityCodeValid,
+  random: random,
+  isPerfectInfo: isPerfectInfo,
+  uuid: uuid,
+  getFormatDate: getFormatDate,
+  beautyTime: beautyTime,
+  createMsgSession: createMsgSession,
+  updateMessage: updateMessage,
+  getInquiryTimeByType: getInquiryTimeByType };
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 127:
+/*!**********************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Fmy%2FdidiDetail"} ***!
+  \**********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _didiDetail = _interopRequireDefault(__webpack_require__(/*! ./pages/my/didiDetail.vue */ 128));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_didiDetail.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 13:
+/*!*******************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/config/index.js ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+ // export const serverUrl="";
+var serverUrl = "https://doctor.dididoctor.cn";
+var serverPatientUrl = "https://patient.dididoctor.cn";
+// const serverUrl="http://localhost:9999";
+// const serverPatientUrl="http://localhost:9002";
+
+module.exports = {
+  serverUrl: serverUrl,
+  serverPatientUrl: serverPatientUrl };
+
+/***/ }),
+
+/***/ 135:
+/*!**********************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Fmy%2FuserQrCode"} ***!
+  \**********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _userQrCode = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userQrCode.vue */ 136));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userQrCode.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 14:
+/*!******************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/config/json.js ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var sexs = [
+{ value: '男', name: '男' },
+{ value: '女', name: '女' }];
+
+
+var bankList = [{
+  key: '1002',
+  name: '工商银行' },
+
+{
+  key: '1005',
+  name: '农业银行' },
+
+{
+  key: '1026',
+  name: '中国银行' },
+
+{
+  key: '1003',
+  name: '建设银行' },
+
+{
+  key: '1001',
+  name: '招商银行' },
+
+{
+  key: '1066',
+  name: '邮储银行' },
+
+{
+  key: '1020',
+  name: '交通银行' },
+
+{
+  key: '1004',
+  name: '浦发银行' },
+
+{
+  key: '1006',
+  name: '民生银行' },
+
+{
+  key: '1009',
+  name: '兴业银行' },
+
+{
+  key: '1010',
+  name: '平安银行' },
+
+{
+  key: '1021',
+  name: '中信银行' },
+
+{
+  key: '1025',
+  name: '华夏银行' },
+
+{
+  key: '1027',
+  name: '广发银行' },
+
+{
+  key: '1022',
+  name: '光大银行' },
+
+{
+  key: '4836',
+  name: '北京银行' },
+
+{
+  key: '1056',
+  name: '宁波银行' },
+
+{
+  key: '1024',
+  name: '上海银行' }];
+
+
+
+var allergic = ['无', '有'];
+
+var conceive = ['无备孕计划', '备孕中', '怀孕中', '哺乳期'];
+
+var liver = ['异常', '正常'];
+
+
+module.exports = {
+  sexs: sexs,
+  bankList: bankList,
+  allergic: allergic,
+  conceive: conceive,
+  liver: liver };
+
+/***/ }),
+
+/***/ 143:
+/*!***********************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Fmy%2FuserGeneAdd"} ***!
+  \***********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _userGeneAdd = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userGeneAdd.vue */ 144));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userGeneAdd.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 15:
+/*!********************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Findex%2Findex"} ***!
+  \********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/index/index.vue */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_index.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 151:
+/*!*******************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Fmy%2FmyLearn"} ***!
+  \*******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _myLearn = _interopRequireDefault(__webpack_require__(/*! ./pages/my/myLearn.vue */ 152));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_myLearn.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 2:
 /*!******************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js ***!
   \******************************************************************************************/
@@ -2218,8 +3128,8 @@ Dep.prototype.removeSub = function removeSub (sub) {
 };
 
 Dep.prototype.depend = function depend () {
-  if (Dep.SharedObject.target) {
-    Dep.SharedObject.target.addDep(this);
+  if (Dep.target) {
+    Dep.target.addDep(this);
   }
 };
 
@@ -2240,20 +3150,17 @@ Dep.prototype.notify = function notify () {
 // The current target watcher being evaluated.
 // This is globally unique because only one watcher
 // can be evaluated at a time.
-// fixed by xxxxxx (nvue shared vuex)
-/* eslint-disable no-undef */
-Dep.SharedObject = typeof SharedObject !== 'undefined' ? SharedObject : {};
-Dep.SharedObject.target = null;
-Dep.SharedObject.targetStack = [];
+Dep.target = null;
+var targetStack = [];
 
 function pushTarget (target) {
-  Dep.SharedObject.targetStack.push(target);
-  Dep.SharedObject.target = target;
+  targetStack.push(target);
+  Dep.target = target;
 }
 
 function popTarget () {
-  Dep.SharedObject.targetStack.pop();
-  Dep.SharedObject.target = Dep.SharedObject.targetStack[Dep.SharedObject.targetStack.length - 1];
+  targetStack.pop();
+  Dep.target = targetStack[targetStack.length - 1];
 }
 
 /*  */
@@ -2420,13 +3327,7 @@ var Observer = function Observer (value) {
   def(value, '__ob__', this);
   if (Array.isArray(value)) {
     if (hasProto) {
-      {// fixed by xxxxxx 微信小程序使用 plugins 之后，数组方法被直接挂载到了数组对象上，需要执行 copyAugment 逻辑
-        if(value.push !== value.__proto__.push){
-          copyAugment(value, arrayMethods, arrayKeys);
-        } else {
-          protoAugment(value, arrayMethods);
-        }
-      }
+      protoAugment(value, arrayMethods);
     } else {
       copyAugment(value, arrayMethods, arrayKeys);
     }
@@ -2538,7 +3439,7 @@ function defineReactive$$1 (
     configurable: true,
     get: function reactiveGetter () {
       var value = getter ? getter.call(obj) : val;
-      if (Dep.SharedObject.target) { // fixed by xxxxxx
+      if (Dep.target) {
         dep.depend();
         if (childOb) {
           childOb.dep.depend();
@@ -3991,12 +4892,7 @@ function resolveSlots (
         slot.push(child);
       }
     } else {
-      // fixed by xxxxxx 临时 hack 掉 uni-app 中的异步 name slot page
-      if(child.asyncMeta && child.asyncMeta.data && child.asyncMeta.data.slot === 'page'){
-        (slots['page'] || (slots['page'] = [])).push(child);
-      }else{
-        (slots.default || (slots.default = [])).push(child);
-      }
+      (slots.default || (slots.default = [])).push(child);
     }
   }
   // ignore slots that contains only whitespace
@@ -6252,7 +7148,7 @@ function createComputedGetter (key) {
       if (watcher.dirty) {
         watcher.evaluate();
       }
-      if (Dep.SharedObject.target) {// fixed by xxxxxx
+      if (Dep.target) {
         watcher.depend();
       }
       return watcher.value
@@ -7458,7 +8354,25 @@ internalMixin(Vue);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3)))
 
 /***/ }),
-/* 3 */
+
+/***/ 23:
+/*!**********************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Fmessage%2Findex"} ***!
+  \**********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/message/index.vue */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_index.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 3:
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
   \***********************************/
@@ -7488,10 +8402,45 @@ module.exports = g;
 
 
 /***/ }),
-/* 4 */
-/*!***********************************************************************************!*\
-  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-doctor/pages.json ***!
-  \***********************************************************************************/
+
+/***/ 31:
+/*!*****************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Fmy%2Findex"} ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/my/index.vue */ 32));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_index.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 39:
+/*!**********************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Fmy%2FuserDetail"} ***!
+  \**********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _userDetail = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userDetail.vue */ 40));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userDetail.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 4:
+/*!**************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/pages.json ***!
+  \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7499,928 +8448,96 @@ module.exports = g;
 
 
 /***/ }),
-/* 5 */
-/*!*******************************************************!*\
-  !*** ./node_modules/@dcloudio/uni-stat/dist/index.js ***!
-  \*******************************************************/
+
+/***/ 47:
+/*!************************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Fmy%2FuserPassword"} ***!
+  \************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {var _package = __webpack_require__(/*! ../package.json */ 6);function _possibleConstructorReturn(self, call) {if (call && (typeof call === "object" || typeof call === "function")) {return call;}return _assertThisInitialized(self);}function _assertThisInitialized(self) {if (self === void 0) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return self;}function _getPrototypeOf(o) {_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {return o.__proto__ || Object.getPrototypeOf(o);};return _getPrototypeOf(o);}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function");}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);}function _setPrototypeOf(o, p) {_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {o.__proto__ = p;return o;};return _setPrototypeOf(o, p);}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}
-
-var STAT_VERSION = _package.version;
-var STAT_URL = 'https://tongji.dcloud.io/uni/stat';
-var STAT_H5_URL = 'https://tongji.dcloud.io/uni/stat.gif';
-var PAGE_PVER_TIME = 1800;
-var APP_PVER_TIME = 300;
-var OPERATING_TIME = 10;
-
-var UUID_KEY = '__DC_STAT_UUID';
-var UUID_VALUE = '__DC_UUID_VALUE';
-
-function getUuid() {
-  var uuid = '';
-  if (getPlatformName() === 'n') {
-    try {
-      uuid = plus.runtime.getDCloudId();
-    } catch (e) {
-      uuid = '';
-    }
-    return uuid;
-  }
-
-  try {
-    uuid = uni.getStorageSync(UUID_KEY);
-  } catch (e) {
-    uuid = UUID_VALUE;
-  }
-
-  if (!uuid) {
-    uuid = Date.now() + '' + Math.floor(Math.random() * 1e7);
-    try {
-      uni.setStorageSync(UUID_KEY, uuid);
-    } catch (e) {
-      uni.setStorageSync(UUID_KEY, UUID_VALUE);
-    }
-  }
-  return uuid;
-}
-
-var getSgin = function getSgin(statData) {
-  var arr = Object.keys(statData);
-  var sortArr = arr.sort();
-  var sgin = {};
-  var sginStr = '';
-  for (var i in sortArr) {
-    sgin[sortArr[i]] = statData[sortArr[i]];
-    sginStr += sortArr[i] + '=' + statData[sortArr[i]] + '&';
-  }
-  // const options = sginStr.substr(0, sginStr.length - 1)
-  // sginStr = sginStr.substr(0, sginStr.length - 1) + '&key=' + STAT_KEY;
-  // const si = crypto.createHash('md5').update(sginStr).digest('hex');
-  return {
-    sign: '',
-    options: sginStr.substr(0, sginStr.length - 1) };
-
-};
-
-var getSplicing = function getSplicing(data) {
-  var str = '';
-  for (var i in data) {
-    str += i + '=' + data[i] + '&';
-  }
-  return str.substr(0, str.length - 1);
-};
-
-var getTime = function getTime() {
-  return parseInt(new Date().getTime() / 1000);
-};
-
-var getPlatformName = function getPlatformName() {
-  var platformList = {
-    'app-plus': 'n',
-    'h5': 'h5',
-    'mp-weixin': 'wx',
-    'mp-alipay': 'ali',
-    'mp-baidu': 'bd',
-    'mp-toutiao': 'tt',
-    'mp-qq': 'qq' };
-
-  return platformList["mp-weixin"];
-};
-
-var getPackName = function getPackName() {
-  var packName = '';
-  if (getPlatformName() === 'wx' || getPlatformName() === 'qq') {
-    packName = uni.getAccountInfoSync().miniProgram.appId || '';
-  }
-  return packName;
-};
-
-var getVersion = function getVersion() {
-  return getPlatformName() === 'n' ? plus.runtime.version : '';
-};
-
-var getChannel = function getChannel() {
-  var platformName = getPlatformName();
-  var channel = '';
-  if (platformName === 'n') {
-    channel = plus.runtime.channel;
-  }
-  return channel;
-};
-
-var getScene = function getScene(options) {
-  var platformName = getPlatformName();
-  var scene = '';
-  if (options) {
-    return options;
-  }
-  if (platformName === 'wx') {
-    scene = uni.getLaunchOptionsSync().scene;
-  }
-  return scene;
-};
-var First__Visit__Time__KEY = 'First__Visit__Time';
-var Last__Visit__Time__KEY = 'Last__Visit__Time';
-
-var getFirstVisitTime = function getFirstVisitTime() {
-  var timeStorge = uni.getStorageSync(First__Visit__Time__KEY);
-  var time = 0;
-  if (timeStorge) {
-    time = timeStorge;
-  } else {
-    time = getTime();
-    uni.setStorageSync(First__Visit__Time__KEY, time);
-    uni.removeStorageSync(Last__Visit__Time__KEY);
-  }
-  return time;
-};
-
-var getLastVisitTime = function getLastVisitTime() {
-  var timeStorge = uni.getStorageSync(Last__Visit__Time__KEY);
-  var time = 0;
-  if (timeStorge) {
-    time = timeStorge;
-  } else {
-    time = '';
-  }
-  uni.setStorageSync(Last__Visit__Time__KEY, getTime());
-  return time;
-};
-
-
-var PAGE_RESIDENCE_TIME = '__page__residence__time';
-var First_Page_residence_time = 0;
-var Last_Page_residence_time = 0;
-
-
-var setPageResidenceTime = function setPageResidenceTime() {
-  First_Page_residence_time = getTime();
-  if (getPlatformName() === 'n') {
-    uni.setStorageSync(PAGE_RESIDENCE_TIME, getTime());
-  }
-  return First_Page_residence_time;
-};
-
-var getPageResidenceTime = function getPageResidenceTime() {
-  Last_Page_residence_time = getTime();
-  if (getPlatformName() === 'n') {
-    First_Page_residence_time = uni.getStorageSync(PAGE_RESIDENCE_TIME);
-  }
-  return Last_Page_residence_time - First_Page_residence_time;
-};
-var TOTAL__VISIT__COUNT = 'Total__Visit__Count';
-var getTotalVisitCount = function getTotalVisitCount() {
-  var timeStorge = uni.getStorageSync(TOTAL__VISIT__COUNT);
-  var count = 1;
-  if (timeStorge) {
-    count = timeStorge;
-    count++;
-  }
-  uni.setStorageSync(TOTAL__VISIT__COUNT, count);
-  return count;
-};
-
-var GetEncodeURIComponentOptions = function GetEncodeURIComponentOptions(statData) {
-  var data = {};
-  for (var prop in statData) {
-    data[prop] = encodeURIComponent(statData[prop]);
-  }
-  return data;
-};
-
-var Set__First__Time = 0;
-var Set__Last__Time = 0;
-
-var getFirstTime = function getFirstTime() {
-  var time = new Date().getTime();
-  Set__First__Time = time;
-  Set__Last__Time = 0;
-  return time;
-};
-
-
-var getLastTime = function getLastTime() {
-  var time = new Date().getTime();
-  Set__Last__Time = time;
-  return time;
-};
-
-
-var getResidenceTime = function getResidenceTime(type) {
-  var residenceTime = 0;
-  if (Set__First__Time !== 0) {
-    residenceTime = Set__Last__Time - Set__First__Time;
-  }
-
-  residenceTime = parseInt(residenceTime / 1000);
-  residenceTime = residenceTime < 1 ? 1 : residenceTime;
-  if (type === 'app') {
-    var overtime = residenceTime > APP_PVER_TIME ? true : false;
-    return {
-      residenceTime: residenceTime,
-      overtime: overtime };
-
-  }
-  if (type === 'page') {
-    var _overtime = residenceTime > PAGE_PVER_TIME ? true : false;
-    return {
-      residenceTime: residenceTime,
-      overtime: _overtime };
-
-  }
-
-  return {
-    residenceTime: residenceTime };
-
-
-};
-
-var getRoute = function getRoute() {
-  var pages = getCurrentPages();
-  var page = pages[pages.length - 1];
-  var _self = page.$vm;
-
-  if (getPlatformName() === 'bd') {
-    return _self.$mp && _self.$mp.page.is;
-  } else {
-    return _self.$scope && _self.$scope.route || _self.$mp && _self.$mp.page.route;
-  }
-};
-
-var getPageRoute = function getPageRoute(self) {
-  var pages = getCurrentPages();
-  var page = pages[pages.length - 1];
-  var _self = page.$vm;
-  var query = self._query;
-  var str = query && JSON.stringify(query) !== '{}' ? '?' + JSON.stringify(query) : '';
-  // clear
-  self._query = '';
-  if (getPlatformName() === 'bd') {
-    return _self.$mp && _self.$mp.page.is + str;
-  } else {
-    return _self.$scope && _self.$scope.route + str || _self.$mp && _self.$mp.page.route + str;
-  }
-};
-
-var getPageTypes = function getPageTypes(self) {
-  if (self.mpType === 'page' || self.$mp && self.$mp.mpType === 'page' || self.$options.mpType === 'page') {
-    return true;
-  }
-  return false;
-};
-
-var calibration = function calibration(eventName, options) {
-  //  login 、 share 、pay_success 、pay_fail 、register 、title
-  if (!eventName) {
-    console.error("uni.report \u7F3A\u5C11 [eventName] \u53C2\u6570");
-    return true;
-  }
-  if (typeof eventName !== 'string') {
-    console.error("uni.report [eventName] \u53C2\u6570\u7C7B\u578B\u9519\u8BEF,\u53EA\u80FD\u4E3A String \u7C7B\u578B");
-    return true;
-  }
-  if (eventName.length > 255) {
-    console.error("uni.report [eventName] \u53C2\u6570\u957F\u5EA6\u4E0D\u80FD\u5927\u4E8E 255");
-    return true;
-  }
-
-  if (typeof options !== 'string' && typeof options !== 'object') {
-    console.error("uni.report [options] \u53C2\u6570\u7C7B\u578B\u9519\u8BEF,\u53EA\u80FD\u4E3A String \u6216 Object \u7C7B\u578B");
-    return true;
-  }
-
-  if (typeof options === 'string' && options.length > 255) {
-    console.error("uni.report [options] \u53C2\u6570\u957F\u5EA6\u4E0D\u80FD\u5927\u4E8E 255");
-    return true;
-  }
-
-  if (eventName === 'title' && typeof options !== 'string') {
-    console.error('uni.report [eventName] 参数为 title 时，[options] 参数只能为 String 类型');
-    return true;
-  }
-};
-
-var PagesJson = __webpack_require__(/*! uni-pages?{"type":"style"} */ 7).default;
-var statConfig = __webpack_require__(/*! uni-stat-config */ 8).default || __webpack_require__(/*! uni-stat-config */ 8);
-
-var resultOptions = uni.getSystemInfoSync();var
-
-Util = /*#__PURE__*/function () {
-  function Util() {_classCallCheck(this, Util);
-    this.self = '';
-    this._retry = 0;
-    this._platform = '';
-    this._query = {};
-    this._navigationBarTitle = {
-      config: '',
-      page: '',
-      report: '',
-      lt: '' };
-
-    this._operatingTime = 0;
-    this._reportingRequestData = {
-      '1': [],
-      '11': [] };
-
-    this.__prevent_triggering = false;
-
-    this.__licationHide = false;
-    this.__licationShow = false;
-    this._lastPageRoute = '';
-    this.statData = {
-      uuid: getUuid(),
-      ut: getPlatformName(),
-      mpn: getPackName(),
-      ak: statConfig.appid,
-      usv: STAT_VERSION,
-      v: getVersion(),
-      ch: getChannel(),
-      cn: '',
-      pn: '',
-      ct: '',
-      t: getTime(),
-      tt: '',
-      p: resultOptions.platform === 'android' ? 'a' : 'i',
-      brand: resultOptions.brand || '',
-      md: resultOptions.model,
-      sv: resultOptions.system.replace(/(Android|iOS)\s/, ''),
-      mpsdk: resultOptions.SDKVersion || '',
-      mpv: resultOptions.version || '',
-      lang: resultOptions.language,
-      pr: resultOptions.pixelRatio,
-      ww: resultOptions.windowWidth,
-      wh: resultOptions.windowHeight,
-      sw: resultOptions.screenWidth,
-      sh: resultOptions.screenHeight };
-
-
-  }_createClass(Util, [{ key: "_applicationShow", value: function _applicationShow()
-
-    {
-      if (this.__licationHide) {
-        getLastTime();
-        var time = getResidenceTime('app');
-        if (time.overtime) {
-          var options = {
-            path: this._lastPageRoute,
-            scene: this.statData.sc };
-
-          this._sendReportRequest(options);
-        }
-        this.__licationHide = false;
-      }
-    } }, { key: "_applicationHide", value: function _applicationHide(
-
-    self, type) {
-
-      this.__licationHide = true;
-      getLastTime();
-      var time = getResidenceTime();
-      getFirstTime();
-      var route = getPageRoute(this);
-      this._sendHideRequest({
-        urlref: route,
-        urlref_ts: time.residenceTime },
-      type);
-    } }, { key: "_pageShow", value: function _pageShow()
-
-    {
-      var route = getPageRoute(this);
-      var routepath = getRoute();
-      this._navigationBarTitle.config = PagesJson &&
-      PagesJson.pages[routepath] &&
-      PagesJson.pages[routepath].titleNView &&
-      PagesJson.pages[routepath].titleNView.titleText ||
-      PagesJson &&
-      PagesJson.pages[routepath] &&
-      PagesJson.pages[routepath].navigationBarTitleText || '';
-
-      if (this.__licationShow) {
-        getFirstTime();
-        this.__licationShow = false;
-        // console.log('这是 onLauch 之后执行的第一次 pageShow ，为下次记录时间做准备');
-        this._lastPageRoute = route;
-        return;
-      }
-
-      getLastTime();
-      this._lastPageRoute = route;
-      var time = getResidenceTime('page');
-      if (time.overtime) {
-        var options = {
-          path: this._lastPageRoute,
-          scene: this.statData.sc };
-
-        this._sendReportRequest(options);
-      }
-      getFirstTime();
-    } }, { key: "_pageHide", value: function _pageHide()
-
-    {
-      if (!this.__licationHide) {
-        getLastTime();
-        var time = getResidenceTime('page');
-        this._sendPageRequest({
-          url: this._lastPageRoute,
-          urlref: this._lastPageRoute,
-          urlref_ts: time.residenceTime });
-
-        this._navigationBarTitle = {
-          config: '',
-          page: '',
-          report: '',
-          lt: '' };
-
-        return;
-      }
-    } }, { key: "_login", value: function _login()
-
-    {
-      this._sendEventRequest({
-        key: 'login' },
-      0);
-    } }, { key: "_share", value: function _share()
-
-    {
-      this._sendEventRequest({
-        key: 'share' },
-      0);
-    } }, { key: "_payment", value: function _payment(
-    key) {
-      this._sendEventRequest({
-        key: key },
-      0);
-    } }, { key: "_sendReportRequest", value: function _sendReportRequest(
-    options) {
-
-      this._navigationBarTitle.lt = '1';
-      var query = options.query && JSON.stringify(options.query) !== '{}' ? '?' + JSON.stringify(options.query) : '';
-      this.statData.lt = '1';
-      this.statData.url = options.path + query || '';
-      this.statData.t = getTime();
-      this.statData.sc = getScene(options.scene);
-      this.statData.fvts = getFirstVisitTime();
-      this.statData.lvts = getLastVisitTime();
-      this.statData.tvc = getTotalVisitCount();
-      if (getPlatformName() === 'n') {
-        this.getProperty();
-      } else {
-        this.getNetworkInfo();
-      }
-    } }, { key: "_sendPageRequest", value: function _sendPageRequest(
-
-    opt) {var
-
-      url =
-
-
-      opt.url,urlref = opt.urlref,urlref_ts = opt.urlref_ts;
-      this._navigationBarTitle.lt = '11';
-      var options = {
-        ak: this.statData.ak,
-        uuid: this.statData.uuid,
-        lt: '11',
-        ut: this.statData.ut,
-        url: url,
-        tt: this.statData.tt,
-        urlref: urlref,
-        urlref_ts: urlref_ts,
-        ch: this.statData.ch,
-        usv: this.statData.usv,
-        t: getTime(),
-        p: this.statData.p };
-
-      this.request(options);
-    } }, { key: "_sendHideRequest", value: function _sendHideRequest(
-
-    opt, type) {var
-
-      urlref =
-
-      opt.urlref,urlref_ts = opt.urlref_ts;
-      var options = {
-        ak: this.statData.ak,
-        uuid: this.statData.uuid,
-        lt: '3',
-        ut: this.statData.ut,
-        urlref: urlref,
-        urlref_ts: urlref_ts,
-        ch: this.statData.ch,
-        usv: this.statData.usv,
-        t: getTime(),
-        p: this.statData.p };
-
-      this.request(options, type);
-    } }, { key: "_sendEventRequest", value: function _sendEventRequest()
-
-
-
-    {var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},_ref$key = _ref.key,key = _ref$key === void 0 ? '' : _ref$key,_ref$value = _ref.value,value = _ref$value === void 0 ? "" : _ref$value;
-      var route = this._lastPageRoute;
-      var options = {
-        ak: this.statData.ak,
-        uuid: this.statData.uuid,
-        lt: '21',
-        ut: this.statData.ut,
-        url: route,
-        ch: this.statData.ch,
-        e_n: key,
-        e_v: typeof value === 'object' ? JSON.stringify(value) : value.toString(),
-        usv: this.statData.usv,
-        t: getTime(),
-        p: this.statData.p };
-
-      this.request(options);
-    } }, { key: "getNetworkInfo", value: function getNetworkInfo()
-
-    {var _this = this;
-      uni.getNetworkType({
-        success: function success(result) {
-          _this.statData.net = result.networkType;
-          _this.getLocation();
-        } });
-
-    } }, { key: "getProperty", value: function getProperty()
-
-    {var _this2 = this;
-      plus.runtime.getProperty(plus.runtime.appid, function (wgtinfo) {
-        _this2.statData.v = wgtinfo.version || '';
-        _this2.getNetworkInfo();
-      });
-    } }, { key: "getLocation", value: function getLocation()
-
-    {var _this3 = this;
-      if (statConfig.getLocation) {
-        uni.getLocation({
-          type: 'wgs84',
-          geocode: true,
-          success: function success(result) {
-            if (result.address) {
-              _this3.statData.cn = result.address.country;
-              _this3.statData.pn = result.address.province;
-              _this3.statData.ct = result.address.city;
-            }
-
-            _this3.statData.lat = result.latitude;
-            _this3.statData.lng = result.longitude;
-            _this3.request(_this3.statData);
-          } });
-
-      } else {
-        this.statData.lat = 0;
-        this.statData.lng = 0;
-        this.request(this.statData);
-      }
-    } }, { key: "request", value: function request(
-
-    data, type) {var _this4 = this;
-      var time = getTime();
-      var title = this._navigationBarTitle;
-      data.ttn = title.page;
-      data.ttpj = title.config;
-      data.ttc = title.report;
-
-      var requestData = this._reportingRequestData;
-      if (getPlatformName() === 'n') {
-        requestData = uni.getStorageSync('__UNI__STAT__DATA') || {};
-      }
-      if (!requestData[data.lt]) {
-        requestData[data.lt] = [];
-      }
-      requestData[data.lt].push(data);
-
-      if (getPlatformName() === 'n') {
-        uni.setStorageSync('__UNI__STAT__DATA', requestData);
-      }
-      if (getPageResidenceTime() < OPERATING_TIME && !type) {
-        return;
-      }
-      var uniStatData = this._reportingRequestData;
-      if (getPlatformName() === 'n') {
-        uniStatData = uni.getStorageSync('__UNI__STAT__DATA');
-      }
-      // 时间超过，重新获取时间戳
-      setPageResidenceTime();
-      var firstArr = [];
-      var contentArr = [];
-      var lastArr = [];var _loop = function _loop(
-
-      i) {
-        var rd = uniStatData[i];
-        rd.forEach(function (elm) {
-          var newData = getSplicing(elm);
-          if (i === 0) {
-            firstArr.push(newData);
-          } else if (i === 3) {
-            lastArr.push(newData);
-          } else {
-            contentArr.push(newData);
-          }
-        });};for (var i in uniStatData) {_loop(i);
-      }
-
-      firstArr.push.apply(firstArr, contentArr.concat(lastArr));
-      var optionsData = {
-        usv: STAT_VERSION, //统计 SDK 版本号
-        t: time, //发送请求时的时间戮
-        requests: JSON.stringify(firstArr) };
-
-
-      this._reportingRequestData = {};
-      if (getPlatformName() === 'n') {
-        uni.removeStorageSync('__UNI__STAT__DATA');
-      }
-
-      if (data.ut === 'h5') {
-        this.imageRequest(optionsData);
-        return;
-      }
-
-      if (getPlatformName() === 'n' && this.statData.p === 'a') {
-        setTimeout(function () {
-          _this4._sendRequest(optionsData);
-        }, 200);
-        return;
-      }
-      this._sendRequest(optionsData);
-    } }, { key: "_sendRequest", value: function _sendRequest(
-    optionsData) {var _this5 = this;
-      uni.request({
-        url: STAT_URL,
-        method: 'POST',
-        // header: {
-        //   'content-type': 'application/json' // 默认值
-        // },
-        data: optionsData,
-        success: function success() {
-          // if (process.env.NODE_ENV === 'development') {
-          //   console.log('stat request success');
-          // }
-        },
-        fail: function fail(e) {
-          if (++_this5._retry < 3) {
-            setTimeout(function () {
-              _this5._sendRequest(optionsData);
-            }, 1000);
-          }
-        } });
-
-    }
-    /**
-       * h5 请求
-       */ }, { key: "imageRequest", value: function imageRequest(
-    data) {
-      var image = new Image();
-      var options = getSgin(GetEncodeURIComponentOptions(data)).options;
-      image.src = STAT_H5_URL + '?' + options;
-    } }, { key: "sendEvent", value: function sendEvent(
-
-    key, value) {
-      // 校验 type 参数
-      if (calibration(key, value)) return;
-
-      if (key === 'title') {
-        this._navigationBarTitle.report = value;
-        return;
-      }
-      this._sendEventRequest({
-        key: key,
-        value: typeof value === 'object' ? JSON.stringify(value) : value },
-      1);
-    } }]);return Util;}();var
-
-
-
-Stat = /*#__PURE__*/function (_Util) {_inherits(Stat, _Util);_createClass(Stat, null, [{ key: "getInstance", value: function getInstance()
-    {
-      if (!this.instance) {
-        this.instance = new Stat();
-      }
-      return this.instance;
-    } }]);
-  function Stat() {var _this6;_classCallCheck(this, Stat);
-    _this6 = _possibleConstructorReturn(this, _getPrototypeOf(Stat).call(this));
-    _this6.instance = null;
-    // 注册拦截器
-    if (typeof uni.addInterceptor === 'function') {
-      _this6.addInterceptorInit();
-      _this6.interceptLogin();
-      _this6.interceptShare(true);
-      _this6.interceptRequestPayment();
-    }return _this6;
-  }_createClass(Stat, [{ key: "addInterceptorInit", value: function addInterceptorInit()
-
-    {
-      var self = this;
-      uni.addInterceptor('setNavigationBarTitle', {
-        invoke: function invoke(args) {
-          self._navigationBarTitle.page = args.title;
-        } });
-
-    } }, { key: "interceptLogin", value: function interceptLogin()
-
-    {
-      var self = this;
-      uni.addInterceptor('login', {
-        complete: function complete() {
-          self._login();
-        } });
-
-    } }, { key: "interceptShare", value: function interceptShare(
-
-    type) {
-      var self = this;
-      if (!type) {
-        self._share();
-        return;
-      }
-      uni.addInterceptor('share', {
-        success: function success() {
-          self._share();
-        },
-        fail: function fail() {
-          self._share();
-        } });
-
-    } }, { key: "interceptRequestPayment", value: function interceptRequestPayment()
-
-    {
-      var self = this;
-      uni.addInterceptor('requestPayment', {
-        success: function success() {
-          self._payment('pay_success');
-        },
-        fail: function fail() {
-          self._payment('pay_fail');
-        } });
-
-    } }, { key: "report", value: function report(
-
-    options, self) {
-      this.self = self;
-      // if (process.env.NODE_ENV === 'development') {
-      //   console.log('report init');
-      // }
-      setPageResidenceTime();
-      this.__licationShow = true;
-      this._sendReportRequest(options, true);
-    } }, { key: "load", value: function load(
-
-    options, self) {
-      if (!self.$scope && !self.$mp) {
-        var page = getCurrentPages();
-        self.$scope = page[page.length - 1];
-      }
-      this.self = self;
-      this._query = options;
-    } }, { key: "show", value: function show(
-
-    self) {
-      this.self = self;
-      if (getPageTypes(self)) {
-        this._pageShow(self);
-      } else {
-        this._applicationShow(self);
-      }
-    } }, { key: "ready", value: function ready(
-
-    self) {
-      // this.self = self;
-      // if (getPageTypes(self)) {
-      //   this._pageShow(self);
-      // }
-    } }, { key: "hide", value: function hide(
-    self) {
-      this.self = self;
-      if (getPageTypes(self)) {
-        this._pageHide(self);
-      } else {
-        this._applicationHide(self, true);
-      }
-    } }, { key: "error", value: function error(
-    em) {
-      if (this._platform === 'devtools') {
-        if (true) {
-          console.info('当前运行环境为开发者工具，不上报数据。');
-        }
-        // return;
-      }
-      var emVal = '';
-      if (!em.message) {
-        emVal = JSON.stringify(em);
-      } else {
-        emVal = em.stack;
-      }
-      var options = {
-        ak: this.statData.ak,
-        uuid: this.statData.uuid,
-        lt: '31',
-        ut: this.statData.ut,
-        ch: this.statData.ch,
-        mpsdk: this.statData.mpsdk,
-        mpv: this.statData.mpv,
-        v: this.statData.v,
-        em: emVal,
-        usv: this.statData.usv,
-        t: getTime(),
-        p: this.statData.p };
-
-      this.request(options);
-    } }]);return Stat;}(Util);
-
-
-var stat = Stat.getInstance();
-var isHide = false;
-var lifecycle = {
-  onLaunch: function onLaunch(options) {
-    stat.report(options, this);
-  },
-  onReady: function onReady() {
-    stat.ready(this);
-  },
-  onLoad: function onLoad(options) {
-    stat.load(options, this);
-    // 重写分享，获取分享上报事件
-    if (this.$scope && this.$scope.onShareAppMessage) {
-      var oldShareAppMessage = this.$scope.onShareAppMessage;
-      this.$scope.onShareAppMessage = function (options) {
-        stat.interceptShare(false);
-        return oldShareAppMessage.call(this, options);
-      };
-    }
-  },
-  onShow: function onShow() {
-    isHide = false;
-    stat.show(this);
-  },
-  onHide: function onHide() {
-    isHide = true;
-    stat.hide(this);
-  },
-  onUnload: function onUnload() {
-    if (isHide) {
-      isHide = false;
-      return;
-    }
-    stat.hide(this);
-  },
-  onError: function onError(e) {
-    stat.error(e);
-  } };
-
-
-function main() {
-  if (true) {
-    uni.report = function (type, options) {};
-  } else { var Vue; }
-}
-
-main();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _userPassword = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userPassword.vue */ 48));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userPassword.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
-/* 6 */
-/*!******************************************************!*\
-  !*** ./node_modules/@dcloudio/uni-stat/package.json ***!
-  \******************************************************/
-/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, author, bugs, bundleDependencies, deprecated, description, devDependencies, files, gitHead, homepage, license, main, name, repository, scripts, version, default */
-/***/ (function(module) {
 
-module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.0.0-23320190923002","_inBundle":false,"_integrity":"sha512-MnftsvgOac3q1FCOBPzivbFn8GNQFo7D2DY325HeEZyFCWgx5GEwHpGYjT1PQU6v7DaDn0ruxa3ObdpUIYbmZw==","_location":"/@dcloudio/uni-stat","_phantomChildren":{},"_requested":{"type":"tag","registry":true,"raw":"@dcloudio/uni-stat@next","name":"@dcloudio/uni-stat","escapedName":"@dcloudio%2funi-stat","scope":"@dcloudio","rawSpec":"next","saveSpec":null,"fetchSpec":"next"},"_requiredBy":["#USER","/","/@dcloudio/vue-cli-plugin-uni"],"_resolved":"https://registry.npmjs.org/@dcloudio/uni-stat/-/uni-stat-2.0.0-23320190923002.tgz","_shasum":"0c400c140ca0b3c05f52d25f11583cf05a0c4e9a","_spec":"@dcloudio/uni-stat@next","_where":"/Users/fxy/Documents/DCloud/HbuilderX-plugins/release/uniapp-cli","author":"","bugs":{"url":"https://github.com/dcloudio/uni-app/issues"},"bundleDependencies":false,"deprecated":false,"description":"","devDependencies":{"@babel/core":"^7.5.5","@babel/preset-env":"^7.5.5","eslint":"^6.1.0","rollup":"^1.19.3","rollup-plugin-babel":"^4.3.3","rollup-plugin-clear":"^2.0.7","rollup-plugin-commonjs":"^10.0.2","rollup-plugin-copy":"^3.1.0","rollup-plugin-eslint":"^7.0.0","rollup-plugin-json":"^4.0.0","rollup-plugin-node-resolve":"^5.2.0","rollup-plugin-replace":"^2.2.0","rollup-plugin-uglify":"^6.0.2"},"files":["dist","package.json","LICENSE"],"gitHead":"fed4c73fb9142a1b277dd79313939cad90693d3e","homepage":"https://github.com/dcloudio/uni-app#readme","license":"Apache-2.0","main":"dist/index.js","name":"@dcloudio/uni-stat","repository":{"type":"git","url":"git+https://github.com/dcloudio/uni-app.git","directory":"packages/uni-stat"},"scripts":{"build":"NODE_ENV=production rollup -c rollup.config.js","dev":"NODE_ENV=development rollup -w -c rollup.config.js"},"version":"2.0.0-23320190923002"};
-
-/***/ }),
-/* 7 */
-/*!****************************************************************************************************!*\
-  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-doctor/pages.json?{"type":"style"} ***!
-  \****************************************************************************************************/
+/***/ 55:
+/*!********************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Fmy%2FuserBank"} ***!
+  \********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "首页" }, "pages/message/index": { "navigationBarTitleText": "消息" }, "pages/my/index": { "navigationBarTitleText": "我的" }, "pages/my/userDetail": { "navigationBarTitleText": "完善资料" }, "pages/my/userPassword": { "navigationBarTitleText": "提现密码" }, "pages/my/userBank": { "navigationBarTitleText": "银行卡" }, "pages/my/userBankAdd": { "navigationBarTitleText": "新增银行卡" }, "pages/my/userAmount": { "navigationBarTitleText": "我的余额" }, "pages/my/userWithdraw": { "navigationBarTitleText": "余额提现" }, "pages/message_info/message_info": { "navigationBarTitleText": "xx消息" }, "pages/inquiry/inquiryDetail": { "navigationBarTitleText": "问诊详情" }, "pages/my/userRecept": { "navigationBarTitleText": "我的接单" }, "pages/my/userAgent": { "navigationBarTitleText": "代理商申请列表" }, "pages/my/userAgentAdd": { "navigationBarTitleText": "申请代理商" }, "pages/my/didiDetail": { "navigationBarTitleText": "关于滴滴答答" }, "pages/my/userQrCode": { "navigationBarTitleText": "我的二维码" }, "pages/my/userGeneAdd": { "navigationBarTitleText": "问诊的基因检测" }, "pages/my/myLearn": { "navigationBarTitleText": "我的学习" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "嘀嘀答答", "navigationBarBackgroundColor": "#FFFFFF", "backgroundColor": "#00C694" } };exports.default = _default;
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _userBank = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userBank.vue */ 56));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userBank.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
-/* 8 */
-/*!***************************************************************************************************!*\
-  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-doctor/pages.json?{"type":"stat"} ***!
-  \***************************************************************************************************/
+
+/***/ 63:
+/*!***********************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Fmy%2FuserBankAdd"} ***!
+  \***********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "appid": "__UNI__8060B45" };exports.default = _default;
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _userBankAdd = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userBankAdd.vue */ 64));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userBankAdd.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */
-/*!**************************************************************************************************!*\
-  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-doctor/common/weapp.socket.io.js ***!
-  \**************************************************************************************************/
+
+/***/ 71:
+/*!**********************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Fmy%2FuserAmount"} ***!
+  \**********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _userAmount = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userAmount.vue */ 72));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userAmount.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 79:
+/*!************************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Fmy%2FuserWithdraw"} ***!
+  \************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _userWithdraw = _interopRequireDefault(__webpack_require__(/*! ./pages/my/userWithdraw.vue */ 80));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_userWithdraw.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+
+/***/ 8:
+/*!*****************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/common/weapp.socket.io.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8442,764 +8559,40 @@ function _defineProperties(target, props) {for (var i = 0; i < props.length; i++
         var n = r(23),o = r(22),i = r(21);function s() {return u.TYPED_ARRAY_SUPPORT ? 2147483647 : 1073741823;}function a(t, e) {if (s() < e) throw new RangeError("Invalid typed array length");return u.TYPED_ARRAY_SUPPORT ? (t = new Uint8Array(e)).__proto__ = u.prototype : (null === t && (t = new u(e)), t.length = e), t;}function u(t, e, r) {if (!(u.TYPED_ARRAY_SUPPORT || this instanceof u)) return new u(t, e, r);if ("number" == typeof t) {if ("string" == typeof e) throw new Error("If encoding is specified then the first argument must be a string");return h(this, t);}return c(this, t, e, r);}function c(t, e, r, n) {if ("number" == typeof e) throw new TypeError('"value" argument must not be a number');return "undefined" != typeof ArrayBuffer && e instanceof ArrayBuffer ? function (t, e, r, n) {if (e.byteLength, r < 0 || e.byteLength < r) throw new RangeError("'offset' is out of bounds");if (e.byteLength < r + (n || 0)) throw new RangeError("'length' is out of bounds");return e = void 0 === r && void 0 === n ? new Uint8Array(e) : void 0 === n ? new Uint8Array(e, r) : new Uint8Array(e, r, n), u.TYPED_ARRAY_SUPPORT ? (t = e).__proto__ = u.prototype : t = p(t, e), t;}(t, e, r, n) : "string" == typeof e ? function (t, e, r) {if ("string" == typeof r && "" !== r || (r = "utf8"), !u.isEncoding(r)) throw new TypeError('"encoding" must be a valid string encoding');var n = 0 | d(e, r),o = (t = a(t, n)).write(e, r);return o !== n && (t = t.slice(0, o)), t;}(t, e, r) : function (t, e) {if (u.isBuffer(e)) {var r = 0 | l(e.length);return 0 === (t = a(t, r)).length ? t : (e.copy(t, 0, 0, r), t);}if (e) {if ("undefined" != typeof ArrayBuffer && e.buffer instanceof ArrayBuffer || "length" in e) return "number" != typeof e.length || (n = e.length) != n ? a(t, 0) : p(t, e);if ("Buffer" === e.type && i(e.data)) return p(t, e.data);}var n;throw new TypeError("First argument must be a string, Buffer, ArrayBuffer, Array, or array-like object.");}(t, e);}function f(t) {if ("number" != typeof t) throw new TypeError('"size" argument must be a number');if (t < 0) throw new RangeError('"size" argument must not be negative');}function h(t, e) {if (f(e), t = a(t, e < 0 ? 0 : 0 | l(e)), !u.TYPED_ARRAY_SUPPORT) for (var r = 0; r < e; ++r) {t[r] = 0;}return t;}function p(t, e) {var r = e.length < 0 ? 0 : 0 | l(e.length);t = a(t, r);for (var n = 0; n < r; n += 1) {t[n] = 255 & e[n];}return t;}function l(t) {if (t >= s()) throw new RangeError("Attempt to allocate Buffer larger than maximum size: 0x" + s().toString(16) + " bytes");return 0 | t;}function d(t, e) {if (u.isBuffer(t)) return t.length;if ("undefined" != typeof ArrayBuffer && "function" == typeof ArrayBuffer.isView && (ArrayBuffer.isView(t) || t instanceof ArrayBuffer)) return t.byteLength;"string" != typeof t && (t = "" + t);var r = t.length;if (0 === r) return 0;for (var n = !1;;) {switch (e) {case "ascii":case "latin1":case "binary":return r;case "utf8":case "utf-8":case void 0:return j(t).length;case "ucs2":case "ucs-2":case "utf16le":case "utf-16le":return 2 * r;case "hex":return r >>> 1;case "base64":return q(t).length;default:if (n) return j(t).length;e = ("" + e).toLowerCase(), n = !0;}}}function y(t, e, r) {var n = t[e];t[e] = t[r], t[r] = n;}function g(t, e, r, n, o) {if (0 === t.length) return -1;if ("string" == typeof r ? (n = r, r = 0) : r > 2147483647 ? r = 2147483647 : r < -2147483648 && (r = -2147483648), r = +r, isNaN(r) && (r = o ? 0 : t.length - 1), r < 0 && (r = t.length + r), r >= t.length) {if (o) return -1;r = t.length - 1;} else if (r < 0) {if (!o) return -1;r = 0;}if ("string" == typeof e && (e = u.from(e, n)), u.isBuffer(e)) return 0 === e.length ? -1 : v(t, e, r, n, o);if ("number" == typeof e) return e &= 255, u.TYPED_ARRAY_SUPPORT && "function" == typeof Uint8Array.prototype.indexOf ? o ? Uint8Array.prototype.indexOf.call(t, e, r) : Uint8Array.prototype.lastIndexOf.call(t, e, r) : v(t, [e], r, n, o);throw new TypeError("val must be string, number or Buffer");}function v(t, e, r, n, o) {var i,s = 1,a = t.length,u = e.length;if (void 0 !== n && ("ucs2" === (n = String(n).toLowerCase()) || "ucs-2" === n || "utf16le" === n || "utf-16le" === n)) {if (t.length < 2 || e.length < 2) return -1;s = 2, a /= 2, u /= 2, r /= 2;}function c(t, e) {return 1 === s ? t[e] : t.readUInt16BE(e * s);}if (o) {var f = -1;for (i = r; i < a; i++) {if (c(t, i) === c(e, -1 === f ? 0 : i - f)) {if (-1 === f && (f = i), i - f + 1 === u) return f * s;} else -1 !== f && (i -= i - f), f = -1;}} else for (r + u > a && (r = a - u), i = r; i >= 0; i--) {for (var h = !0, p = 0; p < u; p++) {if (c(t, i + p) !== c(e, p)) {h = !1;break;}}if (h) return i;}return -1;}function b(t, e, r, n) {r = Number(r) || 0;var o = t.length - r;n ? (n = Number(n)) > o && (n = o) : n = o;var i = e.length;if (i % 2 != 0) throw new TypeError("Invalid hex string");n > i / 2 && (n = i / 2);for (var s = 0; s < n; ++s) {var a = parseInt(e.substr(2 * s, 2), 16);if (isNaN(a)) return s;t[r + s] = a;}return s;}function m(t, e, r, n) {return F(j(e, t.length - r), t, r, n);}function w(t, e, r, n) {return F(function (t) {for (var e = [], r = 0; r < t.length; ++r) {e.push(255 & t.charCodeAt(r));}return e;}(e), t, r, n);}function A(t, e, r, n) {return w(t, e, r, n);}function _(t, e, r, n) {return F(q(e), t, r, n);}function E(t, e, r, n) {return F(function (t, e) {for (var r, n, o, i = [], s = 0; s < t.length && !((e -= 2) < 0); ++s) {r = t.charCodeAt(s), n = r >> 8, o = r % 256, i.push(o), i.push(n);}return i;}(e, t.length - r), t, r, n);}function k(t, e, r) {return 0 === e && r === t.length ? n.fromByteArray(t) : n.fromByteArray(t.slice(e, r));}function B(t, e, r) {r = Math.min(t.length, r);for (var n = [], o = e; o < r;) {var i,s,a,u,c = t[o],f = null,h = c > 239 ? 4 : c > 223 ? 3 : c > 191 ? 2 : 1;if (o + h <= r) switch (h) {case 1:c < 128 && (f = c);break;case 2:128 == (192 & (i = t[o + 1])) && (u = (31 & c) << 6 | 63 & i) > 127 && (f = u);break;case 3:i = t[o + 1], s = t[o + 2], 128 == (192 & i) && 128 == (192 & s) && (u = (15 & c) << 12 | (63 & i) << 6 | 63 & s) > 2047 && (u < 55296 || u > 57343) && (f = u);break;case 4:i = t[o + 1], s = t[o + 2], a = t[o + 3], 128 == (192 & i) && 128 == (192 & s) && 128 == (192 & a) && (u = (15 & c) << 18 | (63 & i) << 12 | (63 & s) << 6 | 63 & a) > 65535 && u < 1114112 && (f = u);}null === f ? (f = 65533, h = 1) : f > 65535 && (f -= 65536, n.push(f >>> 10 & 1023 | 55296), f = 56320 | 1023 & f), n.push(f), o += h;}return function (t) {var e = t.length;if (e <= R) return String.fromCharCode.apply(String, t);for (var r = "", n = 0; n < e;) {r += String.fromCharCode.apply(String, t.slice(n, n += R));}return r;}(n);}e.Buffer = u, e.SlowBuffer = function (t) {return +t != t && (t = 0), u.alloc(+t);}, e.INSPECT_MAX_BYTES = 50, u.TYPED_ARRAY_SUPPORT = void 0 !== t.TYPED_ARRAY_SUPPORT ? t.TYPED_ARRAY_SUPPORT : function () {try {var t = new Uint8Array(1);return t.__proto__ = { __proto__: Uint8Array.prototype, foo: function foo() {return 42;} }, 42 === t.foo() && "function" == typeof t.subarray && 0 === t.subarray(1, 1).byteLength;} catch (t) {return !1;}}(), e.kMaxLength = s(), u.poolSize = 8192, u._augment = function (t) {return t.__proto__ = u.prototype, t;}, u.from = function (t, e, r) {return c(null, t, e, r);}, u.TYPED_ARRAY_SUPPORT && (u.prototype.__proto__ = Uint8Array.prototype, u.__proto__ = Uint8Array, "undefined" != typeof Symbol && Symbol.species && u[Symbol.species] === u && Object.defineProperty(u, Symbol.species, { value: null, configurable: !0 })), u.alloc = function (t, e, r) {return function (t, e, r, n) {return f(e), e <= 0 ? a(t, e) : void 0 !== r ? "string" == typeof n ? a(t, e).fill(r, n) : a(t, e).fill(r) : a(t, e);}(null, t, e, r);}, u.allocUnsafe = function (t) {return h(null, t);}, u.allocUnsafeSlow = function (t) {return h(null, t);}, u.isBuffer = function (t) {return !(null == t || !t._isBuffer);}, u.compare = function (t, e) {if (!u.isBuffer(t) || !u.isBuffer(e)) throw new TypeError("Arguments must be Buffers");if (t === e) return 0;for (var r = t.length, n = e.length, o = 0, i = Math.min(r, n); o < i; ++o) {if (t[o] !== e[o]) {r = t[o], n = e[o];break;}}return r < n ? -1 : n < r ? 1 : 0;}, u.isEncoding = function (t) {switch (String(t).toLowerCase()) {case "hex":case "utf8":case "utf-8":case "ascii":case "latin1":case "binary":case "base64":case "ucs2":case "ucs-2":case "utf16le":case "utf-16le":return !0;default:return !1;}}, u.concat = function (t, e) {if (!i(t)) throw new TypeError('"list" argument must be an Array of Buffers');if (0 === t.length) return u.alloc(0);var r;if (void 0 === e) for (e = 0, r = 0; r < t.length; ++r) {e += t[r].length;}var n = u.allocUnsafe(e),o = 0;for (r = 0; r < t.length; ++r) {var s = t[r];if (!u.isBuffer(s)) throw new TypeError('"list" argument must be an Array of Buffers');s.copy(n, o), o += s.length;}return n;}, u.byteLength = d, u.prototype._isBuffer = !0, u.prototype.swap16 = function () {var t = this.length;if (t % 2 != 0) throw new RangeError("Buffer size must be a multiple of 16-bits");for (var e = 0; e < t; e += 2) {y(this, e, e + 1);}return this;}, u.prototype.swap32 = function () {var t = this.length;if (t % 4 != 0) throw new RangeError("Buffer size must be a multiple of 32-bits");for (var e = 0; e < t; e += 4) {y(this, e, e + 3), y(this, e + 1, e + 2);}return this;}, u.prototype.swap64 = function () {var t = this.length;if (t % 8 != 0) throw new RangeError("Buffer size must be a multiple of 64-bits");for (var e = 0; e < t; e += 8) {y(this, e, e + 7), y(this, e + 1, e + 6), y(this, e + 2, e + 5), y(this, e + 3, e + 4);}return this;}, u.prototype.toString = function () {var t = 0 | this.length;return 0 === t ? "" : 0 === arguments.length ? B(this, 0, t) : function (t, e, r) {var n = !1;if ((void 0 === e || e < 0) && (e = 0), e > this.length) return "";if ((void 0 === r || r > this.length) && (r = this.length), r <= 0) return "";if ((r >>>= 0) <= (e >>>= 0)) return "";for (t || (t = "utf8");;) {switch (t) {case "hex":return T(this, e, r);case "utf8":case "utf-8":return B(this, e, r);case "ascii":return P(this, e, r);case "latin1":case "binary":return S(this, e, r);case "base64":return k(this, e, r);case "ucs2":case "ucs-2":case "utf16le":case "utf-16le":return O(this, e, r);default:if (n) throw new TypeError("Unknown encoding: " + t);t = (t + "").toLowerCase(), n = !0;}}}.apply(this, arguments);}, u.prototype.equals = function (t) {if (!u.isBuffer(t)) throw new TypeError("Argument must be a Buffer");return this === t || 0 === u.compare(this, t);}, u.prototype.inspect = function () {var t = "",r = e.INSPECT_MAX_BYTES;return this.length > 0 && (t = this.toString("hex", 0, r).match(/.{2}/g).join(" "), this.length > r && (t += " ... ")), "<Buffer " + t + ">";}, u.prototype.compare = function (t, e, r, n, o) {if (!u.isBuffer(t)) throw new TypeError("Argument must be a Buffer");if (void 0 === e && (e = 0), void 0 === r && (r = t ? t.length : 0), void 0 === n && (n = 0), void 0 === o && (o = this.length), e < 0 || r > t.length || n < 0 || o > this.length) throw new RangeError("out of range index");if (n >= o && e >= r) return 0;if (n >= o) return -1;if (e >= r) return 1;if (e >>>= 0, r >>>= 0, n >>>= 0, o >>>= 0, this === t) return 0;for (var i = o - n, s = r - e, a = Math.min(i, s), c = this.slice(n, o), f = t.slice(e, r), h = 0; h < a; ++h) {if (c[h] !== f[h]) {i = c[h], s = f[h];break;}}return i < s ? -1 : s < i ? 1 : 0;}, u.prototype.includes = function (t, e, r) {return -1 !== this.indexOf(t, e, r);}, u.prototype.indexOf = function (t, e, r) {return g(this, t, e, r, !0);}, u.prototype.lastIndexOf = function (t, e, r) {return g(this, t, e, r, !1);}, u.prototype.write = function (t, e, r, n) {if (void 0 === e) n = "utf8", r = this.length, e = 0;else if (void 0 === r && "string" == typeof e) n = e, r = this.length, e = 0;else {if (!isFinite(e)) throw new Error("Buffer.write(string, encoding, offset[, length]) is no longer supported");e |= 0, isFinite(r) ? (r |= 0, void 0 === n && (n = "utf8")) : (n = r, r = void 0);}var o = this.length - e;if ((void 0 === r || r > o) && (r = o), t.length > 0 && (r < 0 || e < 0) || e > this.length) throw new RangeError("Attempt to write outside buffer bounds");n || (n = "utf8");for (var i = !1;;) {switch (n) {case "hex":return b(this, t, e, r);case "utf8":case "utf-8":return m(this, t, e, r);case "ascii":return w(this, t, e, r);case "latin1":case "binary":return A(this, t, e, r);case "base64":return _(this, t, e, r);case "ucs2":case "ucs-2":case "utf16le":case "utf-16le":return E(this, t, e, r);default:if (i) throw new TypeError("Unknown encoding: " + n);n = ("" + n).toLowerCase(), i = !0;}}}, u.prototype.toJSON = function () {return { type: "Buffer", data: Array.prototype.slice.call(this._arr || this, 0) };};var R = 4096;function P(t, e, r) {var n = "";r = Math.min(t.length, r);for (var o = e; o < r; ++o) {n += String.fromCharCode(127 & t[o]);}return n;}function S(t, e, r) {var n = "";r = Math.min(t.length, r);for (var o = e; o < r; ++o) {n += String.fromCharCode(t[o]);}return n;}function T(t, e, r) {var n = t.length;(!e || e < 0) && (e = 0), (!r || r < 0 || r > n) && (r = n);for (var o = "", i = e; i < r; ++i) {o += D(t[i]);}return o;}function O(t, e, r) {for (var n = t.slice(e, r), o = "", i = 0; i < n.length; i += 2) {o += String.fromCharCode(n[i] + 256 * n[i + 1]);}return o;}function x(t, e, r) {if (t % 1 != 0 || t < 0) throw new RangeError("offset is not uint");if (t + e > r) throw new RangeError("Trying to access beyond buffer length");}function C(t, e, r, n, o, i) {if (!u.isBuffer(t)) throw new TypeError('"buffer" argument must be a Buffer instance');if (e > o || e < i) throw new RangeError('"value" argument is out of bounds');if (r + n > t.length) throw new RangeError("Index out of range");}function U(t, e, r, n) {e < 0 && (e = 65535 + e + 1);for (var o = 0, i = Math.min(t.length - r, 2); o < i; ++o) {t[r + o] = (e & 255 << 8 * (n ? o : 1 - o)) >>> 8 * (n ? o : 1 - o);}}function L(t, e, r, n) {e < 0 && (e = 4294967295 + e + 1);for (var o = 0, i = Math.min(t.length - r, 4); o < i; ++o) {t[r + o] = e >>> 8 * (n ? o : 3 - o) & 255;}}function I(t, e, r, n, o, i) {if (r + n > t.length) throw new RangeError("Index out of range");if (r < 0) throw new RangeError("Index out of range");}function N(t, e, r, n, i) {return i || I(t, 0, r, 4), o.write(t, e, r, n, 23, 4), r + 4;}function M(t, e, r, n, i) {return i || I(t, 0, r, 8), o.write(t, e, r, n, 52, 8), r + 8;}u.prototype.slice = function (t, e) {var r,n = this.length;if (t = ~~t, e = void 0 === e ? n : ~~e, t < 0 ? (t += n) < 0 && (t = 0) : t > n && (t = n), e < 0 ? (e += n) < 0 && (e = 0) : e > n && (e = n), e < t && (e = t), u.TYPED_ARRAY_SUPPORT) (r = this.subarray(t, e)).__proto__ = u.prototype;else {var o = e - t;r = new u(o, void 0);for (var i = 0; i < o; ++i) {r[i] = this[i + t];}}return r;}, u.prototype.readUIntLE = function (t, e, r) {t |= 0, e |= 0, r || x(t, e, this.length);for (var n = this[t], o = 1, i = 0; ++i < e && (o *= 256);) {n += this[t + i] * o;}return n;}, u.prototype.readUIntBE = function (t, e, r) {t |= 0, e |= 0, r || x(t, e, this.length);for (var n = this[t + --e], o = 1; e > 0 && (o *= 256);) {n += this[t + --e] * o;}return n;}, u.prototype.readUInt8 = function (t, e) {return e || x(t, 1, this.length), this[t];}, u.prototype.readUInt16LE = function (t, e) {return e || x(t, 2, this.length), this[t] | this[t + 1] << 8;}, u.prototype.readUInt16BE = function (t, e) {return e || x(t, 2, this.length), this[t] << 8 | this[t + 1];}, u.prototype.readUInt32LE = function (t, e) {return e || x(t, 4, this.length), (this[t] | this[t + 1] << 8 | this[t + 2] << 16) + 16777216 * this[t + 3];}, u.prototype.readUInt32BE = function (t, e) {return e || x(t, 4, this.length), 16777216 * this[t] + (this[t + 1] << 16 | this[t + 2] << 8 | this[t + 3]);}, u.prototype.readIntLE = function (t, e, r) {t |= 0, e |= 0, r || x(t, e, this.length);for (var n = this[t], o = 1, i = 0; ++i < e && (o *= 256);) {n += this[t + i] * o;}return n >= (o *= 128) && (n -= Math.pow(2, 8 * e)), n;}, u.prototype.readIntBE = function (t, e, r) {t |= 0, e |= 0, r || x(t, e, this.length);for (var n = e, o = 1, i = this[t + --n]; n > 0 && (o *= 256);) {i += this[t + --n] * o;}return i >= (o *= 128) && (i -= Math.pow(2, 8 * e)), i;}, u.prototype.readInt8 = function (t, e) {return e || x(t, 1, this.length), 128 & this[t] ? -1 * (255 - this[t] + 1) : this[t];}, u.prototype.readInt16LE = function (t, e) {e || x(t, 2, this.length);var r = this[t] | this[t + 1] << 8;return 32768 & r ? 4294901760 | r : r;}, u.prototype.readInt16BE = function (t, e) {e || x(t, 2, this.length);var r = this[t + 1] | this[t] << 8;return 32768 & r ? 4294901760 | r : r;}, u.prototype.readInt32LE = function (t, e) {return e || x(t, 4, this.length), this[t] | this[t + 1] << 8 | this[t + 2] << 16 | this[t + 3] << 24;}, u.prototype.readInt32BE = function (t, e) {return e || x(t, 4, this.length), this[t] << 24 | this[t + 1] << 16 | this[t + 2] << 8 | this[t + 3];}, u.prototype.readFloatLE = function (t, e) {return e || x(t, 4, this.length), o.read(this, t, !0, 23, 4);}, u.prototype.readFloatBE = function (t, e) {return e || x(t, 4, this.length), o.read(this, t, !1, 23, 4);}, u.prototype.readDoubleLE = function (t, e) {return e || x(t, 8, this.length), o.read(this, t, !0, 52, 8);}, u.prototype.readDoubleBE = function (t, e) {return e || x(t, 8, this.length), o.read(this, t, !1, 52, 8);}, u.prototype.writeUIntLE = function (t, e, r, n) {t = +t, e |= 0, r |= 0, n || C(this, t, e, r, Math.pow(2, 8 * r) - 1, 0);var o = 1,i = 0;for (this[e] = 255 & t; ++i < r && (o *= 256);) {this[e + i] = t / o & 255;}return e + r;}, u.prototype.writeUIntBE = function (t, e, r, n) {t = +t, e |= 0, r |= 0, n || C(this, t, e, r, Math.pow(2, 8 * r) - 1, 0);var o = r - 1,i = 1;for (this[e + o] = 255 & t; --o >= 0 && (i *= 256);) {this[e + o] = t / i & 255;}return e + r;}, u.prototype.writeUInt8 = function (t, e, r) {return t = +t, e |= 0, r || C(this, t, e, 1, 255, 0), u.TYPED_ARRAY_SUPPORT || (t = Math.floor(t)), this[e] = 255 & t, e + 1;}, u.prototype.writeUInt16LE = function (t, e, r) {return t = +t, e |= 0, r || C(this, t, e, 2, 65535, 0), u.TYPED_ARRAY_SUPPORT ? (this[e] = 255 & t, this[e + 1] = t >>> 8) : U(this, t, e, !0), e + 2;}, u.prototype.writeUInt16BE = function (t, e, r) {return t = +t, e |= 0, r || C(this, t, e, 2, 65535, 0), u.TYPED_ARRAY_SUPPORT ? (this[e] = t >>> 8, this[e + 1] = 255 & t) : U(this, t, e, !1), e + 2;}, u.prototype.writeUInt32LE = function (t, e, r) {return t = +t, e |= 0, r || C(this, t, e, 4, 4294967295, 0), u.TYPED_ARRAY_SUPPORT ? (this[e + 3] = t >>> 24, this[e + 2] = t >>> 16, this[e + 1] = t >>> 8, this[e] = 255 & t) : L(this, t, e, !0), e + 4;}, u.prototype.writeUInt32BE = function (t, e, r) {return t = +t, e |= 0, r || C(this, t, e, 4, 4294967295, 0), u.TYPED_ARRAY_SUPPORT ? (this[e] = t >>> 24, this[e + 1] = t >>> 16, this[e + 2] = t >>> 8, this[e + 3] = 255 & t) : L(this, t, e, !1), e + 4;}, u.prototype.writeIntLE = function (t, e, r, n) {if (t = +t, e |= 0, !n) {var o = Math.pow(2, 8 * r - 1);C(this, t, e, r, o - 1, -o);}var i = 0,s = 1,a = 0;for (this[e] = 255 & t; ++i < r && (s *= 256);) {t < 0 && 0 === a && 0 !== this[e + i - 1] && (a = 1), this[e + i] = (t / s >> 0) - a & 255;}return e + r;}, u.prototype.writeIntBE = function (t, e, r, n) {if (t = +t, e |= 0, !n) {var o = Math.pow(2, 8 * r - 1);C(this, t, e, r, o - 1, -o);}var i = r - 1,s = 1,a = 0;for (this[e + i] = 255 & t; --i >= 0 && (s *= 256);) {t < 0 && 0 === a && 0 !== this[e + i + 1] && (a = 1), this[e + i] = (t / s >> 0) - a & 255;}return e + r;}, u.prototype.writeInt8 = function (t, e, r) {return t = +t, e |= 0, r || C(this, t, e, 1, 127, -128), u.TYPED_ARRAY_SUPPORT || (t = Math.floor(t)), t < 0 && (t = 255 + t + 1), this[e] = 255 & t, e + 1;}, u.prototype.writeInt16LE = function (t, e, r) {return t = +t, e |= 0, r || C(this, t, e, 2, 32767, -32768), u.TYPED_ARRAY_SUPPORT ? (this[e] = 255 & t, this[e + 1] = t >>> 8) : U(this, t, e, !0), e + 2;}, u.prototype.writeInt16BE = function (t, e, r) {return t = +t, e |= 0, r || C(this, t, e, 2, 32767, -32768), u.TYPED_ARRAY_SUPPORT ? (this[e] = t >>> 8, this[e + 1] = 255 & t) : U(this, t, e, !1), e + 2;}, u.prototype.writeInt32LE = function (t, e, r) {return t = +t, e |= 0, r || C(this, t, e, 4, 2147483647, -2147483648), u.TYPED_ARRAY_SUPPORT ? (this[e] = 255 & t, this[e + 1] = t >>> 8, this[e + 2] = t >>> 16, this[e + 3] = t >>> 24) : L(this, t, e, !0), e + 4;}, u.prototype.writeInt32BE = function (t, e, r) {return t = +t, e |= 0, r || C(this, t, e, 4, 2147483647, -2147483648), t < 0 && (t = 4294967295 + t + 1), u.TYPED_ARRAY_SUPPORT ? (this[e] = t >>> 24, this[e + 1] = t >>> 16, this[e + 2] = t >>> 8, this[e + 3] = 255 & t) : L(this, t, e, !1), e + 4;}, u.prototype.writeFloatLE = function (t, e, r) {return N(this, t, e, !0, r);}, u.prototype.writeFloatBE = function (t, e, r) {return N(this, t, e, !1, r);}, u.prototype.writeDoubleLE = function (t, e, r) {return M(this, t, e, !0, r);}, u.prototype.writeDoubleBE = function (t, e, r) {return M(this, t, e, !1, r);}, u.prototype.copy = function (t, e, r, n) {if (r || (r = 0), n || 0 === n || (n = this.length), e >= t.length && (e = t.length), e || (e = 0), n > 0 && n < r && (n = r), n === r) return 0;if (0 === t.length || 0 === this.length) return 0;if (e < 0) throw new RangeError("targetStart out of bounds");if (r < 0 || r >= this.length) throw new RangeError("sourceStart out of bounds");if (n < 0) throw new RangeError("sourceEnd out of bounds");n > this.length && (n = this.length), t.length - e < n - r && (n = t.length - e + r);var o,i = n - r;if (this === t && r < e && e < n) for (o = i - 1; o >= 0; --o) {t[o + e] = this[o + r];} else if (i < 1e3 || !u.TYPED_ARRAY_SUPPORT) for (o = 0; o < i; ++o) {t[o + e] = this[o + r];} else Uint8Array.prototype.set.call(t, this.subarray(r, r + i), e);return i;}, u.prototype.fill = function (t, e, r, n) {if ("string" == typeof t) {if ("string" == typeof e ? (n = e, e = 0, r = this.length) : "string" == typeof r && (n = r, r = this.length), 1 === t.length) {var o = t.charCodeAt(0);o < 256 && (t = o);}if (void 0 !== n && "string" != typeof n) throw new TypeError("encoding must be a string");if ("string" == typeof n && !u.isEncoding(n)) throw new TypeError("Unknown encoding: " + n);} else "number" == typeof t && (t &= 255);if (e < 0 || this.length < e || this.length < r) throw new RangeError("Out of range index");if (r <= e) return this;var i;if (e >>>= 0, r = void 0 === r ? this.length : r >>> 0, t || (t = 0), "number" == typeof t) for (i = e; i < r; ++i) {this[i] = t;} else {var s = u.isBuffer(t) ? t : j(new u(t, n).toString()),a = s.length;for (i = 0; i < r - e; ++i) {this[i + e] = s[i % a];}}return this;};var Y = /[^+\/0-9A-Za-z-_]/g;function D(t) {return t < 16 ? "0" + t.toString(16) : t.toString(16);}function j(t, e) {var r;e = e || 1 / 0;for (var n = t.length, o = null, i = [], s = 0; s < n; ++s) {if ((r = t.charCodeAt(s)) > 55295 && r < 57344) {if (!o) {if (r > 56319) {(e -= 3) > -1 && i.push(239, 191, 189);continue;}if (s + 1 === n) {(e -= 3) > -1 && i.push(239, 191, 189);continue;}o = r;continue;}if (r < 56320) {(e -= 3) > -1 && i.push(239, 191, 189), o = r;continue;}r = 65536 + (o - 55296 << 10 | r - 56320);} else o && (e -= 3) > -1 && i.push(239, 191, 189);if (o = null, r < 128) {if ((e -= 1) < 0) break;i.push(r);} else if (r < 2048) {if ((e -= 2) < 0) break;i.push(r >> 6 | 192, 63 & r | 128);} else if (r < 65536) {if ((e -= 3) < 0) break;i.push(r >> 12 | 224, r >> 6 & 63 | 128, 63 & r | 128);} else {if (!(r < 1114112)) throw new Error("Invalid code point");if ((e -= 4) < 0) break;i.push(r >> 18 | 240, r >> 12 & 63 | 128, r >> 6 & 63 | 128, 63 & r | 128);}}return i;}function q(t) {return n.toByteArray(function (t) {if ((t = function (t) {return t.trim ? t.trim() : t.replace(/^\s+|\s+$/g, "");}(t).replace(Y, "")).length < 2) return "";for (; t.length % 4 != 0;) {t += "=";}return t;}(t));}function F(t, e, r, n) {for (var o = 0; o < n && !(o + r >= e.length || o >= t.length); ++o) {e[o + r] = t[o];}return o;}}).call(this, r(0));}, function (t, e, r) {(function (e) {var n = r(20),o = Object.prototype.toString,i = "function" == typeof Blob || "undefined" != typeof Blob && "[object BlobConstructor]" === o.call(Blob),s = "function" == typeof File || "undefined" != typeof File && "[object FileConstructor]" === o.call(File);t.exports = function t(r) {if (!r || "object" != typeof r) return !1;if (n(r)) {for (var o = 0, a = r.length; o < a; o++) {if (t(r[o])) return !0;}return !1;}if ("function" == typeof e && e.isBuffer && e.isBuffer(r) || "function" == typeof ArrayBuffer && r instanceof ArrayBuffer || i && r instanceof Blob || s && r instanceof File) return !0;if (r.toJSON && "function" == typeof r.toJSON && 1 === arguments.length) return t(r.toJSON(), !0);for (var u in r) {if (Object.prototype.hasOwnProperty.call(r, u) && t(r[u])) return !0;}return !1;};}).call(this, r(24).Buffer);}, function (t, e) {t.exports = Object.keys || function (t) {var e = [],r = Object.prototype.hasOwnProperty;for (var n in t) {r.call(t, n) && e.push(n);}return e;};}, function (t, e, r) {(function (e) {var n,o = r(5),i = r(1),s = r(3),a = r(13),u = r(12),c = r(2)("engine.io-client:websocket"),f = e.WebSocket || e.MozWebSocket;if ("undefined" == typeof window) try {n = r(11);} catch (t) {c("require error: ", t);}var h = f;function p(t) {t && t.forceBase64 && (this.supportsBinary = !1), this.perMessageDeflate = t.perMessageDeflate, this.usingBrowserWebSocket = f && !t.forceNode, this.protocols = t.protocols, this.usingBrowserWebSocket || (h = n), o.call(this, t);}h || "undefined" != typeof window || (h = n), t.exports = p, a(p, o), p.prototype.name = "websocket", p.prototype.supportsBinary = !0, p.prototype.doOpen = function () {if (c("wesocket do open: ", this.protocols), this.check()) {var t = this.uri(),e = this.protocols,r = { agent: this.agent, perMessageDeflate: this.perMessageDeflate };r.pfx = this.pfx, r.key = this.key, r.passphrase = this.passphrase, r.cert = this.cert, r.ca = this.ca, r.ciphers = this.ciphers, r.rejectUnauthorized = this.rejectUnauthorized, this.extraHeaders && (r.headers = this.extraHeaders), this.localAddress && (r.localAddress = this.localAddress);try {this.ws = this.usingBrowserWebSocket ? e ? new h(t, e) : new h(t) : new h(t, e, r);} catch (t) {return this.emit("error", t);}void 0 === this.ws.binaryType && (this.supportsBinary = !1), this.ws.supports && this.ws.supports.binary ? (this.supportsBinary = !0, this.ws.binaryType = "nodebuffer") : this.ws.binaryType = "arraybuffer", this.addEventListeners();}}, p.prototype.addEventListeners = function () {var t = this;this.ws.onopen = function () {t.onOpen();}, this.ws.onclose = function () {t.onClose();}, this.ws.onmessage = function (e) {t.onData(e.data);}, this.ws.onerror = function (e) {t.onError("websocket error", e);};}, p.prototype.write = function (t) {var e = this;this.writable = !1;for (var r, n = t.length, o = 0, s = n; o < s; o++) {r = t[o], i.encodePacket(r, e.supportsBinary, function (t) {try {e.ws.send(t);} catch (t) {}--n || (e.emit("flush"), setTimeout(function () {e.writable = !0, e.emit("drain");}, 0));});}}, p.prototype.onClose = function () {o.prototype.onClose.call(this);}, p.prototype.doClose = function () {void 0 !== this.ws && this.ws.close();}, p.prototype.uri = function () {var t = this.query || {},e = this.secure ? "wss" : "ws",r = "";return this.port && ("wss" === e && 443 !== Number(this.port) || "ws" === e && 80 !== Number(this.port)) && (r = ":" + this.port), this.timestampRequests && (t[this.timestampParam] = u()), this.supportsBinary || (t.b64 = 1), (t = s.encode(t)).length && (t = "?" + t), e + "://" + (-1 !== this.hostname.indexOf(":") ? "[" + this.hostname + "]" : this.hostname) + r + this.path + t;}, p.prototype.check = function () {return !(!h || "__initialize" in h && this.name === p.prototype.name);};}).call(this, r(0));}, function (t, e, r) {(function (e) {var n = r(6),o = r(4),i = r(2)("engine.io-client:socket"),s = r(8),a = r(1),u = r(7),c = r(3);function f(t, r) {if (!(this instanceof f)) return new f(t, r);r = r || {}, t && "object" == typeof t && (r = t, t = null), t ? (t = u(t), r.hostname = t.host, r.secure = "https" === t.protocol || "wss" === t.protocol, r.port = t.port, t.query && (r.query = t.query)) : r.host && (r.hostname = u(r.host).host), this.secure = null != r.secure ? r.secure : e.location && "https:" === location.protocol, r.hostname && !r.port && (r.port = this.secure ? "443" : "80"), this.agent = r.agent || !1, this.hostname = r.hostname || (e.location ? location.hostname : "localhost"), this.port = r.port || (e.location && location.port ? location.port : this.secure ? 443 : 80), this.query = r.query || {}, "string" == typeof this.query && (this.query = c.decode(this.query)), this.upgrade = !1 !== r.upgrade, this.path = (r.path || "/engine.io").replace(/\/$/, "") + "/", this.forceJSONP = !!r.forceJSONP, this.jsonp = !1 !== r.jsonp, this.forceBase64 = !!r.forceBase64, this.enablesXDR = !!r.enablesXDR, this.timestampParam = r.timestampParam || "t", this.timestampRequests = r.timestampRequests, this.transports = r.transports || ["websocket"], this.transportOptions = r.transportOptions || {}, this.readyState = "", this.writeBuffer = [], this.prevBufferLen = 0, this.policyPort = r.policyPort || 843, this.rememberUpgrade = r.rememberUpgrade || !1, this.binaryType = null, this.onlyBinaryUpgrades = r.onlyBinaryUpgrades, this.perMessageDeflate = !1 !== r.perMessageDeflate && (r.perMessageDeflate || {}), !0 === this.perMessageDeflate && (this.perMessageDeflate = {}), this.perMessageDeflate && null == this.perMessageDeflate.threshold && (this.perMessageDeflate.threshold = 1024), this.pfx = r.pfx || null, this.key = r.key || null, this.passphrase = r.passphrase || null, this.cert = r.cert || null, this.ca = r.ca || null, this.ciphers = r.ciphers || null, this.rejectUnauthorized = void 0 === r.rejectUnauthorized || r.rejectUnauthorized, this.forceNode = !!r.forceNode;var n = "object" == typeof e && e;n.global === n && (r.extraHeaders && Object.keys(r.extraHeaders).length > 0 && (this.extraHeaders = r.extraHeaders), r.localAddress && (this.localAddress = r.localAddress)), this.id = null, this.upgrades = null, this.pingInterval = null, this.pingTimeout = null, this.pingIntervalTimer = null, this.pingTimeoutTimer = null, this.open();}t.exports = f, f.priorWebsocketSuccess = !1, o(f.prototype), f.protocol = a.protocol, f.Socket = f, f.Transport = r(5), f.transports = r(6), f.parser = r(1), f.prototype.createTransport = function (t) {i('creating transport "%s"', t);var e = function (t) {var e = {};for (var r in t) {t.hasOwnProperty(r) && (e[r] = t[r]);}return e;}(this.query);e.EIO = a.protocol, e.transport = t;var r = this.transportOptions[t] || {};this.id && (e.sid = this.id);var o = new n[t]({ query: e, socket: this, agent: r.agent || this.agent, hostname: r.hostname || this.hostname, port: r.port || this.port, secure: r.secure || this.secure, path: r.path || this.path, forceJSONP: r.forceJSONP || this.forceJSONP, jsonp: r.jsonp || this.jsonp, forceBase64: r.forceBase64 || this.forceBase64, enablesXDR: r.enablesXDR || this.enablesXDR, timestampRequests: r.timestampRequests || this.timestampRequests, timestampParam: r.timestampParam || this.timestampParam, policyPort: r.policyPort || this.policyPort, pfx: r.pfx || this.pfx, key: r.key || this.key, passphrase: r.passphrase || this.passphrase, cert: r.cert || this.cert, ca: r.ca || this.ca, ciphers: r.ciphers || this.ciphers, rejectUnauthorized: r.rejectUnauthorized || this.rejectUnauthorized, perMessageDeflate: r.perMessageDeflate || this.perMessageDeflate, extraHeaders: r.extraHeaders || this.extraHeaders, forceNode: r.forceNode || this.forceNode, localAddress: r.localAddress || this.localAddress, requestTimeout: r.requestTimeout || this.requestTimeout, protocols: r.protocols || void 0 });return i("transport: ", o), o;}, f.prototype.open = function () {var t;if (this.rememberUpgrade && f.priorWebsocketSuccess && -1 !== this.transports.indexOf("websocket")) t = "websocket";else {if (0 === this.transports.length) {var e = this;return void setTimeout(function () {e.emit("error", "No transports available");}, 0);}t = this.transports[0];}this.readyState = "opening";try {t = this.createTransport(t);} catch (t) {return this.transports.shift(), void this.open();}t.open(), this.setTransport(t);}, f.prototype.setTransport = function (t) {i("setting transport %s", t.name);var e = this;this.transport && (i("clearing existing transport %s", this.transport.name), this.transport.removeAllListeners()), this.transport = t, t.on("drain", function () {e.onDrain();}).on("packet", function (t) {e.onPacket(t);}).on("error", function (t) {e.onError(t);}).on("close", function () {e.onClose("transport close");});}, f.prototype.probe = function (t) {i('probing transport "%s"', t);var e = this.createTransport(t, { probe: 1 }),r = !1,n = this;function o() {if (n.onlyBinaryUpgrades) {var o = !this.supportsBinary && n.transport.supportsBinary;r = r || o;}r || (i('probe transport "%s" opened', t), e.send([{ type: "ping", data: "probe" }]), e.once("packet", function (o) {if (!r) if ("pong" === o.type && "probe" === o.data) {if (i('probe transport "%s" pong', t), n.upgrading = !0, n.emit("upgrading", e), !e) return;f.priorWebsocketSuccess = "websocket" === e.name, i('pausing current transport "%s"', n.transport.name), n.transport.pause(function () {r || "closed" !== n.readyState && (i("changing transport and sending upgrade packet"), p(), n.setTransport(e), e.send([{ type: "upgrade" }]), n.emit("upgrade", e), e = null, n.upgrading = !1, n.flush());});} else {i('probe transport "%s" failed', t);var s = new Error("probe error");s.transport = e.name, n.emit("upgradeError", s);}}));}function s() {r || (r = !0, p(), e.close(), e = null);}function a(r) {var o = new Error("probe error: " + r);o.transport = e.name, s(), i('probe transport "%s" failed because of error: %s', t, r), n.emit("upgradeError", o);}function u() {a("transport closed");}function c() {a("socket closed");}function h(t) {e && t.name !== e.name && (i('"%s" works - aborting "%s"', t.name, e.name), s());}function p() {e.removeListener("open", o), e.removeListener("error", a), e.removeListener("close", u), n.removeListener("close", c), n.removeListener("upgrading", h);}f.priorWebsocketSuccess = !1, e.once("open", o), e.once("error", a), e.once("close", u), this.once("close", c), this.once("upgrading", h), e.open();}, f.prototype.onOpen = function () {if (i("socket open"), this.readyState = "open", f.priorWebsocketSuccess = "websocket" === this.transport.name, this.emit("open"), this.flush(), "open" === this.readyState && this.upgrade && this.transport.pause) {i("starting upgrade probes");for (var t = 0, e = this.upgrades.length; t < e; t++) {this.probe(this.upgrades[t]);}}}, f.prototype.onPacket = function (t) {if ("opening" === this.readyState || "open" === this.readyState || "closing" === this.readyState) switch (i('socket receive: type "%s", data "%s"', t.type, t.data), this.emit("packet", t), this.emit("heartbeat"), t.type) {case "open":this.onHandshake(JSON.parse(t.data));break;case "pong":this.setPing(), this.emit("pong");break;case "error":var e = new Error("server error");e.code = t.data, this.onError(e);break;case "message":this.emit("data", t.data), this.emit("message", t.data);} else i('packet received with socket readyState "%s"', this.readyState);}, f.prototype.onHandshake = function (t) {this.emit("handshake", t), this.id = t.sid, this.transport.query.sid = t.sid, this.upgrades = this.filterUpgrades(t.upgrades), this.pingInterval = t.pingInterval, this.pingTimeout = t.pingTimeout, this.onOpen(), "closed" !== this.readyState && (this.setPing(), this.removeListener("heartbeat", this.onHeartbeat), this.on("heartbeat", this.onHeartbeat));}, f.prototype.onHeartbeat = function (t) {clearTimeout(this.pingTimeoutTimer);var e = this;e.pingTimeoutTimer = setTimeout(function () {"closed" !== e.readyState && e.onClose("ping timeout");}, t || e.pingInterval + e.pingTimeout);}, f.prototype.setPing = function () {var t = this;clearTimeout(t.pingIntervalTimer), t.pingIntervalTimer = setTimeout(function () {i("writing ping packet - expecting pong within %sms", t.pingTimeout), t.ping(), t.onHeartbeat(t.pingTimeout);}, t.pingInterval);}, f.prototype.ping = function () {var t = this;this.sendPacket("ping", function () {t.emit("ping");});}, f.prototype.onDrain = function () {this.writeBuffer.splice(0, this.prevBufferLen), this.prevBufferLen = 0, 0 === this.writeBuffer.length ? this.emit("drain") : this.flush();}, f.prototype.flush = function () {"closed" !== this.readyState && this.transport.writable && !this.upgrading && this.writeBuffer.length && (i("flushing %d packets in socket", this.writeBuffer.length), this.transport.send(this.writeBuffer), this.prevBufferLen = this.writeBuffer.length, this.emit("flush"));}, f.prototype.write = f.prototype.send = function (t, e, r) {return this.sendPacket("message", t, e, r), this;}, f.prototype.sendPacket = function (t, e, r, n) {if ("function" == typeof e && (n = e, e = void 0), "function" == typeof r && (n = r, r = null), "closing" !== this.readyState && "closed" !== this.readyState) {(r = r || {}).compress = !1 !== r.compress;var o = { type: t, data: e, options: r };this.emit("packetCreate", o), this.writeBuffer.push(o), n && this.once("flush", n), this.flush();}}, f.prototype.close = function () {if ("opening" === this.readyState || "open" === this.readyState) {this.readyState = "closing";var t = this;this.writeBuffer.length ? this.once("drain", function () {this.upgrading ? n() : e();}) : this.upgrading ? n() : e();}function e() {t.onClose("forced close"), i("socket closing - telling transport to close"), t.transport.close();}function r() {t.removeListener("upgrade", r), t.removeListener("upgradeError", r), e();}function n() {t.once("upgrade", r), t.once("upgradeError", r);}return this;}, f.prototype.onError = function (t) {i("socket error %j", t), f.priorWebsocketSuccess = !1, this.emit("error", t), this.onClose("transport error", t);}, f.prototype.onClose = function (t, e) {"opening" !== this.readyState && "open" !== this.readyState && "closing" !== this.readyState || (i('socket close with reason: "%s"', t), clearTimeout(this.pingIntervalTimer), clearTimeout(this.pingTimeoutTimer), this.transport.removeAllListeners("close"), this.transport.close(), this.transport.removeAllListeners(), this.readyState = "closed", this.id = null, this.emit("close", t, e), this.writeBuffer = [], this.prevBufferLen = 0);}, f.prototype.filterUpgrades = function (t) {for (var e = [], r = 0, n = t.length; r < n; r++) {~s(this.transports, t[r]) && e.push(t[r]);}return e;};}).call(this, r(0));}, function (t, e, r) {t.exports = r(28), t.exports.parser = r(1);}]);}, function (t, e, r) {(function (t) {var n = r(2),o = r(9),i = Object.prototype.toString,s = "function" == typeof t.Blob || "[object BlobConstructor]" === i.call(t.Blob),a = "function" == typeof t.File || "[object FileConstructor]" === i.call(t.File);e.deconstructPacket = function (t) {var e = [],r = t.data,i = t;return i.data = function t(e, r) {if (!e) return e;if (o(e)) {var i = { _placeholder: !0, num: r.length };return r.push(e), i;}if (n(e)) {for (var s = new Array(e.length), a = 0; a < e.length; a++) {s[a] = t(e[a], r);}return s;}if ("object" == typeof e && !(e instanceof Date)) {var s = {};for (var u in e) {s[u] = t(e[u], r);}return s;}return e;}(r, e), i.attachments = e.length, { packet: i, buffers: e };}, e.reconstructPacket = function (t, e) {return t.data = function t(e, r) {if (!e) return e;if (e && e._placeholder) return r[e.num];if (n(e)) for (var o = 0; o < e.length; o++) {e[o] = t(e[o], r);} else if ("object" == typeof e) for (var i in e) {e[i] = t(e[i], r);}return e;}(t.data, e), t.attachments = void 0, t;}, e.removeBlobs = function (t, e) {var r = 0,i = t;!function t(u, c, f) {if (!u) return u;if (s && u instanceof Blob || a && u instanceof File) {r++;var h = new FileReader();h.onload = function () {f ? f[c] = this.result : i = this.result, --r || e(i);}, h.readAsArrayBuffer(u);} else if (n(u)) for (var p = 0; p < u.length; p++) {t(u[p], p, u);} else if ("object" == typeof u && !o(u)) for (var l in u) {t(u[l], l, u);}}(i), r || e(i);};}).call(this, r(1));}, function (t, e) {var r = /^(?:(?![^:@]+:[^:@\/]*@)(http|https|ws|wss):\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?((?:[a-f0-9]{0,4}:){2,7}[a-f0-9]{0,4}|[^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/,n = ["source", "protocol", "authority", "userInfo", "user", "password", "host", "port", "relative", "path", "directory", "file", "query", "anchor"];t.exports = function (t) {var e = t,o = t.indexOf("["),i = t.indexOf("]");-1 != o && -1 != i && (t = t.substring(0, o) + t.substring(o, i).replace(/:/g, ";") + t.substring(i, t.length));for (var s = r.exec(t || ""), a = {}, u = 14; u--;) {a[n[u]] = s[u] || "";}return -1 != o && -1 != i && (a.source = e, a.host = a.host.substring(1, a.host.length - 1).replace(/;/g, ":"), a.authority = a.authority.replace("[", "").replace("]", "").replace(/;/g, ":"), a.ipv6uri = !0), a;};}, function (t, e, r) {(function (e) {var n = r(21),o = r(0)("socket.io-client:url");t.exports = function (t, r) {var i = t;r = r || e.location, null == t && (t = r.protocol + "//" + r.host);"string" == typeof t && ("/" === t.charAt(0) && (t = "/" === t.charAt(1) ? r.protocol + t : r.host + t), /^(https?|wss?):\/\//.test(t) || (o("protocol-less url %s", t), t = void 0 !== r ? r.protocol + "//" + t : "https://" + t), o("parse %s", t), i = n(t));i.port || (/^(http|ws)$/.test(i.protocol) ? i.port = "80" : /^(http|ws)s$/.test(i.protocol) && (i.port = "443"));i.path = i.path || "/";var s = -1 !== i.host.indexOf(":") ? "[" + i.host + "]" : i.host;return i.id = i.protocol + "://" + s + ":" + i.port, i.href = i.protocol + "://" + s + (r && r.port === i.port ? "" : ":" + i.port), i;};}).call(this, r(1));}, function (t, e, r) {var n = r(22),o = r(4),i = r(8),s = r(0)("socket.io-client");t.exports = e = u;var a = e.managers = {};function u(t, e) {"object" == typeof t && (e = t, t = void 0), e = e || {};var r,o = n(t),u = o.source,c = o.id,f = o.path,h = a[c] && f in a[c].nsps;return e.forceNew || e["force new connection"] || !1 === e.multiplex || h ? (s("ignoring socket cache for %s", u), r = i(u, e)) : (a[c] || (s("new io instance for %s", u), a[c] = i(u, e)), r = a[c]), o.query && !e.query && (e.query = o.query), r.socket(o.path, e);}e.protocol = o.protocol, e.connect = u, e.Manager = r(8), e.Socket = r(7);}, function (t, e, r) {t.exports = r(23);}]);});
 
 /***/ }),
-/* 13 */,
-/* 14 */,
-/* 15 */
-/*!********************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode /* vue-cli only */
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-/* 16 */
-/*!***************************************************************************************!*\
-  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-doctor/common/util.js ***!
-  \***************************************************************************************/
+/***/ 87:
+/*!**********************************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Fmessage_info%2Fmessage_info"} ***!
+  \**********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {var _index = __webpack_require__(/*! ../config/index.js */ 17);
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
-
-
-function formatTime(time) {
-  if (typeof time !== 'number' || time < 0) {
-    return time;
-  }
-
-  var hour = parseInt(time / 3600);
-  time = time % 3600;
-  var minute = parseInt(time / 60);
-  time = time % 60;
-  var second = time;
-
-  return [hour, minute, second].map(function (n) {
-    n = n.toString();
-    return n[1] ? n : '0' + n;
-  }).join(':');
-}
-
-function formatLocation(longitude, latitude) {
-  if (typeof longitude === 'string' && typeof latitude === 'string') {
-    longitude = parseFloat(longitude);
-    latitude = parseFloat(latitude);
-  }
-
-  longitude = longitude.toFixed(2);
-  latitude = latitude.toFixed(2);
-
-  return {
-    longitude: longitude.toString().split('.'),
-    latitude: latitude.toString().split('.') };
-
-}
-var dateUtils = {
-  UNITS: {
-    '年': 31557600000,
-    '月': 2629800000,
-    '天': 86400000,
-    '小时': 3600000,
-    '分钟': 60000,
-    '秒': 1000 },
-
-  humanize: function humanize(milliseconds) {
-    var humanize = '';
-    for (var key in this.UNITS) {
-      if (milliseconds >= this.UNITS[key]) {
-        humanize = Math.floor(milliseconds / this.UNITS[key]) + key + '前';
-        break;
-      }
-    }
-    return humanize || '刚刚';
-  },
-  format: function format(dateStr) {
-    var date = this.parse(dateStr);
-    var diff = Date.now() - date.getTime();
-    if (diff < this.UNITS['天']) {
-      return this.humanize(diff);
-    }
-    var _format = function _format(number) {
-      return number < 10 ? '0' + number : number;
-    };
-    return date.getFullYear() + '/' + _format(date.getMonth() + 1) + '/' + _format(date.getDay()) + '-' +
-    _format(date.getHours()) + ':' + _format(date.getMinutes());
-  },
-  parse: function parse(str) {//将"yyyy-mm-dd HH:MM:ss"格式的字符串，转化为一个Date对象
-    var a = str.split(/[^0-9]/);
-    return new Date(a[0], a[1] - 1, a[2], a[3], a[4], a[5]);
-  },
-  dateFormat: function dateFormat(dateStr) {
-    var date = new Date(dateStr);
-    var _format = function _format(number) {
-      return number < 10 ? '0' + number : number;
-    };
-    return date.getFullYear() + '-' + _format(date.getMonth() + 1) + '-' + _format(date.getDay());
-  } };
-
-
-function substr(v) {
-  if (v != "" & v != undefined & v != null) {
-    if (v.substr(v.length - 1, 1) == "," || v.substr(v.length - 1, 1) == ";") {
-      return v.substr(0, v.length - 1);
-    }
-    return v;
-  }
-}
-
-function subFilter(v, len) {
-  if (v != "" & v != undefined & v != null) {
-    if (v.length > len) {
-      return v.substr(0, len);
-    } else {
-      return v;
-    }
-  }
-}
-
-function request(param, showLoading) {
-  if (showLoading != false) {
-    uni.showLoading({
-      title: '加载中' });
-
-  }
-  uni.request({
-    url: param.url.indexOf("didi-patient") != -1 ? _index.serverPatientUrl + param.url : _index.serverUrl + param.url,
-    data: param.contentType ? param.param : JSON.stringify(param.param),
-    method: 'POST',
-    header: {
-      'content-type': param.contentType ? param.contentType : 'application/json',
-      'token': uni.getStorageSync('Token') ? uni.getStorageSync('Token') : '' },
-
-    dateType: "json",
-    success: function success(res) {
-      uni.hideLoading();
-      if (res == null) {
-        res = {};
-      }
-      if (typeof res == "string") {
-        res = JSON.parse(res);
-      }
-      if (typeof param.success == 'function') {
-        if (res.data.errorCode == "SUCCESS") {
-          param.success(res.data);
-        } else if (res.data.errorCode == "E003") {
-          uni.showModal({
-            title: '提示',
-            content: '您未登陆，请先登陆',
-            success: function success(res) {
-              if (res.confirm) {
-                uni.switchTab({
-                  url: '/pages/center/center' });
-
-              } else if (res.cancel) {
-                console.log('用户点击取消');
-              }
-            } });
-
-        } else {
-          param.error(res.data);
-          uni.showToast({
-            title: res.data.message,
-            icon: 'none',
-            duration: 2000 });
-
-        }
-      } else {
-        uni.showToast({
-          title: '读取数据失败',
-          icon: 'none',
-          duration: 2000 });
-
-      }
-
-    },
-    fail: function fail(res) {
-      uni.hideLoading();
-      uni.showToast({
-        title: '读取数据失败',
-        icon: 'none',
-        duration: 2000 });
-
-    } });
-
-}
-
-function getSystemInfo() {
-  try {
-    var res = uni.getSystemInfoSync();
-    return res;
-  } catch (e) {
-    // error
-  }
-}
-
-function isEmojiCharacter(substring) {
-  if (substring) {
-    var reg = new RegExp("[~#^$@%&!?%*]", 'g');
-    if (substring.match(reg)) {
-      return true;
-    }
-    for (var i = 0; i < substring.length; i++) {
-      var hs = substring.charCodeAt(i);
-      if (0xd800 <= hs && hs <= 0xdbff) {
-        if (substring.length > 1) {
-          var ls = substring.charCodeAt(i + 1);
-          var uc = (hs - 0xd800) * 0x400 + (ls - 0xdc00) + 0x10000;
-          if (0x1d000 <= uc && uc <= 0x1f77f) {
-            return true;
-          }
-        }
-      } else if (substring.length > 1) {
-        var ls = substring.charCodeAt(i + 1);
-        if (ls == 0x20e3) {
-          return true;
-        }
-      } else {
-        if (0x2100 <= hs && hs <= 0x27ff) {
-          return true;
-        } else if (0x2B05 <= hs && hs <= 0x2b07) {
-          return true;
-        } else if (0x2934 <= hs && hs <= 0x2935) {
-          return true;
-        } else if (0x3297 <= hs && hs <= 0x3299) {
-          return true;
-        } else if (hs == 0xa9 || hs == 0xae || hs == 0x303d || hs == 0x3030 ||
-        hs == 0x2b55 || hs == 0x2b1c || hs == 0x2b1b ||
-        hs == 0x2b50) {
-          return true;
-        }
-      }
-    }
-  }
-}
-
-
-function otime(str) {
-  if (str < 10) {
-    return '0' + str;
-  } else {
-    return str;
-  }
-}
-
-
-//判断值是否有效
-function isEmpty(value) {
-  if (value == "" || value == 0 || value == null || value == undefined) {
-    return false;
-  }
-  return true;
-}
-
-//身份证号合法性验证 
-//支持15位和18位身份证号
-//支持地址编码、出生日期、校验位验证
-function IdentityCodeValid(code) {
-  var city = {
-    11: "北京",
-    12: "天津",
-    13: "河北",
-    14: "山西",
-    15: "内蒙古",
-    21: "辽宁",
-    22: "吉林",
-    23: "黑龙江 ",
-    31: "上海",
-    32: "江苏",
-    33: "浙江",
-    34: "安徽",
-    35: "福建",
-    36: "江西",
-    37: "山东",
-    41: "河南",
-    42: "湖北 ",
-    43: "湖南",
-    44: "广东",
-    45: "广西",
-    46: "海南",
-    50: "重庆",
-    51: "四川",
-    52: "贵州",
-    53: "云南",
-    54: "西藏 ",
-    61: "陕西",
-    62: "甘肃",
-    63: "青海",
-    64: "宁夏",
-    65: "新疆",
-    71: "台湾",
-    81: "香港",
-    82: "澳门",
-    91: "国外 " };
-
-  var tip = "";
-  var pass = true;
-  //验证身份证格式（6个地区编码，8位出生日期，3位顺序号，1位校验位）
-  if (!code || !/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i.test(code)) {
-    tip = "身份证号格式错误";
-    pass = false;
-  } else if (!city[code.substr(0, 2)]) {
-    tip = "地址编码错误";
-    pass = false;
-  } else {
-    //18位身份证需要验证最后一位校验位
-    if (code.length == 18) {
-      code = code.split('');
-      //∑(ai×Wi)(mod 11)
-      //加权因子
-      var factor = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
-      //校验位
-      var parity = [1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2];
-      var sum = 0;
-      var ai = 0;
-      var wi = 0;
-      for (var i = 0; i < 17; i++) {
-        ai = code[i];
-        wi = factor[i];
-        sum += ai * wi;
-      }
-      var last = parity[sum % 11];
-      if (parity[sum % 11] != code[17]) {
-        tip = "身份证号格式错误";
-        pass = false;
-      }
-    }
-  }
-  if (!pass) {
-    uni.showToast({
-      title: tip,
-      icon: 'none',
-      duration: 2000 });
-
-  };
-  return pass;
-}
-
-function random() {
-  var num = '';
-  for (var i = 0; i < 3; i++) {
-    num += Math.floor(Math.random() * 10);
-  }
-  return num;
-}
-
-// 医生是否完善资料
-function isPerfectInfo() {
-  var doctor = uni.getStorageSync("doctorInfo");
-  if (!isEmpty(doctor.doctorName)) {
-    uni.showToast({
-      title: '请完善资料',
-      icon: 'success',
-      duration: 2000 });
-
-    return false;
-  }
-  if (doctor.states != 1) {
-    uni.showToast({
-      title: '资料还在审核',
-      icon: 'success',
-      duration: 2000 });
-
-    return false;
-  }
-  return true;
-}
-
-function getFormatDate(date, formatStr) {
-  var o = {
-    "M+": date.getMonth() + 1, //月份
-    "d+": date.getDate(), //日
-    "h+": date.getHours(), //小时
-    "m+": date.getMinutes(), //分
-    "s+": date.getSeconds(), //秒
-    "q+": Math.floor((date.getMonth() + 3) / 3), //季度
-    "S": date.getMilliseconds() //毫秒
-  };
-  if (/(y+)/.test(formatStr))
-  formatStr = formatStr.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
-  for (var k in o) {
-    if (new RegExp("(" + k + ")").test(formatStr))
-    formatStr = formatStr.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));}
-  return formatStr;
-}
-
-function beautyTime(dateStr) {
-  var date = new Date(dateStr);
-  if (getFormatDate(date, 'yyyyMMdd') == getFormatDate(new Date(), 'yyyyMMdd')) {
-    //如果年月日一样，取时分秒
-    return getFormatDate(date, 'hh:mm');
-  } else {
-    //如果年月日不一样，取年月日
-    return getFormatDate(date, 'yyyy-MM-dd');
-  }
-}
-
-//接单创建消息
-function createMsgSession(message, messageInfo) {
-  //新增消息列表
-  var messageList = uni.getStorageSync('messageList');
-  messageList.push(message);
-  uni.setStorageSync('messageList', messageList);
-
-  //新增消息
-  var messageDetail = uni.getStorageSync("messageDetail");
-  if (messageDetail == null || messageDetail == '') {
-    messageDetail = {};
-  }
-  var messageDetailList = [];
-  messageDetailList.push(messageInfo);
-  messageDetail['order' + message.orderId] = messageDetailList;
-  console.log(messageDetail);
-  uni.setStorageSync("messageDetail", messageDetail);
-}
-
-function updateMessage(msg, hasRead) {
-  var orderId = msg.orderId;
-  //更新消息列表
-  var messageList = uni.getStorageSync('messageList');
-  if (messageList.length > 0) {
-    //如果消息列表中有历史消息 则更新
-    var updated = false;
-    for (var i = 0; i < messageList.length; i++) {
-      if (messageList[i].orderId == orderId) {
-        messageList[i].message = msg.msg.content;
-        messageList[i].time = msg.time;
-        messageList[i].count = messageList[i].count + 1;
-        updated = true;
-        break;
-      }
-    }
-    if (!updated) {
-      //如果消息列表中不存该用户订单，则新建
-      var message = {
-        orderId: msg.orderId,
-        title: msg.username,
-        openId: msg.fromUid,
-        avatarUrl: msg.face,
-        message: msg.msg.content,
-        time: msg.time,
-        count: 1,
-        type: 2, //普通用户类型消息
-        over: '0' };
-
-      messageList.push(message);
-    }
-  } else {
-    //如果消息列表中没有历史消息 则新增 正常情况不会走到这个方法
-    var message = {
-      orderId: msg.orderId,
-      title: msg.username,
-      openId: fromUid,
-      avatarUrl: msg.face,
-      message: msg.msg.content,
-      time: msg.time,
-      count: 1,
-      type: 2 //普通用户类型消息
-    };
-    messageList.push(message);
-  }
-  uni.setStorageSync('messageList', messageList);
-  //更新所有用户消息信息
-  msg.hasRead = hasRead; //设置消息未被读
-  var messageDetail = uni.getStorageSync("messageDetail");
-  var messageDetailList = messageDetail['order' + orderId];
-  var tmpArr = messageDetailList.filter(function (p) {
-    return p.fromUid !== uni.getStorageSync("doctorInfo").openId;
-  });
-
-  if (tmpArr.length < 1) {
-    //未收到过消息 设置为接单开始时间
-    //更新缓存
-    var messageList = uni.getStorageSync('messageList');
-    for (var i = 0; i < messageList.length; i++) {
-      if (messageList[i].openId == this.toUser) {
-        messageList[i] = messageListInfo;
-        var startTime = new Date();
-        messageList[i].startTime = startTime;
-      }
-    }
-    uni.setStorageSync('messageList', messageList);
-  }
-  if (messageDetailList) {
-    messageDetailList.push(msg);
-  } else {
-    messageDetailList = [];
-    messageDetailList.push(msg);
-    messageDetail['order' + orderId] = messageDetailList;
-  }
-  uni.setStorageSync("messageDetail", messageDetail);
-}
-
-function uuid() {
-  var s = [];
-  var hexDigits = "0123456789abcdef";
-  for (var i = 0; i < 32; i++) {
-    s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
-  }
-  s[12] = "4"; // bits 12-15 of the time_hi_and_version field to 0010
-  s[17] = hexDigits.substr(s[17] & 0x3 | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
-  // s[8] = s[13] = s[18] = s[23] = "-";
-
-  var uuid = s.join("");
-  return uuid;
-}
-
-function getInquiryTimeByType(type) {
-  if (type == '0') {
-    //0：20元1小时 3600s
-    return 1 * 60 * 60;
-  } else if (type == '1') {
-    //1：30元两小时
-    return 2 * 60 * 60;
-  } else {
-    //其他异常情况 返回0立即结束
-    return 0;
-  }
-}
-
-module.exports = {
-  formatTime: formatTime,
-  formatLocation: formatLocation,
-  dateUtils: dateUtils,
-  substr: substr,
-  subFilter: subFilter,
-  request: request,
-  getSystemInfo: getSystemInfo,
-  isEmojiCharacter: isEmojiCharacter,
-  otime: otime,
-  isEmpty: isEmpty,
-  IdentityCodeValid: IdentityCodeValid,
-  random: random,
-  isPerfectInfo: isPerfectInfo,
-  uuid: uuid,
-  getFormatDate: getFormatDate,
-  beautyTime: beautyTime,
-  createMsgSession: createMsgSession,
-  updateMessage: updateMessage,
-  getInquiryTimeByType: getInquiryTimeByType };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _message_info = _interopRequireDefault(__webpack_require__(/*! ./pages/message_info/message_info.vue */ 88));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_message_info.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
-/* 17 */
-/*!****************************************************************************************!*\
-  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-doctor/config/index.js ***!
-  \****************************************************************************************/
+
+/***/ 95:
+/*!******************************************************************************************************************************!*\
+  !*** /Users/zhujia/workspace/wechat-app/didi-pro/didi-fronts/didi-doctor/main.js?{"page":"pages%2Finquiry%2FinquiryDetail"} ***!
+  \******************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
- // export const serverUrl="";
-var serverUrl = "https://doctor.dididoctor.cn";
-var serverPatientUrl = "https://patient.dididoctor.cn";
-// const serverUrl="http://localhost:9999";
-// const serverPatientUrl="http://localhost:9002";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
 
-module.exports = {
-  serverUrl: serverUrl,
-  serverPatientUrl: serverPatientUrl };
-
-/***/ }),
-/* 18 */
-/*!***************************************************************************************!*\
-  !*** /Users/xiuxiuzhang/Documents/work/滴滴问诊/didi-frontend/didi-doctor/config/json.js ***!
-  \***************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-var sexs = [
-{ value: '男', name: '男' },
-{ value: '女', name: '女' }];
-
-
-var bankList = [{
-  key: '1002',
-  name: '工商银行' },
-
-{
-  key: '1005',
-  name: '农业银行' },
-
-{
-  key: '1026',
-  name: '中国银行' },
-
-{
-  key: '1003',
-  name: '建设银行' },
-
-{
-  key: '1001',
-  name: '招商银行' },
-
-{
-  key: '1066',
-  name: '邮储银行' },
-
-{
-  key: '1020',
-  name: '交通银行' },
-
-{
-  key: '1004',
-  name: '浦发银行' },
-
-{
-  key: '1006',
-  name: '民生银行' },
-
-{
-  key: '1009',
-  name: '兴业银行' },
-
-{
-  key: '1010',
-  name: '平安银行' },
-
-{
-  key: '1021',
-  name: '中信银行' },
-
-{
-  key: '1025',
-  name: '华夏银行' },
-
-{
-  key: '1027',
-  name: '广发银行' },
-
-{
-  key: '1022',
-  name: '光大银行' },
-
-{
-  key: '4836',
-  name: '北京银行' },
-
-{
-  key: '1056',
-  name: '宁波银行' },
-
-{
-  key: '1024',
-  name: '上海银行' }];
-
-
-
-var allergic = ['无', '有'];
-
-var conceive = ['无备孕计划', '备孕中', '怀孕中', '哺乳期'];
-
-var liver = ['异常', '正常'];
-
-
-module.exports = {
-  sexs: sexs,
-  bankList: bankList,
-  allergic: allergic,
-  conceive: conceive,
-  liver: liver };
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _inquiryDetail = _interopRequireDefault(__webpack_require__(/*! ./pages/inquiry/inquiryDetail.vue */ 96));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_inquiryDetail.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ })
-]]);
+
+}]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/vendor.js.map
