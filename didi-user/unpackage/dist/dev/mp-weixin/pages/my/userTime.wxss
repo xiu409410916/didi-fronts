@@ -24,7 +24,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.header.data-v-03390e78 {
+.header.data-v-290b6a61 {
   position: relative;
   height: 150rpx;
   width: 100%;
@@ -44,7 +44,7 @@
           align-items: center;
   margin-bottom: 20rpx;
 }
-.header .center.data-v-03390e78 {
+.header .center.data-v-290b6a61 {
     width: 100%;
     display: -webkit-box;
     display: -webkit-flex;
@@ -67,7 +67,7 @@
     padding-top: 20rpx;
     font-size: 40rpx;
 }
-.header .center button.data-v-03390e78 {
+.header .center button.data-v-290b6a61 {
       padding-left: 0rpx;
       padding-right: 0rpx;
       width: 100rpx;
@@ -78,11 +78,11 @@
       color: #fb5b67;
       margin-top: 10rpx;
 }
-.record.data-v-03390e78 {
+.record.data-v-290b6a61 {
   width: 100%;
   background: #ffffff;
 }
-.record .li.data-v-03390e78 {
+.record .li.data-v-290b6a61 {
     margin-left: 66rpx;
     height: 125rpx;
     display: -webkit-box;
@@ -104,7 +104,7 @@
             align-items: center;
     border-bottom: 1px solid #f8f8f8;
 }
-.record .li .left.data-v-03390e78 {
+.record .li .left.data-v-290b6a61 {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -123,16 +123,16 @@
           -ms-flex-align: start;
               align-items: flex-start;
 }
-.record .li .left label.data-v-03390e78 {
+.record .li .left label.data-v-290b6a61 {
         font-size: 32rpx;
         color: #4A4A4A;
 }
-.record .li .left text.data-v-03390e78 {
+.record .li .left text.data-v-290b6a61 {
         color: #999;
         font-size: 28rpx;
         margin-top: 10rpx;
 }
-.record .li .right.data-v-03390e78 {
+.record .li .right.data-v-290b6a61 {
       margin-right: 40rpx;
       color: #fb5b67;
       font-size: 32rpx;
@@ -154,12 +154,12 @@
           -ms-flex-align: start;
               align-items: flex-start;
 }
-.record .li .right label.data-v-03390e78 {
+.record .li .right label.data-v-290b6a61 {
         font-size: 32rpx;
         color: #4A4A4A;
         margin-left: 100rpx;
 }
-.record .li .right text.data-v-03390e78 {
+.record .li .right text.data-v-290b6a61 {
         color: #999;
         font-size: 28rpx;
 }
