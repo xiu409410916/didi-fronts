@@ -24,11 +24,11 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.record.data-v-7fab614a {
+.record.data-v-6d792e8d {
   width: 100%;
   background: #ffffff;
 }
-.record .li.data-v-7fab614a {
+.record .li.data-v-6d792e8d {
     margin-left: 66rpx;
     margin-top: 20rpx;
     height: 125rpx;
@@ -51,7 +51,7 @@
             align-items: center;
     border-bottom: 1px solid #f8f8f8;
 }
-.record .li .left.data-v-7fab614a {
+.record .li .left.data-v-6d792e8d {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -70,16 +70,16 @@
           -ms-flex-align: start;
               align-items: flex-start;
 }
-.record .li .left label.data-v-7fab614a {
+.record .li .left label.data-v-6d792e8d {
         font-size: 32rpx;
         color: #4A4A4A;
 }
-.record .li .left text.data-v-7fab614a {
+.record .li .left text.data-v-6d792e8d {
         color: #999;
         font-size: 28rpx;
         margin-top: 10rpx;
 }
-.record .li .right.data-v-7fab614a {
+.record .li .right.data-v-6d792e8d {
       margin-right: 40rpx;
       display: -webkit-box;
       display: -webkit-flex;
@@ -99,16 +99,16 @@
           -ms-flex-align: start;
               align-items: flex-start;
 }
-.record .li .right label.data-v-7fab614a {
+.record .li .right label.data-v-6d792e8d {
         font-size: 32rpx;
         color: red;
 }
-.record .li .right text.data-v-7fab614a {
+.record .li .right text.data-v-6d792e8d {
         color: #999;
         font-size: 28rpx;
         margin-top: 10rpx;
 }
-.defaultBox.data-v-7fab614a {
+.defaultBox.data-v-6d792e8d {
   width: 100%;
   position: fixed;
   height: 100rpx;

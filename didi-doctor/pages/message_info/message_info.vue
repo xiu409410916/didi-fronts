@@ -200,7 +200,10 @@
 			// #endif
 		},
 		methods:{
-			getLeftTime(){
+			getLeftTime(){	
+				if(this.messageListInfo == null || this.messageListInfo == undefined){
+					return '';
+				}
 				var endTime = this.messageListInfo.endTime;
 				if(endTime == null){
 					return '';
