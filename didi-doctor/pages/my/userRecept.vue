@@ -10,7 +10,7 @@
 					<label>{{item.createTime}}</label>
 					<text>{{item.detail}}</text>
 				</view>
-				<view class="right">
+				<view class="rig">
 					<page-button :height="25" :width="75" @click="toGene(item.inquiryId)" name="基因检测"></page-button>
 				</view>
 			</view>
@@ -127,7 +127,8 @@
 			}
 
 			.right {
-				margin-right: 40upx;
+				margin-left: 20upx;
+				width:350rpx;
 				color: #fb5b67;
 				font-size: $uni-font-size-lg;
 				display: flex;
@@ -145,7 +146,12 @@
 					color: $uni-text-color-grey;
 					font-size: $uni-font-size-base;
 					margin-top: 10upx;
+					width:350rpx;
+					text-overflow:ellipsis;/* 超出部分显示省略号 */
 				}
+			}
+			.rig{
+				width: 225rpx;
 			}
 		}
 	}

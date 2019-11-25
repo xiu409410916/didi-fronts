@@ -24,12 +24,12 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.form.data-v-344e6acd {
+.form.data-v-3befd8ea {
   width: 100%;
   background: #fff;
   margin-top: 20rpx;
 }
-.form .li.data-v-344e6acd {
+.form .li.data-v-3befd8ea {
     width: calc(100%-33px);
     margin-left: 33px;
     height: 100rpx;
@@ -51,14 +51,14 @@
         -ms-flex-align: center;
             align-items: center;
 }
-.form .li label.data-v-344e6acd {
+.form .li label.data-v-3befd8ea {
       width: 20%;
       color: #4A4A4A;
 }
-.form .li textarea.data-v-344e6acd {
+.form .li textarea.data-v-3befd8ea {
       width: 80%;
 }
-.form .li .inp.data-v-344e6acd {
+.form .li .inp.data-v-3befd8ea {
       height: 100%;
       width: 80%;
       border-bottom: 2rpx solid #eeeeee;
@@ -80,11 +80,11 @@
           -ms-flex-align: center;
               align-items: center;
 }
-.form .li image.data-v-344e6acd {
+.form .li image.data-v-3befd8ea {
       width: 100rpx;
       height: 100rpx;
 }
-.form .savebox.data-v-344e6acd {
+.form .savebox.data-v-3befd8ea {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -95,18 +95,18 @@
             justify-content: center;
     padding: 50rpx 0 30rpx;
 }
-.geneList.data-v-344e6acd {
+.geneList.data-v-3befd8ea {
   width: 100%;
   background: #fff;
   margin-top: 20rpx;
   padding: 10px 10px 10px 33px;
 }
-.geneList label.data-v-344e6acd {
+.geneList label.data-v-3befd8ea {
     width: 20%;
     color: #4A4A4A;
     float: left;
 }
-.geneList .gene.data-v-344e6acd {
+.geneList .gene.data-v-3befd8ea {
     width: 80%;
     margin-left: 20%;
     margin-top: 5rpx;

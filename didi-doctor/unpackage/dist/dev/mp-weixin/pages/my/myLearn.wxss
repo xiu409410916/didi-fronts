@@ -24,11 +24,11 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.record.data-v-2b582e48 {
+.record.data-v-55ae704b {
   width: 100%;
   background: #ffffff;
 }
-.record .li.data-v-2b582e48 {
+.record .li.data-v-55ae704b {
     margin-left: 66rpx;
     margin-top: 20rpx;
     height: 125rpx;
@@ -51,7 +51,7 @@
             align-items: center;
     border-bottom: 1px solid #f8f8f8;
 }
-.record .li .left.data-v-2b582e48 {
+.record .li .left.data-v-55ae704b {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -70,21 +70,21 @@
           -ms-flex-align: start;
               align-items: flex-start;
 }
-.record .li .left label.data-v-2b582e48 {
+.record .li .left label.data-v-55ae704b {
         font-size: 32rpx;
         color: #4A4A4A;
 }
-.record .li .left text.data-v-2b582e48 {
+.record .li .left text.data-v-55ae704b {
         color: #999;
         font-size: 28rpx;
         margin-top: 10rpx;
 }
-.record .li .right.data-v-2b582e48 {
+.record .li .right.data-v-55ae704b {
       margin-right: 40rpx;
       color: #fb5b67;
       font-size: 32rpx;
 }
-.record .li .right button.data-v-2b582e48 {
+.record .li .right button.data-v-55ae704b {
         padding-left: 0rpx;
         padding-right: 0rpx;
         width: 100rpx;
@@ -95,7 +95,7 @@
         color: #fb5b67;
         margin-top: 10rpx;
 }
-.defaultBox.data-v-2b582e48 {
+.defaultBox.data-v-55ae704b {
   width: 100%;
   position: fixed;
   height: 100rpx;

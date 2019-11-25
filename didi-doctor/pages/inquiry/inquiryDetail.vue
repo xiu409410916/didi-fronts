@@ -34,6 +34,9 @@
 				<view class="savebox" v-if="temp.states == 0">
 					<page-button :height="40" :width="100" @click="receptInquiry" name="接单"></page-button>
 				</view>
+				<view class="savebox" v-if="temp.states == 1 || temp.states == 3 || temp.states == 5">
+					<page-button :height="40" :width="100" @click="toMessage" name="消息"></page-button>
+				</view>
 			</form>
 		
 		</view>
@@ -196,6 +199,11 @@
 						that.geneList = res.data;
 					},
 					error: function() {}
+				})
+			},
+			toMessage:function(){
+				uni.switchTab({
+					url:'../message/index'
 				})
 			}
 			
