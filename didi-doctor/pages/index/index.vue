@@ -42,8 +42,8 @@
 				],//轮播图
 				indicatorDots: true,
 				autoplay: true,
-				interval: 2000,
-				duration: 500,
+				interval: 2500,
+				duration: 1000,
 				page: 1,
 				size: 10,
 				totalPages: 1,

@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<label>医生端小程序</label>
+		<!-- <label>医生端小程序</label> -->
 		<!-- <image :src="qrCodeUrl"></image> -->
 		<image :src="qrCodeUrlAgent"></image>
 	</view>
