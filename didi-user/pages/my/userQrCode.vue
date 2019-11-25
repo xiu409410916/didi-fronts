@@ -49,12 +49,12 @@
 
 <style lang="scss" scoped>
 	.content {
-		width: 100%;
 		background: $uni-text-color-inverse;
 		margin-top: 20upx;
 		image{
-			width: 300rpx;
-			height: 300rpx;
+			width: 500rpx;
+			height: 500rpx;
+			margin-left: 120rpx;
 		}
 		
 	}
