@@ -197,7 +197,8 @@ __webpack_require__.r(__webpack_exports__);
         credentialUrl: '',
         introduction: '',
         states: '',
-        auditRemark: '' },
+        auditRemark: '',
+        refId: '0' },
 
       array: ['中专', '大专', '本科', '硕士', '博士'],
       index: null };
@@ -300,6 +301,8 @@ __webpack_require__.r(__webpack_exports__);
 
         return;
       }
+      this.temp.states = '0';
+      this.temp.refId = "0";
       that.$util.request({
         url: "/didi-doctor/doctorinfo/updateInfo",
         param: that.temp,
