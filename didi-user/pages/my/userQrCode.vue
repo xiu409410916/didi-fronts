@@ -52,7 +52,10 @@
 		width: 100%;
 		background: $uni-text-color-inverse;
 		margin-top: 20upx;
-		
+		image{
+			width: 300rpx;
+			height: 300rpx;
+		}
 		
 	}
 	
